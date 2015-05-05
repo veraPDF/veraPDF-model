@@ -1,0 +1,67 @@
+package org.verapdf.model.pdlayer;
+
+import org.verapdf.model.baselayer.Object;
+import org.verapdf.model.operator.Operator;
+import java.util.List;
+
+% base class for all PD layer obejcts	
+type PDObject extends Object {
+	
+}
+
+% the class corresponding to the high level PDF document structure 
+type PDDocument extends PDObject {
+	% the collection of all document pages
+	link pages: PDPage+;
+	% document level metadata
+	link metadata: PDMetadata?;
+	% the array of output intents of the document
+	link outputIntents: PDOutputIntent*;
+	% the list of all form fields (acroforms)
+	link acroForms: PDAcroForm*;
+}
+
+% the object representing PDF page	
+type PDPage extends PDObject {
+	% all page annotations
+	link annots: PDAnnot*;
+	% document level action
+	link action: PDAction?;
+}
+
+% the object representing content stream together with the resource dictionary
+type PDContentStream extends PDObject {
+	% all operators in the content stream
+	link operators: Operator*;
+}
+
+% the annotation object	
+type PDAnnot extends PDObject {
+	% annotation subtype
+	property Subtype: String;
+}
+
+% the PDF form field or AcroForm
+type PDAcroForm extends PDObject {
+	
+}
+	
+% the PDF action obejct
+type PDAction extends PDObject {
+	% action subtype
+	property Subtype: String;
+}
+
+
+
+% the XMP Metadata stream
+type PDMetadata extends PDObject
+{
+	
+}
+
+% the output intent dictionary
+type PDOutputIntent extends PDObject
+{
+	
+}

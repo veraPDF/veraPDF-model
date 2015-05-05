@@ -1,0 +1,10 @@
+package org.verapdf.model.external;
+
+import org.verapdf.model.baselayer.Object;
+import java.util.List;
+
+% Parent type for all external objects embedded into the PDF document
+type External extends Object {
+	
+}
+

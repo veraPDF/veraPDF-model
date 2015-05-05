@@ -1,0 +1,10 @@
+package org.verapdf.model.operator;
+
+import org.verapdf.model.baselayer.Object;
+import org.verapdf.model.pdlayer.*;
+import java.util.List;
+
+% base class for all operators in the content stream
+type Operator extends Object {
+	
+}
