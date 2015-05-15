@@ -2,6 +2,5 @@ package org.verapdf.model.baselayer;
 
 % Root object for the complere hierarchy of PDF types
 type Object {
-	property _type : String;
-	property _id : String;
+
 }
