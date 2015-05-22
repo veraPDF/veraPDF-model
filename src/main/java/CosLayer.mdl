@@ -4,7 +4,6 @@ import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
 import java.util.List;
-import java.math.*;
 
 % Parent type for all basic PDF objects
 type CosObject extends Object {
@@ -53,7 +52,7 @@ type CosNumber extends CosObject {
 	% truncated integer value
 	property intValue: Integer;
 	% original decimal value
-	property realValue: BigDecimal;
+	property realValue: Decimal;
 }
 
 % PDF Real type	
@@ -126,8 +125,8 @@ type CosArray extends CosObject {
 	
 % Bounding box array
 type CosBBox extends CosArray {
-	property top: BigDecimal;
-	property bottom: BigDecimal;
-	property left: BigDecimal;
-	property right: BigDecimal;
+	property top: Decimal;
+	property bottom: Decimal;
+	property left: Decimal;
+	property right: Decimal;
 }
