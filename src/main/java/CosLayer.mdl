@@ -16,6 +16,8 @@ type CosDocument extends CosObject {
 	property nrIndirects: Integer;
 	% Size of the byte sequence representing the document 
 	property size: Integer;
+	% end of file is comply PDF/A standard
+	property eofComplyPDFA : Boolean;
 	% trailer dictionary
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
@@ -57,7 +59,8 @@ type CosNumber extends CosObject {
 
 % PDF Real type	
 type CosReal extends CosNumber {
-	
+	% length of scale for Decimal value
+	property scaleLength : Integer;
 }
 
 % PDF Integer type
@@ -67,7 +70,7 @@ type CosInteger extends CosNumber {
 
 % PDF Name type	
 type CosName extends CosObject {
-	% Unicode string represenation of the Name object after applying escape mechanism and converting to Unicode using Utf8 encoding
+	% Unicode string representation of the Name object after applying escape mechanism and converting to Unicode using Utf8 encoding
 	property value: String;
 	% Original length of the name before applying any escape mechanisms and encodings
 	property origLength: Integer;
@@ -87,9 +90,13 @@ type CosString extends CosObject {
 type CosDict extends CosObject {
 	% number of key/value pairs in the dictionary
 	property size: Integer;
+	% number of colorants or tint components in a DeviceN color space.
+	property deviceNComponents : Integer
+	% true if this dictionary is catalog and contain OCProperties key
+	property isContainOCPropertiesKey : Boolean;
 	% all keys of the dictionary
 	link keys: CosName*;
-	% all values of the dictonary
+	% all values of the dictionary
 	link values: CosObject*;
 	% XMP metadata if it is present
 	link metadata: PDMetadata?;
@@ -101,6 +108,12 @@ type CosStream extends CosDict {
 	property length: Integer;
 	% concatenated (white space separated) names of all filters
 	property filters: String;
+	% represents value of F key or null if stream does not contain this key
+	property F : String;
+	% represents value of FFilter key or null if stream does not contain this key
+    property FFilter : String;
+    % represents value of FDecodeParms key or null if stream does not contain this key
+    property FDecodeParms : String;
 	% true if the spacing around stream / endstream complies with the PDF/A requirements
 	property spacingComplyPDFA: Boolean; 
 }
@@ -112,7 +125,12 @@ type CosFileDescriptor extends CosDict {
 	
 % Trailer of the document	
 type CosTrailer extends CosDict {
-	
+	% true if the document is linearized
+	property isLinearized : Boolean;
+	% true if the document is encrypted
+	property isEncrypted : Boolean;
+	% if the document is linearized, than ids of first and last trailers must be match
+	property doFirstLastTrailerIDsMatch : Boolean;
 }
 
 % PDF Array type	
@@ -129,4 +147,11 @@ type CosBBox extends CosArray {
 	property bottom: Decimal;
 	property left: Decimal;
 	property right: Decimal;
+}
+
+type CosXRef extends CosObject {
+	% true if header of cross reference table comply PDF/A standard
+	property xrefHeaderSpacingsComplyPDFA : Boolean;
+	% true if xref keyword and cross reference subsection separated by single EOL
+	property xrefEOLMarkersComplyPDFA : Boolean;
 }
