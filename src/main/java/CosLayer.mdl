@@ -18,6 +18,8 @@ type CosDocument extends CosObject {
 	property size: Integer;
 	% end of file is comply PDF/A standard
 	property eofComplyPDFA : Boolean;
+	% xref dictionary
+	link xref : CosXRef;
 	% trailer dictionary
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
