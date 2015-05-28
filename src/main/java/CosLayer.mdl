@@ -63,8 +63,7 @@ type CosNumber extends CosObject {
 
 % PDF Real type	
 type CosReal extends CosNumber {
-	% length of scale for Decimal value
-	property scaleLength: Integer;
+
 }
 
 % PDF Integer type
