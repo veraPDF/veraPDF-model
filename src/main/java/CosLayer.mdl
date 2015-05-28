@@ -154,6 +154,7 @@ type CosBBox extends CosArray {
 	property right: Decimal;
 }
 
+% Cross reference table of the document
 type CosXRef extends CosObject {
 	% true if header of cross reference table comply PDF/A standard
 	property xrefHeaderSpacingsComplyPDFA: Boolean;
