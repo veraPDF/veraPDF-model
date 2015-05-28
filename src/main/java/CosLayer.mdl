@@ -63,8 +63,7 @@ type CosNumber extends CosObject {
 
 % PDF Real type	
 type CosReal extends CosNumber {
-	% length of scale for Decimal value
-	property scaleLength: Integer;
+
 }
 
 % PDF Integer type
@@ -105,7 +104,7 @@ type CosDict extends CosObject {
 % PDF Stream type
 type CosStream extends CosDict {
 	% length of the stream
-	property length: Integer;
+	property Length: Integer;
 	% concatenated (white space separated) names of all filters
 	property filters: String;
 	% represents value of F key or null if stream does not contain this key
@@ -115,7 +114,9 @@ type CosStream extends CosDict {
 	% represents value of FDecodeParms key or null if stream does not contain this key
 	property FDecodeParms: String;
 	% true if the spacing around stream / endstream complies with the PDF/A requirements
-	property spacingComplyPDFA: Boolean; 
+	property spacingComplyPDFA: Boolean;
+	% true if the length in Length key match with real length of stream
+	property isLengthCorrect: Boolean;
 }
 
 % File descriptor dictionary		
@@ -153,6 +154,7 @@ type CosBBox extends CosArray {
 	property right: Decimal;
 }
 
+% Cross reference table of the document
 type CosXRef extends CosObject {
 	% true if header of cross reference table comply PDF/A standard
 	property xrefHeaderSpacingsComplyPDFA: Boolean;
