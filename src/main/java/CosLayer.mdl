@@ -125,6 +125,10 @@ type CosFileDescriptor extends CosDict {
 	
 % Trailer of the document	
 type CosTrailer extends CosDict {
+	% first part of ID
+	property id1: String;
+	% second part of ID
+	property id2: String;
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% true if the document is encrypted
