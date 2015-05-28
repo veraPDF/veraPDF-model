@@ -25,7 +25,9 @@ type CosDocument extends CosObject {
 	% trailer dictionary
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
-	link indirectObjects: CosIndirect+;	
+	link indirectObjects: CosIndirect+;
+	% true if the first line of the document satisfy to PDF/A standard
+	property pdfHeaderCompliesPDFA: Boolean;
 	% true if the second line of the document is a comment with at least 4 symbols in the code range 128-255 as required by PDF/A standard
 	property binaryHeaderComplyPDFA: Boolean;
 	% link to the high-level PDF Document structure
@@ -37,7 +39,7 @@ type CosIndirect extends CosObject {
 	% the direct contents of the indirect object
 	link directObject: CosObject;
 	% true if the words obj and endobj are surrounded by the correct spacings according to PDF/A standard
-	property spacingComplyPDFA: Boolean;
+	property spacingCompliesPDFA: Boolean;
 }
 
 % PDF null object	
@@ -114,8 +116,8 @@ type CosStream extends CosDict {
 	% represents value of FDecodeParms key or null if stream does not contain this key
 	property FDecodeParms: String;
 	% true if the spacing around stream / endstream complies with the PDF/A requirements
-	property spacingComplyPDFA: Boolean;
-	% true if the length in Length key match with real length of stream
+	property spacingCompliesPDFA: Boolean;
+	% true if the value of Length key matches the actual length of the stream
 	property isLengthCorrect: Boolean;
 }
 
