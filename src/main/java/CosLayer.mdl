@@ -87,6 +87,8 @@ type CosString extends CosObject {
 	property value: String;
 	% if the string is stored in Hex format
 	property isHex: Boolean;
+	% true if the string contains only hex symbols (belong to 0-9, a-f, A-F range)
+	property isHexSymbols: Boolean;
 	% original string value of the string before applying Hex decoding and any encodings (but after ignoring all white spaces)
 	property origValue: String;	
 }
