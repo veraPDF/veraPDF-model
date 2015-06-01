@@ -19,9 +19,9 @@ type CosDocument extends CosObject {
 	% The document catalog dictionary shall not contain a key with the name OCProperties.
 	property isOptionalContentPresent: Boolean;
 	% true if the end of PDF file complies PDF/A requirements (no data after the last end-of-file marker except a single optional end-of-line marker)
-	property eofCompliesPDFA : Boolean;
+	property eofCompliesPDFA: Boolean;
 	% check matches of Info dictionary and XMP metadata if first present
-	property doesInfoMatchXMP: Boolean
+	property doesInfoMatchXMP: Boolean;
 	% link to the document cross reference table
 	link xref: CosXRef;
 	% trailer dictionary
