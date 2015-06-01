@@ -132,8 +132,6 @@ type CosFileDescriptor extends CosDict {
 	
 % Trailer of the document	
 type CosTrailer extends CosDict {
-	% document id
-	property documentId: String;
 	% id of first page trailer, if document is linearized
 	property firstPageID: String;
 	% id of the last trailer
