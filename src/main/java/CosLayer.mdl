@@ -140,6 +140,8 @@ type CosTrailer extends CosDict {
 	property isEncrypted: Boolean;
 	% if the document is linearized, than ids of first and last trailers must be match
 	property doFirstLastTrailerIDsMatch: Boolean;
+	% catalog dictionary of pdf document
+	link Catalog: CosIndirect;
 }
 
 % PDF Array type	
