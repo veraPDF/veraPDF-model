@@ -1,3 +1,4 @@
+**/bin
 **/generated-model/
 **/target/
 .idea/*
