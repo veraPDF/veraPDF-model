@@ -19,7 +19,9 @@ type CosDocument extends CosObject {
 	% The document catalog dictionary shall not contain a key with the name OCProperties.
 	property isOptionalContentPresent: Boolean;
 	% true if the end of PDF file complies PDF/A requirements (no data after the last end-of-file marker except a single optional end-of-line marker)
-	property eofCompliesPDFA : Boolean;
+	property eofCompliesPDFA: Boolean;
+	% check matches of Info dictionary and XMP metadata if first present
+	property doesInfoMatchXMP: Boolean;
 	% link to the document cross reference table
 	link xref: CosXRef;
 	% trailer dictionary
@@ -87,6 +89,8 @@ type CosString extends CosObject {
 	property value: String;
 	% if the string is stored in Hex format
 	property isHex: Boolean;
+	% true if the string contains only hex symbols (belong to 0-9, a-f, A-F range)
+	property isHexSymbols: Boolean;
 	% original string value of the string before applying Hex decoding and any encodings (but after ignoring all white spaces)
 	property origValue: String;	
 }
@@ -128,16 +132,16 @@ type CosFileDescriptor extends CosDict {
 	
 % Trailer of the document	
 type CosTrailer extends CosDict {
-	% first part of ID
-	property id1: String;
-	% second part of ID
-	property id2: String;
+	% id of first page trailer, if document is linearized
+	property firstPageID: String;
+	% id of the last trailer
+	property lastID: String;
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% true if the document is encrypted
 	property isEncrypted: Boolean;
-	% if the document is linearized, than ids of first and last trailers must be match
-	property doFirstLastTrailerIDsMatch: Boolean;
+	% catalog dictionary of pdf document
+	link Catalog: CosIndirect;
 }
 
 % PDF Array type	
