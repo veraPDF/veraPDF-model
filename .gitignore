@@ -1,11 +1,10 @@
+**/bin
 **/generated-model/
 **/target/
 .idea/*
 *.iml
-/bin/
-/target/
 
 # Eclipse artefacts
 **/.project
-**/.classpath
 **/.settings
+**/.classpath
