@@ -22,6 +22,8 @@ type CosDocument extends CosObject {
 	property eofCompliesPDFA: Boolean;
 	% check matches of Info dictionary and XMP metadata if first present
 	property doesInfoMatchXMP: Boolean;
+	% link to all embedded file specifications
+	link EmbeddedFiles: CosFileSpecification;
 	% link to the document cross reference table
 	link xref: CosXRef;
 	% trailer dictionary
@@ -127,7 +129,12 @@ type CosStream extends CosDict {
 
 % File descriptor dictionary		
 type CosFileDescriptor extends CosDict {
-	
+
+}
+
+type CosFileSpecification extends CosDict {
+   % string representation of the EF dictionary, or null if EF key is not present in the file specification dictionary
+   property EF: String;
 }
 	
 % Trailer of the document	
