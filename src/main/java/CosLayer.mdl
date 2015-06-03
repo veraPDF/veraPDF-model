@@ -22,6 +22,12 @@ type CosDocument extends CosObject {
 	property eofCompliesPDFA: Boolean;
 	% check matches of Info dictionary and XMP metadata if first present
 	property doesInfoMatchXMP: Boolean;
+	% id of first page trailer, if document is linearized
+	property firstPageID: String;
+	% id of the last trailer
+	property lastID: String;
+	% true if the document is linearized
+	property isLinearized: Boolean;
 	% link to all embedded file specifications
 	link EmbeddedFiles: CosFileSpecification;
 	% link to the document cross reference table
@@ -139,12 +145,6 @@ type CosFileSpecification extends CosDict {
 	
 % Trailer of the document	
 type CosTrailer extends CosDict {
-	% id of first page trailer, if document is linearized
-	property firstPageID: String;
-	% id of the last trailer
-	property lastID: String;
-	% true if the document is linearized
-	property isLinearized: Boolean;
 	% true if the document is encrypted
 	property isEncrypted: Boolean;
 	% catalog dictionary of pdf document
