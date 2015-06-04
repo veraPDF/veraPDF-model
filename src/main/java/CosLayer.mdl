@@ -12,19 +12,19 @@ type CosObject extends Object {
 
 % Low-level PDF Document object 
 type CosDocument extends CosObject {
-	% Number of indirect objects in the document
+	% number of indirect objects in the document
 	property nrIndirects: Integer;
-	% Size of the byte sequence representing the document 
+	% size of the byte sequence representing the document 
 	property size: Integer;
-	% The document catalog dictionary shall not contain a key with the name OCProperties.
+	% true if the OCProperties key is present in the document Catalog
 	property isOptionalContentPresent: Boolean;
 	% true if the end of PDF file complies PDF/A requirements (no data after the last end-of-file marker except a single optional end-of-line marker)
 	property eofCompliesPDFA: Boolean;
-	% check matches of Info dictionary and XMP metadata if first present
+	% true if Info dictionary is present and synchronized with the document metadata
 	property doesInfoMatchXMP: Boolean;
-	% id of first page trailer, if document is linearized
+	% id of the first page trailer, if the document is linearized. Null, if the document is not linearized
 	property firstPageID: String;
-	% id of the last trailer
+	% id of the last trailer in the document
 	property lastID: String;
 	% true if the document is linearized
 	property isLinearized: Boolean;
@@ -32,11 +32,11 @@ type CosDocument extends CosObject {
 	link EmbeddedFiles: CosFileSpecification;
 	% link to the document cross reference table
 	link xref: CosXRef;
-	% trailer dictionary
+	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
-	% true if the first line of the document satisfy to PDF/A standard
+	% true if the first line of the document complies to PDF/A standard
 	property pdfHeaderCompliesPDFA: Boolean;
 	% true if the second line of the document is a comment with at least 4 symbols in the code range 128-255 as required by PDF/A standard
 	property binaryHeaderComplyPDFA: Boolean;
@@ -48,7 +48,7 @@ type CosDocument extends CosObject {
 type CosIndirect extends CosObject {
 	% the direct contents of the indirect object
 	link directObject: CosObject;
-	% true if the words obj and endobj are surrounded by the correct spacings according to PDF/A standard
+	% true if the specings around object number, generation number, keywords 'obj' and 'endobj' comply to PDF/A standard
 	property spacingCompliesPDFA: Boolean;
 }
 
@@ -87,7 +87,7 @@ type CosInteger extends CosNumber {
 type CosName extends CosObject {
 	% Unicode string representation of the Name object after applying escape mechanism and converting to Unicode using Utf8 encoding
 	property value: String;
-	% Original length of the name before applying any escape mechanisms and encodings
+	% Original length of the name after decoding escape sequences, but before applying Utf8 encoding
 	property origLength: Integer;
 }
 	
@@ -95,11 +95,11 @@ type CosName extends CosObject {
 type CosString extends CosObject {
 	% Unicode string value stored in the PDF object
 	property value: String;
-	% if the string is stored in Hex format
+	% true if the string is stored in Hex format
 	property isHex: Boolean;
-	% true if the string contains only hex symbols (belong to 0-9, a-f, A-F range)
+	% true if the all non-white-space characters if the hexadecimal string belong to the range 0-9, a-f, A-F
 	property isHexSymbols: Boolean;
-	% original string value of the string before applying Hex decoding and any encodings (but after ignoring all white spaces)
+	% internal byte presentation of the string after decoding from hex format (for strings in hexadecimal format) or after decoding all escape sequences (for strings in standard format)
 	property origValue: String;	
 }
 
@@ -117,9 +117,9 @@ type CosDict extends CosObject {
 	
 % PDF Stream type
 type CosStream extends CosDict {
-	% length of the stream
+	% value of the Length key in the Stream dictionary
 	property Length: Integer;
-	% concatenated (white space separated) names of all filters
+	% concatenated (SPACE separated) names of all filters
 	property filters: String;
 	% represents value of F key or null if stream does not contain this key
 	property F: String;
@@ -127,19 +127,15 @@ type CosStream extends CosDict {
 	property FFilter: String;
 	% represents value of FDecodeParms key or null if stream does not contain this key
 	property FDecodeParms: String;
-	% true if the spacing around stream / endstream complies with the PDF/A requirements
+	% true if spacings around keywords 'stream' and 'endstream' comply to the PDF/A standard
 	property spacingCompliesPDFA: Boolean;
 	% true if the value of Length key matches the actual length of the stream
 	property isLengthCorrect: Boolean;
 }
 
-% File descriptor dictionary		
-type CosFileDescriptor extends CosDict {
-
-}
-
+% File specification dictionary
 type CosFileSpecification extends CosDict {
-   % string representation of the EF dictionary, or null if EF key is not present in the file specification dictionary
+   % string representation of the EF dictionary, or null if the EF key is not present
    property EF: String;
 }
 	
@@ -147,7 +143,7 @@ type CosFileSpecification extends CosDict {
 type CosTrailer extends CosDict {
 	% true if the document is encrypted
 	property isEncrypted: Boolean;
-	% catalog dictionary of pdf document
+	% link to the Catalog dictionary of the PDF document
 	link Catalog: CosIndirect;
 }
 
@@ -169,8 +165,8 @@ type CosBBox extends CosArray {
 
 % Cross reference table of the document
 type CosXRef extends CosObject {
-	% true if header of cross reference table comply PDF/A standard
+	% true if headers of all subsections of the cross reference table comply to PDF/A standard
 	property xrefHeaderSpacingsComplyPDFA: Boolean;
-	% true if xref keyword and cross reference subsection separated by single EOL
+	% true if the 'xref' keyword and the following cross reference subsection header are separated by a single EOL marker
 	property xrefEOLMarkersComplyPDFA: Boolean;
 }
