@@ -93,14 +93,14 @@ type CosName extends CosObject {
 	
 % PDF String type
 type CosString extends CosObject {
-	% Unicode string value stored in the PDF object
+	% internal byte presentation of the string after decoding from hex format (for strings in hexadecimal format) or after decoding all escape sequences (for strings in standard format)
 	property value: String;
 	% true if the string is stored in Hex format
 	property isHex: Boolean;
 	% true if the all non-white-space characters if the hexadecimal string belong to the range 0-9, a-f, A-F
 	property isHexSymbols: Boolean;
-	% internal byte presentation of the string after decoding from hex format (for strings in hexadecimal format) or after decoding all escape sequences (for strings in standard format)
-	property origValue: String;	
+	% for hexadecimal strings the number of Hex digits (non-white-space characters in the range 0-9, a-f, A-F); 0 for strings in standard format
+	property hexCount: Integer;
 }
 
 % PDF Dict type
