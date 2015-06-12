@@ -12,20 +12,16 @@ type XMPObject extends Object {
 type XMPPackage extends XMPObject {
     % collection of all used schemas
     link Schema: XMPSchema;
-    % true if package satisfies XMP specification
-    property isMatchXMPSpecification: Boolean;
     % bytes attribute in header, null if it is not present
     property bytes: Integer;
     % encoding attribute in header, null if it is not present
     property encoding: String;
-    % true if xmp package contains pdfa1 false friends schemas
-    property isContainsPDFA1FalseFriendsSchemas: Boolean;
 }
 
 % Main XMP package
 type XMPMainPackage extends XMPPackage {
-    % true if namespace pdfaid (URI: http://www.aiim.org/pdfa/ns/id/) is present
-    property ispdfaidPresent: Boolean;
+    % true if pdfaid schema (NSURI: http://www.aiim.org/pdfa/ns/id/) is present
+    property ispdfaidNSPresent: Boolean;
 }
 
 % XMP schema
@@ -35,7 +31,7 @@ type XMPSchema extends XMPObject {
     % schema's prefix
     property prefix: String;
     % true if properties of this schema represented in a package contains pdfa1 false friends
-    property isContainsPDFA1FalseFriendsProperties: Boolean;
+    property isContainsFalseFriendsProperties: Boolean;
 }
 
 % XMP custom schema
@@ -48,7 +44,7 @@ type XMPCustomSchema extends XMPSchema {
     property isDefinedInMainPackage: Boolean;
 }
 
-% PDFAId schema
+% PDFAId schema (NSURI: http://www.aiim.org/pdfa/ns/id/)
 type PDFAIdSchema extends XMPSchema {
     % property part of pdfaid schema
     property part: String;
