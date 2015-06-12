@@ -1,4 +1,4 @@
-package org.verapdf.model.xmp;
+package org.verapdf.model.xmplayer;
 
 import org.verapdf.model.baselayer.Object;
 import java.util.List;
