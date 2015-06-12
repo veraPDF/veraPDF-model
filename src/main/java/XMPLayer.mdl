@@ -13,7 +13,7 @@ type XMPPackage extends XMPObject {
     % collection of all used schemas
     link Schema: XMPSchema;
     % bytes attribute in header, null if it is not present
-    property bytes: Integer;
+    property bytes: String;
     % encoding attribute in header, null if it is not present
     property encoding: String;
 }
