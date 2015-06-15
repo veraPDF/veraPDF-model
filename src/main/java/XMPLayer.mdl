@@ -30,14 +30,14 @@ type XMPSchema extends XMPObject {
     property uri: String;
     % schema's prefix
     property prefix: String;
-    % true if properties of this schema represented in a package contains pdfa1 false friends
-    property isContainsFalseFriendsProperties: Boolean;
+    % true if properties of this schema contain so-called false friends
+    property containsFalseFriends: Boolean;
 }
 
 % XMP custom schema
 type XMPCustomSchema extends XMPSchema {
-    % true if custom schema's definition complies PDFA
-    property doesDefinitionCorrect: Boolean;
+    % true if custom schema definition complies PDF/A
+    property isDefinitionCorrect: Boolean;
     % true if this custom schema defined in this xmp package
     property isDefinedInThisPackage: Boolean;
     % true if this custom schema defined in main xmp package
