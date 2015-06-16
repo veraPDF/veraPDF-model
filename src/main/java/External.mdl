@@ -8,3 +8,26 @@ type External extends Object {
 	
 }
 
+% Embedded ICC profile
+type ICCProfile extends External {
+	% a four-byte string identifying the device class of the profile (monitor, printer, scanner, abstract color space)
+	property deviceClass: String;
+	% a four-byte string identifying the device class of the profile (GRAY, RGB, CMYK, LAB)
+	property colorSpace: String;
+	% version of the ICC profile
+	property version: Decimal;
+	% true if the profile satisfies the corresponding ICC Specification
+	property isValid: Boolean;
+}
+
+% Embedded ICC profile used for ICCBasec color spaces
+type ICCInputProfile extends ICCProfile
+{
+
+}
+
+% Embedded ICC profile used as a destination profile in the output intent dictionary
+type ICCOutputProfile extends ICCProfile
+{
+
+}
