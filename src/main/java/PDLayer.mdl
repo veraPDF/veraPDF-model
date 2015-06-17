@@ -47,7 +47,7 @@ type PDResource extends PDObject
 type PDColorSpace extends PDResource
 {
 	% number of components
-	nrComponents: Integer;
+	property nrComponents: Integer;
 }
 
 % DeviceGray color space
