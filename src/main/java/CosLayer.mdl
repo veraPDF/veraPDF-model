@@ -3,7 +3,6 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
-import java.util.List;
 
 % Parent type for all basic PDF objects
 type CosObject extends Object {
@@ -90,6 +89,11 @@ type CosName extends CosObject {
 	% Original length of the name after decoding escape sequences, but before applying Utf8 encoding
 	property origLength: Integer;
 }
+
+% PDF Name representing rendering intent	
+type CosRenderingIntent extends CosName {
+
+}	
 	
 % PDF String type
 type CosString extends CosObject {

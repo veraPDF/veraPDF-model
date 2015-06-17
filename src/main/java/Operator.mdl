@@ -1,10 +1,149 @@
 package org.verapdf.model.operator;
 
 import org.verapdf.model.baselayer.Object;
-import org.verapdf.model.pdlayer.*;
-import java.util.List;
+import org.verapdf.model.coslayer.CosInteger;
+import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosRenderingIntent;
+
+import org.verapdf.model.pdlayer.PDExtGState;
 
 % base class for all operators in the content stream
 type Operator extends Object {
 	
+}
+
+% General graphics state operators
+type OpGeneralGS extends Operator {
+
+}
+
+% set line width operator
+type Op_w extends OpGeneralGS {
+	% line width
+	link lineWidth: CosReal;
+}
+
+% set line cap operator
+type Op_J extends OpGeneralGS {
+	% line cap
+	link lineCap: CosInteger;
+}
+
+% set line join operator
+type Op_j extends OpGeneralGS {
+	% line join
+	link lineJoin: CosInteger;
+}
+
+% miter limit operator
+type Op_M extends OpGeneralGS {
+	% miter limit
+	link miterLimit: CosReal;
+}
+
+% set dash pattern operator
+type Op_d extends OpGeneralGS {
+	% dash array
+	link dashArray: CosReal*;
+	% dash phase
+	link dashPhase: CosReal;
+}
+
+% rendering intent operator
+type Op_ri extends OpGeneralGS {
+	% rendering intent
+	link renderingIntent: CosRenderingIntent;
+}
+
+% flatness operator
+type Op_i extends OpGeneralGS {
+	% flatness
+	link flatness: CosReal;
+}
+
+type Op_gs extends OpGeneralGS {
+	% ExtGState dictionary
+	link extGState: PDExtGState;
+}
+
+% Special graphics state operators
+type OpSpecialGS extends Operator {
+
+}
+%OpSpecialGS->Op_q, Op_Q, Op_cm
+
+% Path construction operators
+type OpPathConstruction extends Operator {
+
+}
+%OpPathConstruction->Op_m, Op_l, Op_c, Op_v, Op_y, Op_h, Op_re
+
+
+% Path paint operators
+type OpPathPaint extends Operator {
+
+}
+%OpPathPaint->Op_s, Op_S, Op_f, Op_F, Op_f*, Op_B, Op_B*, Op_b, Op_b*, Op_n
+
+% Clip operators
+type OpClip extends Operator {
+
+}
+%OpClip->Op_W, Op_W*
+
+% Text object operators
+type OpTextObject extends Operator {
+
+}
+%OpTextObject->Op_ET, Op_BT
+
+% Text state operators
+type OpTextState extends Operator {
+
+}
+%OpTextState->Op_Tc, Op_Tw, Op_Tz, Op_TL, Op_Tf, Op_Tr, Op_Ts
+
+% Text position operators
+type OpTextPosition extends Operator {
+
+}
+
+% Text show operators
+type OpTextShow extends Operator {
+
+}
+
+% Type3 font operators
+type OpType3Font extends Operator {
+
+}
+
+% Color operators
+type OpColor extends Operator {
+
+}
+
+% Shading operator
+type OpShading extends Operator {
+
+}
+
+% Inline image operators
+type OpInlineImage extends Operator {
+
+}
+
+% XObject operators
+type OpXObject extends Operator {
+
+}
+
+% Marked content operators
+type OpMarkedContent extends Operator {
+
+}
+
+% Compatibility operators
+type OpCompatibility extends Operator {
+
 }

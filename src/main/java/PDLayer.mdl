@@ -31,6 +31,8 @@ type PDPage extends PDObject {
 	link annots: PDAnnot*;
 	% document level action
 	link action: PDAction?;
+	% page content stream
+	link contentStream: PDContentStream;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -39,17 +41,13 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 }
 
-%-- PDF Resources
-
-% resource object
+% PDF resource object
 type PDResource extends PDObject
 {
 
 }
 
-%--- Color space objects
-
-% base color space object
+% Color space object
 type PDColorSpace extends PDResource
 {
 	% number of components
@@ -113,9 +111,7 @@ type PDDeviceN extends PDColorSpace
 	link alternate: PDColorSpace;
 }
 
-%--- XObject resources
-
-% base XObject type
+% XObject resource
 type PDXObject extends PDResource
 {
 	% subtype of the XObject resource (Image, Form, PS)
@@ -144,6 +140,13 @@ type PDXForm extends PDXObject
 	link PS: CosStream?;
 	% link to the reference XObject (Ref key in the form XObject dictionary)
 	link Ref: CosDict?;
+	% form content
+	link contentStream: PDContentStream;
+}
+
+% ExtGState dictionary
+type PDExtGState extends PDResource {
+
 }
 
 % annotation object	
