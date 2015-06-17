@@ -39,7 +39,7 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 }
 
-%% PDF Resources %%
+%--- PDF Resources ---%
 
 % resource object
 type PDResource extends PDObject
@@ -47,13 +47,13 @@ type PDResource extends PDObject
 
 }
 
-%%% Color space objects %%%
+%-- Color space objects --%
 
 % base color space object
 type PDColorSpace extends PDResource
 {
 	% number of components
-	nrComponents: Integer;
+	property nrComponents: Integer;
 }
 
 % DeviceGray color space
@@ -113,7 +113,7 @@ type PDDeviceN extends PDColorSpace
 	link alternate: PDColorSpace;
 }
 
-%%% XObject resources
+%-- XObject resources --%
 
 % base XObject type
 type PDXObject extends PDResource
