@@ -1,6 +1,8 @@
 package org.verapdf.model.pdlayer;
 
 import org.verapdf.model.baselayer.Object;
+import org.verapdf.model.coslayer.CosDict;
+import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
 import org.verapdf.model.external.ICCInputProfile;
@@ -37,13 +39,17 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 }
 
+%% PDF Resources %%
+
 % resource object
 type PDResource extends PDObject
 {
 
 }
 
-% color space object
+%%% Color space objects %%%
+
+% base color space object
 type PDColorSpace extends PDResource
 {
 	% number of components
@@ -107,6 +113,38 @@ type PDDeviceN extends PDColorSpace
 	link alternate: PDColorSpace;
 }
 
+%%% XObject resources
+
+% base XObject type
+type PDXObject extends PDResource
+{
+	% subtype of the XObject resource (Image, Form, PS)
+	property Subtype: String;
+	% link to the OPI dictionary (OPI key in the XObject dictionary)
+	link OPI: CosDict?;
+}
+
+% Image XObject
+type PDXImage extends PDXObject
+{
+	% image color space
+	link imageCS: PDColorSpace;
+	% Interpolate key in the image dictionary
+	property Interpolate: Boolean;
+	% image alternates (Alternates key in Image dictionary)
+	link Alternates: PDXImage*;
+}
+
+% Form XObject
+type PDXForm extends PDXObject
+{
+	% value of the Subtype2 key
+	property Subtype2: String;
+	% link to the PostScript stream (PS key in PDF 1.0)
+	link PS: CosStream?;
+	% link to the reference XObject (Ref key in the form XObject dictionary)
+	link Ref: CosDict?;
+}
 
 % annotation object	
 type PDAnnot extends PDObject {
