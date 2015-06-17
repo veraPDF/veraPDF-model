@@ -2,9 +2,11 @@ package org.verapdf.model.pdlayer;
 
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.operator.Operator;
-import java.util.List;
+import org.verapdf.model.external.ICCOutputProfile;
+import org.verapdf.model.external.ICCInputProfile;
 
-% base class for all PD layer obejcts	
+
+% base class for all PD layer objects	
 type PDObject extends Object {
 	
 }
@@ -35,18 +37,91 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 }
 
-% the annotation object	
+% resource object
+type PDResource extends PDObject
+{
+
+}
+
+% color space object
+type PDColorSpace extends PDResource
+{
+	% number of components
+	property nrComponents: Integer;
+}
+
+% DeviceGray color space
+type PDDeviceGray extends PDColorSpace
+{
+
+}
+
+% DeviceRGB color space
+type PDDeviceRGB extends PDColorSpace
+{
+
+}
+
+% DeviceCMYK color space
+type PDDeviceCMYK extends PDColorSpace
+{
+
+}
+
+% ICCBased color space
+type PDICCBased extends PDColorSpace
+{
+	% embedded ICC profile
+	link iccProfile: ICCInputProfile;
+}
+
+% Lab color space
+type PDLab extends PDColorSpace
+{
+
+}
+
+% CalGray color space
+type PDCalGray extends PDColorSpace
+{
+
+}
+
+% CalRGB color space
+type PDCalRGB extends PDColorSpace
+{
+
+}
+
+% Separation color space
+type PDSeparation extends PDColorSpace
+{
+	% alternate color space
+	link alternate: PDColorSpace;
+}
+
+% DeviceN color space
+type PDDeviceN extends PDColorSpace
+{
+	% alternate color space
+	link alternate: PDColorSpace;
+}
+
+
+% annotation object	
 type PDAnnot extends PDObject {
 	% annotation subtype
 	property Subtype: String;
+	% appearance stream
+	link appearance: PDContentStream?;
 }
 
-% the PDF form field or AcroForm
+% PDF interactive form (or AcroForm)
 type PDAcroForm extends PDObject {
 	
 }
 	
-% the PDF action obejct
+% the PDF action object
 type PDAction extends PDObject {
 	% action subtype
 	property Subtype: String;
@@ -63,5 +138,6 @@ type PDMetadata extends PDObject
 % the output intent dictionary
 type PDOutputIntent extends PDObject
 {
-	
+	% destination output profile
+	link destProfile: ICCOutputProfile?;
 }
