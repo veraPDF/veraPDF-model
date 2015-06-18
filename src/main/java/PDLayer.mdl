@@ -42,78 +42,89 @@ type PDContentStream extends PDObject {
 }
 
 % PDF resource object
-type PDResource extends PDObject
-{
+type PDResource extends PDObject {
 
 }
 
 % Color space object
-type PDColorSpace extends PDResource
-{
+type PDColorSpace extends PDResource {
 	% number of components
 	property nrComponents: Integer;
 }
 
 % DeviceGray color space
-type PDDeviceGray extends PDColorSpace
-{
+type PDDeviceGray extends PDColorSpace {
 
 }
 
 % DeviceRGB color space
-type PDDeviceRGB extends PDColorSpace
-{
+type PDDeviceRGB extends PDColorSpace {
 
 }
 
 % DeviceCMYK color space
-type PDDeviceCMYK extends PDColorSpace
-{
+type PDDeviceCMYK extends PDColorSpace {
 
 }
 
 % ICCBased color space
-type PDICCBased extends PDColorSpace
-{
+type PDICCBased extends PDColorSpace {
 	% embedded ICC profile
 	link iccProfile: ICCInputProfile;
 }
 
 % Lab color space
-type PDLab extends PDColorSpace
-{
+type PDLab extends PDColorSpace {
 
 }
 
 % CalGray color space
-type PDCalGray extends PDColorSpace
-{
+type PDCalGray extends PDColorSpace {
 
 }
 
 % CalRGB color space
-type PDCalRGB extends PDColorSpace
-{
+type PDCalRGB extends PDColorSpace {
 
 }
 
 % Separation color space
-type PDSeparation extends PDColorSpace
-{
+type PDSeparation extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
 }
 
 % DeviceN color space
-type PDDeviceN extends PDColorSpace
-{
+type PDDeviceN extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
 }
 
+% Indexed color space
+type PDIndexed extends PDColorSpace {
+	% base color space
+	link base: PDColorSpace;
+}
+
+% generic Pattern type
+type PDPattern extends PDResource {
+
+}
+
+% tiling Pattern
+type PDTilingPattern extends PDPattern {
+	% content stream of the pattern
+	link contentStream: PDContentStream;
+}
+
+% shading Pattern
+type PDShadingPattern extends PDPattern {
+	% shading object
+	link shading: PDShading;
+}
+
 % XObject resource
-type PDXObject extends PDResource
-{
+type PDXObject extends PDResource {
 	% subtype of the XObject resource (Image, Form, PS)
 	property Subtype: String;
 	% link to the OPI dictionary (OPI key in the XObject dictionary)
@@ -121,8 +132,7 @@ type PDXObject extends PDResource
 }
 
 % Image XObject
-type PDXImage extends PDXObject
-{
+type PDXImage extends PDXObject {
 	% image color space
 	link imageCS: PDColorSpace;
 	% Interpolate key in the image dictionary
@@ -132,8 +142,7 @@ type PDXImage extends PDXObject
 }
 
 % Form XObject
-type PDXForm extends PDXObject
-{
+type PDXForm extends PDXObject {
 	% value of the Subtype2 key
 	property Subtype2: String;
 	% link to the PostScript stream (PS key in PDF 1.0)
@@ -147,6 +156,12 @@ type PDXForm extends PDXObject
 % ExtGState dictionary
 type PDExtGState extends PDResource {
 
+}
+
+% Shading resource
+type PDShading extends PDResource {
+	% shading color space
+	link colorSpace: PDColorSpace;
 }
 
 % annotation object	
@@ -171,14 +186,12 @@ type PDAction extends PDObject {
 
 
 % the XMP Metadata stream
-type PDMetadata extends PDObject
-{
+type PDMetadata extends PDObject {
 	
 }
 
 % the output intent dictionary
-type PDOutputIntent extends PDObject
-{
+type PDOutputIntent extends PDObject {
 	% destination output profile
 	link destProfile: ICCOutputProfile?;
 }
