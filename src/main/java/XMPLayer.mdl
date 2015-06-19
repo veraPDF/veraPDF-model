@@ -47,7 +47,7 @@ type XMPCustomSchema extends XMPSchema {
 % PDF/A Identification Schema (NSURI: http://www.aiim.org/pdfa/ns/id/, required prefix: pdfaid)
 type PDFAIdSchema extends XMPSchema {
     % property part of pdfaid schema
-    property part: String;
+    property part: Integer;
     % property conformance of pdfaid schema
     property conformance: String;
     % property amd of pdfaid schema
