@@ -193,7 +193,7 @@ type XMPDMSchema extends XMPSchema {
 }
 
 % XMP Support Schema Schema (NSURI: , preferred prefix: xapS)
-type Schema extends XMPSchema {
+type XAPSSchema extends XMPSchema {
 
 }
 
