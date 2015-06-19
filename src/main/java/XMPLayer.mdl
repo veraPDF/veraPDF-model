@@ -38,8 +38,8 @@ type XMPCustomSchema extends XMPSchema {
     property isDefinitionCorrect: Boolean;
     % true if this custom schema defined in this xmp package
     property isDefinedInThisPackage: Boolean;
-    % true if this custom schema defined in main xmp package
-    property isDefinedInMainPackage: Boolean;
+    % true if this custom schema defined in this xmp package or in main xmp package
+    property isDefined: Boolean;
 }
 
 % Following six schemas have required prefix
