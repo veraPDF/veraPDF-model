@@ -26,19 +26,19 @@ type OpGeneralGS extends Operator {
 % because they shall be checked for implementation limits
 
 % set line width operator
-type Op_w extends OpGeneralGS {
+type Op_w_line_width extends OpGeneralGS {
 	% line width
 	link lineWidth: CosReal;
 }
 
 % set line cap operator
-type Op_J extends OpGeneralGS {
+type Op_J_line_cap extends OpGeneralGS {
 	% line cap
 	link lineCap: CosInteger;
 }
 
 % set line join operator
-type Op_j extends OpGeneralGS {
+type Op_j_line_join extends OpGeneralGS {
 	% line join
 	link lineJoin: CosInteger;
 }
@@ -148,26 +148,26 @@ type OpPathPaint extends Operator {
 
 }
 
-% path stroke operator
-type Op_s extends OpPathPaint {
+% path close and stroke operator
+type Op_s_close_stroke extends OpPathPaint {
 	% stroke color space
 	link strokeCS: PDColorSpace;
 }
 
-% path close and stroke operator
-type Op_S extends OpPathPaint {
+% path stroke operator
+type Op_S_stroke extends OpPathPaint {
 	% stroke color space
 	link strokeCS: PDColorSpace;
 }
 
 % path fill operator
-type Op_f extends OpPathPaint {
+type Op_f_fill extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 }
 
 % another path fill operator
-type Op_F extends OpPathPaint {
+type Op_F_fill_obsolete extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 }
@@ -179,7 +179,7 @@ type Op_FStar extends OpPathPaint {
 }
 
 % path fill and stroke operator
-type Op_B extends OpPathPaint {
+type Op_B_eofill_stroke extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 	% stroke color space
@@ -195,7 +195,7 @@ type Op_BStar extends OpPathPaint {
 }
 
 % path close, fill and stroke operator
-type Op_b extends OpPathPaint {
+type Op_b_fill_stroke extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 	% stroke color space
@@ -221,7 +221,7 @@ type OpClip extends Operator {
 }
 
 % clip (non-zero rule)
-type Op_W extends OpClip {
+type Op_W_clip extends OpClip {
 
 }
 
@@ -304,12 +304,6 @@ type Op_Do extends OpXObject {
 % Marked content operators
 type OpMarkedContent extends Operator {
 
-}
-
-% define marked content point
-type Op_MP extends OpMarkedContent {
-	% tag name
-	link tag: CosName;
 }
 
 % define marked content point with properties
