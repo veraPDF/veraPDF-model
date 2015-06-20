@@ -44,7 +44,7 @@ type Op_j_line_join extends OpGeneralGS {
 }
 
 % miter limit operator
-type Op_M extends OpGeneralGS {
+type Op_M_miter_limit extends OpGeneralGS {
 	% miter limit
 	link miterLimit: CosReal;
 }
@@ -103,7 +103,7 @@ type OpPathConstruction extends Operator {
 }
 
 % moveto operator
-type Op_m extends OpPathConstruction {
+type Op_m_moveto extends OpPathConstruction {
 	% operator arguments
 	link point: CosReal+;
 }
@@ -179,7 +179,7 @@ type Op_FStar extends OpPathPaint {
 }
 
 % path fill and stroke operator
-type Op_B_eofill_stroke extends OpPathPaint {
+type Op_B_fill_stroke extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 	% stroke color space
@@ -187,7 +187,7 @@ type Op_B_eofill_stroke extends OpPathPaint {
 }
 
 % path fill (even-odd rule) and stroke operator
-type Op_BStar extends OpPathPaint {
+type Op_BStar_eofill_stroke extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 	% stroke color space
@@ -195,7 +195,7 @@ type Op_BStar extends OpPathPaint {
 }
 
 % path close, fill and stroke operator
-type Op_b_fill_stroke extends OpPathPaint {
+type Op_b_closepath_fill_stroke extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 	% stroke color space
@@ -203,7 +203,7 @@ type Op_b_fill_stroke extends OpPathPaint {
 }
 
 % path close, fill (even-odd rule) and stroke operator
-type Op_bstar extends OpPathPaint {
+type Op_bstar_closepath_eofill_stroke extends OpPathPaint {
 	% fill color space
 	link fillCS: PDColorSpace;
 	% stroke color space
