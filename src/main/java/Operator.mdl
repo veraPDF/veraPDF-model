@@ -81,13 +81,13 @@ type OpSpecialGS extends Operator {
 }
 
 % gsave operator
-type Op_q extends OpSpecialGS {
+type Op_q_gsave extends OpSpecialGS {
 	% the number of nested g/Q pair (subject to implementation limits)
 	property nestingLevel: Integer;
 }
 
 % grestore operator
-type Op_Q extends OpSpecialGS {
+type Op_Q_grestore extends OpSpecialGS {
 
 }
 
