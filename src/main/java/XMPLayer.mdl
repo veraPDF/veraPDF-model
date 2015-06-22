@@ -92,7 +92,7 @@ type XMPBasicSchema extends XMPSchema {
     % property Label of xmp basic schema
     property label: String;
     % property Rating of xmp basic schema
-    property rating: String;
+    property rating: Integer;
     % property Title of xmp basic schema
     property title: String;
 }
