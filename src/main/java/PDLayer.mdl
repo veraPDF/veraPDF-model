@@ -6,6 +6,7 @@ import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
 import org.verapdf.model.external.ICCInputProfile;
+import org.verapdf.model.xmplayer.XMPPackage;
 
 
 % base class for all PD layer objects	
@@ -187,7 +188,8 @@ type PDAction extends PDObject {
 
 % the XMP Metadata stream
 type PDMetadata extends PDObject {
-	
+	% XMPPackage for PDMetadata in CosDict or XMPMainPackage for PDMetadata in PDDocument
+	link XMPPackage: XMPPackage;
 }
 
 % the output intent dictionary
