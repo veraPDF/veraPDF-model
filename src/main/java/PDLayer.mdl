@@ -3,6 +3,8 @@ package org.verapdf.model.pdlayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
+import org.verapdf.model.coslayer.CosRenderingIntent;
+
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
 import org.verapdf.model.external.ICCInputProfile;
@@ -34,6 +36,8 @@ type PDPage extends PDObject {
 	link action: PDAction?;
 	% page content stream
 	link contentStream: PDContentStream;
+	% group attributes dictionary
+	link Group: PDGroup?;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -130,6 +134,10 @@ type PDXObject extends PDResource {
 	property Subtype: String;
 	% link to the OPI dictionary (OPI key in the XObject dictionary)
 	link OPI: CosDict?;
+	% link to the soft mask image (SMask key)
+	% according to the PDF Specification this key may be present only in the Image dictionary, 
+	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
+	link SMask: PDXObject?;
 }
 
 % Image XObject
@@ -152,11 +160,32 @@ type PDXForm extends PDXObject {
 	link Ref: CosDict?;
 	% form content
 	link contentStream: PDContentStream;
+	% link to the group attributes dictionary
+	link Group: PDGroup;
+}
+
+% Group attributes dictionary
+type PDGroup extends PDObject {
+	% group subtype (S key)
+	property S: String;
 }
 
 % ExtGState dictionary
 type PDExtGState extends PDResource {
-
+	% String representation of the TR key ("Identity" or "Custom")
+	property TR: String;
+	% String representation of the TR2 key ("Identity", "Default" or "Custom")
+	property TR2: String;
+	% String representation of the SMask key ("None" or "Custom")
+	property SMask: String;
+	% blend mode
+	property BM: String;
+	% fill alpha
+	property ca: Decimal;
+	% stroke alpha
+	property CA: Decimal;
+	% the rendering intent
+	link RI: CosRenderingIntent?;
 }
 
 % Shading resource
