@@ -347,3 +347,8 @@ type Op_BX extends OpCompatibility {
 type Op_EX extends OpCompatibility {
 
 }
+
+% any operator not defined in PDF Reference
+type Op_Undefined extends OpCompatibility {
+
+}
