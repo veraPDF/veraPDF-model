@@ -213,8 +213,6 @@ type PDAction extends PDObject {
 	property Subtype: String;
 }
 
-
-
 % the XMP Metadata stream
 type PDMetadata extends PDObject {
 	% XMPPackage for PDMetadata in CosDict or XMPMainPackage for PDMetadata in PDDocument
@@ -222,11 +220,7 @@ type PDMetadata extends PDObject {
 	% link to the CosStream contains this metadata
 	link stream: CosStream;
 	% value of the Filter key in the metadata stream dictionary
-	property filter: String;
-	% value of the Type key in the metadata stream dictionary
-	property typeValue: String;
-	% value of the SubType key in the metadata stream dictionary
-	property subType: String;
+	property Filter: String;
 }
 
 % the output intent dictionary
