@@ -213,8 +213,6 @@ type PDAction extends PDObject {
 	property Subtype: String;
 }
 
-
-
 % the XMP Metadata stream
 type PDMetadata extends PDObject {
 	% XMPPackage for PDMetadata in CosDict or XMPMainPackage for PDMetadata in PDDocument
