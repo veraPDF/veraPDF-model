@@ -32,7 +32,7 @@
 		<repository>
         <id>OPF Artefactory</id>
         <name>OPF Artefactory-releases</name>
-        <url>http://artifactory.opf-labs.org/artifactory/ext-release</url>
+        <url>http://artifactory.opf-labs.org/artifactory/libs-release</url>
 			<releases>
 				<enabled>true</enabled>
 				<updatePolicy>always</updatePolicy>
