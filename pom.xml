@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.verapdf</groupId>
 	<artifactId>pdfmodel</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,8 +18,9 @@
 
 	<distributionManagement>
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        <id>OPF Artefactory</id>
+        <name>OPF Artefactory-releases</name>
+        <url>http://artifactory.opf-labs.org/artifactory/libs-release-local</url>
 		</repository>
 	</distributionManagement>
 
@@ -27,18 +28,18 @@
 		<connection>scm:git:https://github.com/veraPDF/veraPDF-model.git</connection>
 	</scm>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.eclipse.xtend</groupId>
-			<artifactId>org.eclipse.xtend.lib</artifactId>
-			<version>${xtext-version}</version>
-		</dependency>
-	</dependencies>
-
 	<repositories>
 		<repository>
-			<id>veraPDF-dev</id>
-			<url>http://jenkins.opf-labs.org/plugin/repository/everything</url>
+        <id>OPF Artefactory</id>
+        <name>OPF Artefactory-releases</name>
+        <url>http://artifactory.opf-labs.org/artifactory/ext-release</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
 		</repository>
 	</repositories>
 
@@ -117,7 +118,7 @@
 					<dependency>
 						<groupId>org.verapdf</groupId>
 						<artifactId>org.verapdf</artifactId>
-						<version>[0.1.0,0.2.0)</version>
+						<version>[0.1.7,0.2.0)</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -158,35 +159,12 @@
 		</plugins>
 	</build>
 
-	<profiles>
-
-		<profile>
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-
-	</profiles>
+	<dependencies>
+		<dependency>
+			<groupId>org.eclipse.xtend</groupId>
+			<artifactId>org.eclipse.xtend.lib</artifactId>
+			<version>${xtext-version}</version>
+		</dependency>
+	</dependencies>
 
 </project>
