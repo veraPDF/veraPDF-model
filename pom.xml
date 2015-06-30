@@ -35,6 +35,13 @@
 		</dependency>
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>veraPDF-dev</id>
+			<url>http://jenkins.opf-labs.org/plugin/repository/everything</url>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
 			<plugin>
