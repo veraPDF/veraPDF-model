@@ -48,8 +48,6 @@ type XMPCustomSchema extends XMPSchema {
     property isDefinitionCorrect: Boolean;
     % true if this custom schema defined in this xmp package
     property isDefinedInThisPackage: Boolean;
-    % true if this custom schema defined in main xmp package
-    property isDefinedInMainPackage: Boolean;
 }
 
 % Following two schemas have required prefix
@@ -102,8 +100,6 @@ type XMPRightsSchema extends XMPPredefinedSchema {
 
 % XMP Media Management Schema (NSURI: http://ns.adobe.com/xap/1.0/mm/, preferred prefix: xmpMM)
 type XMPMMSchema extends XMPPredefinedSchema {
-    % property InstanceID of xmp media management schema
-    property instanceID: String;
     % property Manifest of xmp media management schema
     property manifest: String;
 }
