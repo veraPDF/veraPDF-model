@@ -3,6 +3,7 @@ package org.verapdf.model.pdlayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
+import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 
 import org.verapdf.model.operator.Operator;
@@ -26,6 +27,8 @@ type PDDocument extends PDObject {
 	link outputIntents: PDOutputIntent*;
 	% the list of all form fields (acroforms)
 	link acroForms: PDAcroForm*;
+	% additional actions defined for the document (AA entry in the Catalog)
+	link AA: PDAction*;
 }
 
 % the object representing PDF page	
@@ -198,19 +201,40 @@ type PDShading extends PDResource {
 type PDAnnot extends PDObject {
 	% annotation subtype
 	property Subtype: String;
-	% appearance stream
+	% annotation opacity (CA key)
+	property CA: Decimal;
+	% annotation flags
+	property F: Integer;
+	% SPACE-separated list of all keys in the annotation's appearance dictionary (AP key)
+	property AP: String;
+	% normal appearance stream (N key in the appearance dictionary) of the annotation
 	link appearance: PDContentStream?;
+	% link to the annotation's color
+	link C: CosReal*;
+	% link to the annotation's interior color
+	link IC: CosReal*;
+	% link to the action associated with the annotation (A entry)
+	link A: PDAction?;
+	% link to the additional actions defined for the annotation (AA entry)
+	link AA: PDAction*;
 }
 
 % PDF interactive form (or AcroForm)
 type PDAcroForm extends PDObject {
-	
+	% link to the additional actions defined in the interactive form field dictionary (AA entry)
+	link AA: PDAction*;	
 }
 	
 % the PDF action object
 type PDAction extends PDObject {
 	% action subtype
-	property Subtype: String;
+	property S: String;
+}
+
+% the Named action object
+type PDNamedAction extends PDAction {
+	% name of the action
+	property N: String;
 }
 
 
