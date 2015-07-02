@@ -76,7 +76,7 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-			<id>central</id>
+			<id>vera-dev</id>
 			<name>Vera development</name>
 			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
 		</repository>
@@ -86,7 +86,7 @@
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
-			<id>central</id>
+			<id>vera-dev</id>
 			<name>Vera development</name>
 			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
 		</pluginRepository>
