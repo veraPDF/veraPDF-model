@@ -8,7 +8,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.verapdf</groupId>
 	<artifactId>pdfmodel</artifactId>
-	<version>0.1.1</version>
+	<version>0.1.10</version>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,17 +16,60 @@
 		<java.version>1.7</java.version>
 	</properties>
 
+	<inceptionYear>2015</inceptionYear>
+	<organization>
+		<name>The veraPDF Consortium</name>
+		<url>http://www.verapdf.org/</url>
+	</organization>
+	<url>https://github.com/veraPDF/veraPDF-model/</url>
+
+	<licenses>
+		<license>
+			<name>GNU General Public License, version 3 (GPL-3.0)</name>
+			<url>http://opensource.org/licenses/GPL-3.0</url>
+			<distribution>repo</distribution>
+		</license>
+		<license>
+			<name>Mozilla Public License 2.0 (MPL-2.0)</name>
+			<url>http://opensource.org/licenses/MPL-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/veraPDF/veraPDF-model/</url>
+		<connection>scm:git:https://github.com/veraPDF/veraPDF-model.git</connection>
+		<developerConnection>scm:git:git@github.com:veraPDF/veraPDF-model.git</developerConnection>
+	</scm>
+
+	<issueManagement>
+		<url>https://github.com/veraPDF/veraPDF-model/issues/</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<ciManagement>
+		<system>OPF Jenkins</system>
+		<url>http://jenkins.opf-labs.org</url>
+	</ciManagement>
+
 	<distributionManagement>
 		<repository>
 			<id>OPF Artefactory</id>
 			<name>OPF Artefactory-releases</name>
-			<url>http://artifactory.opf-labs.org/artifactory/libs-release-local</url>
+			<url>http://artifactory.opf-labs.org/artifactory/vera-dev-local</url>
 		</repository>
 	</distributionManagement>
 
-	<scm>
-		<connection>scm:git:https://github.com/veraPDF/veraPDF-model.git</connection>
-	</scm>
+	<developers>
+		<developer>
+			<email>carl@openpreservation.org</email>
+			<name>Carl Wilson</name>
+			<url>https://github.com/carlwilson</url>
+			<organization>Open Preservation Foundation</organization>
+			<organizationUrl>http://openpreservation.org</organizationUrl>
+			<id>carlwilson</id>
+		</developer>
+	</developers>
 
 	<repositories>
 		<repository>
@@ -34,8 +77,8 @@
 				<enabled>false</enabled>
 			</snapshots>
 			<id>central</id>
-			<name>libs-release</name>
-			<url>http://artifactory.opf-labs.org/artifactory/libs-release</url>
+			<name>Vera development</name>
+			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
@@ -44,8 +87,8 @@
 				<enabled>false</enabled>
 			</snapshots>
 			<id>central</id>
-			<name>plugins-release</name>
-			<url>http://artifactory.opf-labs.org/artifactory/libs-release</url>
+			<name>Vera development</name>
+			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
 		</pluginRepository>
 	</pluginRepositories>
 
