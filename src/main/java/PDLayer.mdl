@@ -25,8 +25,8 @@ type PDDocument extends PDObject {
 	link metadata: PDMetadata?;
 	% the array of output intents of the document
 	link outputIntents: PDOutputIntent*;
-	% the list of all form fields (acroforms)
-	link acroForms: PDAcroForm*;
+	% Interactive Form Dictionary (AcroForm entry in the Catalog)
+	link AcroForm: PDAcroForm?;
 	% additional actions defined for the document (AA entry in the Catalog)
 	link AA: PDAction*;
 }
@@ -219,8 +219,18 @@ type PDAnnot extends PDObject {
 	link AA: PDAction*;
 }
 
-% PDF interactive form (or AcroForm)
+% Interactive form dictionary
 type PDAcroForm extends PDObject {
+	% NeedAppearances flag
+	property NeedAppearances: Boolean;
+	% all interactive form fields in the document
+	link formFields: PDFormField*;
+}
+
+% Interactive form field
+type PDFormField extends PDObject {
+	% Field type
+	property FT: String;
 	% link to the additional actions defined in the interactive form field dictionary (AA entry)
 	link AA: PDAction*;	
 }
