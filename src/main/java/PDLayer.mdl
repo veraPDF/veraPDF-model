@@ -171,6 +171,8 @@ type PDXForm extends PDXObject {
 type PDGroup extends PDObject {
 	% group subtype (S key)
 	property S: String;
+	% link to color space
+	link colorSpace: PDColorSpace;
 }
 
 % ExtGState dictionary
@@ -259,6 +261,8 @@ type PDMetadata extends PDObject {
 
 % the output intent dictionary
 type PDOutputIntent extends PDObject {
+	% string representation of the indirect link to the ICC output profile
+	property destOutputProfileRef: String;
 	% destination output profile
 	link destProfile: ICCOutputProfile?;
 }
