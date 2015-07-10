@@ -53,7 +53,7 @@ type Op_M_miter_limit extends OpGeneralGS {
 % set dash pattern operator
 type Op_d extends OpGeneralGS {
 	% dash array
-	link dashArray: CosArray?;
+	link dashArray: CosArray;
 	% dash phase
 	link dashPhase: CosReal;
 }
@@ -307,8 +307,14 @@ type OpMarkedContent extends Operator {
 
 }
 
-% define marked content point with properties
+% define marked content point
 type Op_MP extends OpMarkedContent {
+	% tag name
+	link tag: CosName;
+}
+
+% define marked content point with properties
+type Op_DP extends OpMarkedContent {
 	% tag name
 	link tag: CosName;
 	% properties dictionary
@@ -322,7 +328,7 @@ type Op_BMC extends OpMarkedContent {
 }
 
 % start marked content region with properties
-type Op_BMC extends OpMarkedContent {
+type Op_BDC extends OpMarkedContent {
 	% tag name
 	link tag: CosName;
 	% properties dictionary
