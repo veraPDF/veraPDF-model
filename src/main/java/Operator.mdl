@@ -3,6 +3,7 @@ package org.verapdf.model.operator;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.coslayer.CosInteger;
 import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosArray;
 import org.verapdf.model.coslayer.CosName;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosRenderingIntent;
@@ -52,7 +53,7 @@ type Op_M_miter_limit extends OpGeneralGS {
 % set dash pattern operator
 type Op_d extends OpGeneralGS {
 	% dash array
-	link dashArray: CosReal*;
+	link dashArray: CosArray?;
 	% dash phase
 	link dashPhase: CosReal;
 }
