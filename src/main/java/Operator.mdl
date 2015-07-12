@@ -285,7 +285,8 @@ type Op_sh extends OpShading {
 
 % Inline image operators
 type OpInlineImage extends Operator {
-
+	% link to dictionary containing image parameters
+	link inlineImageDictionary : CosDict;
 }
 
 % OpInlineImage->Op_BI, Op_ID, Op_EI
