@@ -9,6 +9,8 @@ import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
 import org.verapdf.model.external.ICCInputProfile;
+import org.verapdf.model.external.FontProgram;
+import org.verapdf.model.external.CMapFile;
 import org.verapdf.model.xmplayer.XMPPackage;
 
 
@@ -129,6 +131,59 @@ type PDTilingPattern extends PDPattern {
 type PDShadingPattern extends PDPattern {
 	% shading object
 	link shading: PDShading;
+}
+
+% PDF font dictionary
+type PDFont extends PDResource {
+	% Type entry
+	property Type: Sting;
+	% font subtype (Subtype entry)
+	property Subtype: String;
+	% base font name (BaseFont entry)
+	property BaseFont: String;
+	% embedded font program for Type 1, TrueType or CID Font
+	link fontFile: FontProgram?;
+}
+
+% One of the simple font types (Type 1, TrueType, Type 3)
+type PDSimpleFont extends PDFont {
+	% True if the font is one of the 14 standard fonts defined in PDF 1.4 Reference
+	property isStandard: Boolean;
+	% FirstChar entry; null if LastChar entry is not present or has invalid type
+	property FirstChar: Integer;
+	% LastChar entry; null if LastChar entry is not present or has invalid type
+	property LastChar: Integer;
+	% The size of the Widths array; null if the Widths array is not present or has invalid type
+	property Widths_size: Integer;
+}
+
+type PDType3Font extends PDSimpleFont {
+	% character strings
+	link charStrings: PDContentStream*;
+}
+
+% CID Font dictionary
+type PDCIDFont extends PDFont {
+	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
+	property CIDtoGIDMap: Sting;
+}
+
+% Type0 font dictionary
+type PDType0Font extends PDFont {
+	% True if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
+	property areRegistryOrderingCompatible: Boolean;
+	% link to the descendant CIDFont
+	link DescendantFonts: CIDFont;
+	% font CMap (Encoding entry)
+	link Encoding: PDCMap;
+}
+
+% CMap dictionary or one of the predefined CMap names
+type PDCMap extends PDObject {
+	% name of the CMap (or the value of one of the predefined CMap's)
+	property CMapName: String;
+	% link to the embedded CMap file for an non-standard CMap
+	link embeddedFile: CMapFile?;
 }
 
 % XObject resource
