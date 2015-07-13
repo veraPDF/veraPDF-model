@@ -3,6 +3,7 @@ package org.verapdf.model.operator;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.coslayer.CosInteger;
 import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosString;
 import org.verapdf.model.coslayer.CosArray;
 import org.verapdf.model.coslayer.CosName;
 import org.verapdf.model.coslayer.CosDict;
@@ -256,6 +257,31 @@ type OpTextShow extends Operator {
 
 }
 
+% Text show operator
+type Op_Tj_show extends OpTextShow {
+	% displayed text
+	link textString: CosString;
+}
+
+% Text show operator with predefined glyphs width
+type Op_TJ_show_individual extends OpTextShow {
+	% array containing strings and glyphs width
+	link specialStrings: CosArray;
+}
+
+% EOL and text show operator
+type Op_Quote extends OpTextShow {
+	% displayed text
+	link textString: CosString;
+}
+
+% EOL and text show operator with individual glyphs positioning
+type Op_DoubleQuote extends OpTextShow {
+	% displayed text
+	link textString: CosString;
+	% widths of glyphs and spacings
+	link widths: CosReal+;
+}
 %OpTextShow->Op_Tj, Op_TJ, Op_', Op_"
 
 % Type3 font operators
