@@ -115,7 +115,7 @@ type PDIndexed extends PDColorSpace {
 }
 
 % generic Pattern type
-type PDPattern extends PDResource {
+type PDPattern extends PDColorSpace {
 
 }
 
