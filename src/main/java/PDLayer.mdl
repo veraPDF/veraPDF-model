@@ -31,6 +31,8 @@ type PDDocument extends PDObject {
 	link AcroForm: PDAcroForm?;
 	% additional actions defined for the document (AA entry in the Catalog)
 	link AA: PDAction*;
+	% document open action (OpenAction entry)
+	link OpenAction: PDAction?;
 }
 
 % the object representing PDF page	
@@ -136,7 +138,7 @@ type PDShadingPattern extends PDPattern {
 % PDF font dictionary
 type PDFont extends PDResource {
 	% Type entry
-	property Type: Sting;
+	property Type: String;
 	% font subtype (Subtype entry)
 	property Subtype: String;
 	% base font name (BaseFont entry)
@@ -165,7 +167,7 @@ type PDType3Font extends PDSimpleFont {
 % CID Font dictionary
 type PDCIDFont extends PDFont {
 	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
-	property CIDtoGIDMap: Sting;
+	property CIDtoGIDMap: String;
 }
 
 % Type0 font dictionary
@@ -173,7 +175,7 @@ type PDType0Font extends PDFont {
 	% True if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
 	property areRegistryOrderingCompatible: Boolean;
 	% link to the descendant CIDFont
-	link DescendantFonts: CIDFont;
+	link DescendantFonts: PDCIDFont;
 	% font CMap (Encoding entry)
 	link Encoding: PDCMap;
 }
@@ -294,6 +296,8 @@ type PDFormField extends PDObject {
 type PDAction extends PDObject {
 	% action subtype
 	property S: String;
+	% next action (Next netry in the action dictionary)
+	link Next: PDAction?;
 }
 
 % the Named action object
@@ -301,8 +305,6 @@ type PDNamedAction extends PDAction {
 	% name of the action
 	property N: String;
 }
-
-
 
 % the XMP Metadata stream
 type PDMetadata extends PDObject {
