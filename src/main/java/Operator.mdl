@@ -244,11 +244,30 @@ type OpTextObject extends Operator {
 type OpTextState extends Operator {
 
 }
+
+type Op_Tz extends OpTextState {
+	% the horizontal text scaling
+	link scale: CosReal;
+}
 %OpTextState->Op_Tc, Op_Tw, Op_Tz, Op_TL, Op_Tf, Op_Tr, Op_Ts
 
 % Text position operators
 type OpTextPosition extends Operator {
 
+}
+
+type Op_Td extends OpTextPosition {
+	% horizontal offset
+	link horizontalOffset: CosReal;
+	% vertical offset
+	link verticalOffset: CosReal;
+}
+
+type Op_TD_Big extends OpTextPosition {
+	% horizontal offset
+	link horizontalOffset: CosReal;
+	% vertical offset
+	link verticalOffset: CosReal;
 }
 
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
