@@ -210,6 +210,8 @@ type PDXImage extends PDXObject {
 	property Interpolate: Boolean;
 	% image alternates (Alternates key in Image dictionary)
 	link Alternates: PDXImage*;
+	%
+	link Intent: CosRenderingIntent?;
 }
 
 % Form XObject
