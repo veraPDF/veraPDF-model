@@ -13,6 +13,7 @@ import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
 import org.verapdf.model.pdlayer.PDXObject;
 import org.verapdf.model.pdlayer.PDShading;
+import org.verapdf.model.pdlayer.PDFont;
 
 % base class for all operators in the content stream
 type Operator extends Object {
@@ -253,8 +254,9 @@ type OpTextPosition extends Operator {
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
+% Link to the current font. There is no font specified for text in rendering mode 3.
 type OpTextShow extends Operator {
-
+	link font: PDFont?;
 }
 
 % Text show operator
