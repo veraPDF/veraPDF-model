@@ -31,8 +31,10 @@ type PDDocument extends PDObject {
 	link AcroForm: PDAcroForm?;
 	% additional actions defined for the document (AA entry in the Catalog)
 	link AA: PDAction*;
-	% document open action (OpenAction entry)
+	% document open action (OpenAction entry in the Catalog)
 	link OpenAction: PDAction?;
+	% document outlines (Outlines entry in the Catalog)
+	link Outlines: PDOutline*;
 }
 
 % the object representing PDF page	
@@ -324,4 +326,10 @@ type PDOutputIntent extends PDObject {
 	property destOutputProfileRef: String;
 	% destination output profile
 	link destProfile: ICCOutputProfile?;
+}
+
+% the outline (or bookmark) dictionary
+type PDOutline extends PDObject {
+	% link to the associated action object (A entry in the outline dictionary)
+	link A: PDAction?;
 }
