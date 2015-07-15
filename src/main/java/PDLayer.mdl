@@ -252,6 +252,8 @@ type PDExtGState extends PDResource {
 	property CA: Decimal;
 	% the rendering intent
 	link RI: CosRenderingIntent?;
+	% font size
+    link fontSize: CosReal?;
 }
 
 % Shading resource
