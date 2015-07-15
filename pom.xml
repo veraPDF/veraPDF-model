@@ -10,7 +10,7 @@
 
 	<groupId>org.verapdf</groupId>
 	<artifactId>pdf-model</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0</version>
 
 	<name>veraPDF Validation Model API</name>
 	<description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
@@ -69,6 +69,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xtext.version>2.8.3</xtext.version>
 		<java.version>1.7</java.version>
+		<mvn.gpg.plugin.version>1.6</mvn.gpg.plugin.version>
 	</properties>
 
 	<repositories>
@@ -172,7 +173,7 @@
 					<dependency>
 						<groupId>org.verapdf</groupId>
 						<artifactId>org.verapdf</artifactId>
-						<version>[0.1.0,0.2.0)</version>
+						<version>[0.2.0,0.3.0)</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -204,4 +205,35 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+				<id>release-sign-artifacts</id>
+				<activation>
+						<property>
+								<name>performRelease</name>
+								<value>true</value>
+						</property>
+				</activation>
+				<build>
+						<plugins>
+								<plugin>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-gpg-plugin</artifactId>
+										<version>${mvn.gpg.plugin.version}</version>
+										<executions>
+												<execution>
+														<id>sign-artifacts</id>
+														<phase>verify</phase>
+														<goals>
+																<goal>sign</goal>
+														</goals>
+												</execution>
+										</executions>
+								</plugin>
+						</plugins>
+				</build>
+		</profile>
+	</profiles>
+
 </project>
