@@ -10,6 +10,8 @@ type External extends Object {
 
 % Embedded ICC profile
 type ICCProfile extends External {
+	% value of the N key in the ICC profile stream dictionary
+	property N: Integer;
 	% a four-byte string identifying the device class of the profile (monitor, printer, scanner, abstract color space)
 	property deviceClass: String;
 	% a four-byte string identifying the device class of the profile (GRAY, RGB, CMYK, LAB)
