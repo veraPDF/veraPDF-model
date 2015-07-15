@@ -1,72 +1,131 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
 	<parent>
 		<artifactId>oss-parent</artifactId>
 		<groupId>org.sonatype.oss</groupId>
 		<version>7</version>
 	</parent>
-	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>org.verapdf</groupId>
-	<artifactId>pdfmodel</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>pdf-model</artifactId>
+	<version>0.2.0</version>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<xtext-version>2.7.2</xtext-version>
-    <java.version>1.7</java.version>
-	</properties>
+	<name>veraPDF Validation Model API</name>
+	<description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
+	<url>https://github.com/veraPDF/veraPDF-model/</url>
+	<inceptionYear>2015</inceptionYear>
+	<organization>
+		<name>The veraPDF Consortium</name>
+		<url>http://www.verapdf.org/</url>
+	</organization>
+	<licenses>
+		<license>
+			<name>GNU General Public License, version 3 (GPL-3.0)</name>
+			<url>http://opensource.org/licenses/GPL-3.0</url>
+			<distribution>repo</distribution>
+		</license>
+		<license>
+			<name>Mozilla Public License 2.0 (MPL-2.0)</name>
+			<url>http://opensource.org/licenses/MPL-2.0</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
+	<developers>
+		<developer>
+			<email>carl@openpreservation.org</email>
+			<name>Carl Wilson</name>
+			<url>https://github.com/carlwilson</url>
+			<organization>Open Preservation Foundation</organization>
+			<organizationUrl>http://openpreservation.org</organizationUrl>
+			<id>carlwilson</id>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/veraPDF/veraPDF-model/</url>
+		<connection>scm:git:https://github.com/veraPDF/veraPDF-model.git</connection>
+		<developerConnection>scm:git:git@github.com:veraPDF/veraPDF-model.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<url>https://github.com/veraPDF/veraPDF-model/issues/</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+	<ciManagement>
+		<system>OPF Jenkins</system>
+		<url>http://jenkins.opf-labs.org</url>
+	</ciManagement>
 	<distributionManagement>
-		<snapshotRepository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
-		</snapshotRepository>
 		<repository>
-			<id>ossrh</id>
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+			<id>OPF Artefactory</id>
+			<name>OPF Artefactory-releases</name>
+			<url>http://artifactory.opf-labs.org/artifactory/vera-dev-local</url>
 		</repository>
 	</distributionManagement>
 
-	<scm>
-		<connection>scm:git:https://github.com/veraPDF/veraPDF-model.git</connection>
-	</scm>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<xtext.version>2.8.3</xtext.version>
+		<java.version>1.7</java.version>
+		<mvn.gpg.plugin.version>1.6</mvn.gpg.plugin.version>
+	</properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>org.eclipse.xtend</groupId>
-			<artifactId>org.eclipse.xtend.lib</artifactId>
-			<version>${xtext-version}</version>
-		</dependency>
-	</dependencies>
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>vera-dev</id>
+			<name>Vera development</name>
+			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<id>vera-dev</id>
+			<name>Vera development</name>
+			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<build>
 		<plugins>
-            <plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.3</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>generated-model/java/</source>
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>generated-model/java/</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
@@ -90,7 +149,7 @@
 			<plugin>
 				<groupId>org.eclipse.xtext</groupId>
 				<artifactId>xtext-maven-plugin</artifactId>
-				<version>${xtext-version}</version>
+				<version>${xtext.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -114,14 +173,14 @@
 					<dependency>
 						<groupId>org.verapdf</groupId>
 						<artifactId>org.verapdf</artifactId>
-						<version>1.0.0-SNAPSHOT</version>
+						<version>[0.2.0,0.3.0)</version>
 					</dependency>
 				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
-				<version>${xtext-version}</version>
+				<version>${xtext.version}</version>
 				<executions>
 					<execution>
 						<goals>
@@ -131,59 +190,50 @@
 					</execution>
 				</executions>
 			</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-release-plugin</artifactId>
-				<configuration>
-					<preparationGoals>clean install</preparationGoals>
-					<goals>deploy</goals>
-					<autoVersionSubmodules>true</autoVersionSubmodules>
-				</configuration>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.10.3</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
 
 	<profiles>
-
 		<profile>
-			<id>release-sign-artifacts</id>
-			<activation>
-				<property>
-					<name>performRelease</name>
-					<value>true</value>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-gpg-plugin</artifactId>
-						<executions>
-							<execution>
-								<id>sign-artifacts</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>sign</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
+				<id>release-sign-artifacts</id>
+				<activation>
+						<property>
+								<name>performRelease</name>
+								<value>true</value>
+						</property>
+				</activation>
+				<build>
+						<plugins>
+								<plugin>
+										<groupId>org.apache.maven.plugins</groupId>
+										<artifactId>maven-gpg-plugin</artifactId>
+										<version>${mvn.gpg.plugin.version}</version>
+										<executions>
+												<execution>
+														<id>sign-artifacts</id>
+														<phase>verify</phase>
+														<goals>
+																<goal>sign</goal>
+														</goals>
+												</execution>
+										</executions>
+								</plugin>
+						</plugins>
+				</build>
 		</profile>
-
 	</profiles>
 
 </project>

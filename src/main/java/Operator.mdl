@@ -3,6 +3,8 @@ package org.verapdf.model.operator;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.coslayer.CosInteger;
 import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosString;
+import org.verapdf.model.coslayer.CosArray;
 import org.verapdf.model.coslayer.CosName;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosRenderingIntent;
@@ -11,6 +13,7 @@ import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
 import org.verapdf.model.pdlayer.PDXObject;
 import org.verapdf.model.pdlayer.PDShading;
+import org.verapdf.model.pdlayer.PDFont;
 
 % base class for all operators in the content stream
 type Operator extends Object {
@@ -52,7 +55,7 @@ type Op_M_miter_limit extends OpGeneralGS {
 % set dash pattern operator
 type Op_d extends OpGeneralGS {
 	% dash array
-	link dashArray: CosReal*;
+	link dashArray: CosArray;
 	% dash phase
 	link dashPhase: CosReal;
 }
@@ -241,6 +244,11 @@ type OpTextObject extends Operator {
 type OpTextState extends Operator {
 
 }
+
+type Op_Tz extends OpTextState {
+	% the horizontal text scaling
+	link scale: CosReal;
+}
 %OpTextState->Op_Tc, Op_Tw, Op_Tz, Op_TL, Op_Tf, Op_Tr, Op_Ts
 
 % Text position operators
@@ -248,13 +256,55 @@ type OpTextPosition extends Operator {
 
 }
 
+type Op_Td extends OpTextPosition {
+	% horizontal offset
+	link horizontalOffset: CosReal;
+	% vertical offset
+	link verticalOffset: CosReal;
+}
+
+type Op_TD_Big extends OpTextPosition {
+	% horizontal offset
+	link horizontalOffset: CosReal;
+	% vertical offset
+	link verticalOffset: CosReal;
+}
+
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
+% Link to the current font. There is no font specified for text in rendering mode 3.
 type OpTextShow extends Operator {
-
+	link font: PDFont?;
 }
 
+% Text show operator
+type Op_Tj extends OpTextShow {
+	% string to show (before font encoding mapping is applied)
+	link showString: CosString;
+}
+
+% Text show operator with individual glyph positioning
+type Op_TJ_Big extends OpTextShow {
+	% array containing strings and glyphs width
+	link specialStrings: CosArray;
+}
+
+% EOL and text show operator
+type Op_Quote extends OpTextShow {
+	% string to show (before font encoding mapping is applied)
+	link showString: CosString;
+}
+
+% EOL and text show operator with char and word spacing
+type Op_DoubleQuote extends OpTextShow {
+	% string to show (before font encoding mapping is applied)
+	link showString: CosString;
+	% unscaled word spacing
+	link wordSpacing: CosReal;
+	% unscaled character spacing
+	link characterSpacing: CosReal;
+}
 %OpTextShow->Op_Tj, Op_TJ, Op_', Op_"
 
 % Type3 font operators
@@ -284,7 +334,8 @@ type Op_sh extends OpShading {
 
 % Inline image operators
 type OpInlineImage extends Operator {
-
+	% link to dictionary containing image parameters
+	link inlineImageDictionary : CosDict;
 }
 
 % OpInlineImage->Op_BI, Op_ID, Op_EI
@@ -306,8 +357,14 @@ type OpMarkedContent extends Operator {
 
 }
 
-% define marked content point with properties
+% define marked content point
 type Op_MP extends OpMarkedContent {
+	% tag name
+	link tag: CosName;
+}
+
+% define marked content point with properties
+type Op_DP extends OpMarkedContent {
 	% tag name
 	link tag: CosName;
 	% properties dictionary
@@ -321,7 +378,7 @@ type Op_BMC extends OpMarkedContent {
 }
 
 % start marked content region with properties
-type Op_BMC extends OpMarkedContent {
+type Op_BDC extends OpMarkedContent {
 	% tag name
 	link tag: CosName;
 	% properties dictionary

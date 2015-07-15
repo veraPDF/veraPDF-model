@@ -1,18 +1,26 @@
 veraPDF-model
 =============
-
 The veraPDF Validation model described using a Domain Specific Language developed in [XText](https://eclipse.org/Xtext/).
+
+Licensing
+---------
+The veraPDF Validation model is dual-licensed, see:
+
+ - [GPLv3+](LICENSE.GPL "GNU General Public License, version 3")
+ - [MPLv2+](LICENSE.MPL "Mozilla Public License, version 2.0")
 
 CI Status
 ---------
+- [![Build Status](https://travis-ci.org/veraPDF/veraPDF-model.svg?branch=master)](https://travis-ci.org/veraPDF/veraPDF-model "veraPDF-model Travis-CI master branch build") Travis-CI: `master`
 
-Travis: [![Build Status](https://travis-ci.org/veraPDF/veraPDF-model.svg?branch=master)](https://travis-ci.org/veraPDF/veraPDF-model)
+- [![Build Status](https://travis-ci.org/veraPDF/veraPDF-model.svg?branch=integration)](https://travis-ci.org/veraPDF/veraPDF-model "veraPDF-model Travis-CI integration build") Travis-CI: `integration`
 
-Jenkins: [![Build Status](http://jenkins.opf-labs.org/view/veraPDF-jobs/job/veraPDF-model/badge/icon)](http://jenkins.opf-labs.org/view/veraPDF-jobs/job/veraPDF-model/)
+- [![Build Status](http://jenkins.opf-labs.org/view/veraPDF-jobs/job/veraPDF-model-0.2/badge/icon)](http://jenkins.opf-labs.org/view/veraPDF-jobs/job/veraPDF-model-0.2/ "OPF Jenkins v0.2 release build") OPF Jenkins: `release-0.2`
+
+- [![Build Status](http://jenkins.opf-labs.org/view/veraPDF-jobs/job/veraPDF-model-0.3/badge/icon)](http://jenkins.opf-labs.org/view/veraPDF-jobs/job/veraPDF-model-0.3/ "OPF Jenkins v0.3 development build") OPF Jenkins: `integration`
 
 Pre-requisites
 --------------
-
 In order to generate the model classes you'll need:
 
  * Java 7, which can be downloaded [from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](http://openjdk.java.net/install/index.html).
@@ -24,10 +32,17 @@ If you want to edit and regenerate the model you'll need:
 
 Generating the veraPDF Model
 ----------------------------
+ 1. Download the veraPDF-model repository, either:
+ ```
+ git clone https://github.com/veraPDF/veraPDF-model
+ ```
+ or download the [latest tar archive](https://github.com/veraPDF/veraPDF-model/archive/master.tar.gz "veraPDF-Model latest GitHub tar archive") or [zip equivalent](https://github.com/veraPDF/veraPDF-model/archive/master.zip "veraPDF-Model latest GitHub zip archive") from GitHub.
 
- 1. Download the veraPDF-model repository, either cloning via Git
- `git clone https://github.com/veraPDF/veraPDF-model` or downloading the [latest zip archive from GitHub](https://github.com/veraPDF/veraPDF-model/archive/master.zip).
-
- 2. Move to the downloaded project directory, e.g. `cd veraPDF-model`.
-
- 3. Build and install using Maven, `mvn clean install`.
+ 2. Move to the downloaded project directory, e.g.
+ ```
+ cd veraPDF-model
+ ```
+ 3. Build and install using Maven:
+ ```
+ mvn clean install
+ ```

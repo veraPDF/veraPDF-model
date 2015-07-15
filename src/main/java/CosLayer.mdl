@@ -15,6 +15,8 @@ type CosDocument extends CosObject {
 	property nrIndirects: Integer;
 	% size of the byte sequence representing the document 
 	property size: Integer;
+	% version of the document
+	property version: Decimal;
 	% true if the OCProperties key is present in the document Catalog
 	property isOptionalContentPresent: Boolean;
 	% true if the end of PDF file complies PDF/A requirements (no data after the last end-of-file marker except a single optional end-of-line marker)
@@ -47,7 +49,7 @@ type CosDocument extends CosObject {
 type CosIndirect extends CosObject {
 	% the direct contents of the indirect object
 	link directObject: CosObject;
-	% true if the specings around object number, generation number, keywords 'obj' and 'endobj' comply to PDF/A standard
+	% true if the spacings around object number, generation number, keywords 'obj' and 'endobj' comply to PDF/A standard
 	property spacingCompliesPDFA: Boolean;
 }
 

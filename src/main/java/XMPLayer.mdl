@@ -48,8 +48,6 @@ type XMPCustomSchema extends XMPSchema {
     property isDefinitionCorrect: Boolean;
     % true if this custom schema defined in this xmp package
     property isDefinedInThisPackage: Boolean;
-    % true if this custom schema defined in main xmp package
-    property isDefinedInMainPackage: Boolean;
 }
 
 % Following two schemas have required prefix
@@ -102,8 +100,6 @@ type XMPRightsSchema extends XMPPredefinedSchema {
 
 % XMP Media Management Schema (NSURI: http://ns.adobe.com/xap/1.0/mm/, preferred prefix: xmpMM)
 type XMPMMSchema extends XMPPredefinedSchema {
-    % property InstanceID of xmp media management schema
-    property instanceID: String;
     % property Manifest of xmp media management schema
     property manifest: String;
 }
@@ -161,26 +157,6 @@ type CRSSchema extends XMPPredefinedSchema {
 
 % EXIF Schema for Additional EXIF Preperties (NSURI: http://ns.adobe.com/exif/1.0/aux/, preferred prefix: aux)
 type AUXSchema extends XMPPredefinedSchema {
-
-}
-
-% IPTC Core (NSURI: http://iptc.org/std/Iptc4xmpCore/1.0/xmlns/, preferred prefix: Iptc4xmpCore)
-type Iptc4xmpCoreSchema extends XMPPredefinedSchema {
-
-}
-
-% PDF/E Identification Extension Schema (NSURI: http://www.aiim.org/pdfe/ns/id/, preferred prefix: pdfe)
-type PDFESchema extends XMPPredefinedSchema {
-
-}
-
-% PDF Extension Schema (NSURI: http://ns.adobe.com/pdfx/1.3/, preferred prefix: pdfx)
-type PDFXSchema extends XMPPredefinedSchema {
-
-}
-
-% PDF/X Identification Extension Schema (NSURI: http://www.npes.org/pdfx/ns/id/, preferred prefix: pdfxid)
-type PDFXIdSchema extends XMPPredefinedSchema {
 
 }
 

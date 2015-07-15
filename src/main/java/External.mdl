@@ -29,5 +29,19 @@ type ICCInputProfile extends ICCProfile
 % Embedded ICC profile used as a destination profile in the output intent dictionary
 type ICCOutputProfile extends ICCProfile
 {
+	% subtype of the output profile
+	property S: String;
+}
+
+% embedded font program
+type FontProgram extends External {
+	% true if the widths of the embedded font program are consistent with the widths specified in the Font dictionary
+	property areWidthsConsistent: Boolean;
+	% true if all glyphs referenced for rendering are present in the font program
+	property areReferencedGlyphsPresent: Boolean;
+}
+
+% embedded CMap file
+type CMapFile extends External {
 
 }
