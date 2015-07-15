@@ -304,7 +304,7 @@ type PDFormField extends PDObject {
 type PDAction extends PDObject {
 	% action subtype
 	property S: String;
-	% next action (Next netry in the action dictionary)
+	% next action (Next entry in the action dictionary)
 	link Next: PDAction?;
 }
 
