@@ -10,6 +10,8 @@ type External extends Object {
 
 % Embedded ICC profile
 type ICCProfile extends External {
+	% value of the N key in the ICC profile stream dictionary
+	property N: Integer;
 	% a four-byte string identifying the device class of the profile (monitor, printer, scanner, abstract color space)
 	property deviceClass: String;
 	% a four-byte string identifying the device class of the profile (GRAY, RGB, CMYK, LAB)
@@ -29,5 +31,18 @@ type ICCInputProfile extends ICCProfile
 % Embedded ICC profile used as a destination profile in the output intent dictionary
 type ICCOutputProfile extends ICCProfile
 {
+
+}
+
+% embedded font program
+type FontProgram extends External {
+	% true if the widths of the embedded font program are consistent with the widths specified in the Font dictionary
+	property areWidthsConsistent: Boolean;
+	% true if all glyphs referenced for rendering are present in the font program
+	property areReferencedGlyphsPresent: Boolean;
+}
+
+% embedded CMap file
+type CMapFile extends External {
 
 }

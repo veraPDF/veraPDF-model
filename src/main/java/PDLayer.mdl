@@ -3,11 +3,14 @@ package org.verapdf.model.pdlayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
+import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
 import org.verapdf.model.external.ICCInputProfile;
+import org.verapdf.model.external.FontProgram;
+import org.verapdf.model.external.CMapFile;
 import org.verapdf.model.xmplayer.XMPPackage;
 
 
@@ -24,8 +27,14 @@ type PDDocument extends PDObject {
 	link metadata: PDMetadata?;
 	% the array of output intents of the document
 	link outputIntents: PDOutputIntent*;
-	% the list of all form fields (acroforms)
-	link acroForms: PDAcroForm*;
+	% Interactive Form Dictionary (AcroForm entry in the Catalog)
+	link AcroForm: PDAcroForm?;
+	% additional actions defined for the document (AA entry in the Catalog)
+	link AA: PDAction*;
+	% document open action (OpenAction entry in the Catalog)
+	link OpenAction: PDAction?;
+	% document outlines (Outlines entry in the Catalog)
+	link Outlines: PDOutline*;
 }
 
 % the object representing PDF page	
@@ -128,6 +137,59 @@ type PDShadingPattern extends PDPattern {
 	link shading: PDShading;
 }
 
+% PDF font dictionary
+type PDFont extends PDResource {
+	% Type entry
+	property Type: String;
+	% font subtype (Subtype entry)
+	property Subtype: String;
+	% base font name (BaseFont entry)
+	property BaseFont: String;
+	% embedded font program for Type 1, TrueType or CID Font
+	link fontFile: FontProgram?;
+}
+
+% One of the simple font types (Type 1, TrueType, Type 3)
+type PDSimpleFont extends PDFont {
+	% True if the font is one of the 14 standard fonts defined in PDF 1.4 Reference
+	property isStandard: Boolean;
+	% FirstChar entry; null if LastChar entry is not present or has invalid type
+	property FirstChar: Integer;
+	% LastChar entry; null if LastChar entry is not present or has invalid type
+	property LastChar: Integer;
+	% The size of the Widths array; null if the Widths array is not present or has invalid type
+	property Widths_size: Integer;
+}
+
+type PDType3Font extends PDSimpleFont {
+	% character strings
+	link charStrings: PDContentStream*;
+}
+
+% CID Font dictionary
+type PDCIDFont extends PDFont {
+	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
+	property CIDtoGIDMap: String;
+}
+
+% Type0 font dictionary
+type PDType0Font extends PDFont {
+	% True if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
+	property areRegistryOrderingCompatible: Boolean;
+	% link to the descendant CIDFont
+	link DescendantFonts: PDCIDFont;
+	% font CMap (Encoding entry)
+	link Encoding: PDCMap;
+}
+
+% CMap dictionary or one of the predefined CMap names
+type PDCMap extends PDObject {
+	% name of the CMap (or the value of one of the predefined CMap's)
+	property CMapName: String;
+	% link to the embedded CMap file for an non-standard CMap
+	link embeddedFile: CMapFile?;
+}
+
 % XObject resource
 type PDXObject extends PDResource {
 	% subtype of the XObject resource (Image, Form, PS)
@@ -137,7 +199,7 @@ type PDXObject extends PDResource {
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
-	link SMask: XObject?;
+	link SMask: PDXObject?;
 }
 
 % Image XObject
@@ -148,6 +210,14 @@ type PDXImage extends PDXObject {
 	property Interpolate: Boolean;
 	% image alternates (Alternates key in Image dictionary)
 	link Alternates: PDXImage*;
+	% color rendering intent
+	link Intent: CosRenderingIntent?;
+}
+
+% Inline image object
+type PDInlineImage extends PDXImage {
+	% The SPACE-separated list of stream filters (abbreviated)
+	property F: String;
 }
 
 % Form XObject
@@ -198,22 +268,53 @@ type PDShading extends PDResource {
 type PDAnnot extends PDObject {
 	% annotation subtype
 	property Subtype: String;
-	% appearance stream
+	% annotation opacity (CA key)
+	property CA: Decimal;
+	% annotation flags
+	property F: Integer;
+	% SPACE-separated list of all keys in the annotation's appearance dictionary (AP key)
+	property AP: String;
+	% normal appearance stream (N key in the appearance dictionary) of the annotation
 	link appearance: PDContentStream?;
+	% link to the annotation's color
+	link C: CosReal*;
+	% link to the annotation's interior color
+	link IC: CosReal*;
+	% link to the action associated with the annotation (A entry)
+	link A: PDAction?;
+	% link to the additional actions defined for the annotation (AA entry)
+	link AA: PDAction*;
 }
 
-% PDF interactive form (or AcroForm)
+% Interactive form dictionary
 type PDAcroForm extends PDObject {
-	
+	% NeedAppearances flag
+	property NeedAppearances: Boolean;
+	% all interactive form fields in the document
+	link formFields: PDFormField*;
+}
+
+% Interactive form field
+type PDFormField extends PDObject {
+	% Field type
+	property FT: String;
+	% link to the additional actions defined in the interactive form field dictionary (AA entry)
+	link AA: PDAction*;	
 }
 	
 % the PDF action object
 type PDAction extends PDObject {
 	% action subtype
-	property Subtype: String;
+	property S: String;
+	% next action (Next entry in the action dictionary)
+	link Next: PDAction?;
 }
 
-
+% the Named action object
+type PDNamedAction extends PDAction {
+	% name of the action
+	property N: String;
+}
 
 % the XMP Metadata stream
 type PDMetadata extends PDObject {
@@ -225,4 +326,10 @@ type PDMetadata extends PDObject {
 type PDOutputIntent extends PDObject {
 	% destination output profile
 	link destProfile: ICCOutputProfile?;
+}
+
+% the outline (or bookmark) dictionary
+type PDOutline extends PDObject {
+	% link to the associated action object (A entry in the outline dictionary)
+	link A: PDAction?;
 }

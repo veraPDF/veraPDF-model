@@ -10,7 +10,9 @@ import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
 import org.verapdf.model.pdlayer.PDXObject;
+import org.verapdf.model.pdlayer.PDInlineImage;
 import org.verapdf.model.pdlayer.PDShading;
+import org.verapdf.model.pdlayer.PDFont;
 
 % base class for all operators in the content stream
 type Operator extends Object {
@@ -251,8 +253,9 @@ type OpTextPosition extends Operator {
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
+% Link to the current font. There is no font specified for text in rendering mode 3.
 type OpTextShow extends Operator {
-
+	link font: PDFont?;
 }
 
 %OpTextShow->Op_Tj, Op_TJ, Op_', Op_"
@@ -284,10 +287,24 @@ type Op_sh extends OpShading {
 
 % Inline image operators
 type OpInlineImage extends Operator {
+	
+}
+
+% Begin inline image
+type Op_BI extends OpInlineImage {
 
 }
 
-% OpInlineImage->Op_BI, Op_ID, Op_EI
+% End inline image dictionary
+type Op_ID extends OpInlineImage {
+
+}
+
+% End inline image data
+type Op_EI extends OpInlineImage {
+	% link to the inline image object
+	link inlineImage: PDInlineImage;
+}
 
 % XObject operators
 type OpXObject extends Operator {
