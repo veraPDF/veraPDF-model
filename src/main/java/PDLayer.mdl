@@ -139,8 +139,6 @@ type PDShadingPattern extends PDPattern {
 
 % PDF font dictionary
 type PDFont extends PDResource {
-	% Type entry
-	property Type: String;
 	% font subtype (Subtype entry)
 	property Subtype: String;
 	% base font name (BaseFont entry)
