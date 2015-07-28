@@ -249,6 +249,11 @@ type Op_Tz extends OpTextState {
 	% the horizontal text scaling
 	link scale: CosReal;
 }
+
+type Op_Tr extends OpTextState {
+	% rendering mode
+	property renderingMode: Integer;
+}
 %OpTextState->Op_Tc, Op_Tw, Op_Tz, Op_TL, Op_Tf, Op_Tr, Op_Ts
 
 % Text position operators
