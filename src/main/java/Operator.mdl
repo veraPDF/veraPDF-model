@@ -12,6 +12,7 @@ import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
 import org.verapdf.model.pdlayer.PDXObject;
+import org.verapdf.model.pdlayer.PDInlineImage;
 import org.verapdf.model.pdlayer.PDShading;
 import org.verapdf.model.pdlayer.PDFont;
 
