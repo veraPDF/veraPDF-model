@@ -343,7 +343,22 @@ type OpInlineImage extends Operator {
 	link inlineImageDictionary : CosDict;
 }
 
-% OpInlineImage->Op_BI, Op_ID, Op_EI
+% Begin inline image
+type Op_BI extends OpInlineImage {
+
+}
+
+% End inline image dictionary
+type Op_ID extends OpInlineImage {
+
+}
+
+% End inline image data
+type Op_EI extends OpInlineImage {
+	% link to the inline image object
+	link inlineImage: PDInlineImage;
+}
+
 
 % XObject operators
 type OpXObject extends Operator {

@@ -208,8 +208,14 @@ type PDXImage extends PDXObject {
 	property Interpolate: Boolean;
 	% image alternates (Alternates key in Image dictionary)
 	link Alternates: PDXImage*;
-	%
+	% color rendering intent
 	link Intent: CosRenderingIntent?;
+}
+
+% Inline image object
+type PDInlineImage extends PDXImage {
+	% The SPACE-separated list of stream filters (abbreviated)
+	property F: String;
 }
 
 % Form XObject
