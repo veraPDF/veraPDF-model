@@ -167,7 +167,7 @@ type PDType3Font extends PDSimpleFont {
 % CID Font dictionary
 type PDCIDFont extends PDFont {
 	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
-	property CIDtoGIDMap: String;
+	property CIDToGIDMap: String;
 }
 
 % Type0 font dictionary
