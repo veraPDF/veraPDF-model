@@ -430,3 +430,13 @@ type Op_EX extends OpCompatibility {
 type Op_Undefined extends OpCompatibility {
 
 }
+
+% glyph used in text
+type Glyph extends Object {
+	% font used to render this glyph
+	link font: PDFont;
+	% true if the width of the glyph in the embedded font program is consistent with the width specified in the Font dictionary
+	property isWidthConsistent: Boolean;
+	% true if glyph is present in the font program
+	property isGlyphPresent: Boolean;
+}
