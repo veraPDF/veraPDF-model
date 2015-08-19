@@ -342,8 +342,7 @@ type Op_sh extends OpShading {
 
 % Inline image operators
 type OpInlineImage extends Operator {
-	% link to dictionary containing image parameters
-	link inlineImageDictionary : CosDict;
+
 }
 
 % Begin inline image
@@ -353,7 +352,8 @@ type Op_BI extends OpInlineImage {
 
 % End inline image dictionary
 type Op_ID extends OpInlineImage {
-
+	% link to dictionary containing image parameters
+	link inlineImageDictionary : CosDict;
 }
 
 % End inline image data
@@ -361,7 +361,6 @@ type Op_EI extends OpInlineImage {
 	% link to the inline image object
 	link inlineImage: PDInlineImage;
 }
-
 
 % XObject operators
 type OpXObject extends Operator {
