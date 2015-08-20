@@ -439,3 +439,9 @@ type Glyph extends Object {
 	% true if glyph is present in the font program
 	property isGlyphPresent: Boolean;
 }
+
+% glyph in the composite font
+type CIDGlyph extends Glyph {
+	% CID value of the glyph as derived from the font CMap
+	property CID: Integer;
+}
