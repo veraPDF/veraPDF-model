@@ -40,6 +40,14 @@ type FontProgram extends External {
 
 }
 
+% TrueType font program embedded into PDF document 
+type TrueTypeFontProgram extends FontProgram {
+	% true / false if the corresponding PDF Font is marked as symbolic / non-symbolic in its font dictionary
+	property isSymbolic: Boolean;
+	% number of cmap subtables in the font program
+	property nrCmaps: Integer;
+}
+
 % embedded CMap file
 type CMapFile extends External {
 

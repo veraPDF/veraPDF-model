@@ -169,6 +169,17 @@ type PDSimpleFont extends PDFont {
 	property Encoding: String;
 }
 
+% TrueType font dictionary
+type PDTrueTypeFont extends PDSimpleFont {
+
+}
+
+% Type1 font dictionary
+type PDType1Font extends PDSimpleFont {
+
+}
+
+% Type3 font dictionary
 type PDType3Font extends PDSimpleFont {
 	% character strings
 	link charStrings: PDContentStream*;
