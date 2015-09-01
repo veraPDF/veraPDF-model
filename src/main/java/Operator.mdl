@@ -279,11 +279,15 @@ type Op_TD_Big extends OpTextPosition {
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
-% Link to the current font. There is no font specified for text in rendering mode 3.
 type OpTextShow extends Operator {
+	% Link to the current font. There is no font specified for text in rendering mode 3.
 	link font: PDFont?;
-	% glyphs used in text
-	link usedGlyphs: Glyph+;
+	% Link to all glyphs used in the text. There are no glyphs in case of rendering mode 3
+	link usedGlyphs: Glyph*;
+	% fill color space, if the rendering mode specifies fill operation (0,2,4,6)
+	link fillCS: PDColorSpace?;
+	% stroke color space, if the rendering mode specifies stroke operation (1,2,5,6)
+	link strokeCS: PDColorSpace?;
 }
 
 % Text show operator
@@ -313,7 +317,7 @@ type Op_DoubleQuote extends OpTextShow {
 	% unscaled character spacing
 	link characterSpacing: CosReal;
 }
-%OpTextShow->Op_Tj, Op_TJ, Op_', Op_"
+
 
 % Type3 font operators
 type OpType3Font extends Operator {
