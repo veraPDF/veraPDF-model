@@ -176,7 +176,8 @@ type PDTrueTypeFont extends PDSimpleFont {
 
 % Type1 font dictionary
 type PDType1Font extends PDSimpleFont {
-
+	% the value of the CharSet entry in the font descriptor dictionary
+	property CharSet: String;
 }
 
 % Type3 font dictionary
@@ -189,6 +190,8 @@ type PDType3Font extends PDSimpleFont {
 type PDCIDFont extends PDFont {
 	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
 	property CIDToGIDMap: String;
+	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
+	link CIDSet: CosStream?;
 }
 
 % Type0 font dictionary
