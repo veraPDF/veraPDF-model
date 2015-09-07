@@ -342,6 +342,17 @@ type PDNamedAction extends PDAction {
 	property N: String;
 }
 
+% the GoTo action object
+type PDGoToAction extends PDAction {
+	% link to the destination to jump to
+	link D: CosReal*;
+}
+
+% the GoToRemote action object
+type PDGoToRemoteAction extends PDGoToAction {
+
+}
+
 % the XMP Metadata stream
 type PDMetadata extends PDObject {
 	% XMPPackage for PDMetadata in CosDict or XMPMainPackage for PDMetadata in PDDocument
