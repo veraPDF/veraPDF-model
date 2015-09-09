@@ -21,12 +21,12 @@ type PDObject extends Object {
 
 % the class corresponding to the high level PDF document structure 
 type PDDocument extends PDObject {
+	% the array of output intents of the document
+	link outputIntents: PDOutputIntent*;
 	% the collection of all document pages
 	link pages: PDPage+;
 	% document level metadata
 	link metadata: PDMetadata?;
-	% the array of output intents of the document
-	link outputIntents: PDOutputIntent*;
 	% Interactive Form Dictionary (AcroForm entry in the Catalog)
 	link AcroForm: PDAcroForm?;
 	% additional actions defined for the document (AA entry in the Catalog)
