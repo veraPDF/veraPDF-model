@@ -265,7 +265,7 @@ type Op_Tf extends OpTextState {
 	% font size
 	link size: CosReal;
 	% the text font
-	link font: PDFont;
+	link fontName: CosName;
 }
 
 type Op_Tl extends OpTextState {
