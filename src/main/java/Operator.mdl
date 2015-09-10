@@ -255,6 +255,33 @@ type Op_Tr extends OpTextState {
 	% rendering mode
 	property renderingMode: Integer;
 }
+
+type Op_Tc extends OpTextState {
+	% character spacing
+	link charSpace: CosReal;
+}
+
+type Op_Tf extends OpTextState {
+	% font size
+	link size: CosReal;
+	% the text font
+	link font: PDFont;
+}
+
+type Op_Tl extends OpTextState {
+	% the text leading
+	link leading: CosReal;
+}
+
+type Op_Ts extends OpTextState {
+	% text rise
+	link rise: CosReal;
+}
+
+type Op_Tw extends OpTextState {
+	% word spacing
+	link wordSpace: CosReal;
+}
 %OpTextState->Op_Tc, Op_Tw, Op_Tz, Op_TL, Op_Tf, Op_Tr, Op_Ts
 
 % Text position operators
@@ -276,6 +303,10 @@ type Op_TD_Big extends OpTextPosition {
 	link verticalOffset: CosReal;
 }
 
+type Op_Tm extends OpTextPosition {
+	% elements of text matrix
+	link controlPoints: CosReal+;
+}
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
@@ -324,6 +355,17 @@ type OpType3Font extends Operator {
 
 }
 
+type Op_d0 extends OpType3Font {
+	% the horizontal displacement in the glyph coordinate system
+	link horizontalDisplacement: CosReal;
+	% the vertical displacement in the glyph coordinate system
+	link verticalDisplacement: CosReal;
+}
+
+type Op_d1 extends OpType3Font {
+	% width and bounding box information for the glyph
+	link controlPoints: CosReal+;
+}
 % OpType3Font->Op_d0, Op_d1
 
 % Color operators
