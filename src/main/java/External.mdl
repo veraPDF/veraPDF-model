@@ -50,5 +50,8 @@ type TrueTypeFontProgram extends FontProgram {
 
 % embedded CMap file
 type CMapFile extends External {
-
+	% the value of the WMode entry in the embedded CMap file
+	property WMode: Integer;
+	% the value of the WMode entry in the parent CMap dictionary
+	property dictWMode: Integer;
 }
