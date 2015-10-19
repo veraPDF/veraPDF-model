@@ -36,7 +36,7 @@ type PDDocument extends PDObject {
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
 	% the link to the document structure tree root dictionary
-	link PDStructTreeRoot?;
+	link StructTreeRoot: PDStructTreeRoot?;
 }
 
 % the object representing PDF page	
