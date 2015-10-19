@@ -384,13 +384,13 @@ type PDOutline extends PDObject {
 }
 
 % the structure tree root dictionary
-type PDStructTreeRoot {
+type PDStructTreeRoot extends PDObject {
 	% immediate children of the structure tree root in the structure hierarchy
 	link K: PDStructElem*;
 }
 
 % the structure element dictionary
-type PDStructElem {
+type PDStructElem extends PDObject {
 	% the value of the Type entry
 	property Type: String;
 	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
