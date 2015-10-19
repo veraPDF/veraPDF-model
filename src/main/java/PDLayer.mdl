@@ -35,6 +35,8 @@ type PDDocument extends PDObject {
 	link OpenAction: PDAction?;
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
+	% the link to the document structure tree root dictionary
+	link StructTreeRoot: PDStructTreeRoot?;
 }
 
 % the object representing PDF page	
@@ -379,4 +381,18 @@ type PDOutputIntent extends PDObject {
 type PDOutline extends PDObject {
 	% link to the associated action object (A entry in the outline dictionary)
 	link A: PDAction?;
+}
+
+% the structure tree root dictionary
+type PDStructTreeRoot extends PDObject {
+	% immediate children of the structure tree root in the structure hierarchy
+	link K: PDStructElem*;
+}
+
+% the structure element dictionary
+type PDStructElem extends PDObject {
+	% the value of the Type entry
+	property Type: String;
+	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
+	link K: PDStructElem*;
 }
