@@ -5,6 +5,7 @@ import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
+import org.verapdf.model.coslayer.CosUnicodeName;
 
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
@@ -108,12 +109,16 @@ type PDCalRGB extends PDColorSpace {
 type PDSeparation extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
+	% colorant name
+	link colorantName: CosUnicodeName;
 }
 
 % DeviceN color space
 type PDDeviceN extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
+	% colorant names
+	link colorantNames: CosUnicodeName+;
 }
 
 % Indexed color space
@@ -146,7 +151,7 @@ type PDFont extends PDResource {
 	% font subtype (Subtype entry)
 	property Subtype: String;
 	% base font name (BaseFont entry)
-	property BaseFont: String;
+	link BaseFont: CosUnicodeName;
 	% true if the font flags in the font descriptor dictionary mark indicate that the font is symbolic (the entry /Flags has bit 3 set to 1 and bit 6 set to 0)
 	property isSymbolic: Boolean;
 	% embedded font program for Type 1, TrueType or CID Font
@@ -395,4 +400,6 @@ type PDStructElem extends PDObject {
 	property Type: String;
 	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
 	link K: PDStructElem*;
+	% structure type
+	link S: CosUnicodeName;
 }
