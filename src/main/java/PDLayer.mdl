@@ -6,6 +6,7 @@ import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosUnicodeName;
+import org.verapdf.model.coslayer.CosBBox;
 
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
@@ -50,6 +51,16 @@ type PDPage extends PDObject {
 	link contentStream: PDContentStream;
 	% group attributes dictionary
 	link Group: PDGroup?;
+	% page media box
+	link MediaBox: CosBBox;
+	% page crop box
+	link CropBox: CosBBox?;
+	% page bleed box
+	link BleedBox: CosBBox?;
+	% page trim box
+	link TrimBox: CosBBox?;
+	% page art box
+	link ArtBox: CosBBox?;
 }
 
 % the object representing content stream together with the resource dictionary
