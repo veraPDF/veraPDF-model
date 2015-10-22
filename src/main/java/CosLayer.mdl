@@ -45,7 +45,8 @@ type CosDocument extends CosObject {
 	link document: PDDocument;
 	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
 	property Marked: Boolean;
-	
+	% link to the requirements array
+	link Requirements: CosDict*;	
 }
 
 % PDF Indirect object
