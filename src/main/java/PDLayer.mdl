@@ -5,6 +5,8 @@ import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
+import org.verapdf.model.coslayer.CosUnicodeName;
+import org.verapdf.model.coslayer.CosBBox;
 
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
@@ -37,6 +39,8 @@ type PDDocument extends PDObject {
 	link Outlines: PDOutline*;
 	% the link to the document structure tree root dictionary
 	link StructTreeRoot: PDStructTreeRoot?;
+	% link to the alternate presentations of the document (/AlternatePresentations entry in the document names dictionary)
+	link AlternatePresentations: CosDict*;
 }
 
 % the object representing PDF page	
@@ -49,6 +53,18 @@ type PDPage extends PDObject {
 	link contentStream: PDContentStream;
 	% group attributes dictionary
 	link Group: PDGroup?;
+	% page media box
+	link MediaBox: CosBBox;
+	% page crop box
+	link CropBox: CosBBox?;
+	% page bleed box
+	link BleedBox: CosBBox?;
+	% page trim box
+	link TrimBox: CosBBox?;
+	% page art box
+	link ArtBox: CosBBox?;
+	% link to the presentation steps dictionary
+	link PresSteps: CosDict*;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -108,12 +124,16 @@ type PDCalRGB extends PDColorSpace {
 type PDSeparation extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
+	% colorant name
+	link colorantName: CosUnicodeName;
 }
 
 % DeviceN color space
 type PDDeviceN extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
+	% colorant names
+	link colorantNames: CosUnicodeName+;
 }
 
 % Indexed color space
@@ -146,7 +166,7 @@ type PDFont extends PDResource {
 	% font subtype (Subtype entry)
 	property Subtype: String;
 	% base font name (BaseFont entry)
-	property BaseFont: String;
+	link BaseFont: CosUnicodeName;
 	% true if the font flags in the font descriptor dictionary mark indicate that the font is symbolic (the entry /Flags has bit 3 set to 1 and bit 6 set to 0)
 	property isSymbolic: Boolean;
 	% embedded font program for Type 1, TrueType or CID Font
@@ -395,4 +415,6 @@ type PDStructElem extends PDObject {
 	property Type: String;
 	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
 	link K: PDStructElem*;
+	% structure type
+	link S: CosUnicodeName;
 }
