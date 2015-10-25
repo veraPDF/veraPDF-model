@@ -43,6 +43,10 @@ type CosDocument extends CosObject {
 	property binaryHeaderComplyPDFA: Boolean;
 	% link to the high-level PDF Document structure
 	link document: PDDocument;
+	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
+	property Marked: Boolean;
+	% link to the requirements array
+	link Requirements: CosDict*;	
 }
 
 % PDF Indirect object
@@ -86,11 +90,20 @@ type CosInteger extends CosNumber {
 
 % PDF Name type	
 type CosName extends CosObject {
-	% Unicode string representation of the Name object after applying escape mechanism and converting to Unicode using Utf8 encoding
+	% Byte sequence representation of the Name object after applying escape mechanism
 	property value: String;
-	% Original length of the name after decoding escape sequences, but before applying Utf8 encoding
+	% Original length of the name after decoding escape sequences
 	property origLength: Integer;
 }
+
+% PDF Name representing a Utf8 string
+type CosUnicodeName extends CosName {
+	% indicates if the Name represents a Unicode string correctly encoded by Utf8
+	property isValidUtf8: Boolean;
+	% the Unicode value of the Name object
+	property unicodeValue: String;
+}
+
 
 % PDF Name representing rendering intent	
 type CosRenderingIntent extends CosName {

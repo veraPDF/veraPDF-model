@@ -5,6 +5,8 @@ import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
+import org.verapdf.model.coslayer.CosUnicodeName;
+import org.verapdf.model.coslayer.CosBBox;
 
 import org.verapdf.model.operator.Operator;
 import org.verapdf.model.external.ICCOutputProfile;
@@ -21,12 +23,12 @@ type PDObject extends Object {
 
 % the class corresponding to the high level PDF document structure 
 type PDDocument extends PDObject {
+	% the array of output intents of the document
+	link outputIntents: PDOutputIntent*;
 	% the collection of all document pages
 	link pages: PDPage+;
 	% document level metadata
 	link metadata: PDMetadata?;
-	% the array of output intents of the document
-	link outputIntents: PDOutputIntent*;
 	% Interactive Form Dictionary (AcroForm entry in the Catalog)
 	link AcroForm: PDAcroForm?;
 	% additional actions defined for the document (AA entry in the Catalog)
@@ -35,6 +37,10 @@ type PDDocument extends PDObject {
 	link OpenAction: PDAction?;
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
+	% the link to the document structure tree root dictionary
+	link StructTreeRoot: PDStructTreeRoot?;
+	% link to the alternate presentations of the document (/AlternatePresentations entry in the document names dictionary)
+	link AlternatePresentations: CosDict*;
 }
 
 % the object representing PDF page	
@@ -47,6 +53,18 @@ type PDPage extends PDObject {
 	link contentStream: PDContentStream;
 	% group attributes dictionary
 	link Group: PDGroup?;
+	% page media box
+	link MediaBox: CosBBox;
+	% page crop box
+	link CropBox: CosBBox?;
+	% page bleed box
+	link BleedBox: CosBBox?;
+	% page trim box
+	link TrimBox: CosBBox?;
+	% page art box
+	link ArtBox: CosBBox?;
+	% link to the presentation steps dictionary
+	link PresSteps: CosDict*;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -106,12 +124,16 @@ type PDCalRGB extends PDColorSpace {
 type PDSeparation extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
+	% colorant name
+	link colorantName: CosUnicodeName;
 }
 
 % DeviceN color space
 type PDDeviceN extends PDColorSpace {
 	% alternate color space
 	link alternate: PDColorSpace;
+	% colorant names
+	link colorantNames: CosUnicodeName+;
 }
 
 % Indexed color space
@@ -139,19 +161,21 @@ type PDShadingPattern extends PDPattern {
 
 % PDF font dictionary
 type PDFont extends PDResource {
-	% Type entry
+	% font type (Type entry)
 	property Type: String;
 	% font subtype (Subtype entry)
 	property Subtype: String;
 	% base font name (BaseFont entry)
-	property BaseFont: String;
+	link BaseFont: CosUnicodeName;
+	% true if the font flags in the font descriptor dictionary mark indicate that the font is symbolic (the entry /Flags has bit 3 set to 1 and bit 6 set to 0)
+	property isSymbolic: Boolean;
 	% embedded font program for Type 1, TrueType or CID Font
 	link fontFile: FontProgram?;
 }
 
 % One of the simple font types (Type 1, TrueType, Type 3)
 type PDSimpleFont extends PDFont {
-	% True if the font is one of the 14 standard fonts defined in PDF 1.4 Reference
+	% true if the font is one of the 14 standard fonts defined in PDF 1.4 Reference
 	property isStandard: Boolean;
 	% FirstChar entry; null if LastChar entry is not present or has invalid type
 	property FirstChar: Integer;
@@ -159,8 +183,26 @@ type PDSimpleFont extends PDFont {
 	property LastChar: Integer;
 	% The size of the Widths array; null if the Widths array is not present or has invalid type
 	property Widths_size: Integer;
+	% String representation of the font encoding: 
+	% - null if the /Encoding entry is not present in the font dictionary
+	% - if /Encoding entry in the font dictionary if of Name type, then the value of this entry;
+	% - if /Encoding entry is a dictionary, which does not contain /Differences array, then the value of /BaseEncoding entry in this dictionary (or null, if /BaseEncoding is also not present)
+	% - the string "Custom", of the /Encoding entry is a dictionary containing /Differences key
+	property Encoding: String;
 }
 
+% TrueType font dictionary
+type PDTrueTypeFont extends PDSimpleFont {
+
+}
+
+% Type1 font dictionary
+type PDType1Font extends PDSimpleFont {
+	% the value of the CharSet entry in the font descriptor dictionary
+	property CharSet: String;
+}
+
+% Type3 font dictionary
 type PDType3Font extends PDSimpleFont {
 	% character strings
 	link charStrings: PDContentStream*;
@@ -169,7 +211,9 @@ type PDType3Font extends PDSimpleFont {
 % CID Font dictionary
 type PDCIDFont extends PDFont {
 	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
-	property CIDtoGIDMap: String;
+	property CIDToGIDMap: String;
+	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
+	link CIDSet: CosStream?;
 }
 
 % Type0 font dictionary
@@ -210,8 +254,14 @@ type PDXImage extends PDXObject {
 	property Interpolate: Boolean;
 	% image alternates (Alternates key in Image dictionary)
 	link Alternates: PDXImage*;
-	%
+	% color rendering intent
 	link Intent: CosRenderingIntent?;
+}
+
+% Inline image object
+type PDInlineImage extends PDXImage {
+	% The SPACE-separated list of stream filters (abbreviated)
+	property F: String;
 }
 
 % Form XObject
@@ -252,6 +302,8 @@ type PDExtGState extends PDResource {
 	property CA: Decimal;
 	% the rendering intent
 	link RI: CosRenderingIntent?;
+	% font size
+	link fontSize: CosReal?;
 }
 
 % Shading resource
@@ -270,6 +322,10 @@ type PDAnnot extends PDObject {
 	property F: Integer;
 	% SPACE-separated list of all keys in the annotation's appearance dictionary (AP key)
 	property AP: String;
+	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null,  if this entry is not present
+	property FT: String;
+	% the type of the normal appearance entry (/N key) in the annotation appearance dictionary (/AP key) or null, if the normal appearance is not present
+	property N_type: String;
 	% normal appearance stream (N key in the appearance dictionary) of the annotation
 	link appearance: PDContentStream?;
 	% link to the annotation's color
@@ -302,7 +358,7 @@ type PDFormField extends PDObject {
 type PDAction extends PDObject {
 	% action subtype
 	property S: String;
-	% next action (Next netry in the action dictionary)
+	% next action (Next entry in the action dictionary)
 	link Next: PDAction?;
 }
 
@@ -310,6 +366,17 @@ type PDAction extends PDObject {
 type PDNamedAction extends PDAction {
 	% name of the action
 	property N: String;
+}
+
+% the GoTo action object
+type PDGoToAction extends PDAction {
+	% link to the destination to jump to
+	link D: CosReal*;
+}
+
+% the GoToRemote action object
+type PDGoToRemoteAction extends PDGoToAction {
+
 }
 
 % the XMP Metadata stream
@@ -334,4 +401,20 @@ type PDOutputIntent extends PDObject {
 type PDOutline extends PDObject {
 	% link to the associated action object (A entry in the outline dictionary)
 	link A: PDAction?;
+}
+
+% the structure tree root dictionary
+type PDStructTreeRoot extends PDObject {
+	% immediate children of the structure tree root in the structure hierarchy
+	link K: PDStructElem*;
+}
+
+% the structure element dictionary
+type PDStructElem extends PDObject {
+	% the value of the Type entry
+	property Type: String;
+	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
+	link K: PDStructElem*;
+	% structure type
+	link S: CosUnicodeName;
 }
