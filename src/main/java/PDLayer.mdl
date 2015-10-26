@@ -338,7 +338,7 @@ type PDHalftone extends PDObject {
 	% Halftone type
 	property HalftoneType: Integer;
 	% Halftone name
-	property HalftoneName: String?;
+	property HalftoneName: String;
 }
 
 % Shading resource
@@ -372,9 +372,9 @@ type PDAnnot extends PDObject {
 	% link to the additional actions defined for the annotation (AA entry)
 	link AA: PDAction*;
 	% the width of the annotation computed as an absolute value of the difference of value 1 and value 3 of the Rect entry
-	property width: Real;
+	property width: Decimal;
 	% the height of the annotation computed as an absolute value of the difference of value 2 and value 4 of the Rect entry
-	property height: Real;
+	property height: Decimal;
 }
 
 % Interactive form dictionary
