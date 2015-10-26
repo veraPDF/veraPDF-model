@@ -480,6 +480,8 @@ type Op_Undefined extends OpCompatibility {
 
 % glyph used in text
 type Glyph extends Object {
+	% glyph name, or empty string if the glyph is not identified by the name (as in case of CID fonts)
+	property name: String;
 	% true if the width of the glyph in the embedded font program is consistent with the width specified in the Font dictionary
 	property isWidthConsistent: Boolean;
 	% true if glyph is present in the font program

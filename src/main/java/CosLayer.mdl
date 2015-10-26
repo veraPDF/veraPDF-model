@@ -3,6 +3,7 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
+import org.verapdf.model.external.EmbeddedFile;
 
 % Parent type for all basic PDF objects
 type CosObject extends Object {
@@ -30,7 +31,7 @@ type CosDocument extends CosObject {
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% link to all embedded file specifications
-	link EmbeddedFiles: CosFileSpecification;
+	link EmbeddedFiles: CosFileSpecification*;
 	% link to the document cross reference table
 	link xref: CosXRef;
 	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
@@ -51,7 +52,9 @@ type CosDocument extends CosObject {
 	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
 	property Marked: Boolean;
 	% link to the requirements array
-	link Requirements: CosDict*;	
+	link Requirements: CosDict*;
+	% NeedsRendering entry in the document's Catalog (false by default)
+	property NeedsRendering: Boolean;
 }
 
 % PDF Indirect object
@@ -161,8 +164,12 @@ type CosStream extends CosDict {
 
 % File specification dictionary
 type CosFileSpecification extends CosDict {
-   % string representation of the EF dictionary, or null if the EF key is not present
-   property EF: String;
+   % link to the embedded file stream
+   link EF: EmbeddedFile?;
+   % a file specification string (F key)
+   property F: String;
+   % a unicode file specification (UF key)
+   property UF: String;
 }
 	
 % Trailer of the document	
