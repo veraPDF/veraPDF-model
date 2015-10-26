@@ -46,6 +46,8 @@ type TrueTypeFontProgram extends FontProgram {
 	property isSymbolic: Boolean;
 	% number of cmap subtables in the font program
 	property nrCmaps: Integer;
+	% true if the font program contains the Microsoft Symbol (3,0 – Platform ID=3, Encoding ID=0) cmap subtable
+	property cmap30Present: Boolean;
 }
 
 % embedded CMap file
@@ -54,4 +56,26 @@ type CMapFile extends External {
 	property WMode: Integer;
 	% the value of the WMode entry in the parent CMap dictionary
 	property dictWMode: Integer;
+}
+
+type JPEG2000 extends External {
+	% the number of colour channels
+	property nrColorChannels: Integer;
+	% the number of colour space specifications
+	property nrColorSpaceSpecs: Integer;
+	% the number of colour space specifications with APPROX filed set to 0x01
+	property nrColorSpacesWithApproxField: Integer;
+	% the METH entry in the 'colr' box specification
+	property colrMethod: Integer;
+	% EnumCS (enumerated color space) field of in the 'colr" box specification
+	property colrEnumCS: Integer;
+	% image bit depth
+	property bitDepth: Integer;
+	% true if the 'bpcc' box is present and, thus, the bit depth is not constant across all components
+	property bpccBoxPresent: Boolean;
+}
+
+EmbeddedFile extends External {
+	% true if this file is a valid PDF/A document (Part 1 or Part 2) on its own
+	property isValidPDFA12: Boolean;
 }

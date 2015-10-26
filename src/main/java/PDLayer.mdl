@@ -1,6 +1,8 @@
 package org.verapdf.model.pdlayer;
 
 import org.verapdf.model.baselayer.Object;
+
+import org.verapdf.model.coslayer.CosObject;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
@@ -9,10 +11,13 @@ import org.verapdf.model.coslayer.CosUnicodeName;
 import org.verapdf.model.coslayer.CosBBox;
 
 import org.verapdf.model.operator.Operator;
+
 import org.verapdf.model.external.ICCOutputProfile;
 import org.verapdf.model.external.ICCInputProfile;
 import org.verapdf.model.external.FontProgram;
 import org.verapdf.model.external.CMapFile;
+import org.verapdf.model.external.JPEG2000;
+
 import org.verapdf.model.xmplayer.XMPPackage;
 
 
@@ -47,8 +52,8 @@ type PDDocument extends PDObject {
 type PDPage extends PDObject {
 	% all page annotations
 	link annots: PDAnnot*;
-	% document level action
-	link action: PDAction?;
+	% additional actions defined for the page (AA entry)
+	link AA: PDAction*;
 	% page content stream
 	link contentStream: PDContentStream;
 	% group attributes dictionary
@@ -126,6 +131,9 @@ type PDSeparation extends PDColorSpace {
 	link alternate: PDColorSpace;
 	% colorant name
 	link colorantName: CosUnicodeName;
+	% true if this is the first occurrence the colorant with this name, or if this is the repeating occurrence and
+	% it has the same colorant name have the same titTransform and Alternate color space (compared as PDF objects)
+	property areTintAndAlternateConsistent: Boolean;
 }
 
 % DeviceN color space
@@ -134,6 +142,10 @@ type PDDeviceN extends PDColorSpace {
 	link alternate: PDColorSpace;
 	% colorant names
 	link colorantNames: CosUnicodeName+;
+	% link to all colorants defined in the Colorants entry of the attributes dictionary
+	link Colorants: PDSeparation*;
+	% true if all colorant names are present as keys in the Colorants dictionary of the DeviceN attributes dictionary
+	property areColorantsPresent: Boolean;
 }
 
 % Indexed color space
@@ -193,13 +205,17 @@ type PDSimpleFont extends PDFont {
 
 % TrueType font dictionary
 type PDTrueTypeFont extends PDSimpleFont {
-
+	% true if all glyph names in the differences array of the Encoding dictionary are a part of the Adobe Glyph List
+	% and the embedded font program contains the Microsoft Unicode (3,1 - Platform ID=3, Encoding ID=1) cmap subtable
+	property differencesAreUnicodeCompliant: Boolean;
 }
 
 % Type1 font dictionary
 type PDType1Font extends PDSimpleFont {
 	% the value of the CharSet entry in the font descriptor dictionary
 	property CharSet: String;
+	% true if the CharSet is present and correctly lists all glyphs present in the embedded font program
+	property charSetListsAllGlyphs: Boolean;
 }
 
 % Type3 font dictionary
@@ -214,16 +230,22 @@ type PDCIDFont extends PDFont {
 	property CIDToGIDMap: String;
 	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
 	link CIDSet: CosStream?;
+	% true if the CIDSet is present and correctly lists all glyphs present in the embedded font program
+	property cidSetListsAllGlyphs: Boolean;	
 }
 
 % Type0 font dictionary
 type PDType0Font extends PDFont {
-	% True if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
+	% true if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
 	property areRegistryOrderingCompatible: Boolean;
+	% true if the Supplement key in the CIDFont is greater or equal to the Supplement key in the CMap dictionary
+	property isSupplementCompatible: Boolean;
 	% link to the descendant CIDFont
 	link DescendantFonts: PDCIDFont;
 	% font CMap (Encoding entry)
 	link Encoding: PDCMap;
+	% the name of the CMap
+	property cmapName: String;
 }
 
 % CMap dictionary or one of the predefined CMap names
@@ -250,12 +272,14 @@ type PDXObject extends PDResource {
 type PDXImage extends PDXObject {
 	% image color space
 	link imageCS: PDColorSpace;
-	% Interpolate key in the image dictionary
+	% Interpolate key in the image dictionary or the value of the I key in the inline image dictionary
 	property Interpolate: Boolean;
 	% image alternates (Alternates key in Image dictionary)
 	link Alternates: PDXImage*;
 	% color rendering intent
 	link Intent: CosRenderingIntent?;
+	% in case the image stream uses JPX compression, the link to the corresponding JPEG2000 image
+	link jpxStream: JPEG2000?;
 }
 
 % Inline image object
@@ -275,7 +299,7 @@ type PDXForm extends PDXObject {
 	% form content
 	link contentStream: PDContentStream;
 	% link to the group attributes dictionary
-	link Group: PDGroup;
+	link Group: PDGroup?;
 }
 
 % Group attributes dictionary
@@ -292,6 +316,10 @@ type PDExtGState extends PDResource {
 	property TR: String;
 	% String representation of the TR2 key ("Identity", "Default" or "Custom")
 	property TR2: String;
+	% Halftone dictionary
+	link HT: PDHalftone;
+	% Halftone phase
+	link HTP: CosObject?;	
 	% String representation of the SMask key ("None" or "Custom")
 	property SMask: String;
 	% blend mode
@@ -304,6 +332,13 @@ type PDExtGState extends PDResource {
 	link RI: CosRenderingIntent?;
 	% font size
 	link fontSize: CosReal?;
+}
+
+type PDHalftone extends PDObject {
+	% Halftone type
+	property HalftoneType: Integer;
+	% Halftone name
+	property HalftoneName: String?;
 }
 
 % Shading resource
@@ -336,12 +371,18 @@ type PDAnnot extends PDObject {
 	link A: PDAction?;
 	% link to the additional actions defined for the annotation (AA entry)
 	link AA: PDAction*;
+	% the width of the annotation computed as an absolute value of the difference of value 1 and value 3 of the Rect entry
+	property width: Real;
+	% the height of the annotation computed as an absolute value of the difference of value 2 and value 4 of the Rect entry
+	property height: Real;
 }
 
 % Interactive form dictionary
 type PDAcroForm extends PDObject {
 	% NeedAppearances flag
 	property NeedAppearances: Boolean;
+	% the value of the XFA key
+	link XFA: CosObject?;
 	% all interactive form fields in the document
 	link formFields: PDFormField*;
 }
@@ -392,9 +433,11 @@ type PDMetadata extends PDObject {
 % the output intent dictionary
 type PDOutputIntent extends PDObject {
 	% string representation of the indirect link to the ICC output profile
-	property destOutputProfileRef: String;
+	property destOutputProfileIndirect: String;
 	% destination output profile
 	link destProfile: ICCOutputProfile?;
+	% the link to the destination output profile reference dictionary as defined by PDF/X-4p standard (ISO 15930-7:2010, Annex A)
+	link DestOutputProfileRef: CosDict?;
 }
 
 % the outline (or bookmark) dictionary
