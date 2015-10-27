@@ -177,7 +177,9 @@ type PDFont extends PDResource {
 	property Type: String;
 	% font subtype (Subtype entry)
 	property Subtype: String;
-	% base font name (BaseFont entry)
+	% font name defined by BaseFont entry in the font dictionary and FontName key in the font descriptor
+	property fontName: String;
+	% link to the name Object referenced by BaseFont key
 	link BaseFont: CosUnicodeName;
 	% true if the font flags in the font descriptor dictionary mark indicate that the font is symbolic (the entry /Flags has bit 3 set to 1 and bit 6 set to 0)
 	property isSymbolic: Boolean;
