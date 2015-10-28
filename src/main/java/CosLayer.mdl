@@ -3,6 +3,7 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
+import org.verapdf.model.external.EmbeddedFile;
 
 % Parent type for all basic PDF objects
 type CosObject extends Object {
@@ -30,7 +31,7 @@ type CosDocument extends CosObject {
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% link to all embedded file specifications
-	link EmbeddedFiles: CosFileSpecification;
+	link EmbeddedFiles: CosFileSpecification*;
 	% link to the document cross reference table
 	link xref: CosXRef;
 	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
@@ -43,6 +44,12 @@ type CosDocument extends CosObject {
 	property binaryHeaderComplyPDFA: Boolean;
 	% link to the high-level PDF Document structure
 	link document: PDDocument;
+	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
+	property Marked: Boolean;
+	% link to the requirements array
+	link Requirements: CosDict*;
+	% NeedsRendering entry in the document's Catalog (false by default)
+	property NeedsRendering: Boolean;
 }
 
 % PDF Indirect object
@@ -86,11 +93,20 @@ type CosInteger extends CosNumber {
 
 % PDF Name type	
 type CosName extends CosObject {
-	% Unicode string representation of the Name object after applying escape mechanism and converting to Unicode using Utf8 encoding
+	% Byte sequence representation of the Name object after applying escape mechanism
 	property value: String;
-	% Original length of the name after decoding escape sequences, but before applying Utf8 encoding
+	% Original length of the name after decoding escape sequences
 	property origLength: Integer;
 }
+
+% PDF Name representing a Utf8 string
+type CosUnicodeName extends CosName {
+	% indicates if the Name represents a Unicode string correctly encoded by Utf8
+	property isValidUtf8: Boolean;
+	% the Unicode value of the Name object
+	property unicodeValue: String;
+}
+
 
 % PDF Name representing rendering intent	
 type CosRenderingIntent extends CosName {
@@ -141,8 +157,14 @@ type CosStream extends CosDict {
 
 % File specification dictionary
 type CosFileSpecification extends CosDict {
-   % string representation of the EF dictionary, or null if the EF key is not present
-   property EF: String;
+   % link to the embedded file stream
+   link EF: EmbeddedFile?;
+   % a file specification string (F key)
+   property F: String;
+   % a unicode file specification (UF key)
+   property UF: String;
+   % the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
+   property AFRelationship: String;
 }
 	
 % Trailer of the document	
