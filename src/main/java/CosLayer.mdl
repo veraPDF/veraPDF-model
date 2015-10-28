@@ -163,6 +163,8 @@ type CosFileSpecification extends CosDict {
    property F: String;
    % a unicode file specification (UF key)
    property UF: String;
+   % the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
+   property AFRelationship: String;
 }
 	
 % Trailer of the document	

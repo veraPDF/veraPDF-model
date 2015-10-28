@@ -76,6 +76,8 @@ type JPEG2000 extends External {
 }
 
 type EmbeddedFile extends External {
+	% MIME type of the embedded file (/Subtype entry in the embedded file dictionary)
+	property Subtype: String;
 	% true if this file is a valid PDF/A document (Part 1 or Part 2) on its own
 	property isValidPDFA12: Boolean;
 }
