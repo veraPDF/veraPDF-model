@@ -3,6 +3,7 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
+import org.verapdf.model.external.EmbeddedFile;
 
 % Parent type for all basic PDF objects
 type CosObject extends Object {
@@ -19,8 +20,8 @@ type CosDocument extends CosObject {
 	property version: Decimal;
 	% true if the OCProperties key is present in the document Catalog
 	property isOptionalContentPresent: Boolean;
-	% true if the end of PDF file complies PDF/A requirements (no data after the last end-of-file marker except a single optional end-of-line marker)
-	property eofCompliesPDFA: Boolean;
+	%
+	property postEOFDataSize: Integer;
 	% true if Info dictionary is present and synchronized with the document metadata
 	property doesInfoMatchXMP: Boolean;
 	% id of the first page trailer, if the document is linearized. Null, if the document is not linearized
@@ -30,19 +31,30 @@ type CosDocument extends CosObject {
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% link to all embedded file specifications
-	link EmbeddedFiles: CosFileSpecification;
+	link EmbeddedFiles: CosFileSpecification*;
 	% link to the document cross reference table
 	link xref: CosXRef;
 	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
-	% true if the first line of the document complies to PDF/A standard
-	property pdfHeaderCompliesPDFA: Boolean;
-	% true if the second line of the document is a comment with at least 4 symbols in the code range 128-255 as required by PDF/A standard
-	property binaryHeaderComplyPDFA: Boolean;
+	%
+    property headerOffset: Integer;
+    %
+    property header: String;
+    %
+    property headerByte1: Integer;
+    property headerByte2: Integer;
+    property headerByte3: Integer;
+    property headerByte4: Integer;
 	% link to the high-level PDF Document structure
 	link document: PDDocument;
+	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
+	property Marked: Boolean;
+	% link to the requirements array
+	link Requirements: CosDict*;
+	% NeedsRendering entry in the document's Catalog (false by default)
+	property NeedsRendering: Boolean;
 }
 
 % PDF Indirect object
@@ -86,11 +98,20 @@ type CosInteger extends CosNumber {
 
 % PDF Name type	
 type CosName extends CosObject {
-	% Unicode string representation of the Name object after applying escape mechanism and converting to Unicode using Utf8 encoding
-	property value: String;
-	% Original length of the name after decoding escape sequences, but before applying Utf8 encoding
+	% Byte sequence representation of the Name object after applying escape mechanism
+	property internalRepresentation: String;
+	% Original length of the name after decoding escape sequences
 	property origLength: Integer;
 }
+
+% PDF Name representing a Utf8 string
+type CosUnicodeName extends CosName {
+	% indicates if the Name represents a Unicode string correctly encoded by Utf8
+	property isValidUtf8: Boolean;
+	% the Unicode value of the Name object
+	property unicodeValue: String;
+}
+
 
 % PDF Name representing rendering intent	
 type CosRenderingIntent extends CosName {
@@ -104,7 +125,7 @@ type CosString extends CosObject {
 	% true if the string is stored in Hex format
 	property isHex: Boolean;
 	% true if the all non-white-space characters if the hexadecimal string belong to the range 0-9, a-f, A-F
-	property isHexSymbols: Boolean;
+	property containsOnlyHex: Boolean;
 	% for hexadecimal strings the number of Hex digits (non-white-space characters in the range 0-9, a-f, A-F); 0 for strings in standard format
 	property hexCount: Integer;
 }
@@ -133,16 +154,24 @@ type CosStream extends CosDict {
 	property FFilter: String;
 	% represents value of FDecodeParms key or null if stream does not contain this key
 	property FDecodeParms: String;
-	% true if spacings around keywords 'stream' and 'endstream' comply to the PDF/A standard
-	property spacingCompliesPDFA: Boolean;
+	% true if spacings around keywords 'stream' comply to the PDF/A standard
+	property streamKeywordCRLFCompliant: Boolean;
+	% true if spacings around keywords 'endstream' comply to the PDF/A standard
+	property endstreamKeywordEOLCompliant: Boolean;
 	% true if the value of Length key matches the actual length of the stream
 	property isLengthCorrect: Boolean;
 }
 
 % File specification dictionary
 type CosFileSpecification extends CosDict {
-   % string representation of the EF dictionary, or null if the EF key is not present
-   property EF: String;
+   % link to the embedded file stream
+   link EF: EmbeddedFile?;
+   % a file specification string (F key)
+   property F: String;
+   % a unicode file specification (UF key)
+   property UF: String;
+   % the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
+   property AFRelationship: String;
 }
 	
 % Trailer of the document	
@@ -172,7 +201,7 @@ type CosBBox extends CosArray {
 % Cross reference table of the document
 type CosXRef extends CosObject {
 	% true if headers of all subsections of the cross reference table comply to PDF/A standard
-	property xrefHeaderSpacingsComplyPDFA: Boolean;
+	property subsectionHeaderSpaceSeparated: Boolean;
 	% true if the 'xref' keyword and the following cross reference subsection header are separated by a single EOL marker
 	property xrefEOLMarkersComplyPDFA: Boolean;
 }
