@@ -173,7 +173,7 @@
 					<dependency>
 						<groupId>org.verapdf</groupId>
 						<artifactId>org.verapdf</artifactId>
-						<version>[0.5.0,0.6.0)</version>
+						<version>[0.6.0,0.7.0)</version>
 					</dependency>
 				</dependencies>
 			</plugin>
