@@ -41,8 +41,6 @@ type CosDocument extends CosObject {
 	%
     property headerOffset: Integer;
     %
-    property header: String;
-    %
     property headerByte1: Integer;
     property headerByte2: Integer;
     property headerByte3: Integer;
@@ -100,8 +98,6 @@ type CosInteger extends CosNumber {
 type CosName extends CosObject {
 	% Byte sequence representation of the Name object after applying escape mechanism
 	property internalRepresentation: String;
-	% Original length of the name after decoding escape sequences
-	property origLength: Integer;
 }
 
 % PDF Name representing a Utf8 string
