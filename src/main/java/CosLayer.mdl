@@ -100,8 +100,6 @@ type CosInteger extends CosNumber {
 type CosName extends CosObject {
 	% Byte sequence representation of the Name object after applying escape mechanism
 	property internalRepresentation: String;
-	% Original length of the name after decoding escape sequences
-	property origLength: Integer;
 }
 
 % PDF Name representing a Utf8 string
