@@ -41,6 +41,8 @@ type CosDocument extends CosObject {
 	%
     property headerOffset: Integer;
     %
+    property header: String;
+    %
     property headerByte1: Integer;
     property headerByte2: Integer;
     property headerByte3: Integer;
