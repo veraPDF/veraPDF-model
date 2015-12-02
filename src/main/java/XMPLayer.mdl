@@ -10,7 +10,7 @@ type XMPObject extends Object {
 
 % XMP package
 type XMPPackage extends XMPObject {
-    % collection of all useя d schemas
+    % collection of all properties
     link Properties: XMPProperty*;
     % message of the error that occured while parsing xmp, null if there were no errors while parsing
     property errorMessage: String;
