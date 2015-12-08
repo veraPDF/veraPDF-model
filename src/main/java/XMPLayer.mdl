@@ -3,7 +3,7 @@ package org.verapdf.model.xmplayer;
 import org.verapdf.model.baselayer.Object;
 import java.util.List;
 
-% Parent type for all xmp objects
+% Parent type for all XMP objects
 type XMPObject extends Object {
     
 }
@@ -12,23 +12,19 @@ type XMPObject extends Object {
 type XMPPackage extends XMPObject {
     % collection of all properties
     link Properties: XMPProperty*;
-    % message of the error that occured while parsing xmp, null if there were no errors while parsing
-    property errorMessage: String;
-    % bytes attribute in header, null if it is not present
+
+    % true if metadata has right prefix and parsed with prefix determined encoding
+    property isMetadataParsed: Boolean;
+    % true if metadata is well formed xmp package
+    property isWellFormedXMP: Boolean;
+	% bytes attribute in header, null if it is not present
     property bytes: String;
     % encoding attribute in header, null if it is not present
     property encoding: String;
-	% true if metadata is well formed xmp package
-    property isWellFormed: Boolean;
-
-	% Next three properties can be included in the previous one
-
-	% true if metadata has right prefix and parsed with prefix determined encoding
-    property isMetadataParsed: Boolean;
-    % true if all child description nodes to rdf node has attribute about
-    property isAboutPresentAndEquals: Boolean;
     % property id of the xpacket preprocessing instruction
     property xpacketid: String;
+    % true if all child description nodes to rdf node has attribute about
+    property isAboutPresentAndEquals: Boolean;
 
 	% true if PDF/A extension schema container schema namespace (http://www.aiim.org/pdfa/ns/extension/)
 	% in every use has right prefix (pdfaExtension)
@@ -48,6 +44,8 @@ type XMPPackage extends XMPObject {
 }
 
 % Main XMP package
+% We don't validate correspondence between info dictionary entries
+% and xmp properties here - this is validated in CosDocument object
 type XMPMainPackage extends XMPPackage {
     % true if pdfaid schema (NSURI: http://www.aiim.org/pdfa/ns/id/) is present
     property ispdfaidNSPresent: Boolean;
@@ -63,21 +61,16 @@ type XMPMainPackage extends XMPPackage {
 
 % XMP property
 type XMPProperty extends XMPObject {
-    % property's schema namespace URI
-    property uri: String;
-    % property's schema prefix
-    property prefix: String;
-
-    % true if this property is defined in XMP 2004.
+    % true if this property is defined in XMP 2004 specification
     % Also true for xmp media management schema's property InstanceID
     property isPredefinedInXMP2004: Boolean;
-    % true if this property is defined in XMP 2005
+    % true if this property is defined in XMP 2005 specification
     property isPredefinedInXMP2005: Boolean;
-    % true if this property defined as extension in current xmp package
-    property isDefinedAsExtensionInCurrentPackage: Boolean;
-    % true if this property defined as extension in main xmp package
-    property isDefinedAsExtensionInMainPackage: Boolean;
-    % true if this property's value corresponds to its value type
-    property isHasRightValueType: Boolean;
+    % true if this property defined in extension schema in current XMP package
+    property isDefinedInCurrentPackage: Boolean;
+    % true if this property defined in extension schema in main XMP package
+    property isDefinedInMainPackage: Boolean;
+    % true if the property value type corresponds to the type defined by XMP specification or extension schema
+    property isValueTypeCorrect: Boolean;
 
 }
