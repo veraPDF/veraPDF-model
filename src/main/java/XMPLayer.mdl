@@ -12,11 +12,15 @@ type XMPObject extends Object {
 type XMPPackage extends XMPObject {
     % collection of all properties
     link Properties: XMPProperty*;
+    %
+    link ExtensionSchemaContainers: ExtensionSchemaContainer*;
 
     % true if metadata has right prefix and parsed with prefix determined encoding
     property isMetadataParsed: Boolean;
     % true if metadata is well formed xmp package
     property isWellFormedXMP: Boolean;
+    %
+    property doesContainsMultiplyProperties: Boolean;
 	% bytes attribute in header, null if it is not present
     property bytes: String;
     % encoding attribute in header, null if it is not present
@@ -25,52 +29,107 @@ type XMPPackage extends XMPObject {
     property xpacketid: String;
     % true if all child description nodes to rdf node has attribute about
     property isAboutPresentAndEquals: Boolean;
-
-	% true if PDF/A extension schema container schema namespace (http://www.aiim.org/pdfa/ns/extension/)
-	% in every use has right prefix (pdfaExtension)
-	property isRightPDFAExtensionPrefix: Boolean;
-	% true if PDF/A field type schema namespace (http://www.aiim.org/pdfa/ns/field#)
-    % in every use has right prefix (pdfaField)
-    property isRightPDFAFieldPrefix: Boolean;
-    % true if PDF/A property value type namespace (http://www.aiim.org/pdfa/ns/property#)
-    % in every use has right prefix (pdfaProperty)
-    property isRightPDFAPropertyPrefix: Boolean;
-    % true if PDF/A schema value type namespace (http://www.aiim.org/pdfa/ns/schema#)
-    % in every use has right prefix (pdfaSchema)
-    property isRightPDFASchemaPrefix: Boolean;
-    % true if PDF/A ValueType value type namespace (http://www.aiim.org/pdfa/ns/type#)
-    % in every use has right prefix (pdfaType)
-    property isRightPDFATypePrefix: Boolean;
 }
 
 % Main XMP package
 % We don't validate correspondence between info dictionary entries
 % and xmp properties here - this is validated in CosDocument object
 type XMPMainPackage extends XMPPackage {
-    % true if pdfaid schema (NSURI: http://www.aiim.org/pdfa/ns/id/) is present
-    property ispdfaidNSPresent: Boolean;
-    % property part of pdfaid schema
-    property pdfaidPart: Integer;
-    % property conformance of pdfaid schema
-    property pdfaidConformance: String;
+    %
+    link Identification: PDFAIdentification;
+}
 
-	% true if PDF/A identification schema namespace (http://www.aiim.org/pdfa/ns/id/)
-    % in every use has right prefix (pdfaid)
-    property isRightPDFAIDPrefix: Boolean;
+%
+type ExtensionObject: extends XMPObject {
+	%
+	property isValueTypeCorrect: Boolean;
+	%
+	property isCorrectPrefix: Boolean;
+}
+
+%
+type ExtensionSchemaContainer extends XMPObject {
+	%
+	link ExtensionSchemaDefinitions: ExtensionSchemaDefinition*;
+}
+
+%
+type ExtensionSchemaDefinition extends XMPObject {
+	%
+	link ExtensionSchemaProperties: ExtensionSchemaProperty*;
+	%
+	link ExtensionSchemaValueTypes: ExtensionSchemaValueType*;
+
+	%
+	property isNamespaceURIPropertyCorrect: Boolean;
+	%
+    property isPrefixPropertyCorrect: Boolean;
+    %
+    property isPropertiesPropertyCorrect: Boolean;
+    %
+    property isSchemaPropertyCorrect: Boolean;
+    %
+    property isValueTypesPropertyCorrect: Boolean;
+}
+
+%
+type ExtensionSchemaProperty extends ExtensionObject {
+	%
+    property isCategoryPropertyCorrect: Boolean;
+    %
+    property isDescriptionPropertyCorrect: Boolean;
+    %
+    property isNamePropertyCorrect: Boolean;
+    %
+    property isValueTypePropertyCorrect: Boolean;
+}
+
+%
+type ExtensionSchemaValueType extends ExtensionObject {
+	%
+	link ExtensionSchemaFields: ExtensionSchemaField*;
+
+	%
+	property isDescriptionPropertyCorrect: Boolean;
+	%
+	property isFieldPropertyCorrect: Boolean;
+	%
+	property isNamespaceURIPropertyCorrect: Boolean;
+	%
+	property isPrefixPropertyCorrect: Boolean;
+	%
+	property isTypePropertyCorrect: Boolean;
+}
+
+%
+type ExtensionSchemaField extends ExtensionObject {
+	%
+	property isDescriptionPropertyCorrect: Boolean;
+	%
+	property isNamePropertyCorrect: Boolean;
+	%
+	property isValueTypePropertyCorrect: Boolean;
+}
+
+type PDFAIdentification extends XMPObject {
+	% property part of PDF/A Identification schema
+    property part: Integer;
+    % property conformance of PDF/A Identification schema
+    property conformance: String;
 }
 
 % XMP property
 type XMPProperty extends XMPObject {
-    % true if this property is defined in XMP 2004 specification
-    % Also true for xmp media management schema's property InstanceID
-    property isPredefinedInXMP2004: Boolean;
-    % true if this property is defined in XMP 2005 specification
-    property isPredefinedInXMP2005: Boolean;
+    % true if this property is predefined (available in predefined schema) for PDF/A-1
+    property isPredefinedForPDFA_1: Boolean;
+    % true if this property is predefined (available in predefined schema) for PDF/A-2 or for PDF/A-3
+    property isPredefinedForPDFA_2_3: Boolean;
     % true if this property defined in extension schema in current XMP package
     property isDefinedInCurrentPackage: Boolean;
     % true if this property defined in extension schema in main XMP package
     property isDefinedInMainPackage: Boolean;
     % true if the property value type corresponds to the type defined by XMP specification or extension schema
     property isValueTypeCorrect: Boolean;
-
+	%
+	property isCorrectPrefixes: Boolean;
 }
