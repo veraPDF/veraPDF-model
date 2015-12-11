@@ -44,7 +44,7 @@ type ExtensionObject: extends XMPObject {
 	%
 	property isValueTypeCorrect: Boolean;
 	%
-	property isCorrectPrefix: Boolean;
+	property prefix: String;
 }
 
 %
@@ -116,6 +116,15 @@ type PDFAIdentification extends XMPObject {
     property part: Integer;
     % property conformance of PDF/A Identification schema
     property conformance: String;
+
+    %
+    property partPrefix: String;
+    %
+    property conformancePrefix: String;
+    %
+    property amdPrefix: String;
+    %
+    property corrPrefix: String;
 }
 
 % XMP property
@@ -130,6 +139,4 @@ type XMPProperty extends XMPObject {
     property isDefinedInMainPackage: Boolean;
     % true if the property value type corresponds to the type defined by XMP specification or extension schema
     property isValueTypeCorrect: Boolean;
-	%
-	property isCorrectPrefixes: Boolean;
 }
