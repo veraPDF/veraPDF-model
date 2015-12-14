@@ -5,138 +5,182 @@ import java.util.List;
 
 % Parent type for all XMP objects
 type XMPObject extends Object {
-    
 }
 
 % XMP package
 type XMPPackage extends XMPObject {
-    % collection of all properties
-    link Properties: XMPProperty*;
-    %
-    link ExtensionSchemaContainers: ExtensionSchemaContainer*;
 
-    % true if metadata has right prefix and parsed with prefix determined encoding
-    property isMetadataParsed: Boolean;
-    % true if metadata is well formed xmp package
+    % collection of all XMP properties
+    link Properties: XMPProperty*;
+
+    % collection of all containers of the extension schemas defined in XMP package
+    link ExtensionSchemasContainers: ExtensionSchemasContainer*;
+
+    % true if package serialization is valid:
+    % - package starts with one of the expected byte arrays representing package beginning in a supported encoding
+    % - package represents a well-formed XML that is serialized using the encoding of the matched byte array
+    property isSerializationValid: Boolean;
+
+    % true if this is well formed XMP package:
+    % - package conforms to the requirements of RDF schema
+    % - package conforms to the additional requirements imposed by XMP specification on RDF format
     property isWellFormedXMP: Boolean;
-    %
-    property doesContainsMultiplyProperties: Boolean;
-	% bytes attribute in header, null if it is not present
+
+    % true if at least one XMP property is used more than once on the packet
+    property hasDuplicatedProperty: Boolean;
+
+    % value of ‘bytes’ attribute of XMP package header (null if the attribute is missing)
     property bytes: String;
-    % encoding attribute in header, null if it is not present
+
+    % value of ‘encoding’ attribute of XMP package header (null if the attribute is missing)
     property encoding: String;
-    % property id of the xpacket preprocessing instruction
+
+    % value of ‘id’ property of the ‘xpacket’ preprocessing instruction
     property xpacketid: String;
-    % true if all child description nodes to rdf node has attribute about
-    property isAboutPresentAndEquals: Boolean;
+
+    % true if all ‘Description’ child nodes of ‘RDF’ node have ‘about’ attribute with the same value
+    property isAboutValid: Boolean;
 }
 
 % Main XMP package
-% We don't validate correspondence between info dictionary entries
-% and xmp properties here - this is validated in CosDocument object
-type XMPMainPackage extends XMPPackage {
-    %
+% This object is not used for validating correspondence between document info
+% dictionary entries and XMP properties - this is validated in CosDocument object
+type MainXMPPackage extends XMPPackage {
+
+    % object representing PDF/A identification (set of properties from PDF/A Identification schema) of the document
     link Identification: PDFAIdentification;
-}
-
-%
-type ExtensionObject: extends XMPObject {
-	%
-	property isValueTypeCorrect: Boolean;
-	%
-	property prefix: String;
-}
-
-%
-type ExtensionSchemaContainer extends XMPObject {
-	%
-	link ExtensionSchemaDefinitions: ExtensionSchemaDefinition*;
-}
-
-%
-type ExtensionSchemaDefinition extends XMPObject {
-	%
-	link ExtensionSchemaProperties: ExtensionSchemaProperty*;
-	%
-	link ExtensionSchemaValueTypes: ExtensionSchemaValueType*;
-
-	%
-	property isNamespaceURIPropertyCorrect: Boolean;
-	%
-    property isPrefixPropertyCorrect: Boolean;
-    %
-    property isPropertiesPropertyCorrect: Boolean;
-    %
-    property isSchemaPropertyCorrect: Boolean;
-    %
-    property isValueTypesPropertyCorrect: Boolean;
-}
-
-%
-type ExtensionSchemaProperty extends ExtensionObject {
-	%
-    property isCategoryPropertyCorrect: Boolean;
-    %
-    property isDescriptionPropertyCorrect: Boolean;
-    %
-    property isNamePropertyCorrect: Boolean;
-    %
-    property isValueTypePropertyCorrect: Boolean;
-}
-
-%
-type ExtensionSchemaValueType extends ExtensionObject {
-	%
-	link ExtensionSchemaFields: ExtensionSchemaField*;
-
-	%
-	property isDescriptionPropertyCorrect: Boolean;
-	%
-	property isFieldPropertyCorrect: Boolean;
-	%
-	property isNamespaceURIPropertyCorrect: Boolean;
-	%
-	property isPrefixPropertyCorrect: Boolean;
-	%
-	property isTypePropertyCorrect: Boolean;
-}
-
-%
-type ExtensionSchemaField extends ExtensionObject {
-	%
-	property isDescriptionPropertyCorrect: Boolean;
-	%
-	property isNamePropertyCorrect: Boolean;
-	%
-	property isValueTypePropertyCorrect: Boolean;
-}
-
-type PDFAIdentification extends XMPObject {
-	% property part of PDF/A Identification schema
-    property part: Integer;
-    % property conformance of PDF/A Identification schema
-    property conformance: String;
-
-    %
-    property partPrefix: String;
-    %
-    property conformancePrefix: String;
-    %
-    property amdPrefix: String;
-    %
-    property corrPrefix: String;
 }
 
 % XMP property
 type XMPProperty extends XMPObject {
+
     % true if this property is predefined (available in predefined schema) for PDF/A-1
     property isPredefinedForPDFA_1: Boolean;
+
     % true if this property is predefined (available in predefined schema) for PDF/A-2 or for PDF/A-3
     property isPredefinedForPDFA_2_3: Boolean;
+
     % true if this property defined in extension schema in current XMP package
     property isDefinedInCurrentPackage: Boolean;
+
     % true if this property defined in extension schema in main XMP package
     property isDefinedInMainPackage: Boolean;
+
     % true if the property value type corresponds to the type defined by XMP specification or extension schema
     property isValueTypeCorrect: Boolean;
+}
+
+type PDFAIdentification extends XMPObject {
+
+    % value of ‘part’ property from PDF/A Identification schema
+    property part: Integer;
+
+    % value of ‘conformance’ property from PDF/A Identification schema
+    property conformance: String;
+
+    % namespace prefix for the ‘part’ property from PDF/A Identification schema
+    property partPrefix: String;
+
+    % namespace prefix for the ‘conformance’ property from PDF/A Identification schema
+    property conformancePrefix: String;
+
+    % namespace prefix for the ‘amd’ property from PDF/A Identification schema
+    property amdPrefix: String;
+
+    % namespace prefix for the ‘corr’ property from PDF/A Identification schema
+    property corrPrefix: String;
+
+}
+
+% Parent type for all extension schema definition objects
+type ExtensionSchemaObject: extends XMPObject {
+
+	% true if the object value type corresponds to the type defined in PDF/A Extension Schema Container Schema
+	property isValueTypeCorrect: Boolean;
+
+	% namespace prefix for the object
+	property prefix: String;
+}
+
+% Container of the extension schemas defined in XMP package
+type ExtensionSchemasContainer extends ExtensionSchemaObject {
+
+    % collection of the extension schema definitions
+    link ExtensionSchemaDefinitions: ExtensionSchemaDefinition*;
+}
+
+% Extension schema definition from the XMP package
+type ExtensionSchemaDefinition extends ExtensionSchemaObject {
+
+    % collection of XMP properties defined in the extension schema
+    link ExtensionSchemaProperties: ExtensionSchemaProperty*;
+
+    % collection of XMP value types defined in the extension schema
+    link ExtensionSchemaValueTypes: ExtensionSchemaValueType*;
+
+    % true if extension schema namespace URI (’pdfaSchema:namespaceURI’ property) is valid
+    property isNamespaceURIValid: Boolean;
+
+    % true if extension schema preferred prefix (’pdfaSchema:prefix’ property) is valid
+    property isPrefixValid: Boolean;
+
+    % true if extension schema properties list (’pdfaSchema:property’ property) is valid
+    property isPropertyValid: Boolean;
+
+    % true if extension schema description (’pdfaSchema:schema’ property) is valid
+    property isSchemaValid: Boolean;
+
+    % true if extension schema value types list (’pdfaSchema:valueType’ property) is valid
+    property isValueTypeValid: Boolean;
+}
+
+% Extension schema property definition
+type ExtensionSchemaProperty extends ExtensionSchemaObject {
+
+    % true if property category (’pdfaProperty:category’ property) is valid
+    property isCategoryValid: Boolean;
+
+    % true if property description (’pdfaProperty:description’ property) is valid
+    property isDescriptionValid: Boolean;
+
+    % true if property name (’pdfaProperty:name’ property) is valid
+    property isNameValid: Boolean;
+
+    % true if property value type (’pdfaProperty:valueType’ property) is valid
+    property isValueTypeValid: Boolean;
+}
+
+% Extension schema value type definition
+type ExtensionSchemaValueType extends ExtensionSchemaObject {
+
+    % collection of fields used in the type definition
+    link ExtensionSchemaFields: ExtensionSchemaField*;
+
+    % true if type description (’pdfaType:description’ property) is valid
+    property isDescriptionValid: Boolean;
+
+    % true if type fields list (’pdfaType:field’ property) is valid
+    property isFieldValid: Boolean;
+
+    % true if type namespace URI (’pdfaType:namespaceURI’ property) is valid
+    property isNamespaceURIValid: Boolean;
+
+    % true if type preferred prefix (’pdfaType:prefix’ property) is valid
+    property isPrefixValid: Boolean;
+
+    % true if type name (’pdfaType:type’ property) is valid
+    property isTypeValid: Boolean;
+}
+
+% Extension schema field definition
+type ExtensionSchemaField extends ExtensionSchemaObject {
+
+    % true if field description (’pdfaField:description’ property) is valid
+    property isDescriptionValid: Boolean;
+
+    % true if field name (’pdfaField:name’ property) is valid
+    property isNameValid: Boolean;
+
+    % true if field value type (’pdfaField:valueType’ property) is valid
+    property isValueTypeValid: Boolean;
 }
