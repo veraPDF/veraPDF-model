@@ -24,10 +24,10 @@ type XMPPackage extends XMPObject {
     % true if this is well formed XMP package:
     % - package conforms to the requirements of RDF schema
     % - package conforms to the additional requirements imposed by XMP specification on RDF format
-    property isWellFormedXMP: Boolean;
+    % property isWellFormedXMP: Boolean;
 
     % true if at least one XMP property is used more than once on the packet
-    property hasDuplicatedProperty: Boolean;
+    % property hasDuplicatedProperty: Boolean;
 
     % value of ‘bytes’ attribute of XMP package header (null if the attribute is missing)
     property bytes: String;
@@ -36,10 +36,10 @@ type XMPPackage extends XMPObject {
     property encoding: String;
 
     % value of ‘id’ property of the ‘xpacket’ preprocessing instruction
-    property xpacketid: String;
+    % property xpacketid: String;
 
     % true if all ‘Description’ child nodes of ‘RDF’ node have ‘about’ attribute with the same value
-    property isAboutValid: Boolean;
+    % property isAboutValid: Boolean;
 }
 
 % Main XMP package
