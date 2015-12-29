@@ -29,17 +29,17 @@ type XMPPackage extends XMPObject {
     % true if at least one XMP property is used more than once on the packet
     % property hasDuplicatedProperty: Boolean;
 
-    % value of ‘bytes’ attribute of XMP package header (null if the attribute is missing)
-    property bytes: String;
-
-    % value of ‘encoding’ attribute of XMP package header (null if the attribute is missing)
-    property encoding: String;
-
     % value of ‘id’ property of the ‘xpacket’ preprocessing instruction
     % property xpacketid: String;
 
     % true if all ‘Description’ child nodes of ‘RDF’ node have ‘about’ attribute with the same value
     % property isAboutValid: Boolean;
+
+    % value of ‘bytes’ attribute of XMP package header (null if the attribute is missing)
+    property bytes: String;
+
+    % value of ‘encoding’ attribute of XMP package header (null if the attribute is missing)
+    property encoding: String;
 }
 
 % Main XMP package
@@ -99,7 +99,7 @@ type PDFAIdentification extends XMPObject {
 }
 
 % Parent type for all extension schema definition objects
-type ExtensionSchemaObject: extends XMPObject {
+type ExtensionSchemaObject extends XMPObject {
 
 	% true if the object value type corresponds to the type defined in PDF/A Extension Schema Container Schema
 	property isValueTypeCorrect: Boolean;
