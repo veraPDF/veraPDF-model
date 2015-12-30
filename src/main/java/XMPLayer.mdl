@@ -168,8 +168,11 @@ type ExtensionSchemaProperty extends ExtensionSchemaObject {
     % true if property name (’pdfaProperty:name’ property) is valid
     property isNameValid: Boolean;
 
-    % true if property value type (’pdfaProperty:valueType’ property) is valid
-    property isValueTypeValid: Boolean;
+    % true if property value type (’pdfaProperty:valueType’ property) is valid for PDF/A-1
+    property isValueTypeValidForPDFA_1: Boolean;
+
+    % true if property value type (’pdfaProperty:valueType’ property) is valid for PDF/A-2 or for PDF/A-3
+    property isValueTypeValidForPDFA_2_3: Boolean;
 
     % namespace prefix for the category property
     property categoryPrefix: String;
