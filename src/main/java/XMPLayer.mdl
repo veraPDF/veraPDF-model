@@ -114,9 +114,6 @@ type ExtensionSchemasContainer extends ExtensionSchemaObject {
 
     % namespace prefix for the container
     property prefix: String;
-
-    % true if extension schema container structure has valid syntax
-    property isValidSyntax: Boolean;
 }
 
 % Extension schema definition from the XMP package
