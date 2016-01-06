@@ -9,7 +9,7 @@
 	</parent>
 
 	<groupId>org.verapdf</groupId>
-	<artifactId>pdf-model</artifactId>
+	<artifactId>pdf-model-xmp</artifactId>
 	<version>0.9.0-SNAPSHOT</version>
 
 	<name>veraPDF Validation Model API</name>
