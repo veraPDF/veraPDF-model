@@ -55,10 +55,10 @@ type MainXMPPackage extends XMPPackage {
 type XMPProperty extends XMPObject {
 
     % true if this property is predefined (available in predefined schema) for PDF/A-1
-    property isPredefinedForPDFA_1: Boolean;
+    property isPredefinedInXMP2004: Boolean;
 
     % true if this property is predefined (available in predefined schema) for PDF/A-2 or for PDF/A-3
-    property isPredefinedForPDFA_2_3: Boolean;
+    property isPredefinedInXMP2005: Boolean;
 
     % true if this property defined in extension schema in current XMP package for PDF/A-1
     property isDefinedInCurrentPackageForPDFA_1: Boolean;
@@ -69,11 +69,9 @@ type XMPProperty extends XMPObject {
     % true if this property defined in extension schema in main XMP package
     property isDefinedInMainPackage: Boolean;
 
-    % true if the property value type corresponds to the type defined by XMP specification or extension schema for PDF/A-1
-    property isValueTypeCorrectForPDFA_1: Boolean;
+    % true if the property value type corresponds to the type defined by XMP specification or extension schema
+    property isValueTypeCorrect: Boolean;
 
-    % true if the property value type corresponds to the type defined by XMP specification or extension schema for PDF/A-2 or for PDF/A-3
-    property isValueTypeCorrectForPDFA_2_3: Boolean;
 }
 
 type PDFAIdentification extends XMPObject {
@@ -101,8 +99,8 @@ type PDFAIdentification extends XMPObject {
 % Parent type for all extension schema definition objects
 type ExtensionSchemaObject extends XMPObject {
 
-	% true if the object value type corresponds to the type defined in PDF/A Extension Schema Container Schema
-	property isValueTypeCorrect: Boolean;
+	% true if the object contain not defined fields
+    property containsUndefinedFields: Boolean;
 
 }
 
@@ -125,20 +123,20 @@ type ExtensionSchemaDefinition extends ExtensionSchemaObject {
     % collection of XMP value types defined in the extension schema
     link ExtensionSchemaValueTypes: ExtensionSchemaValueType*;
 
-    % true if extension schema namespace URI (’pdfaSchema:namespaceURI’ property) is valid
-    property isNamespaceURIValid: Boolean;
+    % true if extension schema namespace URI (’pdfaSchema:namespaceURI’ property) is of type URI
+    property isNamespaceURIValidURI: Boolean;
 
-    % true if extension schema preferred prefix (’pdfaSchema:prefix’ property) is valid
-    property isPrefixValid: Boolean;
+    % true if extension schema preferred prefix (’pdfaSchema:prefix’ property) is of type Text
+    property isPrefixValidText: Boolean;
 
-    % true if extension schema properties list (’pdfaSchema:property’ property) is valid
-    property isPropertyValid: Boolean;
+    % true if extension schema properties list (’pdfaSchema:property’ property) is of type Seq
+    property isPropertyValidSeq: Boolean;
 
-    % true if extension schema description (’pdfaSchema:schema’ property) is valid
-    property isSchemaValid: Boolean;
+    % true if extension schema description (’pdfaSchema:schema’ property) is of type Text
+    property isSchemaValidText: Boolean;
 
-    % true if extension schema value types list (’pdfaSchema:valueType’ property) is valid
-    property isValueTypeValid: Boolean;
+    % true if extension schema value types list (’pdfaSchema:valueType’ property) is of type Seq
+    property isValueTypeValidSeq: Boolean;
 
     % namespace prefix for the extension schema namespace URI property
     property namespaceURIPrefix: String;
@@ -159,20 +157,23 @@ type ExtensionSchemaDefinition extends ExtensionSchemaObject {
 % Extension schema property definition
 type ExtensionSchemaProperty extends ExtensionSchemaObject {
 
-    % true if property category (’pdfaProperty:category’ property) is valid
-    property isCategoryValid: Boolean;
+	% category field value
+	property category: String;
 
-    % true if property description (’pdfaProperty:description’ property) is valid
-    property isDescriptionValid: Boolean;
+    % true if property category (’pdfaProperty:category’ property) is of type Text
+    property isCategoryValidText: Boolean;
 
-    % true if property name (’pdfaProperty:name’ property) is valid
-    property isNameValid: Boolean;
+    % true if property description (’pdfaProperty:description’ property) is of type Text
+    property isDescriptionValidText: Boolean;
 
-    % true if property value type (’pdfaProperty:valueType’ property) is valid for PDF/A-1
-    property isValueTypeValidForPDFA_1: Boolean;
+    % true if property name (’pdfaProperty:name’ property) is of type Text
+    property isNameValidText: Boolean;
 
-    % true if property value type (’pdfaProperty:valueType’ property) is valid for PDF/A-2 or for PDF/A-3
-    property isValueTypeValidForPDFA_2_3: Boolean;
+    % true if property value type (’pdfaProperty:valueType’ property) is of type Text
+    property isValueTypeValidText: Boolean;
+
+    % true if property value type (’pdfaProperty:valueType’ property) is defined
+    property isValueTypeDefined: Boolean;
 
     % namespace prefix for the category property
     property categoryPrefix: String;
@@ -193,20 +194,20 @@ type ExtensionSchemaValueType extends ExtensionSchemaObject {
     % collection of fields used in the type definition
     link ExtensionSchemaFields: ExtensionSchemaField*;
 
-    % true if type description (’pdfaType:description’ property) is valid
-    property isDescriptionValid: Boolean;
+    % true if type description (’pdfaType:description’ property) is of type Text
+    property isDescriptionValidText: Boolean;
 
-    % true if type fields list (’pdfaType:field’ property) is valid
-    property isFieldValid: Boolean;
+    % true if type fields list (’pdfaType:field’ property) is of type Seq
+    property isFieldValidSeq: Boolean;
 
-    % true if type namespace URI (’pdfaType:namespaceURI’ property) is valid
-    property isNamespaceURIValid: Boolean;
+    % true if type namespace URI (’pdfaType:namespaceURI’ property) is of type URI
+    property isNamespaceURIValidURI: Boolean;
 
-    % true if type preferred prefix (’pdfaType:prefix’ property) is valid
-    property isPrefixValid: Boolean;
+    % true if type preferred prefix (’pdfaType:prefix’ property) is of type Text
+    property isPrefixValidText: Boolean;
 
-    % true if type name (’pdfaType:type’ property) is valid
-    property isTypeValid: Boolean;
+    % true if type name (’pdfaType:type’ property) is of type Text
+    property isTypeValidText: Boolean;
 
     % namespace prefix for the description type
     property descriptionPrefix: String;
@@ -227,17 +228,17 @@ type ExtensionSchemaValueType extends ExtensionSchemaObject {
 % Extension schema field definition
 type ExtensionSchemaField extends ExtensionSchemaObject {
 
-    % true if field description (’pdfaField:description’ property) is valid
+    % true if field description (’pdfaField:description’ property) is of type Text
     property isDescriptionValid: Boolean;
 
-    % true if field name (’pdfaField:name’ property) is valid
+    % true if field name (’pdfaField:name’ property) is of type Text
     property isNameValid: Boolean;
 
-    % true if field value type (’pdfaField:valueType’ property) is valid for PDF/A-1
-    property isValueTypeValidForPDFA_1: Boolean;
+	% true if field value type (’pdfaField:valueType’ property) is of type Text
+    property isValueTypeValidText: Boolean;
 
-    % true if field value type (’pdfaField:valueType’ property) is valid for PDF/A-2 or for PDF/A-3
-	property isValueTypeValidForPDFA_2_3: Boolean;
+    % true if field value type (’pdfaField:valueType’ property) is defined
+    property isValueTypeDefined: Boolean;
 
     % namespace prefix for the description field
     property descriptionPrefix: String;
