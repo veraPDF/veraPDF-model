@@ -105,13 +105,16 @@ type ExtensionSchemaObject extends XMPObject {
 }
 
 % Container of the extension schemas defined in XMP package
-type ExtensionSchemasContainer extends ExtensionSchemaObject {
+type ExtensionSchemasContainer extends XMPObject {
 
     % collection of the extension schema definitions
     link ExtensionSchemaDefinitions: ExtensionSchemaDefinition*;
 
     % namespace prefix for the container
     property prefix: String;
+
+    % true if extension schema container is of type Bag
+    property isValidBag: Boolean;
 }
 
 % Extension schema definition from the XMP package
