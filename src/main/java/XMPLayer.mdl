@@ -237,7 +237,7 @@ type ExtensionSchemaField extends ExtensionSchemaObject {
     % true if field name (’pdfaField:name’ property) is of type Text
     property isNameValidText: Boolean;
 
-	% true if field value type (’pdfaField:valueType’ property) is of type Text
+    % true if field value type (’pdfaField:valueType’ property) is of type Text
     property isValueTypeValidText: Boolean;
 
     % true if field value type (’pdfaField:valueType’ property) is defined
