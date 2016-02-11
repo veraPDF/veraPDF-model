@@ -60,11 +60,8 @@ type XMPProperty extends XMPObject {
     % true if this property is predefined (available in predefined schema) for PDF/A-2 or for PDF/A-3
     property isPredefinedInXMP2005: Boolean;
 
-    % true if this property defined in extension schema in current XMP package for PDF/A-1
-    property isDefinedInCurrentPackageForPDFA_1: Boolean;
-
-    % true if this property defined in extension schema in current XMP package for PDF/A-2 or for PDF/A-3
-    property isDefinedInCurrentPackageForPDFA_2_3: Boolean;
+    % true if this property defined in extension schema in current XMP package
+    property isDefinedInCurrentPackage: Boolean;
 
     % true if this property defined in extension schema in main XMP package
     property isDefinedInMainPackage: Boolean;
