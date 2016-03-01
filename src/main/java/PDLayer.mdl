@@ -8,6 +8,7 @@ import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosUnicodeName;
+import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
 
 import org.verapdf.model.operator.Operator;
@@ -286,8 +287,8 @@ type PDXImage extends PDXObject {
 
 % Inline image object
 type PDInlineImage extends PDXImage {
-	% The SPACE-separated list of stream filters (abbreviated)
-	property F: String;
+	% link to the inline image filters
+	link F: CosIIFilter*;
 }
 
 % Form XObject
