@@ -42,6 +42,8 @@ type PDDocument extends PDObject {
 	link OpenAction: PDAction?;
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
+	% link to the optional content properties dictionary
+	link OCProperties? : PDOCProperties;
 	% the link to the document structure tree root dictionary
 	link StructTreeRoot: PDStructTreeRoot?;
 	% link to the alternate presentations of the document (/AlternatePresentations entry in the document names dictionary)
@@ -441,6 +443,26 @@ type PDOutputIntent extends PDObject {
 	% the link to the destination output profile reference dictionary as defined by PDF/X-4p standard (ISO 15930-7:2010, Annex A)
 	link DestOutputProfileRef: CosDict?;
 }
+
+% Optional content properties dictionary
+type PDOCProperties extends PDObject {
+	% link to the default optional content dictionary
+	link D: PDOCConfig;
+	% link to alternate optional content configuration dictionaries
+	link Configs: PDOCConfig*;
+}
+
+type PDOCConfig extends PDObject {
+	% name of the configuration (/Name entry in the optional content configuration dictionary)
+	property Name: String;
+	% true if the name of this config has already been found in the default config or in one of the optional configs
+	property hasDuplicateName: Boolean;
+	% string representation of the /AS key (or null, if this key doe snot exist in the config dictionary)
+	property AS: String;
+	% true if the Order array contains references to all optional content groups in the document
+	property doesOrderContainAllOCGs: Boolean;
+}
+
 
 % the outline (or bookmark) dictionary
 type PDOutline extends PDObject {
