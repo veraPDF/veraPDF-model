@@ -43,7 +43,7 @@ type PDDocument extends PDObject {
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
 	% link to the optional content properties dictionary
-	link OCProperties? : PDOCProperties;
+	link OCProperties: PDOCProperties?;
 	% the link to the document structure tree root dictionary
 	link StructTreeRoot: PDStructTreeRoot?;
 	% link to the alternate presentations of the document (/AlternatePresentations entry in the document names dictionary)
