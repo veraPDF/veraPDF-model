@@ -14,8 +14,6 @@ type CosObject extends Object {
 type CosDocument extends CosObject {
 	% number of indirect objects in the document
 	property nrIndirects: Integer;
-	% size of the byte sequence representing the document 
-	property size: Integer;
 	% version of the document
 	property version: Decimal;
 	% true if the OCProperties key is present in the document Catalog
