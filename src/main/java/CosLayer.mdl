@@ -114,7 +114,21 @@ type CosUnicodeName extends CosName {
 % PDF Name representing rendering intent	
 type CosRenderingIntent extends CosName {
 
-}	
+}
+
+% PDF Name representing a single stream filter including decode parameters
+type CosFilter extends CosName {
+	% String representation of the decodeParms dictionary. Possible values are :
+	% "Default" : if decodeParms dictionary is not present
+	% "Identity" : the value of the Name entry in the Crypt parameters dictionary
+	% "Custom" : in all other cases
+	property decodeParms: String;
+}
+
+% PDF Name representing a single inline image filter
+type CosIIFilter extends CosName {
+
+}
 	
 % PDF String type
 type CosString extends CosObject {
@@ -144,8 +158,6 @@ type CosDict extends CosObject {
 type CosStream extends CosDict {
 	% value of the Length key in the Stream dictionary
 	property Length: Integer;
-	% concatenated (SPACE separated) names of all filters
-	property filters: String;
 	% represents value of F key or null if stream does not contain this key
 	property F: String;
 	% represents value of FFilter key or null if stream does not contain this key
@@ -158,6 +170,8 @@ type CosStream extends CosDict {
 	property endstreamKeywordEOLCompliant: Boolean;
 	% true if the value of Length key matches the actual length of the stream
 	property isLengthCorrect: Boolean;
+	% link to the stream filters
+	link filters: CosFilter*;
 }
 
 % File specification dictionary
