@@ -63,11 +63,11 @@ type JPEG2000 extends External {
 	property nrColorChannels: Integer;
 	% the number of colour space specifications
 	property nrColorSpaceSpecs: Integer;
-	% the number of colour space specifications with APPROX filed set to 0x01
+	% the number of colour space specifications with APPROX field set to 0x01
 	property nrColorSpacesWithApproxField: Integer;
-	% the METH entry in the 'colr' box specification
+	% the METH entry in the 'colr' box specification with APPROX field equal to 0x01
 	property colrMethod: Integer;
-	% EnumCS (enumerated color space) field of in the 'colr" box specification
+	% EnumCS (enumerated color space) field of in the 'colr' box specification with APPROX field equal to 0x01
 	property colrEnumCS: Integer;
 	% image bit depth
 	property bitDepth: Integer;

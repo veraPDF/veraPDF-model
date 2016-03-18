@@ -459,6 +459,7 @@ type PDOCConfig extends PDObject {
 	% true if the name of this config has already been found in the default config or in one of the optional configs
 	property hasDuplicateName: Boolean;
 	% string representation of the /AS key (or null, if this key doe snot exist in the config dictionary)
+	% if this key is present, the property contain the space-concatenated values of the Event entries if all Usage Application dictionaries
 	property AS: String;
 	% true if the Order array contains references to all optional content groups in the document
 	property doesOrderContainAllOCGs: Boolean;
