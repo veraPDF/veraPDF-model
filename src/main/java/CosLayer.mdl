@@ -18,7 +18,7 @@ type CosDocument extends CosObject {
 	property version: Decimal;
 	% true if the OCProperties key is present in the document Catalog
 	property isOptionalContentPresent: Boolean;
-	%
+	% size of data after the EOF and (optional) end of line marker
 	property postEOFDataSize: Integer;
 	% true if Info dictionary is present and synchronized with the document metadata
 	property doesInfoMatchXMP: Boolean;
@@ -36,11 +36,11 @@ type CosDocument extends CosObject {
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
-	%
+	% offset of the PDF document header
     property headerOffset: Integer;
-    %
+    % the content of the PDF header
     property header: String;
-    %
+    % first four bytes in the comment that follows the PDF header
     property headerByte1: Integer;
     property headerByte2: Integer;
     property headerByte3: Integer;
@@ -49,8 +49,11 @@ type CosDocument extends CosObject {
 	link document: PDDocument;
 	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
 	property Marked: Boolean;
-	% link to the requirements array
-	link Requirements: CosDict*;
+	% string representation of the value of /Requirements key in the document Catalog:
+	% - the space-concatenated values of the /S key in the requirement dictionaries in the array referenced by the /Requirements key
+	% - empty string if the array of requirement dictionaries is empty; 
+	% - null, if the /Requirements key is not present in the document Catalog 
+	property Requirements: String;
 	% NeedsRendering entry in the document's Catalog (false by default)
 	property NeedsRendering: Boolean;
 }

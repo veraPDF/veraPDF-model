@@ -47,8 +47,8 @@ type PDDocument extends PDObject {
 	link OCProperties: PDOCProperties?;
 	% the link to the document structure tree root dictionary
 	link StructTreeRoot: PDStructTreeRoot?;
-	% link to the alternate presentations of the document (/AlternatePresentations entry in the document names dictionary)
-	link AlternatePresentations: CosDict*;
+	% true if the document contains alternate presentations (/AlternatePresentations entry in the document names dictionary)
+	property containsAlternatePresentations: Boolean;
 }
 
 % the object representing PDF page	
@@ -71,8 +71,8 @@ type PDPage extends PDObject {
 	link TrimBox: CosBBox?;
 	% page art box
 	link ArtBox: CosBBox?;
-	% link to the presentation steps dictionary
-	link PresSteps: CosDict*;
+	% true if the page contains presentation steps (/PresSteps in the page dictionary)
+	property containsPresSteps: Boolean;
 }
 
 % the object representing content stream together with the resource dictionary
