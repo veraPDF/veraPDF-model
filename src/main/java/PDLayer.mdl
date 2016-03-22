@@ -83,7 +83,9 @@ type PDContentStream extends PDObject {
 
 % PDF resource object
 type PDResource extends PDObject {
-
+	% true if the resource is taken not from the resource dictionary explicitly associated with the page content, but is inherited either 
+	% from the parent page node (for pages) or from the parent page object where the resource is used (for patterns, Type3 fonts, annotations).
+	property isInherited: Boolean;
 }
 
 % Color space object
