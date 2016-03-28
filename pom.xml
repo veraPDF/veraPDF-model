@@ -70,6 +70,7 @@
 		<xtext.version>2.8.3</xtext.version>
 		<java.version>1.7</java.version>
 		<mvn.gpg.plugin.version>1.6</mvn.gpg.plugin.version>
+		<mvn.source.version>2.4</mvn.source.version>
 		<verapdf.model.syntax.version>[0.11.100,0.12.0)</verapdf.model.syntax.version>
 	</properties>
 
@@ -201,13 +202,40 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+	           <includeDependencySources>true</includeDependencySources>
+	           <show>public</show>
+	          </configuration>
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+	     <groupId>org.apache.maven.plugins</groupId>
+	     <artifactId>maven-source-plugin</artifactId>
+	     <version>${mvn.source.version}</version>
+	     <executions>
+	       <execution>
+	         <id>attach-sources</id>
+	         <goals>
+	           <goal>jar</goal>
+	         </goals>
+	       </execution>
+	     </executions>
+	    </plugin>
+
 		</plugins>
 	</build>
 
 	<profiles>
+		<profile>
+      <id>Java 1.8</id>
+      <activation>
+        <jdk>1.8</jdk>
+      </activation>
+      <properties>
+        <additionalparam>-Xdoclint:none</additionalparam>
+      </properties>
+    </profile>
 		<profile>
 				<id>release-sign-artifacts</id>
 				<activation>
