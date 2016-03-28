@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>oss-parent</artifactId>
-		<groupId>org.sonatype.oss</groupId>
-		<version>7</version>
+  <groupId>org.verapdf</groupId>
+  <artifactId>verapdf-parent</artifactId>
+		<version>1.0.0</version>
 	</parent>
 
 	<groupId>org.verapdf</groupId>
@@ -14,102 +14,30 @@
 
 	<name>veraPDF Validation Model API</name>
 	<description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
+
 	<url>https://github.com/veraPDF/veraPDF-model/</url>
 	<inceptionYear>2015</inceptionYear>
-	<organization>
-		<name>The veraPDF Consortium</name>
-		<url>http://www.verapdf.org/</url>
-	</organization>
-	<licenses>
-		<license>
-			<name>GNU General Public License, version 3 (GPL-3.0)</name>
-			<url>http://opensource.org/licenses/GPL-3.0</url>
-			<distribution>repo</distribution>
-		</license>
-		<license>
-			<name>Mozilla Public License 2.0 (MPL-2.0)</name>
-			<url>http://opensource.org/licenses/MPL-2.0</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<developers>
-		<developer>
-			<email>carl@openpreservation.org</email>
-			<name>Carl Wilson</name>
-			<url>https://github.com/carlwilson</url>
-			<organization>Open Preservation Foundation</organization>
-			<organizationUrl>http://openpreservation.org</organizationUrl>
-			<id>carlwilson</id>
-		</developer>
-	</developers>
 
 	<scm>
 		<url>https://github.com/veraPDF/veraPDF-model/</url>
 		<connection>scm:git:https://github.com/veraPDF/veraPDF-model.git</connection>
 		<developerConnection>scm:git:git@github.com:veraPDF/veraPDF-model.git</developerConnection>
 	</scm>
-	<issueManagement>
-		<url>https://github.com/veraPDF/veraPDF-model/issues/</url>
-		<system>GitHub Issues</system>
-	</issueManagement>
-	<ciManagement>
-		<system>OPF Jenkins</system>
-		<url>http://jenkins.opf-labs.org</url>
-	</ciManagement>
-	<distributionManagement>
-		<repository>
-			<id>OPF Artefactory</id>
-			<name>OPF Artefactory-releases</name>
-			<url>http://artifactory.opf-labs.org/artifactory/vera-dev-local</url>
-		</repository>
-	</distributionManagement>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<xtext.version>2.8.3</xtext.version>
-		<java.version>1.7</java.version>
-		<mvn.gpg.plugin.version>1.6</mvn.gpg.plugin.version>
-		<mvn.source.version>2.4</mvn.source.version>
 		<verapdf.model.syntax.version>[0.11.100,0.12.0)</verapdf.model.syntax.version>
 	</properties>
-
-	<repositories>
-		<repository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>vera-dev</id>
-			<name>Vera development</name>
-			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-			<id>vera-dev</id>
-			<name>Vera development</name>
-			<url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>2.2</version>
 			</plugin>
 			<plugin>
+          <groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.3</version>
-				<configuration>
-					<source>${java.version}</source>
-					<target>${java.version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
@@ -131,7 +59,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.5</version>
 				<executions>
 					<execution>
 						<phase>clean</phase>
@@ -195,7 +122,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>2.10.3</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -212,15 +138,6 @@
 			<plugin>
 	     <groupId>org.apache.maven.plugins</groupId>
 	     <artifactId>maven-source-plugin</artifactId>
-	     <version>${mvn.source.version}</version>
-	     <executions>
-	       <execution>
-	         <id>attach-sources</id>
-	         <goals>
-	           <goal>jar</goal>
-	         </goals>
-	       </execution>
-	     </executions>
 	    </plugin>
 
 		</plugins>
