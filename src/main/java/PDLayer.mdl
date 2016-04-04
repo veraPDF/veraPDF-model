@@ -71,8 +71,12 @@ type PDPage extends PDObject {
 	link TrimBox: CosBBox?;
 	% page art box
 	link ArtBox: CosBBox?;
+	% colorspace in group dictionary of the page
+    link groupCS: PDColorSpace?;
 	% true if the page contains presentation steps (/PresSteps in the page dictionary)
 	property containsPresSteps: Boolean;
+	% true if the page contains transparency
+	property containsTransparency: Boolean;
 }
 
 % the object representing content stream together with the resource dictionary
