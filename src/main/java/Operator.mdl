@@ -486,6 +486,10 @@ type Glyph extends Object {
 	property isWidthConsistent: Boolean;
 	% true if glyph is present in the font program
 	property isGlyphPresent: Boolean;
+	% unicode value of the glyph
+	property toUnicode: String;
+	% rendering mode value
+	property renderingMode: Integer;
 }
 
 % glyph in the composite font
