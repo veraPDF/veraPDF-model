@@ -119,6 +119,15 @@ type PDICCBased extends PDColorSpace {
 	link iccProfile: ICCInputProfile;
 }
 
+% ICCBased CMYK colour space
+type PDICCBasedCMYK extends PDICCBased {
+	% the value of the OPM key (0 or 1)
+	property OPM: Integer;
+	% the value of overprint flag (true or false) effective for this colour space 
+	% (/OP if the colour space is used for stroke, and /op if it used for non-stroke operations)
+	property overprintFlag: Boolean;
+}
+
 % Lab color space
 type PDLab extends PDColorSpace {
 
