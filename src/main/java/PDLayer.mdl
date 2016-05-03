@@ -83,8 +83,6 @@ type PDPage extends PDObject {
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
-	% the flag indicating the the content stream has an explicitly associated Resources dictionary
-	property hasExplicitResources: Boolean;
 }
 
 % PDF resource object
