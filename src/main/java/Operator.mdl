@@ -8,6 +8,7 @@ import org.verapdf.model.coslayer.CosArray;
 import org.verapdf.model.coslayer.CosName;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosRenderingIntent;
+import org.verapdf.model.coslayer.CosLang;
 
 import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
@@ -451,6 +452,8 @@ type Op_BDC extends OpMarkedContent {
 	link tag: CosName;
 	% properties dictionary
 	link properties: CosDict;
+	% value of the Lang entry from properties dictionary
+    link Lang: CosLang;
 }
 
 % end marked content region

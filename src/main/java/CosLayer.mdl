@@ -143,6 +143,11 @@ type CosString extends CosObject {
 	property hexCount: Integer;
 }
 
+% Lang type
+type CosLang extends CosString {
+
+}
+
 % PDF Dict type
 type CosDict extends CosObject {
 	% number of key/value pairs in the dictionary
