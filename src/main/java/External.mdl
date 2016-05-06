@@ -58,6 +58,7 @@ type CMapFile extends External {
 	property dictWMode: Integer;
 }
 
+% JPEG2000 image
 type JPEG2000 extends External {
 	% the number of colour channels
 	property nrColorChannels: Integer;
@@ -75,9 +76,18 @@ type JPEG2000 extends External {
 	property bpccBoxPresent: Boolean;
 }
 
+% embedded file
 type EmbeddedFile extends External {
 	% MIME type of the embedded file (/Subtype entry in the embedded file dictionary)
 	property Subtype: String;
 	% true if this file is a valid PDF/A document (Part 1 or Part 2) on its own
 	property isValidPDFA12: Boolean;
+}
+
+% PKCS#1 or PKCS#7 binary data object representing the PDF Signature
+type PKCSDataObject extends External {
+	% number of the SignerInfo structures
+	property SignerInfoCount: Integer;
+	% true if the object contains the X.509 signing certificate
+	property signingCertificatePresent: Boolean;
 }

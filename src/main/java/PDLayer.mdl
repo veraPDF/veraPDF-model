@@ -19,6 +19,7 @@ import org.verapdf.model.external.ICCInputProfile;
 import org.verapdf.model.external.FontProgram;
 import org.verapdf.model.external.CMapFile;
 import org.verapdf.model.external.JPEG2000;
+import org.verapdf.model.external.PKCSDataObject;
 
 import org.verapdf.model.xmplayer.XMPPackage;
 
@@ -416,6 +417,20 @@ type PDFormField extends PDObject {
 	property FT: String;
 	% link to the additional actions defined in the interactive form field dictionary (AA entry)
 	link AA: PDAction*;	
+}
+
+% Form field of type signature
+type PDSignatureField extends PDFormField {
+	% Signature dictionary
+	link V: PDSignature;
+}
+
+% Signature dictionary object
+type PDSignature extends PDObject {
+	% true if the ByteRange covers the entire document including the signature dictionary, but excluding the Signature itself
+	property doesByteRangeCoverEntireDocument: Boolean;
+	% link to the DER-encoded PKCS#1 or PKCS#7 data object
+	link Contents: PKCSDataObject;
 }
 	
 % the PDF action object
