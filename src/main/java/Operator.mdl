@@ -453,7 +453,7 @@ type Op_BDC extends OpMarkedContent {
 	% properties dictionary
 	link properties: CosDict;
 	% value of the Lang entry from properties dictionary
-    link Lang: CosLang;
+    link Lang: CosLang?;
 }
 
 % end marked content region

@@ -51,7 +51,7 @@ type PDDocument extends PDObject {
 	% true if the document contains alternate presentations (/AlternatePresentations entry in the document names dictionary)
 	property containsAlternatePresentations: Boolean;
 	% value of the Lang entry from the document catalog
-    link Lang: CosLang;
+    link Lang: CosLang?;
 }
 
 % the object representing PDF page	
@@ -509,5 +509,5 @@ type PDStructElem extends PDObject {
 	% standart structure type
 	property standartType: String;
 	% value of the Lang entry
-	link Lang: CosLang;
+	link Lang: CosLang?;
 }
