@@ -10,6 +10,7 @@ import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosUnicodeName;
 import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
+import org.verapdf.model.coslayer.CosLang;
 
 import org.verapdf.model.operator.Operator;
 
@@ -49,6 +50,8 @@ type PDDocument extends PDObject {
 	link StructTreeRoot: PDStructTreeRoot?;
 	% true if the document contains alternate presentations (/AlternatePresentations entry in the document names dictionary)
 	property containsAlternatePresentations: Boolean;
+	% value of the Lang entry from the document catalog
+    link Lang: CosLang?;
 }
 
 % the object representing PDF page	
@@ -491,6 +494,8 @@ type PDOutline extends PDObject {
 type PDStructTreeRoot extends PDObject {
 	% immediate children of the structure tree root in the structure hierarchy
 	link K: PDStructElem*;
+	% standart type of the first kid
+	property topLevelFirstElementStandartType: String;
 }
 
 % the structure element dictionary
@@ -501,4 +506,8 @@ type PDStructElem extends PDObject {
 	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
+	% standart structure type
+	property standartType: String;
+	% value of the Lang entry
+	link Lang: CosLang?;
 }
