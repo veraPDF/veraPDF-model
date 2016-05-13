@@ -84,7 +84,7 @@ type EmbeddedFile extends External {
 	property isValidPDFA12: Boolean;
 }
 
-% PKCS#1 or PKCS#7 binary data object representing the PDF Signature
+% PKCS#7 binary data object representing the PDF Signature
 type PKCSDataObject extends External {
 	% number of the SignerInfo structures
 	property SignerInfoCount: Integer;
