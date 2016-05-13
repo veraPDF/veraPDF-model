@@ -53,6 +53,8 @@ type PDDocument extends PDObject {
 	property containsAlternatePresentations: Boolean;
 	% value of the Lang entry from the document catalog
     link Lang: CosLang?;
+	% link to the permissions object
+	link Perms: PDPerms?;
 }
 
 % the object representing PDF page	
@@ -429,8 +431,10 @@ type PDSignatureField extends PDFormField {
 type PDSignature extends PDObject {
 	% true if the ByteRange covers the entire document including the signature dictionary, but excluding the Signature itself
 	property doesByteRangeCoverEntireDocument: Boolean;
-	% link to the DER-encoded PKCS#1 or PKCS#7 data object
+	% link to the DER-encoded PKCS#7 data object representing PDF Signature
 	link Contents: PKCSDataObject;
+	% link to the signature reference dictionaries
+	link Reference: PDSigRef*;
 }
 	
 % the PDF action object
@@ -509,7 +513,7 @@ type PDOutline extends PDObject {
 type PDStructTreeRoot extends PDObject {
 	% immediate children of the structure tree root in the structure hierarchy
 	link K: PDStructElem*;
-	% standart type of the first kid
+	% standard type of the first kid
 	property topLevelFirstElementStandartType: String;
 }
 
@@ -521,8 +525,22 @@ type PDStructElem extends PDObject {
 	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
-	% standart structure type
+	% standard structure type defined via role map
 	property standartType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+}
+
+% permissions dictionary referred by /Perms key from the document catalog
+type PDPerms extends PDObject {
+	% true if the permissions dictionary contains entries other than DocMDP and UC3
+	property containsOtherEntries: Boolean;
+}
+
+% signature references dictionary referred by /Reference key from the signature dictionary
+type PDSigRef extends PDObject {
+	% true if any of the entries /DigestLocation, /DigestMethod, or /DigestValue is present
+	property containsDigestEntries: Boolean;
+	% true if the document permissions dictionary contains DocMDP entry
+	property permsContainDocMDP: Boolean;
 }
