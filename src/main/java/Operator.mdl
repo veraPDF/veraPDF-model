@@ -1,6 +1,7 @@
 package org.verapdf.model.operator;
 
 import org.verapdf.model.baselayer.Object;
+import org.verapdf.model.coslayer.CosNumber;
 import org.verapdf.model.coslayer.CosInteger;
 import org.verapdf.model.coslayer.CosReal;
 import org.verapdf.model.coslayer.CosString;
@@ -292,16 +293,16 @@ type OpTextPosition extends Operator {
 
 type Op_Td extends OpTextPosition {
 	% horizontal offset
-	link horizontalOffset: CosReal;
+	link horizontalOffset: CosNumber;
 	% vertical offset
-	link verticalOffset: CosReal;
+	link verticalOffset: CosNumber;
 }
 
 type Op_TD_Big extends OpTextPosition {
 	% horizontal offset
-	link horizontalOffset: CosReal;
+	link horizontalOffset: CosNumber;
 	% vertical offset
-	link verticalOffset: CosReal;
+	link verticalOffset: CosNumber;
 }
 
 type Op_Tm extends OpTextPosition {
