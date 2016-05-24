@@ -6,6 +6,7 @@ import org.verapdf.model.coslayer.CosObject;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosNumber;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosUnicodeName;
 import org.verapdf.model.coslayer.CosIIFilter;
@@ -357,7 +358,7 @@ type PDExtGState extends PDResource {
 	% the rendering intent
 	link RI: CosRenderingIntent?;
 	% font size
-	link fontSize: CosReal?;
+	link fontSize: CosNumber?;
 }
 
 type PDHalftone extends PDObject {
@@ -390,9 +391,9 @@ type PDAnnot extends PDObject {
 	% normal appearance stream (N key in the appearance dictionary) of the annotation
 	link appearance: PDContentStream?;
 	% link to the annotation's color
-	link C: CosReal*;
+	link C: CosNumber*;
 	% link to the annotation's interior color
-	link IC: CosReal*;
+	link IC: CosNumber*;
 	% link to the action associated with the annotation (A entry)
 	link A: PDAction?;
 	% link to the additional actions defined for the annotation (AA entry)
