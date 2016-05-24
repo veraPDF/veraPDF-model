@@ -1,9 +1,8 @@
 package org.verapdf.model.operator;
 
 import org.verapdf.model.baselayer.Object;
-import org.verapdf.model.coslayer.CosNumber;
 import org.verapdf.model.coslayer.CosInteger;
-import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosNumber;
 import org.verapdf.model.coslayer.CosString;
 import org.verapdf.model.coslayer.CosArray;
 import org.verapdf.model.coslayer.CosName;
@@ -34,7 +33,7 @@ type OpGeneralGS extends Operator {
 % set line width operator
 type Op_w_line_width extends OpGeneralGS {
 	% line width
-	link lineWidth: CosReal;
+	link lineWidth: CosNumber;
 }
 
 % set line cap operator
@@ -52,7 +51,7 @@ type Op_j_line_join extends OpGeneralGS {
 % miter limit operator
 type Op_M_miter_limit extends OpGeneralGS {
 	% miter limit
-	link miterLimit: CosReal;
+	link miterLimit: CosNumber;
 }
 
 % set dash pattern operator
@@ -60,7 +59,7 @@ type Op_d extends OpGeneralGS {
 	% dash array
 	link dashArray: CosArray;
 	% dash phase
-	link dashPhase: CosReal;
+	link dashPhase: CosNumber;
 }
 
 % rendering intent operator
@@ -72,7 +71,7 @@ type Op_ri extends OpGeneralGS {
 % flatness operator
 type Op_i extends OpGeneralGS {
 	% flatness
-	link flatness: CosReal;
+	link flatness: CosNumber;
 }
 
 % extended graphics state operator
@@ -100,7 +99,7 @@ type Op_Q_grestore extends OpSpecialGS {
 % current transformation matrix
 type Op_cm extends OpSpecialGS {
 	% the coefficients of the concatenation matrix
-	link matrix: CosReal+;
+	link matrix: CosNumber+;
 }
 
 % Path construction operators
@@ -111,31 +110,31 @@ type OpPathConstruction extends Operator {
 % moveto operator
 type Op_m_moveto extends OpPathConstruction {
 	% operator arguments
-	link point: CosReal+;
+	link point: CosNumber+;
 }
 
 % lineto operator
 type Op_l extends OpPathConstruction {
 	% operator arguments
-	link point: CosReal+;
+	link point: CosNumber+;
 }
 
 % curveto operator
 type Op_c extends OpPathConstruction {
 	% operator arguments
-	link controlPoints: CosReal+;
+	link controlPoints: CosNumber+;
 }
 
 % special curveto operator
 type Op_v extends OpPathConstruction {
 	% operator arguments
-	link controlPoints: CosReal+;
+	link controlPoints: CosNumber+;
 }
 
 % special curveto operator
 type Op_y extends OpPathConstruction {
 	% operator arguments
-	link controlPoints: CosReal+;
+	link controlPoints: CosNumber+;
 }
 
 % close subpath operator
@@ -146,7 +145,7 @@ type Op_h extends OpPathConstruction {
 % rect operator
 type Op_re extends OpPathConstruction {
 	% rectangle box
-	link rectBox: CosReal+;
+	link rectBox: CosNumber+;
 }
 
 % Path paint operators
@@ -250,7 +249,7 @@ type OpTextState extends Operator {
 
 type Op_Tz extends OpTextState {
 	% the horizontal text scaling
-	link scale: CosReal;
+	link scale: CosNumber;
 }
 
 type Op_Tr extends OpTextState {
@@ -260,29 +259,29 @@ type Op_Tr extends OpTextState {
 
 type Op_Tc extends OpTextState {
 	% character spacing
-	link charSpace: CosReal;
+	link charSpace: CosNumber;
 }
 
 type Op_Tf extends OpTextState {
 	% font size
-	link size: CosReal;
+	link size: CosNumber;
 	% the text font
 	link fontName: CosName;
 }
 
 type Op_Tl extends OpTextState {
 	% the text leading
-	link leading: CosReal;
+	link leading: CosNumber;
 }
 
 type Op_Ts extends OpTextState {
 	% text rise
-	link rise: CosReal;
+	link rise: CosNumber;
 }
 
 type Op_Tw extends OpTextState {
 	% word spacing
-	link wordSpace: CosReal;
+	link wordSpace: CosNumber;
 }
 %OpTextState->Op_Tc, Op_Tw, Op_Tz, Op_TL, Op_Tf, Op_Tr, Op_Ts
 
@@ -307,7 +306,7 @@ type Op_TD_Big extends OpTextPosition {
 
 type Op_Tm extends OpTextPosition {
 	% elements of text matrix
-	link controlPoints: CosReal+;
+	link controlPoints: CosNumber+;
 }
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
@@ -346,9 +345,9 @@ type Op_DoubleQuote extends OpTextShow {
 	% string to show (before font encoding mapping is applied)
 	link showString: CosString;
 	% unscaled word spacing
-	link wordSpacing: CosReal;
+	link wordSpacing: CosNumber;
 	% unscaled character spacing
-	link characterSpacing: CosReal;
+	link characterSpacing: CosNumber;
 }
 
 
@@ -359,14 +358,14 @@ type OpType3Font extends Operator {
 
 type Op_d0 extends OpType3Font {
 	% the horizontal displacement in the glyph coordinate system
-	link horizontalDisplacement: CosReal;
+	link horizontalDisplacement: CosNumber;
 	% the vertical displacement in the glyph coordinate system
-	link verticalDisplacement: CosReal;
+	link verticalDisplacement: CosNumber;
 }
 
 type Op_d1 extends OpType3Font {
 	% width and bounding box information for the glyph
-	link controlPoints: CosReal+;
+	link controlPoints: CosNumber+;
 }
 % OpType3Font->Op_d0, Op_d1
 
