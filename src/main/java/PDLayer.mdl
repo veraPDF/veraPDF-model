@@ -279,6 +279,8 @@ type PDType0Font extends PDFont {
 type PDCMap extends PDObject {
 	% name of the CMap (or the value of one of the predefined CMap's)
 	property CMapName: String;
+	% link to the CMap referenced by the key /UseCMap
+	link UseCMap: PDCMap?;
 	% link to the embedded CMap file for an non-standard CMap
 	link embeddedFile: CMapFile?;
 }
