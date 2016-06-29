@@ -536,7 +536,7 @@ type PDStructElem extends PDObject {
 	% structure type
 	link S: CosUnicodeName;
 	% standard structure type defined via role map
-	property standartType: String;
+	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
 }
