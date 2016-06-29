@@ -312,8 +312,10 @@ type PDXImage extends PDXObject {
 }
 
 % SMask image
+% The link imageCS is redefined to return an empty list, as the DeviceGray color space used 
+% in the soft mask defines shape and is not subject to PDF/A validation
 type PDSMaskImage extends PDXImage {
-	% the link imageCS to the color space returns an empty list, as the DeviceGray color space used in the soft mask defines shape and is not subject to PDF/A validation
+	
 }
 
 % Inline image object
