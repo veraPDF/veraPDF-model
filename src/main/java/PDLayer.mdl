@@ -294,7 +294,6 @@ type PDXObject extends PDResource {
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
-	link SMask: PDXObject?;
 }
 
 % Image XObject
@@ -309,6 +308,11 @@ type PDXImage extends PDXObject {
 	link Intent: CosRenderingIntent?;
 	% in case the image stream uses JPX compression, the link to the corresponding JPEG2000 image
 	link jpxStream: JPEG2000?;
+}
+
+% SMask image
+type PDSMaskImage extends PDXImage {
+	% the link imageCS to the color space returns an empty list, as the DeviceGray color space used in the soft mask defines shape and is not subject to PDF/A validation
 }
 
 % Inline image object
