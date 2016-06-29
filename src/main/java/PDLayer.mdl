@@ -294,6 +294,7 @@ type PDXObject extends PDResource {
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
+	link SMask: PDSMaskImage?;
 }
 
 % Image XObject
