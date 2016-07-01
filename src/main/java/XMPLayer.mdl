@@ -71,6 +71,24 @@ type XMPProperty extends XMPObject {
 
 }
 
+% XMPMM History property
+type XMPMMHistoryProperty extends XMPProperty {
+    % Resource Events from xmpMM History property
+    link ResourceEvents: XMPMMHistoryResourceEvent+;
+}
+
+% Resource Event structures of xmpMM History property
+type XMPMMHistoryResourceEvent extends XMPObject {
+    % action value from Resource Event structure
+    property action: String;
+
+    % parameters value from Resource Event structure
+    property parameters: String;
+
+    % when value from Resource Event structure
+    property when: String;
+}
+
 type PDFAIdentification extends XMPObject {
 
     % value of ‘part’ property from PDF/A Identification schema
