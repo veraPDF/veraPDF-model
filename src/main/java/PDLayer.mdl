@@ -208,6 +208,8 @@ type PDFont extends PDResource {
 	link BaseFont: CosUnicodeName;
 	% true if the font flags in the font descriptor dictionary mark indicate that the font is symbolic (the entry /Flags has bit 3 set to 1 and bit 6 set to 0)
 	property isSymbolic: Boolean;
+	% rendering mode value
+	property renderingMode: Integer;
 	% embedded font program for Type 1, TrueType or CID Font
 	link fontFile: FontProgram?;
 }
