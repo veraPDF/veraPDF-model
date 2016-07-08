@@ -312,9 +312,9 @@ type Op_Tm extends OpTextPosition {
 
 % Text show operators
 type OpTextShow extends Operator {
-	% Link to the current font. There is no font specified for text in rendering mode 3.
+	% Link to the current font
 	link font: PDFont?;
-	% Link to all glyphs used in the text. There are no glyphs in case of rendering mode 3
+	% Link to all glyphs used in the text
 	link usedGlyphs: Glyph*;
 	% fill color space, if the rendering mode specifies fill operation (0,2,4,6)
 	link fillCS: PDColorSpace?;
@@ -491,7 +491,7 @@ type Glyph extends Object {
 	property isGlyphPresent: Boolean;
 	% unicode value of the glyph
 	property toUnicode: String;
-	% rendering mode value
+	% value of the rendering mode at the moment the glyph is shown
 	property renderingMode: Integer;
 }
 
