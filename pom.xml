@@ -11,7 +11,7 @@
 
   <groupId>org.verapdf</groupId>
   <artifactId>pdf-model</artifactId>
-  <version>0.25.0-SNAPSHOT</version>
+  <version>0.26.0</version>
 
   <name>veraPDF Validation Model API</name>
   <description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
