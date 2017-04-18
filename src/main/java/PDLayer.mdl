@@ -196,6 +196,12 @@ type PDShadingPattern extends PDPattern {
 	link shading: PDShading;
 }
 
+% the CharSet entry in the FontDescriptor dictionary
+type PDCharSet extends PDObject {
+	% true if the entry correctly lists all character names of the font
+	property doesListAllGlyphs: Boolean;
+}
+
 % PDF font dictionary
 type PDFont extends PDResource {
 	% font type (Type entry)
@@ -245,6 +251,8 @@ type PDType1Font extends PDSimpleFont {
 	property CharSet: String;
 	% true if the CharSet is present and correctly lists all glyphs present in the embedded font program
 	property charSetListsAllGlyphs: Boolean;
+	% CharSet entry of the FontDescriptor dictionary
+	link charSet : PDCharSet;
 }
 
 % Type3 font dictionary
