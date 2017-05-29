@@ -285,6 +285,8 @@ type PDCMap extends PDObject {
 	link UseCMap: PDCMap?;
 	% link to the embedded CMap file for an non-standard CMap
 	link embeddedFile: CMapFile?;
+    % true if CMap uses another CMap that is not predefined
+    property usesNotPredefined: Boolean;
 }
 
 % XObject resource
