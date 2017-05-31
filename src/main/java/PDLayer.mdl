@@ -212,6 +212,8 @@ type PDFont extends PDResource {
 	property renderingMode: Integer;
 	% embedded font program for Type 1, TrueType or CID Font
 	link fontFile: FontProgram?;
+    % value of the entry /Subtype in the embedded font file stream, or null, if the this entry is not present (or the font is not embedded)
+    property fontFileSubtype: String;
 }
 
 % One of the simple font types (Type 1, TrueType, Type 3)
@@ -282,11 +284,14 @@ type PDCMap extends PDObject {
 	% name of the CMap (or the value of one of the predefined CMap's)
 	property CMapName: String;
 	% link to the CMap referenced by the key /UseCMap
-	link UseCMap: PDCMap?;
+	link UseCMap: PDReferencedCMap?;
 	% link to the embedded CMap file for an non-standard CMap
 	link embeddedFile: CMapFile?;
-    % true if CMap uses another CMap that is not predefined
-    property usesNotPredefined: Boolean;
+}
+
+% CMap that is referenced with UseCMap in other CMap
+type PDReferencedCMap extends PDCMap {
+
 }
 
 % XObject resource
