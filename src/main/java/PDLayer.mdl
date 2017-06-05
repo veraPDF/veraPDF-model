@@ -6,9 +6,12 @@ import org.verapdf.model.coslayer.CosObject;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosStream;
 import org.verapdf.model.coslayer.CosReal;
+import org.verapdf.model.coslayer.CosNumber;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosUnicodeName;
+import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
+import org.verapdf.model.coslayer.CosLang;
 
 import org.verapdf.model.operator.Operator;
 
@@ -17,6 +20,7 @@ import org.verapdf.model.external.ICCInputProfile;
 import org.verapdf.model.external.FontProgram;
 import org.verapdf.model.external.CMapFile;
 import org.verapdf.model.external.JPEG2000;
+import org.verapdf.model.external.PKCSDataObject;
 
 import org.verapdf.model.xmplayer.XMPPackage;
 
@@ -42,10 +46,16 @@ type PDDocument extends PDObject {
 	link OpenAction: PDAction?;
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
+	% link to the optional content properties dictionary
+	link OCProperties: PDOCProperties?;
 	% the link to the document structure tree root dictionary
 	link StructTreeRoot: PDStructTreeRoot?;
-	% link to the alternate presentations of the document (/AlternatePresentations entry in the document names dictionary)
-	link AlternatePresentations: CosDict*;
+	% true if the document contains alternate presentations (/AlternatePresentations entry in the document names dictionary)
+	property containsAlternatePresentations: Boolean;
+	% value of the Lang entry from the document catalog
+    link Lang: CosLang?;
+	% link to the permissions object
+	link Perms: PDPerms?;
 }
 
 % the object representing PDF page	
@@ -68,8 +78,12 @@ type PDPage extends PDObject {
 	link TrimBox: CosBBox?;
 	% page art box
 	link ArtBox: CosBBox?;
-	% link to the presentation steps dictionary
-	link PresSteps: CosDict*;
+	% colorspace in group dictionary of the page
+	link groupCS: PDColorSpace?;
+	% true if the page contains presentation steps (/PresSteps in the page dictionary)
+	property containsPresSteps: Boolean;
+	% true if the page contains transparency
+	property containsTransparency: Boolean;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -80,7 +94,9 @@ type PDContentStream extends PDObject {
 
 % PDF resource object
 type PDResource extends PDObject {
-
+	% true if the resource is taken not from the resource dictionary explicitly associated with the page content, but is inherited either 
+	% from the parent page node (for pages) or from the parent page object where the resource is used (for patterns, Type3 fonts, annotations).
+	property isInherited: Boolean;
 }
 
 % Color space object
@@ -108,6 +124,15 @@ type PDDeviceCMYK extends PDColorSpace {
 type PDICCBased extends PDColorSpace {
 	% embedded ICC profile
 	link iccProfile: ICCInputProfile;
+}
+
+% ICCBased CMYK colour space
+type PDICCBasedCMYK extends PDICCBased {
+	% the value of the OPM key (0 or 1)
+	property OPM: Integer;
+	% the value of overprint flag (true or false) effective for this colour space 
+	% (/OP if the colour space is used for stroke, and /op if it used for non-stroke operations)
+	property overprintFlag: Boolean;
 }
 
 % Lab color space
@@ -183,6 +208,8 @@ type PDFont extends PDResource {
 	link BaseFont: CosUnicodeName;
 	% true if the font flags in the font descriptor dictionary mark indicate that the font is symbolic (the entry /Flags has bit 3 set to 1 and bit 6 set to 0)
 	property isSymbolic: Boolean;
+	% rendering mode value
+	property renderingMode: Integer;
 	% embedded font program for Type 1, TrueType or CID Font
 	link fontFile: FontProgram?;
 }
@@ -254,6 +281,8 @@ type PDType0Font extends PDFont {
 type PDCMap extends PDObject {
 	% name of the CMap (or the value of one of the predefined CMap's)
 	property CMapName: String;
+	% link to the CMap referenced by the key /UseCMap
+	link UseCMap: PDCMap?;
 	% link to the embedded CMap file for an non-standard CMap
 	link embeddedFile: CMapFile?;
 }
@@ -267,7 +296,7 @@ type PDXObject extends PDResource {
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
-	link SMask: PDXObject?;
+	link SMask: PDSMaskImage?;
 }
 
 % Image XObject
@@ -284,10 +313,17 @@ type PDXImage extends PDXObject {
 	link jpxStream: JPEG2000?;
 }
 
+% SMask image
+% The link imageCS is redefined to return an empty list, as the DeviceGray color space used 
+% in the soft mask defines shape and is not subject to PDF/A validation
+type PDSMaskImage extends PDXImage {
+	
+}
+
 % Inline image object
 type PDInlineImage extends PDXImage {
-	% The SPACE-separated list of stream filters (abbreviated)
-	property F: String;
+	% link to the inline image filters
+	link F: CosIIFilter*;
 }
 
 % Form XObject
@@ -333,7 +369,7 @@ type PDExtGState extends PDResource {
 	% the rendering intent
 	link RI: CosRenderingIntent?;
 	% font size
-	link fontSize: CosReal?;
+	link fontSize: CosNumber?;
 }
 
 type PDHalftone extends PDObject {
@@ -366,9 +402,9 @@ type PDAnnot extends PDObject {
 	% normal appearance stream (N key in the appearance dictionary) of the annotation
 	link appearance: PDContentStream?;
 	% link to the annotation's color
-	link C: CosReal*;
+	link C: CosNumber*;
 	% link to the annotation's interior color
-	link IC: CosReal*;
+	link IC: CosNumber*;
 	% link to the action associated with the annotation (A entry)
 	link A: PDAction?;
 	% link to the additional actions defined for the annotation (AA entry)
@@ -395,6 +431,22 @@ type PDFormField extends PDObject {
 	property FT: String;
 	% link to the additional actions defined in the interactive form field dictionary (AA entry)
 	link AA: PDAction*;	
+}
+
+% Form field of type signature
+type PDSignatureField extends PDFormField {
+	% Signature dictionary
+	link V: PDSignature;
+}
+
+% Signature dictionary object
+type PDSignature extends PDObject {
+	% true if the ByteRange covers the entire document including the signature dictionary, but excluding the Signature itself
+	property doesByteRangeCoverEntireDocument: Boolean;
+	% link to the DER-encoded PKCS#7 data object representing PDF Signature
+	link Contents: PKCSDataObject;
+	% link to the signature reference dictionaries
+	link Reference: PDSigRef*;
 }
 	
 % the PDF action object
@@ -442,6 +494,27 @@ type PDOutputIntent extends PDObject {
 	link DestOutputProfileRef: CosDict?;
 }
 
+% Optional content properties dictionary
+type PDOCProperties extends PDObject {
+	% link to the default optional content dictionary
+	link D: PDOCConfig;
+	% link to alternate optional content configuration dictionaries
+	link Configs: PDOCConfig*;
+}
+
+type PDOCConfig extends PDObject {
+	% name of the configuration (/Name entry in the optional content configuration dictionary)
+	property Name: String;
+	% true if the name of this config has already been found in the default config or in one of the optional configs
+	property hasDuplicateName: Boolean;
+	% string representation of the /AS key (or null, if this key doe snot exist in the config dictionary)
+	% if this key is present, the property contain the space-concatenated values of the Event entries if all Usage Application dictionaries
+	property AS: String;
+	% true if the Order array contains references to all optional content groups in the document
+	property doesOrderContainAllOCGs: Boolean;
+}
+
+
 % the outline (or bookmark) dictionary
 type PDOutline extends PDObject {
 	% link to the associated action object (A entry in the outline dictionary)
@@ -452,6 +525,8 @@ type PDOutline extends PDObject {
 type PDStructTreeRoot extends PDObject {
 	% immediate children of the structure tree root in the structure hierarchy
 	link K: PDStructElem*;
+	% standard type of the first kid
+	property topLevelFirstElementStandartType: String;
 }
 
 % the structure element dictionary
@@ -462,4 +537,22 @@ type PDStructElem extends PDObject {
 	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
+	% standard structure type defined via role map
+	property standardType: String;
+	% value of the Lang entry
+	link Lang: CosLang?;
+}
+
+% permissions dictionary referred by /Perms key from the document catalog
+type PDPerms extends PDObject {
+	% true if the permissions dictionary contains entries other than DocMDP and UC3
+	property containsOtherEntries: Boolean;
+}
+
+% signature references dictionary referred by /Reference key from the signature dictionary
+type PDSigRef extends PDObject {
+	% true if any of the entries /DigestLocation, /DigestMethod, or /DigestValue is present
+	property containsDigestEntries: Boolean;
+	% true if the document permissions dictionary contains DocMDP entry
+	property permsContainDocMDP: Boolean;
 }
