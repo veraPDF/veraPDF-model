@@ -371,10 +371,16 @@ type Op_d1 extends OpType3Font {
 
 % Color operators
 type OpColor extends Operator {
-
+    % color space set by this operator
+    link colorSpace: PDColorSpace;
 }
 
-% Op_Color->Op_CS, Op_cs, Op_SC, Op_SCN, Op_sc, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
+% Op_Color->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
+
+% Set color operators without colorspace, Op_SC, Op_sc
+type OpSetColor extends Operator {
+
+}
 
 % Shading operators
 type OpShading extends Operator {

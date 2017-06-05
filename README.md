@@ -2,7 +2,7 @@ veraPDF-model
 =============
 The veraPDF Validation model described using a Domain Specific Language developed in [XText](https://eclipse.org/Xtext/).
 
-[![Build Status](https://travis-ci.org/veraPDF/veraPDF-model.svg?branch=integration)](https://travis-ci.org/openpreserve/jhove "Travis-CI")
+[![Build Status](https://travis-ci.org/veraPDF/veraPDF-model.svg?branch=integration)](https://travis-ci.org/veraPDF/veraPDF-model "Travis-CI")
 [![Build Status](http://jenkins.openpreservation.org/buildStatus/icon?job=veraPDF-model)](http://jenkins.openpreservation.org/job/veraPDF-model/ "OPF Jenkins Release")
 [![Build Status](http://jenkins.openpreservation.org/buildStatus/icon?job=veraPDF-model-dev)](http://jenkins.openpreservation.org/job/veraPDF-model-dev/ "OPF Jenkins Development")
 [![Maven Central](https://img.shields.io/maven-central/v/org.verapdf/pdf-model.svg)](http://repo1.maven.org/maven2/org/verapdf/pdf-model/ "Maven central")
