@@ -532,6 +532,8 @@ type PDOutline extends PDObject {
 type PDStructTreeRoot extends PDObject {
 	% immediate children of the structure tree root in the structure hierarchy
 	link K: PDStructElem*;
+	% all structure element names used in role map
+	link roleMapNames: CosUnicodeName*;
 	% standard type of the first kid
 	property topLevelFirstElementStandartType: String;
 }
