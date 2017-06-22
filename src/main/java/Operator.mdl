@@ -499,6 +499,8 @@ type Glyph extends Object {
 	property toUnicode: String;
 	% value of the rendering mode at the moment the glyph is shown
 	property renderingMode: Integer;
+    % true if toUnicode value lies inside of Unicode Private Use Area an no ActualText is present
+    property noValidUnicode: Boolean;
 }
 
 % glyph in the composite font
