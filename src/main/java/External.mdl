@@ -56,6 +56,8 @@ type CMapFile extends External {
 	property WMode: Integer;
 	% the value of the WMode entry in the parent CMap dictionary
 	property dictWMode: Integer;
+    % maximal CID of code contained in this CMap file
+    property maximalCID: Integer;
 }
 
 % JPEG2000 image
