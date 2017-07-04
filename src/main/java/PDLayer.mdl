@@ -351,8 +351,6 @@ type PDXForm extends PDXObject {
 type PDGroup extends PDObject {
 	% group subtype (S key)
 	property S: String;
-	% link to color space
-	link colorSpace: PDColorSpace;
 }
 
 % ExtGState dictionary
