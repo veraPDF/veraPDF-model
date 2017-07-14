@@ -384,6 +384,12 @@ type PDHalftone extends PDObject {
 	property HalftoneType: Integer;
 	% Halftone name
 	property HalftoneName: String;
+	% colorant name from parent type 5 halftone
+    property colorantName: String;
+    % transfer function
+    property TransferFunction: String;
+    % nested halftones
+    link halftones: PDHalftone*;
 }
 
 % Shading resource
