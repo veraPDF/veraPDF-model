@@ -56,6 +56,8 @@ type PDDocument extends PDObject {
     link Lang: CosLang?;
 	% link to the permissions object
 	link Perms: PDPerms?;
+	% true at the end of parsing if there were no unhandled exceptions
+	property validPDF: Boolean;
 }
 
 % the object representing PDF page	
