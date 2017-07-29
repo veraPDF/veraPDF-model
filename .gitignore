@@ -8,4 +8,7 @@
 **/.project
 **/.settings
 **/.classpath
+
+# Maven stuff
 /target/
+**/pom.xml.versionsBackup
