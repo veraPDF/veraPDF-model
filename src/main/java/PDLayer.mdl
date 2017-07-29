@@ -58,6 +58,8 @@ type PDDocument extends PDObject {
 	link Perms: PDPerms?;
 	% true at the end of parsing if there were no unhandled exceptions
 	property validPDF: Boolean;
+	% true if the catalog dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % the object representing PDF page	
@@ -86,6 +88,8 @@ type PDPage extends PDObject {
 	property containsTransparency: Boolean;
 	% contains group color space
 	property containsGroupCS: Boolean;
+	% true if the page dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -300,8 +304,8 @@ type PDReferencedCMap extends PDCMap {
 type PDXObject extends PDResource {
 	% subtype of the XObject resource (Image, Form, PS)
 	property Subtype: String;
-	% link to the OPI dictionary (OPI key in the XObject dictionary)
-	link OPI: CosDict?;
+	% true if the XObject dictionary contains OPI entry
+	property containsOPI: Boolean;
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
@@ -339,10 +343,10 @@ type PDInlineImage extends PDXImage {
 type PDXForm extends PDXObject {
 	% value of the Subtype2 key
 	property Subtype2: String;
-	% link to the PostScript stream (PS key in PDF 1.0)
-	link PS: CosStream?;
-	% link to the reference XObject (Ref key in the form XObject dictionary)
-	link Ref: CosDict?;
+	% true if the form XObjct dictionary contains PS entry
+	property containsPS: Boolean;
+	% true if the form XObject dictionary contains Ref key
+	property containsRef: Boolean;
 	% form content
 	link contentStream: PDContentStream;
 	% link to the group attributes dictionary
@@ -428,6 +432,8 @@ type PDAnnot extends PDObject {
 	property width: Decimal;
 	% the height of the annotation computed as an absolute value of the difference of value 2 and value 4 of the Rect entry
 	property height: Decimal;
+	% true if the annotation dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % Interactive form dictionary
@@ -446,6 +452,8 @@ type PDFormField extends PDObject {
 	property FT: String;
 	% link to the additional actions defined in the interactive form field dictionary (AA entry)
 	link AA: PDAction*;	
+	% true if the form field dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % Form field of type signature
