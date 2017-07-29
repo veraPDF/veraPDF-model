@@ -191,7 +191,7 @@ type CosFileSpecification extends CosDict {
    % the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
    property AFRelationship: String;
    % true if the file specification dictionary is associated (=referenced by the /AF key) with at least one of the following objects: catalog, page, XObject, annotation or structure element
-   property: isAssociatedFile: Boolean;
+   property isAssociatedFile: Boolean;
 }
 	
 % Trailer of the document	
