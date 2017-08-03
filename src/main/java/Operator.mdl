@@ -379,7 +379,10 @@ type OpColor extends Operator {
 
 % Set color operators without colorspace, Op_SC, Op_sc
 type OpSetColor extends Operator {
-
+	% numeric arguments of the color operators
+	link colorValues: CosNumber*;
+	% name of the tiling pattern in case of scn/SCN operators and the Pattern color space
+	link patternName: CosName?;
 }
 
 % Shading operators
