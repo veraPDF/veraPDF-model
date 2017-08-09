@@ -56,6 +56,10 @@ type PDDocument extends PDObject {
     link Lang: CosLang?;
 	% link to the permissions object
 	link Perms: PDPerms?;
+	% true at the end of parsing if there were no unhandled exceptions
+	property validPDF: Boolean;
+	% true if the catalog dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % the object representing PDF page	
@@ -78,12 +82,14 @@ type PDPage extends PDObject {
 	link TrimBox: CosBBox?;
 	% page art box
 	link ArtBox: CosBBox?;
-	% colorspace in group dictionary of the page
-	link groupCS: PDColorSpace?;
 	% true if the page contains presentation steps (/PresSteps in the page dictionary)
 	property containsPresSteps: Boolean;
 	% true if the page contains transparency
 	property containsTransparency: Boolean;
+	% contains group color space
+	property containsGroupCS: Boolean;
+	% true if the page dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -298,8 +304,8 @@ type PDReferencedCMap extends PDCMap {
 type PDXObject extends PDResource {
 	% subtype of the XObject resource (Image, Form, PS)
 	property Subtype: String;
-	% link to the OPI dictionary (OPI key in the XObject dictionary)
-	link OPI: CosDict?;
+	% true if the XObject dictionary contains OPI entry
+	property containsOPI: Boolean;
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
@@ -318,6 +324,8 @@ type PDXImage extends PDXObject {
 	link Intent: CosRenderingIntent?;
 	% in case the image stream uses JPX compression, the link to the corresponding JPEG2000 image
 	link jpxStream: JPEG2000?;
+	% true if the image dictionary contains Alternates key
+	property containsAlternates: Boolean;
 }
 
 % SMask image
@@ -337,10 +345,10 @@ type PDInlineImage extends PDXImage {
 type PDXForm extends PDXObject {
 	% value of the Subtype2 key
 	property Subtype2: String;
-	% link to the PostScript stream (PS key in PDF 1.0)
-	link PS: CosStream?;
-	% link to the reference XObject (Ref key in the form XObject dictionary)
-	link Ref: CosDict?;
+	% true if the form XObjct dictionary contains PS entry
+	property containsPS: Boolean;
+	% true if the form XObject dictionary contains Ref key
+	property containsRef: Boolean;
 	% form content
 	link contentStream: PDContentStream;
 	% link to the group attributes dictionary
@@ -352,7 +360,7 @@ type PDGroup extends PDObject {
 	% group subtype (S key)
 	property S: String;
 	% link to color space
-	link colorSpace: PDColorSpace;
+    link colorSpace: PDColorSpace;
 }
 
 % ExtGState dictionary
@@ -363,8 +371,8 @@ type PDExtGState extends PDResource {
 	property TR2: String;
 	% Halftone dictionary
 	link HT: PDHalftone;
-	% Halftone phase
-	link HTP: CosObject?;	
+	% true if the ExtGState dictionary contains HTP key
+	property containsHTP: Boolean;	
 	% String representation of the SMask key ("None" or "Custom")
 	property SMask: String;
 	% blend mode
@@ -384,6 +392,12 @@ type PDHalftone extends PDObject {
 	property HalftoneType: Integer;
 	% Halftone name
 	property HalftoneName: String;
+	% colorant name from parent type 5 halftone
+    property colorantName: String;
+    % transfer function
+    property TransferFunction: String;
+    % nested halftones
+    link halftones: PDHalftone*;
 }
 
 % Shading resource
@@ -420,14 +434,18 @@ type PDAnnot extends PDObject {
 	property width: Decimal;
 	% the height of the annotation computed as an absolute value of the difference of value 2 and value 4 of the Rect entry
 	property height: Decimal;
+	% true if the annotation dictionary contains the A entry
+	property containsA: Boolean;
+	% true if the annotation dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % Interactive form dictionary
 type PDAcroForm extends PDObject {
 	% NeedAppearances flag
 	property NeedAppearances: Boolean;
-	% the value of the XFA key
-	link XFA: CosObject?;
+	% true if the form dictionary contains XFA key
+	property containsXFA: Boolean;
 	% all interactive form fields in the document
 	link formFields: PDFormField*;
 }
@@ -438,6 +456,8 @@ type PDFormField extends PDObject {
 	property FT: String;
 	% link to the additional actions defined in the interactive form field dictionary (AA entry)
 	link AA: PDAction*;	
+	% true if the form field dictionary contains the AA entry
+	property containsAA: Boolean;
 }
 
 % Form field of type signature
@@ -497,8 +517,12 @@ type PDOutputIntent extends PDObject {
 	property destOutputProfileIndirect: String;
 	% destination output profile
 	link destProfile: ICCOutputProfile?;
-	% the link to the destination output profile reference dictionary as defined by PDF/X-4p standard (ISO 15930-7:2010, Annex A)
-	link DestOutputProfileRef: CosDict?;
+	% true if the output intent dictionary contains DestOutputProfileRef key
+	property containsDestOutputProfileRef: Boolean;
+	% value of the /OutputConditionIdentifier entry in the output intent dictionary (or null, if this entry is not present)
+	property OutputConditionIdentifier: String;
+	% value of the /S entry (the output intent subtype) in the output intent dictionary (or null, if this entry is not present)
+	property S: String;
 }
 
 % Optional content properties dictionary
@@ -514,7 +538,7 @@ type PDOCConfig extends PDObject {
 	property Name: String;
 	% true if the name of this config has already been found in the default config or in one of the optional configs
 	property hasDuplicateName: Boolean;
-	% string representation of the /AS key (or null, if this key doe snot exist in the config dictionary)
+	% string representation of the /AS key (or null, if this key does not exist in the config dictionary)
 	% if this key is present, the property contain the space-concatenated values of the Event entries if all Usage Application dictionaries
 	property AS: String;
 	% true if the Order array contains references to all optional content groups in the document
@@ -532,6 +556,8 @@ type PDOutline extends PDObject {
 type PDStructTreeRoot extends PDObject {
 	% immediate children of the structure tree root in the structure hierarchy
 	link K: PDStructElem*;
+	% all structure element names used in role map
+	link roleMapNames: CosUnicodeName*;
 	% standard type of the first kid
 	property topLevelFirstElementStandartType: String;
 }

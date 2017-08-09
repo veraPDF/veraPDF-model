@@ -369,18 +369,21 @@ type Op_d1 extends OpType3Font {
 }
 % OpType3Font->Op_d0, Op_d1
 
+% Set color operators without colorspace, Op_SC, Op_sc
+type OpSetColor extends Operator {
+    % numeric arguments of the color operators
+    link colorValues: CosNumber*;
+}
+
 % Color operators
-type OpColor extends Operator {
+type OpColor extends OpSetColor {
     % color space set by this operator
     link colorSpace: PDColorSpace;
+    % name of the tiling pattern in case of scn/SCN operators and the Pattern color space
+    link patternName: CosName?;
 }
 
 % Op_Color->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
-
-% Set color operators without colorspace, Op_SC, Op_sc
-type OpSetColor extends Operator {
-
-}
 
 % Shading operators
 type OpShading extends Operator {
@@ -499,6 +502,10 @@ type Glyph extends Object {
 	property toUnicode: String;
 	% value of the rendering mode at the moment the glyph is shown
 	property renderingMode: Integer;
+    % true if toUnicode value contains codes from Unicode Private Use Area
+    property unicodePUA: Boolean;
+    % true if an ActualText entry is present for this glyph
+    property actualTextPresent: Boolean;
 }
 
 % glyph in the composite font
