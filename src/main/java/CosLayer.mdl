@@ -56,6 +56,8 @@ type CosDocument extends CosObject {
 	property Requirements: String;
 	% NeedsRendering entry in the document's Catalog (false by default)
 	property NeedsRendering: Boolean;
+	% true, if the document contains the EmbeddedFiles entry in the names dictionary
+	property containsEmbeddedFiles: Boolean;
 }
 
 % PDF Indirect object
@@ -184,6 +186,8 @@ type CosStream extends CosDict {
 type CosFileSpecification extends CosDict {
    % link to the embedded file stream
    link EF: EmbeddedFile?;
+   % true if the file specification dictionary contains EF key
+   property containsEF: Boolean;
    % a file specification string (F key)
    property F: String;
    % a unicode file specification (UF key)
