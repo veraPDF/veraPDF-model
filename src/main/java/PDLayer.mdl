@@ -306,6 +306,8 @@ type PDXObject extends PDResource {
 	property Subtype: String;
 	% true if the XObject dictionary contains OPI entry
 	property containsOPI: Boolean;
+	% true if the XObject dictionary contains SMask entry
+    property containsSMask: Boolean;
 	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary, 
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
