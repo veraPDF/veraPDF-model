@@ -7,6 +7,11 @@ The veraPDF Validation model described using a Domain Specific Language develope
 [![Build Status](http://jenkins.openpreservation.org/buildStatus/icon?job=veraPDF-model-dev)](http://jenkins.openpreservation.org/job/veraPDF-model-dev/ "OPF Jenkins Development")
 [![Maven Central](https://img.shields.io/maven-central/v/org.verapdf/pdf-model.svg)](http://repo1.maven.org/maven2/org/verapdf/pdf-model/ "Maven central")
 
+[![GitHub issues](https://img.shields.io/github/issues/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues "Open issues on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues-closed/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues-closed "Open issues on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues-pr/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues-pr "Open issues on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues-pr-closed/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues-pr-closed "Open issues on GitHub")
+
 Licensing
 ---------
 The veraPDF Validation model is dual-licensed, see:
@@ -18,7 +23,7 @@ Pre-requisites
 --------------
 In order to generate the model classes you'll need:
 
- * Java 7, which can be downloaded [from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](http://openjdk.java.net/install/index.html).
+ * Java 8, which can be downloaded [from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](http://openjdk.java.net/install/index.html).
  * [Maven v3+](https://maven.apache.org/)
 
 If you want to edit and regenerate the model you'll need:
