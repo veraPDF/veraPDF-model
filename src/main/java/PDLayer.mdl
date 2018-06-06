@@ -494,8 +494,8 @@ type PDNamedAction extends PDAction {
 
 % the GoTo action object
 type PDGoToAction extends PDAction {
-	% link to the destination to jump to
-	link D: CosReal*;
+	% Coordinates of the GoTo destination
+	link D: CosNumber*;
 }
 
 % the GoToRemote action object
