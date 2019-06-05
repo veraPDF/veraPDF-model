@@ -27,13 +27,13 @@
   <parent>
     <groupId>org.verapdf</groupId>
     <artifactId>verapdf-parent</artifactId>
-    <version>1.12.2</version>
+    <version>1.14.0</version>
     <relativePath />
   </parent>
 
   <groupId>org.verapdf</groupId>
   <artifactId>pdf-model</artifactId>
-  <version>1.13.0-SNAPSHOT</version>
+  <version>1.14.0-RC</version>
 
   <name>veraPDF Validation Model API</name>
   <description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
