@@ -570,6 +570,8 @@ type PDStructElem extends PDObject {
 	property Type: String;
 	% ampersand separated list of child element types, role mapped to the standard types
 	property kidsStandardTypes: String;
+	% true if the structure element contains content items as its children
+	property hasContentItems: Boolean;
 	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
 	link K: PDStructElem*;
 	% structure type
