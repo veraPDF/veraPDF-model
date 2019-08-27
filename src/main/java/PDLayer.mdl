@@ -562,6 +562,10 @@ type PDStructTreeRoot extends PDObject {
 	link roleMapNames: CosUnicodeName*;
 	% standard type of the first kid
 	property topLevelFirstElementStandartType: String;
+	% ampersand separated list of child element types, role mapped to the standard types
+    property kidsStandardTypes: String;
+    % true if the structure element contains content items as its children
+    property hasContentItems: Boolean;
 }
 
 % the structure element dictionary
