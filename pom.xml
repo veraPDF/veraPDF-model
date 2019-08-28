@@ -27,13 +27,13 @@
   <parent>
     <groupId>org.verapdf</groupId>
     <artifactId>verapdf-parent</artifactId>
-    <version>1.12.2</version>
+    <version>1.14.3</version>
     <relativePath />
   </parent>
 
   <groupId>org.verapdf</groupId>
   <artifactId>pdf-model</artifactId>
-  <version>1.13.0-SNAPSHOT</version>
+  <version>1.15.0-SNAPSHOT</version>
 
   <name>veraPDF Validation Model API</name>
   <description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
@@ -54,7 +54,7 @@
       </snapshots>
       <id>vera-dev</id>
       <name>Vera development</name>
-      <url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
+      <url>https://artifactory.openpreservation.org/artifactory/vera-dev</url>
     </repository>
   </repositories>
   <pluginRepositories>
@@ -64,7 +64,7 @@
       </snapshots>
       <id>vera-dev</id>
       <name>Vera development</name>
-      <url>http://artifactory.opf-labs.org/artifactory/vera-dev</url>
+      <url>https://artifactory.openpreservation.org/artifactory/vera-dev</url>
     </pluginRepository>
   </pluginRepositories>
 
