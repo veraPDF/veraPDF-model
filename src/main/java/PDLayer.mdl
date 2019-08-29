@@ -175,6 +175,8 @@ type PDDeviceN extends PDColorSpace {
 	link colorantNames: CosUnicodeName+;
 	% link to all colorants defined in the Colorants entry of the attributes dictionary
 	link Colorants: PDSeparation*;
+	% link to the process color space defined in the attributes dictionary
+	link processColor: PDColorSpace?;
 	% true if all colorant names are present as keys in the Colorants dictionary of the DeviceN attributes dictionary
 	property areColorantsPresent: Boolean;
 }
