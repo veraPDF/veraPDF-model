@@ -25,12 +25,12 @@ import org.verapdf.model.external.PKCSDataObject;
 import org.verapdf.model.xmplayer.XMPPackage;
 
 
-% base class for all PD layer objects	
+% base class for all PD layer objects
 type PDObject extends Object {
-	
+
 }
 
-% the class corresponding to the high level PDF document structure 
+% the class corresponding to the high level PDF document structure
 type PDDocument extends PDObject {
 	% the array of output intents of the document
 	link outputIntents: PDOutputIntent*;
@@ -53,7 +53,7 @@ type PDDocument extends PDObject {
 	% true if the document contains alternate presentations (/AlternatePresentations entry in the document names dictionary)
 	property containsAlternatePresentations: Boolean;
 	% value of the Lang entry from the document catalog
-    link Lang: CosLang?;
+	link Lang: CosLang?;
 	% link to the permissions object
 	link Perms: PDPerms?;
 	% true at the end of parsing if there were no unhandled exceptions
@@ -62,7 +62,7 @@ type PDDocument extends PDObject {
 	property containsAA: Boolean;
 }
 
-% the object representing PDF page	
+% the object representing PDF page
 type PDPage extends PDObject {
 	% all page annotations
 	link annots: PDAnnot*;
@@ -100,7 +100,7 @@ type PDContentStream extends PDObject {
 
 % PDF resource object
 type PDResource extends PDObject {
-	% true if the resource is taken not from the resource dictionary explicitly associated with the page content, but is inherited either 
+	% true if the resource is taken not from the resource dictionary explicitly associated with the page content, but is inherited either
 	% from the parent page node (for pages) or from the parent page object where the resource is used (for patterns, Type3 fonts, annotations).
 	property isInherited: Boolean;
 }
@@ -136,7 +136,7 @@ type PDICCBased extends PDColorSpace {
 type PDICCBasedCMYK extends PDICCBased {
 	% the value of the OPM key (0 or 1)
 	property OPM: Integer;
-	% the value of overprint flag (true or false) effective for this colour space 
+	% the value of overprint flag (true or false) effective for this colour space
 	% (/OP if the colour space is used for stroke, and /op if it used for non-stroke operations)
 	property overprintFlag: Boolean;
 }
@@ -158,6 +158,8 @@ type PDCalRGB extends PDColorSpace {
 
 % Separation color space
 type PDSeparation extends PDColorSpace {
+	% tint transform function
+	link tintTransform: PDFunction;
 	% alternate color space
 	link alternate: PDColorSpace;
 	% colorant name
@@ -169,6 +171,8 @@ type PDSeparation extends PDColorSpace {
 
 % DeviceN color space
 type PDDeviceN extends PDColorSpace {
+	% tint transform function
+	link tintTransform: PDFunction;
 	% alternate color space
 	link alternate: PDColorSpace;
 	% colorant names
@@ -220,8 +224,8 @@ type PDFont extends PDResource {
 	property renderingMode: Integer;
 	% embedded font program for Type 1, TrueType or CID Font
 	link fontFile: FontProgram?;
-    % value of the entry /Subtype in the embedded font file stream, or null, if the this entry is not present (or the font is not embedded)
-    property fontFileSubtype: String;
+	% value of the entry /Subtype in the embedded font file stream, or null, if the this entry is not present (or the font is not embedded)
+	property fontFileSubtype: String;
 }
 
 % One of the simple font types (Type 1, TrueType, Type 3)
@@ -234,7 +238,7 @@ type PDSimpleFont extends PDFont {
 	property LastChar: Integer;
 	% The size of the Widths array; null if the Widths array is not present or has invalid type
 	property Widths_size: Integer;
-	% String representation of the font encoding: 
+	% String representation of the font encoding:
 	% - null if the /Encoding entry is not present in the font dictionary
 	% - if /Encoding entry in the font dictionary if of Name type, then the value of this entry;
 	% - if /Encoding entry is a dictionary, which does not contain /Differences array, then the value of /BaseEncoding entry in this dictionary (or null, if /BaseEncoding is also not present)
@@ -270,7 +274,7 @@ type PDCIDFont extends PDFont {
 	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
 	link CIDSet: CosStream?;
 	% true if the CIDSet is present and correctly lists all glyphs present in the embedded font program
-	property cidSetListsAllGlyphs: Boolean;	
+	property cidSetListsAllGlyphs: Boolean;
 }
 
 % Type0 font dictionary
@@ -309,9 +313,9 @@ type PDXObject extends PDResource {
 	% true if the XObject dictionary contains OPI entry
 	property containsOPI: Boolean;
 	% true if the XObject dictionary contains SMask entry
-    property containsSMask: Boolean;
+	property containsSMask: Boolean;
 	% link to the soft mask image (SMask key)
-	% according to the PDF Specification this key may be present only in the Image dictionary, 
+	% according to the PDF Specification this key may be present only in the Image dictionary,
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
 	link SMask: PDSMaskImage?;
 }
@@ -333,10 +337,10 @@ type PDXImage extends PDXObject {
 }
 
 % SMask image
-% The link imageCS is redefined to return an empty list, as the DeviceGray color space used 
+% The link imageCS is redefined to return an empty list, as the DeviceGray color space used
 % in the soft mask defines shape and is not subject to PDF/A validation
 type PDSMaskImage extends PDXImage {
-	
+
 }
 
 % Inline image object
@@ -364,19 +368,19 @@ type PDGroup extends PDObject {
 	% group subtype (S key)
 	property S: String;
 	% link to color space
-    link colorSpace: PDColorSpace;
+	link colorSpace: PDColorSpace;
 }
 
 % ExtGState dictionary
 type PDExtGState extends PDResource {
-	% String representation of the TR key ("Identity" or "Custom")
+	% TR function
 	property TR: String;
-	% String representation of the TR2 key ("Identity", "Default" or "Custom")
+	% TR2 function
 	property TR2: String;
 	% Halftone dictionary
 	link HT: PDHalftone;
 	% true if the ExtGState dictionary contains HTP key
-	property containsHTP: Boolean;	
+	property containsHTP: Boolean;
 	% String representation of the SMask key ("None" or "Custom")
 	property SMask: String;
 	% blend mode
@@ -389,6 +393,8 @@ type PDExtGState extends PDResource {
 	link RI: CosRenderingIntent?;
 	% font size
 	link fontSize: CosNumber?;
+	% custom TR functions
+	link customFunctions: PDFunction*;
 }
 
 type PDHalftone extends PDObject {
@@ -397,11 +403,13 @@ type PDHalftone extends PDObject {
 	% Halftone name
 	property HalftoneName: String;
 	% colorant name from parent type 5 halftone
-    property colorantName: String;
-    % transfer function
-    property TransferFunction: String;
-    % nested halftones
-    link halftones: PDHalftone*;
+	property colorantName: String;
+	% transfer function
+	property TransferFunction: String;
+	% custom TR functions
+	link customFunction: PDFunction?;
+	% nested halftones
+	link halftones: PDHalftone*;
 }
 
 % Shading resource
@@ -410,7 +418,7 @@ type PDShading extends PDResource {
 	link colorSpace: PDColorSpace;
 }
 
-% annotation object	
+% annotation object
 type PDAnnot extends PDObject {
 	% annotation subtype
 	property Subtype: String;
@@ -459,7 +467,7 @@ type PDFormField extends PDObject {
 	% Field type
 	property FT: String;
 	% link to the additional actions defined in the interactive form field dictionary (AA entry)
-	link AA: PDAction*;	
+	link AA: PDAction*;
 	% true if the form field dictionary contains the AA entry
 	property containsAA: Boolean;
 }
@@ -479,7 +487,7 @@ type PDSignature extends PDObject {
 	% link to the signature reference dictionaries
 	link Reference: PDSigRef*;
 }
-	
+
 % the PDF action object
 type PDAction extends PDObject {
 	% action subtype
@@ -565,9 +573,9 @@ type PDStructTreeRoot extends PDObject {
 	% standard type of the first kid
 	property topLevelFirstElementStandartType: String;
 	% ampersand separated list of child element types, role mapped to the standard types
-    property kidsStandardTypes: String;
-    % true if the structure element contains content items as its children
-    property hasContentItems: Boolean;
+	property kidsStandardTypes: String;
+	% true if the structure element contains content items as its children
+	property hasContentItems: Boolean;
 }
 
 % the structure element dictionary
@@ -600,4 +608,29 @@ type PDSigRef extends PDObject {
 	property containsDigestEntries: Boolean;
 	% true if the document permissions dictionary contains DocMDP entry
 	property permsContainDocMDP: Boolean;
+}
+
+% PDF function type
+type PDFunction extends PDObject {
+	% type of the function (0, 2, 3 or 4)
+	property FunctionType: Integer;
+}
+
+% Type0 function
+type PDType0Function extends PDFunction {
+}
+
+% Type2 function
+type PDType2Function extends PDFunction {
+}
+
+% Type3 function
+type PDType3Function extends PDFunction {
+	link Functions: PDFunction*;
+}
+
+% Type4 function
+type PDType4Function extends PDFunction {
+	% link to all operators in type 4 function
+	link operators: CosObject*;
 }
