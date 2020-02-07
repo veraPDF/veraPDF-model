@@ -21,6 +21,10 @@ type XMPPackage extends XMPObject {
     % - package represents a well-formed XML that is serialized using the encoding of the matched byte array
     property isSerializationValid: Boolean;
 
+    % the actual encoding used for XMP package serialization
+    % it is different from the encoding property, which is declared encoding (deprecated)
+    property actualEncoding: String;
+
     % true if this is well formed XMP package:
     % - package conforms to the requirements of RDF schema
     % - package conforms to the additional requirements imposed by XMP specification on RDF format
