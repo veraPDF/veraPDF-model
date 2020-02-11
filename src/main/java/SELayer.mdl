@@ -1,0 +1,215 @@
+package org.verapdf.model.selayer;
+
+import org.verapdf.model.pdlayer.PDStructElem;
+
+% the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
+type SENonStandard extends PDStructElem {
+}
+
+% <Document> structure element
+type SEDocument extends PDStructElem {
+}
+
+% <Part> structure element
+type SEPart extends PDStructElem {
+}
+
+% <Div> structure element
+type SEDiv extends PDStructElem {
+}
+
+% <Caption> structure element
+type SECaption extends PDStructElem {
+}
+
+% <H> structure element
+type SEH extends PDStructElem {
+}
+
+% <P> structure element
+type SEP extends PDStructElem {
+}
+
+% <L> structure element
+type SEL extends PDStructElem {
+}
+
+% <LI> structure element
+type SELI extends PDStructElem {
+}
+
+% <Lbl> structure element
+type SELbl extends PDStructElem {
+}
+
+% <LBody> structure element
+type SELBody extends PDStructElem {
+}
+
+% <Table> structure element
+type SETable extends PDStructElem {
+}
+
+% <TR> structure element
+type SETR extends PDStructElem {
+}
+
+% <TH> structure element
+type SETH extends PDStructElem {
+}
+
+% <TD> structure element
+type SETD extends PDStructElem {
+}
+
+% <Span> structure element
+type SESpan extends PDStructElem {
+}
+
+% <Link> structure element
+type SELink extends PDStructElem {
+}
+
+% <Art> structure element (only PDF 1.7)
+type SEArt extends PDStructElem {
+}
+
+% <Sect> structure element
+type SESect extends PDStructElem {
+}
+
+% <BlockQuote> structure element (only PDF 1.7)
+type SEBlockQuote extends PDStructElem {
+}
+
+% <TOC> structure element (only PDF 1.7)
+type SETOC extends PDStructElem {
+}
+
+% <TOCI> structure element (only PDF 1.7)
+type SETOCI extends PDStructElem {
+}
+
+% <Index> structure element (only PDF 1.7)
+type SEIndex extends PDStructElem {
+}
+
+% <NonStruct> structure element
+type SENonStruct extends PDStructElem {
+}
+
+% <Private> structure element
+type SEPrivate extends PDStructElem {
+}
+
+% <Quote> structure element
+type SEQuote extends PDStructElem {
+}
+
+% <Note> structure element (only PDF 1.7)
+type SENote extends PDStructElem {
+}
+
+% <Reference> structure element
+type SEReference extends PDStructElem {
+}
+
+% <BibEntry> structure element (only PDF 1.7)
+type SEBibEntry extends PDStructElem {
+}
+
+% <Code> structure element (only PDF 1.7)
+type SECode extends PDStructElem {
+}
+
+% <Hn> structure element (or one of <H1> to <H6> in PDF 1.7)
+type SEHn extends PDStructElem {
+}
+
+% <Figure> structure element
+type SEFigure extends PDStructElem {
+}
+
+% <Formula> structure element
+type SEFormula extends PDStructElem {
+}
+
+% <Form> structure element
+type SEForm extends PDStructElem {
+}
+
+% <THead> structure element
+type SETHead extends PDStructElem {
+}
+
+% <TBody> structure element
+type SETBody extends PDStructElem {
+}
+
+% <TFoot> structure element
+type SETFoot extends PDStructElem {
+}
+
+% <Annot> structure element
+type SEAnnot extends PDStructElem {
+}
+
+% <Ruby> structure element
+type SERuby extends PDStructElem {
+}
+
+% <Warichu> structure element
+type SEWarichu extends PDStructElem {
+}
+
+% <RB> structure element
+type SERB extends PDStructElem {
+}
+
+% <RT> structure element
+type SERT extends PDStructElem {
+}
+
+% <RP> structure element
+type SERP extends PDStructElem {
+}
+
+% <WT> structure element
+type SEWT extends PDStructElem {
+}
+
+% <WP> structure element
+type SEWP extends PDStructElem {
+}
+
+% <DocumentFragment> structure element (only PDF 2.0)
+type SEDocumentFragment extends PDStructElem {
+}
+
+% <Aside> structure element (only PDF 2.0)
+type SEAside extends PDStructElem {
+}
+
+% <Title> structure element (only PDF 2.0)
+type SETitle extends PDStructElem {
+}
+
+% <FENote> structure element (only PDF 2.0)
+type SEFENote extends PDStructElem {
+}
+
+% <Sub> structure element (only PDF 2.0)
+type SESub extends PDStructElem {
+}
+
+% <Em> structure element (only PDF 2.0)
+type SEEm extends PDStructElem {
+}
+
+% <Strong> structure element (only PDF 2.0)
+type SEStrong extends PDStructElem {
+}
+
+% <Artifact> structure element (only PDF 2.0)
+type SEArtifact extends PDStructElem {
+}
