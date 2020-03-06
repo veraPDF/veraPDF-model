@@ -145,8 +145,14 @@ type CosString extends CosObject {
 	property hexCount: Integer;
 }
 
+% PDF Text String type
+type CosTextString extends CosString {
+    % string in unicode
+    property unicodeValue: String;
+}
+
 % Lang type
-type CosLang extends CosString {
+type CosLang extends CosTextString {
 
 }
 
