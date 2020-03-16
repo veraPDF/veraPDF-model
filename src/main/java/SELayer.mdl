@@ -128,10 +128,16 @@ type SEHn extends PDStructElem {
 
 % <Figure> structure element
 type SEFigure extends PDStructElem {
+    %
+    property ActualText: String;
+    %
+    property Alt: String;
 }
 
 % <Formula> structure element
 type SEFormula extends PDStructElem {
+    %
+    property Alt: String;
 }
 
 % <Form> structure element
