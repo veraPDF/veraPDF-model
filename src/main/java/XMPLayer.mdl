@@ -57,7 +57,7 @@ type MainXMPPackage extends XMPPackage {
     % object representing PDF/UA identification (set of properties from PDF/UA Identification schema) of the document
     link UAIdentification: PDFUAIdentification;
 
-    % true if the MainXMPPackage contain dc:title
+    % value of dc:title
     property dc_title: String;
 }
 
