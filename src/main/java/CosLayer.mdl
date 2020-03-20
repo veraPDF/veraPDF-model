@@ -58,6 +58,10 @@ type CosDocument extends CosObject {
 	property NeedsRendering: Boolean;
 	% true, if the document contains the EmbeddedFiles entry in the names dictionary
 	property containsEmbeddedFiles: Boolean;
+	% value of the /Suspects entry in the MarkInfo dictionary
+	property Suspects: Boolean;
+	% value of the /DisplayDocTitle key in the ViewerPreferences dictionary
+	property DisplayDocTitle: Boolean;
 }
 
 % PDF Indirect object

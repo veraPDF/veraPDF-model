@@ -90,6 +90,8 @@ type PDPage extends PDObject {
 	property containsGroupCS: Boolean;
 	% true if the page dictionary contains the AA entry
 	property containsAA: Boolean;
+	% value of the /Tabs key in the page dictionary
+	property Tabs: String;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -594,6 +596,12 @@ type PDStructElem extends PDObject {
 	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% value of the /Alt entry
+	property Alt: String;
+	% value of the /ActualText entry
+    property ActualText: String;
+	% value of the /E entry
+    property E: String;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
