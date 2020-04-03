@@ -24,6 +24,8 @@ import org.verapdf.model.external.PKCSDataObject;
 
 import org.verapdf.model.xmplayer.XMPPackage;
 
+import org.verapdf.model.selayer.SEContentItem;
+
 
 % base class for all PD layer objects
 type PDObject extends Object {
@@ -98,6 +100,8 @@ type PDPage extends PDObject {
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
+	% all content sequences (marked or unmarked) in the content stream
+	link content: SEContentItem*;
 }
 
 % PDF resource object
@@ -452,6 +456,10 @@ type PDAnnot extends PDObject {
 	property containsA: Boolean;
 	% true if the annotation dictionary contains the AA entry
 	property containsAA: Boolean;
+	% struct parent element type
+	property structParentType: String;
+	% the value of the /Contents entry
+	property Contents: String;
 }
 
 % Interactive form dictionary
@@ -496,6 +504,26 @@ type PDAction extends PDObject {
 	property S: String;
 	% next action (Next entry in the action dictionary)
 	link Next: PDAction?;
+}
+
+% the Rendition action object
+type PDRenditionAction extends PDAction {
+	% Media clip dictionary
+	link C: PDMediaClip?;
+}
+
+% the Encryption dictionary
+type PDEncryption extends PDObject {
+	% the value of the /P entry
+	property P: Integer;
+}
+
+% the Media clip dictionary
+type PDMediaClip extends PDObject {
+	% the value of the CT entry
+	property CT: String;
+	% separated list of Alt entry
+	property Alt: String;
 }
 
 % the Named action object
@@ -586,6 +614,8 @@ type PDStructElem extends PDObject {
 	property Type: String;
 	% ampersand separated list of child element types, role mapped to the standard types
 	property kidsStandardTypes: String;
+	% parent element type, role mapped to the standard type
+	property parentStandardType: String;
 	% true if the structure element contains content items as its children
 	property hasContentItems: Boolean;
 	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
@@ -596,12 +626,16 @@ type PDStructElem extends PDObject {
 	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% false if first heading tag is not H1 or numbered heading levels in descending sequence are skipped
+	property hasCorrectNumberedHeadings: Boolean;
+	% true if type is standard but remapped
+	property isRemappedStandardType : Boolean;
 	% value of the /Alt entry
 	property Alt: String;
 	% value of the /ActualText entry
-    property ActualText: String;
+	property ActualText: String;
 	% value of the /E entry
-    property E: String;
+	property E: String;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
