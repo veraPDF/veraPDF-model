@@ -163,6 +163,10 @@ type SEUnmarkedContent extends SEContentItem {
 
 % text content item (originated from operators Tj and TJ)
 type SETextItem extends SEContentItem {
+	% font name of text item
+	property fontName: String;
+	% scale factor of text item
+	property scaleFactor: Decimal;
 }
 
 % lineart content item (originated from path painting operators)
