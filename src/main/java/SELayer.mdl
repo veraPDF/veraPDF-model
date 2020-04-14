@@ -155,6 +155,8 @@ type SEMarkedContent extends SEContentItem {
 	% type of the parent structure element for this marked content sequence (if it is a part of the structure tree)
 	% null, if it is not a part of the structure tree
 	property structureTag: String;
+	% tag associated with parent marked content sequence (first operand of the BMC/BDC operators)
+	property parentTag: String;
 }
 
 % a sequence of content items not included into any marked content sequence
