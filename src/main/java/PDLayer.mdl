@@ -94,6 +94,8 @@ type PDPage extends PDObject {
 	property containsAA: Boolean;
 	% value of the /Tabs key in the page dictionary
 	property Tabs: String;
+	% page orientation (Portrait, Landscape or Square)
+	property orientation: String;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -458,6 +460,8 @@ type PDAnnot extends PDObject {
 	property containsAA: Boolean;
 	% struct parent element type
 	property structParentType: String;
+	% value of the Lang entry
+	link Lang: CosLang?;
 	% the value of the /Contents entry
 	property Contents: String;
 }
@@ -480,6 +484,10 @@ type PDFormField extends PDObject {
 	link AA: PDAction*;
 	% true if the form field dictionary contains the AA entry
 	property containsAA: Boolean;
+	% value of the Lang entry
+	link Lang: CosLang?;
+	% value of the TU entry
+	property TU: String;
 }
 
 % Form field of type signature
@@ -636,6 +644,8 @@ type PDStructElem extends PDObject {
 	property ActualText: String;
 	% value of the /E entry
 	property E: String;
+	% true, if circular mapping exist
+	property circularMappingExist: Boolean;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
