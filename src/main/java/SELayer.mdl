@@ -4,6 +4,8 @@ import org.verapdf.model.baselayer.Object;
 
 import org.verapdf.model.pdlayer.PDStructElem;
 
+import org.verapdf.model.coslayer.CosLang;
+
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SENonStandard extends PDStructElem {
 }
@@ -157,6 +159,14 @@ type SEMarkedContent extends SEContentItem {
 	property structureTag: String;
 	% tag associated with parent marked content sequence (first operand of the BMC/BDC operators)
 	property parentTag: String;
+	% value of the E entry
+	property E: String;
+	% value of the Alt entry
+	property Alt: String;
+	% value of the ActualText entry
+	property ActualText: String;
+	% value of the Lang entry
+	link Lang: CosLang?;
 }
 
 % a sequence of content items not included into any marked content sequence
