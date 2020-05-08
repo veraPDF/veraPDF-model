@@ -464,6 +464,10 @@ type PDAnnot extends PDObject {
 	link Lang: CosLang?;
 	% the value of the /Contents entry
 	property Contents: String;
+	% the Alt entry of parent structure element
+	property Alt: String;
+	% true, if annotation rectangle is outside page CropBox
+	property isOutsideCropBox: Boolean;
 }
 
 % Interactive form dictionary
