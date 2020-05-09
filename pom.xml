@@ -69,7 +69,7 @@
   </pluginRepositories>
 
   <properties>
-    <verapdf.model.syntax.version>[1.0.0,2.0.0)</verapdf.model.syntax.version>
+    <verapdf.model.syntax.version>[1.16.0,1.17.0)</verapdf.model.syntax.version>
     <xtext.version>2.13.0</xtext.version>
   </properties>
 
