@@ -132,6 +132,8 @@ type SECode extends PDStructElem {
 
 % <Hn> structure element (or one of <H1> to <H6> in PDF 1.7)
 type SEHn extends PDStructElem {
+    % false if first heading tag is not H1 or numbered heading levels are skipped
+    property hasCorrectNestingLevel : Boolean;
 }
 
 % <Figure> structure element
@@ -159,6 +161,9 @@ type SEMarkedContent extends SEContentItem {
 	property structureTag: String;
 	% tag associated with parent marked content sequence (first operand of the BMC/BDC operators)
 	property parentTag: String;
+	% type of the parent structure element for parent marked content sequence (if it is a part of the structure tree)
+    % null, if it is not a part of the structure tree
+	property parentStructureTag: String;
 	% value of the E entry
 	property E: String;
 	% value of the Alt entry

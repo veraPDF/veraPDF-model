@@ -638,8 +638,6 @@ type PDStructElem extends PDObject {
 	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
-	% false if first heading tag is not H1 or numbered heading levels in descending sequence are skipped
-	property hasCorrectNumberedHeadings: Boolean;
 	% true if type is standard but remapped
 	property isRemappedStandardType : Boolean;
 	% value of the /Alt entry
