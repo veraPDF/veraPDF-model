@@ -135,8 +135,8 @@ type SECode extends PDStructElem {
 
 % <Hn> structure element (or one of <H1> to <H6> in PDF 1.7)
 type SEHn extends PDStructElem {
-    % false if first heading tag is not H1 or numbered heading levels are skipped
-    property hasCorrectNestingLevel : Boolean;
+	% false if first heading tag is not H1 or numbered heading levels are skipped
+	property hasCorrectNestingLevel : Boolean;
 }
 
 % <Figure> structure element
