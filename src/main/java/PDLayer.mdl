@@ -468,6 +468,9 @@ type PDAnnot extends PDObject {
 	property Alt: String;
 	% true, if annotation rectangle is outside page CropBox
 	property isOutsideCropBox: Boolean;
+	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
+	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
+	property TU: String;
 }
 
 % Interactive form dictionary
