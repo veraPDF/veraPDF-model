@@ -481,6 +481,8 @@ type PDAcroForm extends PDObject {
 	property containsXFA: Boolean;
 	% all interactive form fields in the document
 	link formFields: PDFormField*;
+	% value of dynamicRender property in XFA
+	property dynamicRender: String;
 }
 
 % Interactive form field

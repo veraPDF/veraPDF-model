@@ -55,6 +55,8 @@ type SETable extends PDStructElem {
 	% false, if the table's structure is not determinable via Headers and IDs,
 	% and structure elements of type TH don't have a Scope attribute
 	property useHeadersAndIdOrScope: Boolean;
+	% true, if table is regular
+	property isRegular: Boolean;
 }
 
 % <TR> structure element
