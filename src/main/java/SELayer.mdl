@@ -160,6 +160,9 @@ type SEContentItem extends Object {
 	% type of the parent structure element for parent marked content sequence (if it is a part of the structure tree)
 	% null, if it is not a part of the structure tree
 	property parentStructureTag: String;
+	% standard type of the parent structure element for parent marked content sequence
+	% (if it is a part of the structure tree), null, if it is not a part of the structure tree
+	property parentStandardTag: String;
 }
 
 % a content item such as text, image, lineart, shading or a form

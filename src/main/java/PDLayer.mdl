@@ -102,6 +102,12 @@ type PDPage extends PDObject {
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
+}
+
+% content stream with semantic objects (marked content sequences with /MCID entry)
+% Corresponds to the content streams of pages, form XObjects and annotations
+% Content streams of Tiling Patterns and Type3 glyphs are not treated as semantic content streams
+type PDSemanticContentStream extends PDContentStream {
 	% all content sequences (marked or unmarked) in the content stream
 	link content: SEContentItem*;
 }
