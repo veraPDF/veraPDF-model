@@ -184,8 +184,8 @@ type SEMarkedContent extends SEContentItem {
 	property ActualText: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
-	% value of the parent Lang entry
-	property parentLang: String;
+	% the value of Lang determined using inheritance rules from ISO 32000-1
+	property inheritedLang: String;
 }
 
 % a sequence of content items not included into any marked content sequence
