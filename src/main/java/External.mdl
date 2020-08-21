@@ -48,6 +48,10 @@ type TrueTypeFontProgram extends FontProgram {
 	property nrCmaps: Integer;
 	% true if the font program contains the Microsoft Symbol (3,0 – Platform ID=3, Encoding ID=0) cmap subtable
 	property cmap30Present: Boolean;
+	% true if the font program contains the Microsoft Unicode (3,1 – Platform ID=3, Encoding ID=1) cmap subtable
+	property cmap31Present: Boolean;
+	% true if the font program contains the Macintosh Roman (1,0 – Platform ID=1, Encoding ID=0) cmap subtable
+	property cmap10Present: Boolean;
 }
 
 % embedded CMap file
