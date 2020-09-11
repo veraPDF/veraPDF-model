@@ -476,9 +476,29 @@ type PDAnnot extends PDObject {
 	property Alt: String;
 	% true, if annotation rectangle is outside page CropBox
 	property isOutsideCropBox: Boolean;
+}
+
+% 3d annotation
+type PD3DAnnot extends PDAnnot {
+}
+
+% widget annotation
+type PDWidgetAnnot extends PDAnnot {
 	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
 	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
 	property TU: String;
+}
+
+% printer's mark annotation
+type PDPrinterMarkAnnot extends PDAnnot {
+}
+
+% link annotation
+type PDLinkAnnot extends PDAnnot {
+}
+
+% trap network annotation
+type PDTrapNetAnnot extends PDAnnot {
 }
 
 % Interactive form dictionary
@@ -651,6 +671,8 @@ type PDStructElem extends PDObject {
 	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% value of parent Lang entry
+	property parentLang: String;
 	% true if type is standard but remapped
 	property isRemappedStandardType : Boolean;
 	% value of the /Alt entry
