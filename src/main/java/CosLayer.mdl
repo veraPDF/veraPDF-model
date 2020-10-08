@@ -3,6 +3,7 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
+import org.verapdf.model.pdlayer.PDEncryption;
 import org.verapdf.model.external.EmbeddedFile;
 
 % Parent type for all basic PDF objects
@@ -58,6 +59,10 @@ type CosDocument extends CosObject {
 	property NeedsRendering: Boolean;
 	% true, if the document contains the EmbeddedFiles entry in the names dictionary
 	property containsEmbeddedFiles: Boolean;
+	% value of the /Suspects entry in the MarkInfo dictionary
+	property Suspects: Boolean;
+	% value of the /DisplayDocTitle key in the ViewerPreferences dictionary
+	property DisplayDocTitle: Boolean;
 }
 
 % PDF Indirect object
@@ -210,6 +215,8 @@ type CosTrailer extends CosDict {
 	property isEncrypted: Boolean;
 	% link to the Catalog dictionary of the PDF document
 	link Catalog: CosIndirect;
+	% link to the Encryption dictionary
+	link Encrypt: PDEncryption?;
 }
 
 % PDF Array type	
