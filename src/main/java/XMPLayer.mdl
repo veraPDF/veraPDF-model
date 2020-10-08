@@ -53,6 +53,12 @@ type MainXMPPackage extends XMPPackage {
 
     % object representing PDF/A identification (set of properties from PDF/A Identification schema) of the document
     link Identification: PDFAIdentification;
+
+    % object representing PDF/UA identification (set of properties from PDF/UA Identification schema) of the document
+    link UAIdentification: PDFUAIdentification;
+
+    % value of dc:title
+    property dc_title: String;
 }
 
 % XMP property
@@ -79,6 +85,12 @@ type XMPProperty extends XMPObject {
 type XMPMMHistoryProperty extends XMPProperty {
     % Resource Events from xmpMM History property
     link ResourceEvents: XMPMMHistoryResourceEvent+;
+}
+
+% Language Alternative property
+type XMPLangAlt extends XMPProperty {
+     % true if the Language alternative array has only a default value with an undefined language (x-default)
+     property xDefault: Boolean;
 }
 
 % Resource Event structures of xmpMM History property
@@ -112,6 +124,13 @@ type PDFAIdentification extends XMPObject {
 
     % namespace prefix for the ‘corr’ property from PDF/A Identification schema
     property corrPrefix: String;
+
+}
+
+type PDFUAIdentification extends XMPObject {
+
+    % value of ‘part’ property from PDF/UA Identification schema
+    property part: Integer;
 
 }
 
