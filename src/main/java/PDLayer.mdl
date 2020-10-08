@@ -24,6 +24,8 @@ import org.verapdf.model.external.PKCSDataObject;
 
 import org.verapdf.model.xmplayer.XMPPackage;
 
+import org.verapdf.model.selayer.SEContentItem;
+
 
 % base class for all PD layer objects
 type PDObject extends Object {
@@ -90,12 +92,24 @@ type PDPage extends PDObject {
 	property containsGroupCS: Boolean;
 	% true if the page dictionary contains the AA entry
 	property containsAA: Boolean;
+	% value of the /Tabs key in the page dictionary
+	property Tabs: String;
+	% page orientation (Portrait, Landscape or Square)
+	property orientation: String;
 }
 
 % the object representing content stream together with the resource dictionary
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
+}
+
+% content stream with semantic objects (marked content sequences with /MCID entry)
+% Corresponds to the content streams of pages, form XObjects and annotations
+% Content streams of Tiling Patterns and Type3 glyphs are not treated as semantic content streams
+type PDSemanticContentStream extends PDContentStream {
+	% all content sequences (marked or unmarked) in the content stream
+	link content: SEContentItem*;
 }
 
 % PDF resource object
@@ -361,6 +375,8 @@ type PDXForm extends PDXObject {
 	link contentStream: PDContentStream;
 	% link to the group attributes dictionary
 	link Group: PDGroup?;
+	% false, if Form XObject contains MCIDs and is referenced more than once
+	property isUniqueSemanticParent: Boolean;
 }
 
 % Group attributes dictionary
@@ -450,6 +466,39 @@ type PDAnnot extends PDObject {
 	property containsA: Boolean;
 	% true if the annotation dictionary contains the AA entry
 	property containsAA: Boolean;
+	% struct parent element type
+	property structParentType: String;
+	% value of the Lang entry
+	link Lang: CosLang?;
+	% the value of the /Contents entry
+	property Contents: String;
+	% the Alt entry of parent structure element
+	property Alt: String;
+	% true, if annotation rectangle is outside page CropBox
+	property isOutsideCropBox: Boolean;
+}
+
+% 3d annotation
+type PD3DAnnot extends PDAnnot {
+}
+
+% widget annotation
+type PDWidgetAnnot extends PDAnnot {
+	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
+	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
+	property TU: String;
+}
+
+% printer's mark annotation
+type PDPrinterMarkAnnot extends PDAnnot {
+}
+
+% link annotation
+type PDLinkAnnot extends PDAnnot {
+}
+
+% trap network annotation
+type PDTrapNetAnnot extends PDAnnot {
 }
 
 % Interactive form dictionary
@@ -460,6 +509,8 @@ type PDAcroForm extends PDObject {
 	property containsXFA: Boolean;
 	% all interactive form fields in the document
 	link formFields: PDFormField*;
+	% value of dynamicRender property in XFA
+	property dynamicRender: String;
 }
 
 % Interactive form field
@@ -470,6 +521,10 @@ type PDFormField extends PDObject {
 	link AA: PDAction*;
 	% true if the form field dictionary contains the AA entry
 	property containsAA: Boolean;
+	% value of the Lang entry
+	link Lang: CosLang?;
+	% value of the TU entry
+	property TU: String;
 }
 
 % Form field of type signature
@@ -494,6 +549,26 @@ type PDAction extends PDObject {
 	property S: String;
 	% next action (Next entry in the action dictionary)
 	link Next: PDAction?;
+}
+
+% the Rendition action object
+type PDRenditionAction extends PDAction {
+	% Media clip dictionary
+	link C: PDMediaClip?;
+}
+
+% the Encryption dictionary
+type PDEncryption extends PDObject {
+	% the value of the /P entry
+	property P: Integer;
+}
+
+% the Media clip dictionary
+type PDMediaClip extends PDObject {
+	% the value of the CT entry
+	property CT: String;
+	% separated list of Alt entry
+	property Alt: String;
 }
 
 % the Named action object
@@ -584,6 +659,8 @@ type PDStructElem extends PDObject {
 	property Type: String;
 	% ampersand separated list of child element types, role mapped to the standard types
 	property kidsStandardTypes: String;
+	% parent element type, role mapped to the standard type
+	property parentStandardType: String;
 	% true if the structure element contains content items as its children
 	property hasContentItems: Boolean;
 	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
@@ -594,6 +671,18 @@ type PDStructElem extends PDObject {
 	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% value of parent Lang entry
+	property parentLang: String;
+	% true if type is standard but remapped
+	property isRemappedStandardType : Boolean;
+	% value of the /Alt entry
+	property Alt: String;
+	% value of the /ActualText entry
+	property ActualText: String;
+	% value of the /E entry
+	property E: String;
+	% true, if circular mapping exist
+	property circularMappingExist: Boolean;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog

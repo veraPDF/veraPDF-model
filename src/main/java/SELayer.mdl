@@ -1,6 +1,10 @@
 package org.verapdf.model.selayer;
 
+import org.verapdf.model.baselayer.Object;
+
 import org.verapdf.model.pdlayer.PDStructElem;
+
+import org.verapdf.model.coslayer.CosLang;
 
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SENonStandard extends PDStructElem {
@@ -48,6 +52,11 @@ type SELBody extends PDStructElem {
 
 % <Table> structure element
 type SETable extends PDStructElem {
+	% false, if the table's structure is not determinable via Headers and IDs,
+	% and structure elements of type TH don't have a Scope attribute
+	property useHeadersAndIdOrScope: Boolean;
+	% true, if table is regular
+	property isRegular: Boolean;
 }
 
 % <TR> structure element
@@ -108,6 +117,10 @@ type SEQuote extends PDStructElem {
 
 % <Note> structure element (only PDF 1.7)
 type SENote extends PDStructElem {
+	% value of the ID entry
+	property noteID: String;
+	% true if this id has already been found
+	property hasDuplicateNoteID: Boolean;
 }
 
 % <Reference> structure element
@@ -124,6 +137,8 @@ type SECode extends PDStructElem {
 
 % <Hn> structure element (or one of <H1> to <H6> in PDF 1.7)
 type SEHn extends PDStructElem {
+	% false if first heading tag is not H1 or numbered heading levels are skipped
+	property hasCorrectNestingLevel : Boolean;
 }
 
 % <Figure> structure element
@@ -132,6 +147,71 @@ type SEFigure extends PDStructElem {
 
 % <Formula> structure element
 type SEFormula extends PDStructElem {
+}
+
+% a content item such as text, image, lineart, shading or a form
+type SEContentItem extends Object {
+	% suspected semantic role of this content item (such as Span, Figure, Heading, etc)
+	property suspectRole: String;
+	% all content items within this content sequence
+	link contentItem: SEContentItem*;
+	% ampersand separated list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
+	property parentsTags: String;
+	% type of the parent structure element for parent marked content sequence (if it is a part of the structure tree)
+	% null, if it is not a part of the structure tree
+	property parentStructureTag: String;
+	% standard type of the parent structure element for parent marked content sequence
+	% (if it is a part of the structure tree), null, if it is not a part of the structure tree
+	property parentStandardTag: String;
+}
+
+% a content item such as text, image, lineart, shading or a form
+type SESimpleContentItem extends SEContentItem {
+}
+
+% content sequence marked via BMC/BDC and EMC operators
+type SEMarkedContent extends SEContentItem {
+	% tag associated with this marked content sequence (first operand of the BMC/BDC operators)
+	property tag: String;
+	% type of the parent structure element for this marked content sequence (if it is a part of the structure tree)
+	% null, if it is not a part of the structure tree
+	property structureTag: String;
+	% value of the E entry
+	property E: String;
+	% value of the Alt entry
+	property Alt: String;
+	% value of the ActualText entry
+	property ActualText: String;
+	% value of the Lang entry
+	link Lang: CosLang?;
+	% the value of Lang determined using inheritance rules from ISO 32000-1
+	property inheritedLang: String;
+}
+
+% a sequence of content items not included into any marked content sequence
+type SEUnmarkedContent extends SEContentItem {
+}
+
+% text content item (originated from operators Tj and TJ)
+type SETextItem extends SESimpleContentItem {
+	% font name of text item
+	property fontName: String;
+	% scale factor of text item
+	property scaleFactor: Decimal;
+	% value of Lang
+	property Lang: String;
+}
+
+% lineart content item (originated from path painting operators)
+type SELineArtItem extends SESimpleContentItem {
+}
+
+% shading content item (originated from operator sh)
+type SEShadingItem extends SESimpleContentItem {
+}
+
+% image content item (inline or image XObject)
+type SEImageItem extends SESimpleContentItem {
 }
 
 % <Form> structure element
