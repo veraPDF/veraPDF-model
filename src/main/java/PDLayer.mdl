@@ -327,11 +327,9 @@ type PDXObject extends PDResource {
 	% true if the XObject dictionary contains OPI entry
 	property containsOPI: Boolean;
 	% true if the XObject dictionary contains SMask entry
-	property containsSMask: Boolean;
-	% link to the soft mask image (SMask key)
 	% according to the PDF Specification this key may be present only in the Image dictionary,
 	% but ISO 19005-1:2005/Cor.2:2011 forbids SMask key for all XObject dictionaries
-	link SMask: PDSMaskImage?;
+	property containsSMask: Boolean;
 }
 
 % Image XObject
@@ -346,6 +344,8 @@ type PDXImage extends PDXObject {
 	link Intent: CosRenderingIntent?;
 	% in case the image stream uses JPX compression, the link to the corresponding JPEG2000 image
 	link jpxStream: JPEG2000?;
+	% link to the soft mask image (SMask key)
+	link SMask: PDSMaskImage?;
 	% true if the image dictionary contains Alternates key
 	property containsAlternates: Boolean;
 }
