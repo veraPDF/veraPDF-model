@@ -16,7 +16,7 @@ type CosDocument extends CosObject {
 	% number of indirect objects in the document
 	property nrIndirects: Integer;
 	% version of the document
-	property version: Decimal;
+	property headerVersion: Decimal;
 	% true if the OCProperties key is present in the document Catalog
 	property isOptionalContentPresent: Boolean;
 	% size of data after the EOF and (optional) end of line marker
@@ -38,14 +38,14 @@ type CosDocument extends CosObject {
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
 	% offset of the PDF document header
-    property headerOffset: Integer;
-    % the content of the PDF header
-    property header: String;
-    % first four bytes in the comment that follows the PDF header
-    property headerByte1: Integer;
-    property headerByte2: Integer;
-    property headerByte3: Integer;
-    property headerByte4: Integer;
+	property headerOffset: Integer;
+	% the content of the PDF header
+	property header: String;
+	% first four bytes in the comment that follows the PDF header
+	property headerByte1: Integer;
+	property headerByte2: Integer;
+	property headerByte3: Integer;
+	property headerByte4: Integer;
 	% link to the high-level PDF Document structure
 	link document: PDDocument;
 	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
@@ -152,8 +152,8 @@ type CosString extends CosObject {
 
 % PDF Text String type
 type CosTextString extends CosString {
-    % string in unicode
-    property unicodeValue: String;
+	% string in unicode
+	property unicodeValue: String;
 }
 
 % Lang type
@@ -195,18 +195,18 @@ type CosStream extends CosDict {
 
 % File specification dictionary
 type CosFileSpecification extends CosDict {
-   % link to the embedded file stream
-   link EF: EmbeddedFile?;
-   % true if the file specification dictionary contains EF key
-   property containsEF: Boolean;
-   % a file specification string (F key)
-   property F: String;
-   % a unicode file specification (UF key)
-   property UF: String;
-   % the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
-   property AFRelationship: String;
-   % true if the file specification dictionary is associated (=referenced by the /AF key) with at least one of the following objects: catalog, page, XObject, annotation or structure element
-   property isAssociatedFile: Boolean;
+	% link to the embedded file stream
+	link EF: EmbeddedFile?;
+	% true if the file specification dictionary contains EF key
+	property containsEF: Boolean;
+	% a file specification string (F key)
+	property F: String;
+	% a unicode file specification (UF key)
+	property UF: String;
+	% the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
+	property AFRelationship: String;
+	% true if the file specification dictionary is associated (=referenced by the /AF key) with at least one of the following objects: catalog, page, XObject, annotation or structure element
+	property isAssociatedFile: Boolean;
 }
 	
 % Trailer of the document	

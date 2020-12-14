@@ -19,7 +19,7 @@ import org.verapdf.model.pdlayer.PDFont;
 
 % base class for all operators in the content stream
 type Operator extends Object {
-	
+
 }
 
 % General graphics state operators
@@ -371,16 +371,16 @@ type Op_d1 extends OpType3Font {
 
 % Set color operators without colorspace, Op_SC, Op_sc
 type OpSetColor extends Operator {
-    % numeric arguments of the color operators
-    link colorValues: CosNumber*;
+	% numeric arguments of the color operators
+	link colorValues: CosNumber*;
 }
 
 % Color operators
 type OpColor extends OpSetColor {
-    % color space set by this operator
-    link colorSpace: PDColorSpace;
-    % name of the tiling pattern in case of scn/SCN operators and the Pattern color space
-    link patternName: CosName?;
+	% color space set by this operator
+	link colorSpace: PDColorSpace;
+	% name of the tiling pattern in case of scn/SCN operators and the Pattern color space
+	link patternName: CosName?;
 }
 
 % Op_Color->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
@@ -462,7 +462,7 @@ type Op_BDC extends OpMarkedContent {
 	% properties dictionary
 	link properties: CosDict;
 	% value of the Lang entry from properties dictionary
-    link Lang: CosLang?;
+	link Lang: CosLang?;
 }
 
 % end marked content region
@@ -502,10 +502,10 @@ type Glyph extends Object {
 	property toUnicode: String;
 	% value of the rendering mode at the moment the glyph is shown
 	property renderingMode: Integer;
-    % true if toUnicode value contains codes from Unicode Private Use Area
-    property unicodePUA: Boolean;
-    % true if an ActualText entry is present for this glyph
-    property actualTextPresent: Boolean;
+	% true if toUnicode value contains codes from Unicode Private Use Area
+	property unicodePUA: Boolean;
+	% true if an ActualText entry is present for this glyph
+	property actualTextPresent: Boolean;
 }
 
 % glyph in the composite font
