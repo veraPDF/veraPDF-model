@@ -137,7 +137,7 @@ type PDFUAIdentification extends XMPObject {
 % Parent type for all extension schema definition objects
 type ExtensionSchemaObject extends XMPObject {
 
-	% true if the object contain not defined fields
+    % true if the object contains undefined fields
     property containsUndefinedFields: Boolean;
 
 }
@@ -198,8 +198,8 @@ type ExtensionSchemaDefinition extends ExtensionSchemaObject {
 % Extension schema property definition
 type ExtensionSchemaProperty extends ExtensionSchemaObject {
 
-	% category field value
-	property category: String;
+    % category field value
+    property category: String;
 
     % true if property category (’pdfaProperty:category’ property) is of type Text
     property isCategoryValidText: Boolean;
