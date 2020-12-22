@@ -63,6 +63,10 @@ type CosDocument extends CosObject {
 	property Suspects: Boolean;
 	% value of the /DisplayDocTitle key in the ViewerPreferences dictionary
 	property DisplayDocTitle: Boolean;
+	% true if the trailer dictionary contains Info key
+	property containsInfo: Boolean;
+	% true if the document catalog dictionary contains PieceInfo entry
+	property containsPieceInfo: Boolean;
 }
 
 % PDF Indirect object
@@ -217,6 +221,14 @@ type CosTrailer extends CosDict {
 	link Catalog: CosIndirect;
 	% link to the Encryption dictionary
 	link Encrypt: PDEncryption?;
+	% link to the document information dictionary
+	link Info: CosInfo?;
+}
+
+% Information dictionary
+type CosInfo extends CosDict {
+	% value of ModDate entry
+	property ModDate: String;
 }
 
 % PDF Array type	

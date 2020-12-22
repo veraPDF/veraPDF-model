@@ -125,6 +125,9 @@ type PDFAIdentification extends XMPObject {
     % namespace prefix for the ‘corr’ property from PDF/A Identification schema
     property corrPrefix: String;
 
+    % namespace prefix for the ‘rev’ property from PDF/A Identification schema
+    property revPrefix: String;
+
 }
 
 type PDFUAIdentification extends XMPObject {

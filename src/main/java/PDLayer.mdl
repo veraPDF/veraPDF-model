@@ -62,6 +62,8 @@ type PDDocument extends PDObject {
 	property validPDF: Boolean;
 	% true if the catalog dictionary contains the AA entry
 	property containsAA: Boolean;
+	% value of Version key of the document catalog dictionary
+	property Version: String;
 }
 
 % the object representing PDF page
@@ -397,6 +399,8 @@ type PDExtGState extends PDResource {
 	link HT: PDHalftone;
 	% true if the ExtGState dictionary contains HTP key
 	property containsHTP: Boolean;
+	% true if the ExtGState dictionary contains HTO key
+	property containsHTO: Boolean;
 	% String representation of the SMask key ("None" or "Custom")
 	property SMask: String;
 	% blend mode
@@ -480,6 +484,8 @@ type PDAnnot extends PDObject {
 
 % 3d annotation
 type PD3DAnnot extends PDAnnot {
+	% link to 3D stream dictionary
+	link stream3D: PD3DStream?;
 }
 
 % widget annotation
@@ -499,6 +505,12 @@ type PDLinkAnnot extends PDAnnot {
 
 % trap network annotation
 type PDTrapNetAnnot extends PDAnnot {
+}
+
+% 3D stream dictionary
+type PD3DStream extends PDObject {
+	% value of Subtype entry
+	property Subtype: String;
 }
 
 % Interactive form dictionary
@@ -683,6 +695,8 @@ type PDStructElem extends PDObject {
 	property E: String;
 	% true, if circular mapping exist
 	property circularMappingExist: Boolean;
+	% true if an ActualText entry is present and its value contains codes from Unicode Private Use Area
+	property actualTextContainsPUA: Boolean;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
