@@ -35,15 +35,15 @@ type PDObject extends Object {
 % the class corresponding to the high level PDF document structure
 type PDDocument extends PDObject {
 	% the array of output intents of the document
-	link outputIntents: PDOutputIntent*;
+	link outputIntents: OutputIntents?;
 	% the collection of all document pages
 	link pages: PDPage+;
 	% document level metadata
 	link metadata: PDMetadata?;
 	% Interactive Form Dictionary (AcroForm entry in the Catalog)
 	link AcroForm: PDAcroForm?;
-	% additional actions defined for the document (AA entry in the Catalog)
-	link AA: PDAction*;
+	% additional actions dictionary defined for the document (AA entry in the Catalog)
+	link AA: PDAdditionalActions?;
 	% document open action (OpenAction entry in the Catalog)
 	link OpenAction: PDAction?;
 	% document outlines (Outlines entry in the Catalog)
@@ -62,6 +62,8 @@ type PDDocument extends PDObject {
 	property validPDF: Boolean;
 	% true if the catalog dictionary contains the AA entry
 	property containsAA: Boolean;
+	% color space of output icc profile
+	property outputColorSpace: String;
 	% value of Version key of the document catalog dictionary
 	property Version: String;
 }
@@ -70,8 +72,8 @@ type PDDocument extends PDObject {
 type PDPage extends PDObject {
 	% all page annotations
 	link annots: PDAnnot*;
-	% additional actions defined for the page (AA entry)
-	link AA: PDAction*;
+	% additional actions dictionary defined for the page (AA entry)
+	link AA: PDAdditionalActions?;
 	% page content stream
 	link contentStream: PDContentStream;
 	% group attributes dictionary
@@ -98,6 +100,19 @@ type PDPage extends PDObject {
 	property Tabs: String;
 	% page orientation (Portrait, Landscape or Square)
 	property orientation: String;
+	% the array of output intents of the page
+	link outputIntents: OutputIntents?;
+	% color space of output icc profile
+	property outputColorSpace: String;
+}
+
+% the array of output intents
+type OutputIntents extends Object {
+	% the array of output intents
+	link outputIntents: PDOutputIntent*;
+	% true, if OutputIntents array contains more than one entry all entries that contain a DestOutputProfile key
+	% have as the value of that key the same indirect object, which shall be a valid ICC profile stream.
+	property sameOutputProfileIndirect: Boolean;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -125,6 +140,14 @@ type PDResource extends PDObject {
 type PDColorSpace extends PDResource {
 	% number of components
 	property nrComponents: Integer;
+}
+
+% Additional-actions dictionary
+type PDAdditionalActions extends PDObject {
+	% link to the additional actions
+	link Actions: PDAction*;
+	% true, if dictionary contains keys not from the following list: E, X, D, U, Fo, and Bl.
+	property containsOtherActions: Boolean;
 }
 
 % DeviceGray color space
@@ -460,8 +483,8 @@ type PDAnnot extends PDObject {
 	link IC: CosNumber*;
 	% link to the action associated with the annotation (A entry)
 	link A: PDAction?;
-	% link to the additional actions defined for the annotation (AA entry)
-	link AA: PDAction*;
+	% link to the additional actions dictionary defined for the annotation (AA entry)
+	link AA: PDAdditionalActions?;
 	% the width of the annotation computed as an absolute value of the difference of value 1 and value 3 of the Rect entry
 	property width: Decimal;
 	% the height of the annotation computed as an absolute value of the difference of value 2 and value 4 of the Rect entry
@@ -529,8 +552,8 @@ type PDAcroForm extends PDObject {
 type PDFormField extends PDObject {
 	% Field type
 	property FT: String;
-	% link to the additional actions defined in the interactive form field dictionary (AA entry)
-	link AA: PDAction*;
+	% link to the additional actions dictionary defined in the interactive form field dictionary (AA entry)
+	link AA: PDAdditionalActions?;
 	% true if the form field dictionary contains the AA entry
 	property containsAA: Boolean;
 	% value of the Lang entry
