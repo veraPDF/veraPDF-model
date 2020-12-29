@@ -88,6 +88,8 @@ type EmbeddedFile extends External {
 	property Subtype: String;
 	% true if this file is a valid PDF/A document (Part 1 or Part 2) on its own
 	property isValidPDFA12: Boolean;
+	% true if this file is a valid PDF/A document (Part 1, Part 2 or Part 4) on its own
+	property isValidPDFA124: Boolean;
 }
 
 % PKCS#7 binary data object representing the PDF Signature
