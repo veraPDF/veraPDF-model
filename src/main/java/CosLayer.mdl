@@ -114,6 +114,10 @@ type CosName extends CosObject {
 	property internalRepresentation: String;
 }
 
+% blend mode
+type CosBM extends CosName {
+}
+
 % PDF Name representing a Utf8 string
 type CosUnicodeName extends CosName {
 	% indicates if the Name represents a Unicode string correctly encoded by Utf8

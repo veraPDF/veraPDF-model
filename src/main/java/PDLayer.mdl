@@ -11,6 +11,7 @@ import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosUnicodeName;
 import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
+import org.verapdf.model.coslayer.CosBM;
 import org.verapdf.model.coslayer.CosLang;
 
 import org.verapdf.model.operator.Operator;
@@ -428,6 +429,8 @@ type PDExtGState extends PDResource {
 	property SMask: String;
 	% blend mode
 	property BM: String;
+	% link to blend mode
+	link bm: CosBM?;
 	% fill alpha
 	property ca: Decimal;
 	% stroke alpha
@@ -503,6 +506,8 @@ type PDAnnot extends PDObject {
 	property Alt: String;
 	% true, if annotation rectangle is outside page CropBox
 	property isOutsideCropBox: Boolean;
+	% link to blend mode
+	link BM: CosBM?;
 }
 
 % 3d annotation
