@@ -240,6 +240,14 @@ type Op_WStar extends OpClip {
 type OpTextObject extends Operator {
 
 }
+
+type Op_ET extends OpTextObject {
+
+}
+
+type Op_BT extends OpTextObject {
+
+}
 %OpTextObject->Op_ET, Op_BT
 
 % Text state operators
@@ -308,6 +316,10 @@ type Op_Tm extends OpTextPosition {
 	% elements of text matrix
 	link controlPoints: CosNumber+;
 }
+
+type Op_T_Star extends OpTextPosition {
+
+}
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
@@ -375,6 +387,14 @@ type OpSetColor extends Operator {
 	link colorValues: CosNumber*;
 }
 
+type Op_SC_stroke extends OpSetColor {
+
+}
+
+type Op_sc_fill extends OpSetColor {
+
+}
+
 % Color operators
 type OpColor extends OpSetColor {
 	% color space set by this operator
@@ -382,8 +402,40 @@ type OpColor extends OpSetColor {
 	% name of the tiling pattern in case of scn/SCN operators and the Pattern color space
 	link patternName: CosName?;
 }
+% OpSetColor->Op_SC, Op_sc, OpColor
 
-% Op_Color->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
+type Op_SCN_stroke extends OpColor {
+
+}
+
+type Op_scn_fill extends OpColor {
+
+}
+
+type Op_G_stroke extends OpColor {
+
+}
+
+type Op_g_fill extends OpColor {
+
+}
+
+type Op_RG_stroke extends OpColor {
+
+}
+
+type Op_rg_fill extends OpColor {
+
+}
+
+type Op_K_stroke extends OpColor {
+
+}
+
+type Op_k_fill extends OpColor {
+
+}
+% OpColor->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
 
 % Shading operators
 type OpShading extends Operator {
