@@ -214,6 +214,14 @@ type SEShadingItem extends SESimpleContentItem {
 type SEImageItem extends SESimpleContentItem {
 }
 
+% inline image content item
+type SEInlineImageItem extends SEImageItem {
+}
+
+% image XObject content item
+type SEImageXObjectItem extends SEImageItem {
+}
+
 % <Form> structure element
 type SEForm extends PDStructElem {
 }
