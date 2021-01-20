@@ -569,6 +569,8 @@ type PDMediaClip extends PDObject {
 	property CT: String;
 	% separated list of Alt entry
 	property Alt: String;
+	% true if Alt entry contains an even number of strings and strings in even places are not empty
+	property hasCorrectAlt: Boolean;
 }
 
 % the Named action object
