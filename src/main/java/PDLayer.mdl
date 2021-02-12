@@ -71,14 +71,16 @@ type PDDocument extends PDObject {
 
 % the object representing PDF page
 type PDPage extends PDObject {
+	% group attributes dictionary
+	link Group: PDGroup?;
+	% the array of output intents of the page
+	link outputIntents: OutputIntents?;
 	% all page annotations
 	link annots: PDAnnot*;
 	% additional actions dictionary defined for the page (AA entry)
 	link AA: PDAdditionalActions?;
 	% page content stream
 	link contentStream: PDContentStream;
-	% group attributes dictionary
-	link Group: PDGroup?;
 	% page media box
 	link MediaBox: CosBBox;
 	% page crop box
@@ -101,10 +103,25 @@ type PDPage extends PDObject {
 	property Tabs: String;
 	% page orientation (Portrait, Landscape or Square)
 	property orientation: String;
-	% the array of output intents of the page
-	link outputIntents: OutputIntents?;
 	% color space of output icc profile
 	property outputColorSpace: String;
+}
+
+% Page transparency group attributes dictionary
+type PDPageTransparencyGroup extends PDGroup {
+	% color space type
+	property colorSpaceType: String;
+}
+
+% XForm transparency group
+type XFormTransparencyGroup extends Object {
+    % color space type
+    property colorSpaceType: String;
+}
+
+% parent XForm transparency group
+type ParentXFormTransparencyGroup extends XFormTransparencyGroup {
+
 }
 
 % the array of output intents
@@ -120,6 +137,8 @@ type OutputIntents extends Object {
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
+	% false, if resource dictionaries associated with content stream define all named resources referenced by content stream
+	property containsUndefinedResource: Boolean;
 }
 
 % content stream with semantic objects (marked content sequences with /MCID entry)
@@ -170,6 +189,10 @@ type PDDeviceCMYK extends PDColorSpace {
 type PDICCBased extends PDColorSpace {
 	% embedded ICC profile
 	link iccProfile: ICCInputProfile;
+	% string representation of the indirect link to the ICC profile
+	property ICCProfileIndirect: String;
+	% string representation of the indirect link to the current transparency ICC profile
+	property currentTransparencyProfileIndirect: String;
 }
 
 % ICCBased CMYK colour space
@@ -397,8 +420,12 @@ type PDXForm extends PDXObject {
 	property containsPS: Boolean;
 	% true if the form XObject dictionary contains Ref key
 	property containsRef: Boolean;
+	% link to the transparency group attributes dictionary
+	link xFormTransparencyGroup: XFormTransparencyGroup?;
 	% form content
 	link contentStream: PDContentStream;
+	% link to the end transparency group attributes dictionary
+	link parentXFormTransparencyGroup: ParentXFormTransparencyGroup?;
 	% link to the group attributes dictionary
 	link Group: PDGroup?;
 	% false, if Form XObject contains MCIDs and is referenced more than once
