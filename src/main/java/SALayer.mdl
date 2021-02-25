@@ -16,12 +16,27 @@ type SAStructTreeRoot extends Object {
 
 % the structure element dictionary
 type SAStructElem extends Object {
-    % immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
-    link children: SAStructElem*;
+    % immediate child structure tree elements (this does not include marked-content reference dictionaries)
+    link children: Object*;
     % number ranging from 0 to 1 indicating the probability that the correct type is right defined
     property correctSemanticScore: Decimal;
     % true, if correct type is the same as the standard type
     property hasCorrectType: Boolean;
     % supposed correct element type
     property correctType: String;
+}
+
+% a chunk such as text, image or other
+type SAChunk extends Object {
+
+}
+
+% text chunk
+type SATextChunk extends SAChunk {
+    % text size
+    property textSize: Decimal;
+    % contrast ratio
+    property contrastRatio: Decimal;
+    % text weight
+    property textWeight: Decimal;
 }
