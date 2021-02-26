@@ -113,6 +113,9 @@ type PDFAIdentification extends XMPObject {
     % value of ‘conformance’ property from PDF/A Identification schema
     property conformance: String;
 
+    % string value of ‘rev’ property from PDF/A Identification schema
+    property rev: String;
+
     % namespace prefix for the ‘part’ property from PDF/A Identification schema
     property partPrefix: String;
 
