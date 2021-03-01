@@ -13,6 +13,7 @@ import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
 import org.verapdf.model.coslayer.CosBM;
 import org.verapdf.model.coslayer.CosLang;
+import org.verapdf.model.coslayer.CosActualText;
 
 import org.verapdf.model.operator.Operator;
 
@@ -752,8 +753,8 @@ type PDStructElem extends PDObject {
 	property E: String;
 	% true, if circular mapping exist
 	property circularMappingExist: Boolean;
-	% true if an ActualText entry is present and its value contains codes from Unicode Private Use Area
-	property actualTextContainsPUA: Boolean;
+	% value of the ActualText entry
+	link actualText: CosActualText?;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog

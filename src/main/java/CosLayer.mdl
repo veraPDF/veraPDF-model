@@ -121,6 +121,12 @@ type CosName extends CosObject {
 type CosBM extends CosName {
 }
 
+% actual text
+type CosActualText extends CosString {
+	% true if ActualText value contains codes from Unicode Private Use Area
+	property containsPUA: Boolean;
+}
+
 % PDF Name representing a Utf8 string
 type CosUnicodeName extends CosName {
 	% indicates if the Name represents a Unicode string correctly encoded by Utf8

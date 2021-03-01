@@ -9,6 +9,7 @@ import org.verapdf.model.coslayer.CosName;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosLang;
+import org.verapdf.model.coslayer.CosActualText;
 
 import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
@@ -484,7 +485,8 @@ type Op_Do extends OpXObject {
 
 % Marked content operators
 type OpMarkedContent extends Operator {
-
+    % actual text
+    link actualText: CosActualText?;
 }
 
 % define marked content point
