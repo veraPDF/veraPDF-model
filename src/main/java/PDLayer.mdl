@@ -567,6 +567,8 @@ type PDTrapNetAnnot extends PDAnnot {
 type PD3DStream extends PDObject {
 	% value of Subtype entry
 	property Subtype: String;
+	%  link to color space
+	link colorSpace: PDColorSpace?;
 }
 
 % Interactive form dictionary
