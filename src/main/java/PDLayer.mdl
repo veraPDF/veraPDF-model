@@ -72,16 +72,20 @@ type PDDocument extends PDObject {
 
 % the object representing PDF page
 type PDPage extends PDObject {
-	% group attributes dictionary
-	link Group: PDGroup?;
 	% the array of output intents of the page
 	link outputIntents: OutputIntents?;
 	% all page annotations
 	link annots: PDAnnot*;
 	% additional actions dictionary defined for the page (AA entry)
 	link AA: PDAdditionalActions?;
+	% link to the transparency blending space
+	link transparencyColorSpace: TransparencyColorSpace?;
 	% page content stream
 	link contentStream: PDContentStream;
+	% link to the parent transparency blending space
+	link parentTransparencyColorSpace: TransparencyColorSpace?;
+	% group attributes dictionary
+	link Group: PDGroup?;
 	% page media box
 	link MediaBox: CosBBox;
 	% page crop box
@@ -108,21 +112,10 @@ type PDPage extends PDObject {
 	property outputColorSpace: String;
 }
 
-% Page transparency group attributes dictionary
-type PDPageTransparencyGroup extends PDGroup {
-	% color space type
-	property colorSpaceType: String;
-}
-
-% XForm transparency group
-type XFormTransparencyGroup extends Object {
+% transparency blending space
+type TransparencyColorSpace extends Object {
     % color space type
     property colorSpaceType: String;
-}
-
-% parent XForm transparency group
-type ParentXFormTransparencyGroup extends XFormTransparencyGroup {
-
 }
 
 % the array of output intents
@@ -194,6 +187,10 @@ type PDICCBased extends PDColorSpace {
 	property ICCProfileIndirect: String;
 	% string representation of the indirect link to the current transparency ICC profile
 	property currentTransparencyProfileIndirect: String;
+	% string representation of the md5 of the ICC profile
+	property ICCProfileMD5: String;
+	% string representation of the md5 of the current transparency ICC profile
+	property currentTransparencyICCProfileMD5: String;
 }
 
 % ICCBased CMYK colour space
@@ -421,12 +418,12 @@ type PDXForm extends PDXObject {
 	property containsPS: Boolean;
 	% true if the form XObject dictionary contains Ref key
 	property containsRef: Boolean;
-	% link to the transparency group attributes dictionary
-	link xFormTransparencyGroup: XFormTransparencyGroup?;
+	% link to the transparency blending space
+	link transparencyColorSpace: TransparencyColorSpace?;
 	% form content
 	link contentStream: PDContentStream;
-	% link to the end transparency group attributes dictionary
-	link parentXFormTransparencyGroup: ParentXFormTransparencyGroup?;
+	% link to the parent transparency blending space
+	link parentTransparencyColorSpace: TransparencyColorSpace?;
 	% link to the group attributes dictionary
 	link Group: PDGroup?;
 	% false, if Form XObject contains MCIDs and is referenced more than once
@@ -567,7 +564,7 @@ type PDTrapNetAnnot extends PDAnnot {
 type PD3DStream extends PDObject {
 	% value of Subtype entry
 	property Subtype: String;
-	%  link to color space
+	% link to color space
 	link colorSpace: PDColorSpace?;
 }
 
@@ -682,6 +679,8 @@ type PDOutputIntent extends PDObject {
 	property OutputConditionIdentifier: String;
 	% value of the /S entry (the output intent subtype) in the output intent dictionary (or null, if this entry is not present)
 	property S: String;
+	% string representation of the md5 of the ICC profile
+	property ICCProfileMD5: String;
 }
 
 % Optional content properties dictionary
