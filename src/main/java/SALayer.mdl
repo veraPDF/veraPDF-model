@@ -40,3 +40,15 @@ type SATextChunk extends SAChunk {
     % text weight
     property textWeight: Decimal;
 }
+
+% <Span> structure element
+type SASpan extends SAStructElem {
+}
+
+% <P> structure element
+type SAP extends SAStructElem {
+}
+
+% the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
+type SANonStandard extends SAStructElem {
+}
