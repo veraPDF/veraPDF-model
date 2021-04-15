@@ -49,6 +49,10 @@ type SASpan extends SAStructElem {
 type SAP extends SAStructElem {
 }
 
+% <Table> structure element
+type SATable extends SAStructElem {
+}
+
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SANonStandard extends SAStructElem {
 }
