@@ -110,6 +110,8 @@ type PDPage extends PDObject {
 	property orientation: String;
 	% color space of output icc profile
 	property outputColorSpace: String;
+	% link to resource dictionary
+	link resources: PDResources?;
 }
 
 % transparency blending space
@@ -133,6 +135,8 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 	% false, if resource dictionaries associated with content stream define all named resources referenced by content stream
 	property containsUndefinedResource: Boolean;
+	% link to resource dictionary
+	link resources: PDResources?;
 }
 
 % content stream with semantic objects (marked content sequences with /MCID entry)
@@ -428,6 +432,12 @@ type PDXForm extends PDXObject {
 	link Group: PDGroup?;
 	% false, if Form XObject contains MCIDs and is referenced more than once
 	property isUniqueSemanticParent: Boolean;
+}
+
+% Resource dictionary
+type PDResources extends PDObject {
+    % link to font names, names of colourants in Separation and DeviceN colour spaces
+    link resourcesNames: CosUnicodeName*;
 }
 
 % Group attributes dictionary
