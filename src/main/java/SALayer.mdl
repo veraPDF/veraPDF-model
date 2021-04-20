@@ -24,6 +24,12 @@ type SAStructElem extends Object {
     property hasCorrectType: Boolean;
     % supposed correct element type
     property correctType: String;
+    % standard type of struct element
+    property standardType: String;
+    % true, if this is table struct element
+    property isTableElem: Boolean;
+    % true, if this is table child element
+    property isTableChild: Boolean;
 }
 
 % a chunk such as text, image or other
