@@ -59,6 +59,26 @@ type SAP extends SAStructElem {
 type SATable extends SAStructElem {
 }
 
+% <TR> structure element
+type SATR extends SAStructElem {
+}
+
+% <TH> structure element
+type SATH extends SAStructElem {
+}
+
+% <TD> structure element
+type SATD extends SAStructElem {
+}
+
+% <H> structure element
+type SAH extends SAStructElem {
+}
+
+% <Hn> structure element (or one of <H1> to <H6> in PDF 1.7)
+type SAHn extends SAStructElem {
+}
+
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SANonStandard extends SAStructElem {
 }
