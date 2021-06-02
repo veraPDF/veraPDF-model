@@ -16,7 +16,7 @@ type SAStructTreeRoot extends Object {
 
 % the structure element dictionary
 type SAStructElem extends Object {
-    % immediate child structure tree elements (this does not include marked-content reference dictionaries)
+    % immediate child of structure element
     link children: Object*;
     % number ranging from 0 to 1 indicating the probability that the correct type is right defined
     property correctSemanticScore: Decimal;
@@ -30,6 +30,8 @@ type SAStructElem extends Object {
     property isTableElem: Boolean;
     % true, if this is table child element
     property isTableChild: Boolean;
+    % id of struct element
+    property structureID: Integer;
 }
 
 % a chunk such as text, image or other
