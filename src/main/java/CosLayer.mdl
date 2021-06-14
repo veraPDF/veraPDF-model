@@ -3,7 +3,7 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
-import org.verapdf.model.salayer.SADocument;
+import org.verapdf.model.salayer.SAPDFDocument;
 import org.verapdf.model.pdlayer.PDEncryption;
 import org.verapdf.model.external.EmbeddedFile;
 
@@ -15,7 +15,7 @@ type CosObject extends Object {
 % Low-level PDF Document object 
 type CosDocument extends CosObject {
 	% link to Document structure for structure analysis
-	link doc: SADocument?;
+	link doc: SAPDFDocument?;
 	% number of indirect objects in the document
 	property nrIndirects: Integer;
 	% version of the document

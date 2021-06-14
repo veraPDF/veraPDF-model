@@ -3,7 +3,7 @@ package org.verapdf.model.salayer;
 import org.verapdf.model.baselayer.Object;
 
 % the class corresponding to the high level PDF document structure
-type SADocument extends Object {
+type SAPDFDocument extends Object {
     % the link to the document structure tree root dictionary
     link StructTreeRoot: SAStructTreeRoot?;
 }
@@ -49,12 +49,48 @@ type SATextChunk extends SAChunk {
     property textWeight: Decimal;
 }
 
-% <Span> structure element
-type SASpan extends SAStructElem {
+% image chunk
+type SAImageChunk extends SAChunk {
+}
+
+% <Document> structure element
+type SADocument extends SAStructElem {
+}
+
+% <Part> structure element
+type SAPart extends SAStructElem {
+}
+
+% <Div> structure element
+type SADiv extends SAStructElem {
+}
+
+% <Caption> structure element
+type SACaption extends SAStructElem {
+}
+
+% <H> structure element
+type SAH extends SAStructElem {
 }
 
 % <P> structure element
 type SAP extends SAStructElem {
+}
+
+% <L> structure element
+type SAL extends SAStructElem {
+}
+
+% <LI> structure element
+type SALI extends SAStructElem {
+}
+
+% <Lbl> structure element
+type SALbl extends SAStructElem {
+}
+
+% <LBody> structure element
+type SALBody extends SAStructElem {
 }
 
 % <Table> structure element
@@ -73,12 +109,155 @@ type SATH extends SAStructElem {
 type SATD extends SAStructElem {
 }
 
-% <H> structure element
-type SAH extends SAStructElem {
+% <Span> structure element
+type SASpan extends SAStructElem {
+}
+
+% <Link> structure element
+type SALink extends SAStructElem {
+}
+
+% <Art> structure element (only PDF 1.7)
+type SAArt extends SAStructElem {
+}
+
+% <Sect> structure element
+type SASect extends SAStructElem {
+}
+
+% <BlockQuote> structure element (only PDF 1.7)
+type SABlockQuote extends SAStructElem {
+}
+
+% <TOC> structure element (only PDF 1.7)
+type SATOC extends SAStructElem {
+}
+
+% <TOCI> structure element (only PDF 1.7)
+type SATOCI extends SAStructElem {
+}
+
+% <Index> structure element (only PDF 1.7)
+type SAIndex extends SAStructElem {
+}
+
+% <NonStruct> structure element
+type SANonStruct extends SAStructElem {
+}
+
+% <Private> structure element
+type SAPrivate extends SAStructElem {
+}
+
+% <Quote> structure element
+type SAQuote extends SAStructElem {
+}
+
+% <Note> structure element (only PDF 1.7)
+type SANote extends SAStructElem {
+}
+
+% <Reference> structure element
+type SAReference extends SAStructElem {
+}
+
+% <BibEntry> structure element (only PDF 1.7)
+type SABibEntry extends SAStructElem {
+}
+
+% <Code> structure element (only PDF 1.7)
+type SACode extends SAStructElem {
 }
 
 % <Hn> structure element (or one of <H1> to <H6> in PDF 1.7)
 type SAHn extends SAStructElem {
+}
+
+% <Figure> structure element
+type SAFigure extends SAStructElem {
+}
+
+% <Formula> structure element
+type SAFormula extends SAStructElem {
+}
+% <Form> structure element
+type SAForm extends SAStructElem {
+}
+
+% <THead> structure element
+type SATHead extends SAStructElem {
+}
+
+% <TBody> structure element
+type SATBody extends SAStructElem {
+}
+
+% <TFoot> structure element
+type SATFoot extends SAStructElem {
+}
+
+% <Annot> structure element
+type SAAnnot extends SAStructElem {
+}
+
+% <Ruby> structure element
+type SARuby extends SAStructElem {
+}
+
+% <Warichu> structure element
+type SAWarichu extends SAStructElem {
+}
+
+% <RB> structure element
+type SARB extends SAStructElem {
+}
+
+% <RT> structure element
+type SART extends SAStructElem {
+}
+
+% <RP> structure element
+type SARP extends SAStructElem {
+}
+
+% <WT> structure element
+type SAWT extends SAStructElem {
+}
+
+% <WP> structure element
+type SAWP extends SAStructElem {
+}
+
+% <DocumentFragment> structure element (only PDF 2.0)
+type SADocumentFragment extends SAStructElem {
+}
+
+% <Aside> structure element (only PDF 2.0)
+type SAAside extends SAStructElem {
+}
+
+% <Title> structure element (only PDF 2.0)
+type SATitle extends SAStructElem {
+}
+
+% <FENote> structure element (only PDF 2.0)
+type SAFENote extends SAStructElem {
+}
+
+% <Sub> structure element (only PDF 2.0)
+type SASub extends SAStructElem {
+}
+
+% <Em> structure element (only PDF 2.0)
+type SAEm extends SAStructElem {
+}
+
+% <Strong> structure element (only PDF 2.0)
+type SAStrong extends SAStructElem {
+}
+
+% <Artifact> structure element (only PDF 2.0)
+type SAArtifact extends SAStructElem {
 }
 
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
