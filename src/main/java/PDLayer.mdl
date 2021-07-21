@@ -309,6 +309,8 @@ type PDSimpleFont extends PDFont {
 	% - if /Encoding entry is a dictionary, which does not contain /Differences array, then the value of /BaseEncoding entry in this dictionary (or null, if /BaseEncoding is also not present)
 	% - the string "Custom", of the /Encoding entry is a dictionary containing /Differences key
 	property Encoding: String;
+	% true if an Encoding dictionary contains a Differences entry
+	property containsDifferences: Boolean;
 }
 
 % TrueType font dictionary
