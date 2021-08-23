@@ -65,10 +65,18 @@ type SETR extends PDStructElem {
 
 % <TH> structure element
 type SETH extends PDStructElem {
+    % value of /ColSpan entry
+    property ColSpan: Integer;
+    % value of /RowSpan entry
+    property RowSpan: Integer;
 }
 
 % <TD> structure element
 type SETD extends PDStructElem {
+    % value of /ColSpan entry
+    property ColSpan: Integer;
+    % value of /RowSpan entry
+    property RowSpan: Integer;
 }
 
 % <Span> structure element

@@ -6,6 +6,8 @@ import org.verapdf.model.baselayer.Object;
 type SAPDFDocument extends Object {
     % the link to the document structure tree root dictionary
     link StructTreeRoot: SAStructTreeRoot?;
+    % the collection of all document pages
+    link pages: SAPage+;
 }
 
 % the structure tree root dictionary
@@ -30,13 +32,39 @@ type SAStructElem extends Object {
     property isTableElem: Boolean;
     % true, if this is table child element
     property isTableChild: Boolean;
+    % true, if this is list struct element
+    property isListElem: Boolean;
+    % true, if this is list child element
+    property isListChild: Boolean;
     % id of struct element
     property structureID: Integer;
+    % false, if structure element contains other structure elements
+    property isLeafElem: Boolean;
 }
 
 % a chunk such as text, image or other
 type SAChunk extends Object {
 
+}
+
+% page
+type SAPage extends Object {
+    % all page annotations
+    link annots: SAAnnotation*;
+}
+
+% annotation object
+type SAAnnotation extends Object {
+    % annotation flags
+    property F: Integer;
+    % the value of the /Contents entry
+    property Contents: String;
+    % true, if annotation rectangle is outside page CropBox
+    property isOutsideCropBox: Boolean;
+}
+
+% link annotation
+type SALinkAnnotation extends SAAnnotation {
 }
 
 % text chunk
