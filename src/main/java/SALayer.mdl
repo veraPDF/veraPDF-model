@@ -40,6 +40,8 @@ type SAStructElem extends Object {
     property structureID: Integer;
     % false, if structure element contains other structure elements
     property isLeafElem: Boolean;
+    % number of same characters successively
+    property numberOfSameCharacters: Integer;
 }
 
 % a chunk such as text, image or other
@@ -55,6 +57,10 @@ type SAPage extends Object {
 
 % annotation object
 type SAAnnotation extends Object {
+    % text located on page in Rect
+    property textValue: String;
+    % true, if text value is link
+    property hasLinkValue: Boolean;
     % annotation flags
     property F: Integer;
     % the value of the /Contents entry
