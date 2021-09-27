@@ -291,6 +291,8 @@ type PDFont extends PDResource {
 	link fontFile: FontProgram?;
 	% value of the entry /Subtype in the embedded font file stream, or null, if the this entry is not present (or the font is not embedded)
 	property fontFileSubtype: String;
+	% value of Italic flag in Flags entry in the font descriptor
+	property isItalic: Boolean;
 }
 
 % One of the simple font types (Type 1, TrueType, Type 3)
