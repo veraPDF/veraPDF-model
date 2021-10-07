@@ -81,6 +81,8 @@ type SATextChunk extends SAChunk {
     property contrastRatio: Decimal;
     % text weight
     property textWeight: Decimal;
+    % true, if this text chunk has style different from common style
+    property hasSpecialStyle: Boolean;
 }
 
 % image chunk
