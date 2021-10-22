@@ -51,6 +51,8 @@ type SAChunk extends Object {
 
 % page
 type SAPage extends Object {
+    % page artifacts
+    link artifacts: SAChunk*;
     % all page annotations
     link annots: SAAnnotation*;
 }
