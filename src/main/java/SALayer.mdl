@@ -85,6 +85,8 @@ type SATextChunk extends SAChunk {
     property textWeight: Decimal;
     % true, if this text chunk has style different from common style
     property hasSpecialStyle: Boolean;
+    % true, if this text chunk is underlined
+    property isUnderlined: Boolean;
 }
 
 % image chunk
