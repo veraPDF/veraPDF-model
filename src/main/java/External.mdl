@@ -80,6 +80,8 @@ type JPEG2000 extends External {
 	property bitDepth: Integer;
 	% true if the 'bpcc' box is present and, thus, the bit depth is not constant across all components
 	property bpccBoxPresent: Boolean;
+	% true, if Image XObject has /ColorSpace entry, which means that colr box in JPEG2000 should be ignored
+	property hasColorSpace: Boolean;
 }
 
 % embedded file
