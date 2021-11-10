@@ -227,8 +227,10 @@ type PDSeparation extends PDColorSpace {
 	link tintTransform: PDFunction;
 	% alternate color space
 	link alternate: PDColorSpace;
-	% colorant name
+	% colorant name object
 	link colorantName: CosUnicodeName;
+	% colorant name value
+	property name: String;
 	% true if this is the first occurrence the colorant with this name, or if this is the repeating occurrence and
 	% it has the same colorant name have the same titTransform and Alternate color space (compared as PDF objects)
 	property areTintAndAlternateConsistent: Boolean;
