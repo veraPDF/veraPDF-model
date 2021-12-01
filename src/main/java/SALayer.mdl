@@ -61,18 +61,24 @@ type SAPage extends Object {
 type SAAnnotation extends Object {
     % text located on page in Rect
     property textValue: String;
-    % true, if text value is link
-    property hasLinkValue: Boolean;
     % annotation flags
     property F: Integer;
     % the value of the /Contents entry
     property Contents: String;
+    % the Alt entry of parent structure element
+    property Alt: String;
     % true, if annotation rectangle is outside page CropBox
     property isOutsideCropBox: Boolean;
 }
 
 % link annotation
 type SALinkAnnotation extends SAAnnotation {
+    % true, if text value is link
+    property textValueIsLink: Boolean;
+    % true, if /Contents entry is link
+    property contentsIsLink: Boolean;
+    % true, if /Alt entry is link
+    property altIsLink: Boolean;
 }
 
 % text chunk
