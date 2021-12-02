@@ -93,6 +93,8 @@ type SATextChunk extends SAChunk {
     property hasSpecialStyle: Boolean;
     % true, if this text chunk is underlined
     property isUnderlined: Boolean;
+    % ampersand separated list of all parent elements standard types of this text chunk in the structure hierarchy
+    property parentsStandardTypes: String;
 }
 
 % image chunk
