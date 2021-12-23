@@ -46,6 +46,8 @@ type SAStructElem extends Object {
     property numberOfRepeatedSpaces: Integer;
     % position of repeated spaces
     property positionOfRepeatedSpaces: String;
+    % ampersand separated list of all standard types of parents element of this structure element in the structure hierarchy
+    property parentsStandardTypes: String;
 }
 
 % a chunk such as text, image or other
