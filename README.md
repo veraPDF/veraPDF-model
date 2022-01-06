@@ -23,7 +23,7 @@ Pre-requisites
 --------------
 In order to generate the model classes you'll need:
 
- * Java 8, which can be downloaded [from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](http://openjdk.java.net/install/index.html).
+ * Java 11, which can be downloaded [from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](http://openjdk.java.net/install/index.html).
  * [Maven v3+](https://maven.apache.org/)
 
 If you want to edit and regenerate the model you'll need:
@@ -35,4 +35,4 @@ Generating the veraPDF Model
  1. Download the veraPDF-model repository, either: `git clone https://github.com/veraPDF/veraPDF-model`
  or download the [latest tar archive](https://github.com/veraPDF/veraPDF-model/archive/master.tar.gz "veraPDF-Model latest GitHub tar archive") or [zip equivalent](https://github.com/veraPDF/veraPDF-model/archive/master.zip "veraPDF-Model latest GitHub zip archive") from GitHub.
  2. Move to the downloaded project directory, e.g. `cd veraPDF-model`
- 3. Build and install using Maven: `mvn clean install`
+ 3. Build and install using Maven: `./mvnw clean install`
