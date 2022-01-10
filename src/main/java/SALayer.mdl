@@ -8,6 +8,8 @@ type SAPDFDocument extends Object {
     link StructTreeRoot: SAStructTreeRoot?;
     % the collection of all document pages
     link pages: SAPage+;
+    % all document repeated characters
+    link repeatedCharacters: SARepeatedCharacters*;
 }
 
 % the structure tree root dictionary
@@ -75,6 +77,14 @@ type SAAnnotation extends Object {
     property Alt: String;
     % true, if annotation rectangle is outside page CropBox
     property isOutsideCropBox: Boolean;
+}
+
+% repeated characters object
+type SARepeatedCharacters extends Object {
+    % true, if repeated characters are not spaces
+    property isNonSpace: Boolean;
+    % number of repeated characters
+    property numberOfRepeatedCharacters: Integer;
 }
 
 % link annotation
