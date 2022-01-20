@@ -119,6 +119,10 @@ type SATextChunk extends SAChunk {
 type SAImageChunk extends SAChunk {
 }
 
+% line art chunk
+type SALineArtChunk extends SAChunk {
+}
+
 % <Document> structure element
 type SADocument extends SAStructElem {
 }
