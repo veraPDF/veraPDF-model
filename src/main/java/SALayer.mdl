@@ -65,6 +65,8 @@ type SAPage extends Object {
     link artifacts: SAChunk*;
     % all page annotations
     link annots: SAAnnotation*;
+    % table borders in this page
+    link tableBorders: SATableBorder*;
 }
 
 % annotation object
@@ -125,6 +127,26 @@ type SALineArtChunk extends SAChunk {
 
 % <Document> structure element
 type SADocument extends SAStructElem {
+}
+
+% table border
+type SATableBorder extends Object {
+    % rows of this table
+    link rows: SATableBorderRow*;
+}
+
+% table border row
+type SATableBorderRow extends Object {
+    % cells in this row
+    link cells: SATableBorderCell*;
+}
+
+% table border cell
+type SATableBorderCell extends Object {
+    % colspan of this cell
+    property colSpan: Integer;
+    % rowspan of this cell
+    property rowSpan: Integer;
 }
 
 % <Part> structure element
