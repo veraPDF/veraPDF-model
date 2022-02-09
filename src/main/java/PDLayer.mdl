@@ -110,6 +110,8 @@ type PDPage extends PDObject {
 	property orientation: String;
 	% color space of output icc profile
 	property outputColorSpace: String;
+	% page number
+	property pageNumber: Integer;
 	% link to resource dictionary
 	link resources: PDResources?;
 }
