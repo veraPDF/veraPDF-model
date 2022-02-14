@@ -68,6 +68,9 @@ type PDDocument extends PDObject {
 	property outputColorSpace: String;
 	% value of Version key of the document catalog dictionary
 	property Version: String;
+	% the most common page orientation in the document (Portrait, Landscape or Square)
+	% if the most common orientation is Square, then second most common orientation if exists
+    property mostCommonOrientation: String;
 }
 
 % the object representing PDF page
