@@ -15,7 +15,7 @@ jobs:
       - name: JDK 11 setup
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
+          java-version: ${{ matrix.java-version }}
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
