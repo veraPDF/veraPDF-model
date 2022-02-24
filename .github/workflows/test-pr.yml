@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   build:
+    name: Checkout and Build
     runs-on: ubuntu-20.04
 
     strategy:
