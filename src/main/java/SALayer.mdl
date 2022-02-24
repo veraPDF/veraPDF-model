@@ -42,12 +42,6 @@ type SAStructElem extends Object {
     property structureID: Integer;
     % false, if structure element contains other structure elements
     property isLeafElem: Boolean;
-    % number of same characters successively
-    property numberOfSameCharacters: Integer;
-    % number of repeated spaces
-    property numberOfRepeatedSpaces: Integer;
-    % position of repeated spaces
-    property positionOfRepeatedSpaces: String;
     % ampersand separated list of all standard types of parents element of this structure element in the structure hierarchy
     property parentsStandardTypes: String;
     % true, if this element has wrong type and all parents of this element have right types
