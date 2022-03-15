@@ -44,6 +44,10 @@ type SAStructElem extends Object {
     property isLeafElem: Boolean;
     % ampersand separated list of all standard types of parents element of this structure element in the structure hierarchy
     property parentsStandardTypes: String;
+    % ampersand separated list of child element types, role mapped to the standard types
+    property kidsStandardTypes: String;
+    % parent element type, role mapped to the standard type
+    property parentStandardType: String;
     % true, if this element has wrong type and all parents of this element have right types
     property hasLowestDepthError: Boolean;
 }
