@@ -50,6 +50,10 @@ type SAStructElem extends Object {
     property parentStandardType: String;
     % true, if this element has wrong type and all parents of this element have right types
     property hasLowestDepthError: Boolean;
+    % number of the first page that contains the structure element
+    property page: Integer;
+    % number of the last page that contains the structure element
+    property lastPage: Integer;
 }
 
 % a chunk such as text, image or other
@@ -265,11 +269,14 @@ type SAHn extends SAStructElem {
 
 % <Figure> structure element
 type SAFigure extends SAStructElem {
+    % true, if figure has bounding box
+    property hasBBox: Boolean;
 }
 
 % <Formula> structure element
 type SAFormula extends SAStructElem {
 }
+
 % <Form> structure element
 type SAForm extends SAStructElem {
 }
