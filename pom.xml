@@ -69,8 +69,8 @@
   </pluginRepositories>
 
   <properties>
-    <verapdf.model.syntax.version>[1.19.0,1.20.0)</verapdf.model.syntax.version>
-    <xtext.version>2.13.0</xtext.version>
+    <verapdf.model.syntax.version>[1.21.0,1.22.0-RC)</verapdf.model.syntax.version>
+    <xtext.version>2.26.0</xtext.version>
   </properties>
 
   <build>
