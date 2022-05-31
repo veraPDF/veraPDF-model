@@ -232,6 +232,10 @@ type SEImageXObjectItem extends SEImageItem {
 
 % <Form> structure element
 type SEForm extends PDStructElem {
+    % value of the Role attribute, or null if this attribute is not present
+    property roleAttribute: String;
+    % true, if form element has only one child identifying the widget annotation
+    property hasOneInteractiveChild: Boolean;
 }
 
 % <THead> structure element
