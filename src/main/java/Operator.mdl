@@ -218,7 +218,7 @@ type Op_bstar_closepath_eofill_stroke extends OpPathPaint {
 
 % path painting no-op
 type Op_n extends OpPathPaint {
- 
+
 }
 
 % Clip operators
@@ -541,7 +541,8 @@ type Op_EX extends OpCompatibility {
 
 % any operator not defined in PDF Reference
 type Op_Undefined extends OpCompatibility {
-
+    % operator name
+    property name: String;
 }
 
 % glyph used in text
@@ -550,6 +551,10 @@ type Glyph extends Object {
 	property name: String;
 	% true if the width of the glyph in the embedded font program is consistent with the width specified in the Font dictionary
 	property isWidthConsistent: Boolean;
+	% width of the glyph specified in the Font dictionary
+	property widthFromDictionary: Decimal;
+	% width of the glyph in the embedded font program
+	property widthFromFontProgram: Decimal;
 	% true if glyph is present in the font program
 	property isGlyphPresent: Boolean;
 	% unicode value of the glyph

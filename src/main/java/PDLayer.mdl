@@ -140,6 +140,8 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 	% false, if resource dictionaries associated with content stream define all named resources referenced by content stream
 	property containsUndefinedResource: Boolean;
+	% comma separated list of resource names, which referenced by content stream but missing in resource dictionary
+	property undefinedResourceNames: String;
 	% link to resource dictionary
 	link resources: PDResources?;
 }
@@ -171,6 +173,8 @@ type PDAdditionalActions extends PDObject {
 	link Actions: PDAction*;
 	% true, if dictionary contains keys not from the following list: E, X, D, U, Fo, and Bl.
 	property containsOtherActions: Boolean;
+	% ampersand separated list of actions
+	property actions: String;
 }
 
 % DeviceGray color space
@@ -316,7 +320,6 @@ type PDSimpleFont extends PDFont {
 	% - null if the /Encoding entry is not present in the font dictionary
 	% - if /Encoding entry in the font dictionary if of Name type, then the value of this entry;
 	% - if /Encoding entry is a dictionary, which does not contain /Differences array, then the value of /BaseEncoding entry in this dictionary (or null, if /BaseEncoding is also not present)
-	% - the string "Custom", of the /Encoding entry is a dictionary containing /Differences key
 	property Encoding: String;
 	% true if an Encoding dictionary contains a Differences entry
 	property containsDifferences: Boolean;
@@ -357,7 +360,19 @@ type PDCIDFont extends PDFont {
 type PDType0Font extends PDFont {
 	% true if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
 	property areRegistryOrderingCompatible: Boolean;
-	% true if the Supplement key in the CIDFont is greater or equal to the Supplement key in the CMap dictionary
+	% Ordering key from CIDSystemInfo
+	property CIDFontOrdering: String;
+	% Ordering key from CMap
+	property CMapOrdering: String;
+	% Registry key from CIDSystemInfo
+	property CIDFontRegistry: String;
+	% Registry key from CMap
+	property CMapRegistry: String;
+	% Supplement key from CIDSystemInfo
+	property CIDFontSupplement: Integer;
+	% Supplement key from CMap
+	property CMapSupplement: Integer;
+	% true if the Supplement key in the CIDFont is less or equal to the Supplement key in the CMap dictionary
 	property isSupplementCompatible: Boolean;
 	% link to the descendant CIDFont
 	link DescendantFonts: PDCIDFont;
@@ -554,6 +569,8 @@ type PDAnnot extends PDObject {
 	property isOutsideCropBox: Boolean;
 	% link to blend mode
 	link BM: CosBM?;
+	% ampersand separated list of all keys of the dictionary
+	property keys: String;
 }
 
 % 3d annotation
@@ -738,7 +755,7 @@ type PDStructTreeRoot extends PDObject {
 	% all structure element names used in role map
 	link roleMapNames: CosUnicodeName*;
 	% standard type of the first kid
-	property topLevelFirstElementStandartType: String;
+	property topLevelFirstElementStandardType: String;
 	% ampersand separated list of child element types, role mapped to the standard types
 	property kidsStandardTypes: String;
 	% true if the structure element contains content items as its children
@@ -759,6 +776,8 @@ type PDStructElem extends PDObject {
 	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
+	% structure type
+	property valueS: String;
 	% standard structure type defined via role map
 	property standardType: String;
 	% value of the Lang entry
@@ -783,6 +802,8 @@ type PDStructElem extends PDObject {
 type PDPerms extends PDObject {
 	% true if the permissions dictionary contains entries other than DocMDP and UC3
 	property containsOtherEntries: Boolean;
+	% ampersand separated list of entries
+	property entries: String;
 }
 
 % signature references dictionary referred by /Reference key from the signature dictionary

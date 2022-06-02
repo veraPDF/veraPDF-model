@@ -159,8 +159,6 @@ type SEFormula extends PDStructElem {
 
 % a content item such as text, image, lineart, shading or a form
 type SEContentItem extends Object {
-	% suspected semantic role of this content item (such as Span, Figure, Heading, etc)
-	property suspectRole: String;
 	% all content items within this content sequence
 	link contentItem: SEContentItem*;
 	% ampersand separated list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
