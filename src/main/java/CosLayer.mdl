@@ -36,7 +36,7 @@ type CosDocument extends CosObject {
 	link EmbeddedFiles: CosFileSpecification*;
 	% link to the document cross reference table
 	link xref: CosXRef;
-	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
+	% trailer dictionary (first page trailer for the linearized PDF or the last trailer in the document)
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
@@ -188,12 +188,16 @@ type CosDict extends CosObject {
 	link values: CosObject*;
 	% XMP metadata if it is present
 	link metadata: PDMetadata?;
+	% ampersand separated list of all keys of the dictionary
+	property keysString: String;
 }
 	
 % PDF Stream type
 type CosStream extends CosDict {
 	% value of the Length key in the Stream dictionary
 	property Length: Integer;
+	% real length of stream
+	property realLength: Integer;
 	% represents value of F key or null if stream does not contain this key
 	property F: String;
 	% represents value of FFilter key or null if stream does not contain this key

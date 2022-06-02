@@ -127,10 +127,6 @@ type SAImageChunk extends SAChunk {
 type SALineArtChunk extends SAChunk {
 }
 
-% <Document> structure element
-type SADocument extends SAStructElem {
-}
-
 % table border
 type SATableBorder extends Object {
     % rows of this table
@@ -149,6 +145,10 @@ type SATableBorderCell extends Object {
     property colSpan: Integer;
     % rowspan of this cell
     property rowSpan: Integer;
+}
+
+% <Document> structure element
+type SADocument extends SAStructElem {
 }
 
 % <Part> structure element
