@@ -14,8 +14,6 @@ type CosObject extends Object {
 
 % Low-level PDF Document object 
 type CosDocument extends CosObject {
-	% link to Document structure for structure analysis
-	link doc: SAPDFDocument?;
 	% number of indirect objects in the document
 	property nrIndirects: Integer;
 	% version of the document
@@ -70,6 +68,8 @@ type CosDocument extends CosObject {
 	property containsInfo: Boolean;
 	% true if the document catalog dictionary contains PieceInfo entry
 	property containsPieceInfo: Boolean;
+	% link to Document structure for structure analysis
+	link doc: SAPDFDocument?;
 }
 
 % PDF Indirect object
@@ -208,8 +208,6 @@ type CosStream extends CosDict {
 	property streamKeywordCRLFCompliant: Boolean;
 	% true if spacings around keywords 'endstream' comply to the PDF/A standard
 	property endstreamKeywordEOLCompliant: Boolean;
-	% true if the value of Length key matches the actual length of the stream
-	property isLengthCorrect: Boolean;
 	% link to the stream filters
 	link filters: CosFilter*;
 }
