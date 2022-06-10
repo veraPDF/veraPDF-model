@@ -138,8 +138,6 @@ type OutputIntents extends Object {
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
-	% false, if resource dictionaries associated with content stream define all named resources referenced by content stream
-	property containsUndefinedResource: Boolean;
 	% comma separated list of resource names, which referenced by content stream but missing in resource dictionary
 	property undefinedResourceNames: String;
 	% link to resource dictionary
@@ -175,6 +173,8 @@ type PDAdditionalActions extends PDObject {
 	property containsOtherActions: Boolean;
 	% ampersand separated list of actions
 	property actions: String;
+	% type of parent object for additional actions
+	property parentType: String;
 }
 
 % DeviceGray color space
@@ -358,8 +358,6 @@ type PDCIDFont extends PDFont {
 
 % Type0 font dictionary
 type PDType0Font extends PDFont {
-	% true if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
-	property areRegistryOrderingCompatible: Boolean;
 	% Ordering key from CIDSystemInfo
 	property CIDFontOrdering: String;
 	% Ordering key from CMap
@@ -372,8 +370,6 @@ type PDType0Font extends PDFont {
 	property CIDFontSupplement: Integer;
 	% Supplement key from CMap
 	property CMapSupplement: Integer;
-	% true if the Supplement key in the CIDFont is less or equal to the Supplement key in the CMap dictionary
-	property isSupplementCompatible: Boolean;
 	% link to the descendant CIDFont
 	link DescendantFonts: PDCIDFont;
 	% font CMap (Encoding entry)
@@ -739,6 +735,8 @@ type PDOCConfig extends PDObject {
 	property AS: String;
 	% true if the Order array contains references to all optional content groups in the document
 	property doesOrderContainAllOCGs: Boolean;
+	% comma separated list of all optional content groups in the document, which the Order array does not contain references to
+    property OCGsNotContainInOrder: String;
 }
 
 
@@ -800,8 +798,6 @@ type PDStructElem extends PDObject {
 
 % permissions dictionary referred by /Perms key from the document catalog
 type PDPerms extends PDObject {
-	% true if the permissions dictionary contains entries other than DocMDP and UC3
-	property containsOtherEntries: Boolean;
 	% ampersand separated list of entries
 	property entries: String;
 }
