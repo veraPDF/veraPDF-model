@@ -22,10 +22,10 @@ type SAStructTreeRoot extends Object {
 type SAStructElem extends Object {
     % immediate child of structure element
     link children: Object*;
+    % structure type
+    property valueS: String;
     % number ranging from 0 to 1 indicating the probability that the correct type is right defined
     property correctSemanticScore: Decimal;
-    % true, if correct type is the same as the standard type
-    property hasCorrectType: Boolean;
     % supposed correct element type
     property correctType: String;
     % standard type of struct element

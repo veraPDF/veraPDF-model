@@ -140,6 +140,9 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 	% comma separated list of resource names, which referenced by content stream but missing in resource dictionary
 	property undefinedResourceNames: String;
+	% comma separated list of resource names, which are taken not from the resource dictionary explicitly associated with the page content, but is inherited either
+    % from the parent page node (for pages) or from the parent page object where the resource is used (for patterns, Type3 fonts, annotations).
+    property inheritedResourceNames: String;
 	% link to resource dictionary
 	link resources: PDResources?;
 }
@@ -169,8 +172,6 @@ type PDColorSpace extends PDResource {
 type PDAdditionalActions extends PDObject {
 	% link to the additional actions
 	link Actions: PDAction*;
-	% true, if dictionary contains keys not from the following list: E, X, D, U, Fo, and Bl.
-	property containsOtherActions: Boolean;
 	% ampersand separated list of actions
 	property actions: String;
 	% type of parent object for additional actions
