@@ -31,7 +31,8 @@ import org.verapdf.model.selayer.SEContentItem;
 
 % base class for all PD layer objects
 type PDObject extends Object {
-
+	% ampersand separated list of entries
+	property entries: String;
 }
 
 % the class corresponding to the high level PDF document structure
@@ -140,8 +141,9 @@ type PDContentStream extends PDObject {
 	link operators: Operator*;
 	% comma separated list of resource names, which referenced by content stream but missing in resource dictionary
 	property undefinedResourceNames: String;
-	% comma separated list of resource names, which are taken not from the resource dictionary explicitly associated with the page content, but is inherited either
-    % from the parent page node (for pages) or from the parent page object where the resource is used (for patterns, Type3 fonts, annotations).
+	% comma separated list of resource names, which are taken not from the resource dictionary explicitly associated
+	% with the page content, but are inherited either from the pages tree (for pages) or from the parent page object
+	% where the resource is used (for form XObjects, patterns, Type3 fonts, annotations).
     property inheritedResourceNames: String;
 	% link to resource dictionary
 	link resources: PDResources?;
@@ -530,7 +532,7 @@ type PDAnnot extends PDObject {
 	property CA: Decimal;
 	% annotation flags
 	property F: Integer;
-	% SPACE-separated list of all keys in the annotation's appearance dictionary (AP key)
+	% ampersand-separated list of all keys in the annotation's appearance dictionary (AP key)
 	property AP: String;
 	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null,  if this entry is not present
 	property FT: String;
@@ -734,8 +736,6 @@ type PDOCConfig extends PDObject {
 	% string representation of the /AS key (or null, if this key does not exist in the config dictionary)
 	% if this key is present, the property contain the space-concatenated values of the Event entries if all Usage Application dictionaries
 	property AS: String;
-	% true if the Order array contains references to all optional content groups in the document
-	property doesOrderContainAllOCGs: Boolean;
 	% comma separated list of all optional content groups in the document, which the Order array does not contain references to
     property OCGsNotContainInOrder: String;
 }
@@ -799,8 +799,6 @@ type PDStructElem extends PDObject {
 
 % permissions dictionary referred by /Perms key from the document catalog
 type PDPerms extends PDObject {
-	% ampersand separated list of entries
-	property entries: String;
 }
 
 % signature references dictionary referred by /Reference key from the signature dictionary
