@@ -174,8 +174,6 @@ type PDColorSpace extends PDResource {
 type PDAdditionalActions extends PDObject {
 	% link to the additional actions
 	link Actions: PDAction*;
-	% ampersand separated list of actions
-	property actions: String;
 	% type of parent object for additional actions
 	property parentType: String;
 }
@@ -568,8 +566,6 @@ type PDAnnot extends PDObject {
 	property isOutsideCropBox: Boolean;
 	% link to blend mode
 	link BM: CosBM?;
-	% ampersand separated list of all keys of the dictionary
-	property keys: String;
 }
 
 % 3d annotation
