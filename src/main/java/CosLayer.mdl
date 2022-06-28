@@ -68,6 +68,10 @@ type CosDocument extends CosObject {
 	property containsInfo: Boolean;
 	% true if the document catalog dictionary contains PieceInfo entry
 	property containsPieceInfo: Boolean;
+	% string representation of the MarkInfo dictionary
+	property MarkInfo: String;
+	% string representation of the ViewerPreferences dictionary
+	property ViewerPreferences: String;
 	% link to Document structure for structure analysis
 	link doc: SAPDFDocument?;
 }
