@@ -22,10 +22,10 @@ type SAStructTreeRoot extends Object {
 type SAStructElem extends Object {
     % immediate child of structure element
     link children: Object*;
+    % structure type
+    property valueS: String;
     % number ranging from 0 to 1 indicating the probability that the correct type is right defined
     property correctSemanticScore: Decimal;
-    % true, if correct type is the same as the standard type
-    property hasCorrectType: Boolean;
     % supposed correct element type
     property correctType: String;
     % standard type of struct element
@@ -42,16 +42,18 @@ type SAStructElem extends Object {
     property structureID: Integer;
     % false, if structure element contains other structure elements
     property isLeafElem: Boolean;
-    % number of same characters successively
-    property numberOfSameCharacters: Integer;
-    % number of repeated spaces
-    property numberOfRepeatedSpaces: Integer;
-    % position of repeated spaces
-    property positionOfRepeatedSpaces: String;
     % ampersand separated list of all standard types of parents element of this structure element in the structure hierarchy
     property parentsStandardTypes: String;
+    % ampersand separated list of child element types, role mapped to the standard types
+    property kidsStandardTypes: String;
+    % parent element type, role mapped to the standard type
+    property parentStandardType: String;
     % true, if this element has wrong type and all parents of this element have right types
     property hasLowestDepthError: Boolean;
+    % number of the first page that contains the structure element
+    property page: Integer;
+    % number of the last page that contains the structure element
+    property lastPage: Integer;
 }
 
 % a chunk such as text, image or other
@@ -125,10 +127,6 @@ type SAImageChunk extends SAChunk {
 type SALineArtChunk extends SAChunk {
 }
 
-% <Document> structure element
-type SADocument extends SAStructElem {
-}
-
 % table border
 type SATableBorder extends Object {
     % rows of this table
@@ -147,6 +145,10 @@ type SATableBorderCell extends Object {
     property colSpan: Integer;
     % rowspan of this cell
     property rowSpan: Integer;
+}
+
+% <Document> structure element
+type SADocument extends SAStructElem {
 }
 
 % <Part> structure element
@@ -267,11 +269,14 @@ type SAHn extends SAStructElem {
 
 % <Figure> structure element
 type SAFigure extends SAStructElem {
+    % true, if figure has bounding box
+    property hasBBox: Boolean;
 }
 
 % <Formula> structure element
 type SAFormula extends SAStructElem {
 }
+
 % <Form> structure element
 type SAForm extends SAStructElem {
 }

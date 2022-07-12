@@ -146,6 +146,9 @@ type ExtensionSchemaObject extends XMPObject {
     % true if the object contains undefined fields
     property containsUndefinedFields: Boolean;
 
+    % comma separated list of undefined fields
+    property undefinedFields: String;
+
 }
 
 % Container of the extension schemas defined in XMP package

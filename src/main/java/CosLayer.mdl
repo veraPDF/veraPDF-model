@@ -14,8 +14,6 @@ type CosObject extends Object {
 
 % Low-level PDF Document object 
 type CosDocument extends CosObject {
-	% link to Document structure for structure analysis
-	link doc: SAPDFDocument?;
 	% number of indirect objects in the document
 	property nrIndirects: Integer;
 	% version of the document
@@ -36,7 +34,7 @@ type CosDocument extends CosObject {
 	link EmbeddedFiles: CosFileSpecification*;
 	% link to the document cross reference table
 	link xref: CosXRef;
-	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
+	% trailer dictionary (first page trailer for the linearized PDF or the last trailer in the document)
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
@@ -70,6 +68,12 @@ type CosDocument extends CosObject {
 	property containsInfo: Boolean;
 	% true if the document catalog dictionary contains PieceInfo entry
 	property containsPieceInfo: Boolean;
+	% string representation of the MarkInfo dictionary
+	property MarkInfo: String;
+	% string representation of the ViewerPreferences dictionary
+	property ViewerPreferences: String;
+	% link to Document structure for structure analysis
+	link doc: SAPDFDocument?;
 }
 
 % PDF Indirect object
@@ -188,12 +192,16 @@ type CosDict extends CosObject {
 	link values: CosObject*;
 	% XMP metadata if it is present
 	link metadata: PDMetadata?;
+	% ampersand separated list of all keys of the dictionary
+	property keysString: String;
 }
 	
 % PDF Stream type
 type CosStream extends CosDict {
 	% value of the Length key in the Stream dictionary
 	property Length: Integer;
+	% real length of stream
+	property realLength: Integer;
 	% represents value of F key or null if stream does not contain this key
 	property F: String;
 	% represents value of FFilter key or null if stream does not contain this key
@@ -204,8 +212,6 @@ type CosStream extends CosDict {
 	property streamKeywordCRLFCompliant: Boolean;
 	% true if spacings around keywords 'endstream' comply to the PDF/A standard
 	property endstreamKeywordEOLCompliant: Boolean;
-	% true if the value of Length key matches the actual length of the stream
-	property isLengthCorrect: Boolean;
 	% link to the stream filters
 	link filters: CosFilter*;
 }

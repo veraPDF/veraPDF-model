@@ -22,7 +22,7 @@ type ICCProfile extends External {
 	property isValid: Boolean;
 }
 
-% Embedded ICC profile used for ICCBasec color spaces
+% Embedded ICC profile used for ICCBased color spaces
 type ICCInputProfile extends ICCProfile
 {
 

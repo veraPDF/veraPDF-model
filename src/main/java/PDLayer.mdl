@@ -31,7 +31,8 @@ import org.verapdf.model.selayer.SEContentItem;
 
 % base class for all PD layer objects
 type PDObject extends Object {
-
+	% ampersand separated list of entries
+	property entries: String;
 }
 
 % the class corresponding to the high level PDF document structure
@@ -138,8 +139,12 @@ type OutputIntents extends Object {
 type PDContentStream extends PDObject {
 	% all operators in the content stream
 	link operators: Operator*;
-	% false, if resource dictionaries associated with content stream define all named resources referenced by content stream
-	property containsUndefinedResource: Boolean;
+	% comma separated list of resource names, which referenced by content stream but missing in resource dictionary
+	property undefinedResourceNames: String;
+	% comma separated list of resource names, which are taken not from the resource dictionary explicitly associated
+	% with the page content, but are inherited either from the pages tree (for pages) or from the parent page object
+	% where the resource is used (for form XObjects, patterns, Type3 fonts, annotations).
+    property inheritedResourceNames: String;
 	% link to resource dictionary
 	link resources: PDResources?;
 }
@@ -169,8 +174,8 @@ type PDColorSpace extends PDResource {
 type PDAdditionalActions extends PDObject {
 	% link to the additional actions
 	link Actions: PDAction*;
-	% true, if dictionary contains keys not from the following list: E, X, D, U, Fo, and Bl.
-	property containsOtherActions: Boolean;
+	% type of parent object for additional actions
+	property parentType: String;
 }
 
 % DeviceGray color space
@@ -316,7 +321,6 @@ type PDSimpleFont extends PDFont {
 	% - null if the /Encoding entry is not present in the font dictionary
 	% - if /Encoding entry in the font dictionary if of Name type, then the value of this entry;
 	% - if /Encoding entry is a dictionary, which does not contain /Differences array, then the value of /BaseEncoding entry in this dictionary (or null, if /BaseEncoding is also not present)
-	% - the string "Custom", of the /Encoding entry is a dictionary containing /Differences key
 	property Encoding: String;
 	% true if an Encoding dictionary contains a Differences entry
 	property containsDifferences: Boolean;
@@ -355,10 +359,18 @@ type PDCIDFont extends PDFont {
 
 % Type0 font dictionary
 type PDType0Font extends PDFont {
-	% true if Registry and Ordering keys of the corresponding CMap and CIDFont are compatible
-	property areRegistryOrderingCompatible: Boolean;
-	% true if the Supplement key in the CIDFont is greater or equal to the Supplement key in the CMap dictionary
-	property isSupplementCompatible: Boolean;
+	% Ordering key from CIDSystemInfo
+	property CIDFontOrdering: String;
+	% Ordering key from CMap
+	property CMapOrdering: String;
+	% Registry key from CIDSystemInfo
+	property CIDFontRegistry: String;
+	% Registry key from CMap
+	property CMapRegistry: String;
+	% Supplement key from CIDSystemInfo
+	property CIDFontSupplement: Integer;
+	% Supplement key from CMap
+	property CMapSupplement: Integer;
 	% link to the descendant CIDFont
 	link DescendantFonts: PDCIDFont;
 	% font CMap (Encoding entry)
@@ -518,7 +530,7 @@ type PDAnnot extends PDObject {
 	property CA: Decimal;
 	% annotation flags
 	property F: Integer;
-	% SPACE-separated list of all keys in the annotation's appearance dictionary (AP key)
+	% ampersand-separated list of all keys in the annotation's appearance dictionary (AP key)
 	property AP: String;
 	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null,  if this entry is not present
 	property FT: String;
@@ -720,8 +732,8 @@ type PDOCConfig extends PDObject {
 	% string representation of the /AS key (or null, if this key does not exist in the config dictionary)
 	% if this key is present, the property contain the space-concatenated values of the Event entries if all Usage Application dictionaries
 	property AS: String;
-	% true if the Order array contains references to all optional content groups in the document
-	property doesOrderContainAllOCGs: Boolean;
+	% comma separated list of all optional content groups in the document, which the Order array does not contain references to
+    property OCGsNotContainInOrder: String;
 }
 
 
@@ -738,7 +750,7 @@ type PDStructTreeRoot extends PDObject {
 	% all structure element names used in role map
 	link roleMapNames: CosUnicodeName*;
 	% standard type of the first kid
-	property topLevelFirstElementStandartType: String;
+	property topLevelFirstElementStandardType: String;
 	% ampersand separated list of child element types, role mapped to the standard types
 	property kidsStandardTypes: String;
 	% true if the structure element contains content items as its children
@@ -759,6 +771,8 @@ type PDStructElem extends PDObject {
 	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
+	% structure type
+	property valueS: String;
 	% standard structure type defined via role map
 	property standardType: String;
 	% value of the Lang entry
@@ -781,8 +795,6 @@ type PDStructElem extends PDObject {
 
 % permissions dictionary referred by /Perms key from the document catalog
 type PDPerms extends PDObject {
-	% true if the permissions dictionary contains entries other than DocMDP and UC3
-	property containsOtherEntries: Boolean;
 }
 
 % signature references dictionary referred by /Reference key from the signature dictionary
