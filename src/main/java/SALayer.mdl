@@ -197,12 +197,17 @@ type SATable extends SAStructElem {
 type SATR extends SAStructElem {
 }
 
+% <TH> or <TD> structure element
+type SATableCell extends SAStructElem {
+
+}
+
 % <TH> structure element
-type SATH extends SAStructElem {
+type SATH extends SATableCell {
 }
 
 % <TD> structure element
-type SATD extends SAStructElem {
+type SATD extends SATableCell {
 }
 
 % <Span> structure element
