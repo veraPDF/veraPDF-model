@@ -2,14 +2,21 @@ package org.verapdf.model.salayer;
 
 import org.verapdf.model.baselayer.Object;
 
+type SAObject extends Object {
+    % id of group in format id:<number>
+    property structureID: String;
+}
+
 % the class corresponding to the high level PDF document structure
 type SAPDFDocument extends Object {
-    % the link to the document structure tree root dictionary
-    link StructTreeRoot: SAStructTreeRoot?;
     % the collection of all document pages
     link pages: SAPage+;
     % all document repeated characters
     link repeatedCharacters: SARepeatedCharacters*;
+    % document's lists
+    link lists: SAList*;
+    % the link to the document structure tree root dictionary
+    link StructTreeRoot: SAStructTreeRoot?;
 }
 
 % the structure tree root dictionary
@@ -19,7 +26,7 @@ type SAStructTreeRoot extends Object {
 }
 
 % the structure element dictionary
-type SAStructElem extends Object {
+type SAStructElem extends SAObject {
     % immediate child of structure element
     link children: Object*;
     % structure type
@@ -38,8 +45,6 @@ type SAStructElem extends Object {
     property isListElem: Boolean;
     % true, if this is list child element
     property isListChild: Boolean;
-    % id of struct element in format id:<number>
-    property structureID: String;
     % false, if structure element contains other structure elements
     property isLeafElem: Boolean;
     % ampersand separated list of all standard types of parents element of this structure element in the structure hierarchy
@@ -142,11 +147,21 @@ type SATableBorderRow extends Object {
 }
 
 % table border cell
-type SATableBorderCell extends Object {
+type SATableBorderCell extends SAObject {
     % colspan of this cell
     property colSpan: Integer;
     % rowspan of this cell
     property rowSpan: Integer;
+}
+
+% list
+type SAList extends Object {
+    % list items of this list
+    link items: SAListItem*;
+}
+
+% list item
+type SAListItem extends SAObject {
 }
 
 % <Document> structure element
