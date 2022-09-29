@@ -147,6 +147,8 @@ type SECode extends PDStructElem {
 type SEHn extends PDStructElem {
 	% false if first heading tag is not H1 or numbered heading levels are skipped
 	property hasCorrectNestingLevel : Boolean;
+	% nesting level of this heading
+    property nestingLevel : Integer;
 }
 
 % <Figure> structure element
