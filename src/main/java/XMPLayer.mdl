@@ -79,6 +79,8 @@ type XMPProperty extends XMPObject {
     % true if the property value type corresponds to the type defined by XMP specification or extension schema
     property isValueTypeCorrect: Boolean;
 
+    % type defined by XMP specification or extension schema
+    property predefinedType: String;
 }
 
 % XMPMM History property
