@@ -5,6 +5,10 @@ import org.verapdf.model.baselayer.Object;
 type SAObject extends Object {
     % id of group in format id:<number>
     property structureID: String;
+    % comma separated list of error codes
+    property errorCodes: String;
+    % semicolon separated list of error arguments
+    property errorArguments: String;
 }
 
 % the class corresponding to the high level PDF document structure
