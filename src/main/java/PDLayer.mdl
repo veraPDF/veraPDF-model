@@ -130,9 +130,11 @@ type TransparencyColorSpace extends Object {
 type OutputIntents extends Object {
 	% the array of output intents
 	link outputIntents: PDOutputIntent*;
-	% true, if OutputIntents array contains more than one entry all entries that contain a DestOutputProfile key
+	% true, if OutputIntents array contains more than one entry, all entries that contain a DestOutputProfile key
 	% have as the value of that key the same indirect object, which shall be a valid ICC profile stream.
 	property sameOutputProfileIndirect: Boolean;
+	% comma separated list of output intents DestOutputProfile value
+	property outputProfileIndirects: String;
 }
 
 % the object representing content stream together with the resource dictionary
@@ -144,7 +146,7 @@ type PDContentStream extends PDObject {
 	% comma separated list of resource names, which are taken not from the resource dictionary explicitly associated
 	% with the page content, but are inherited either from the pages tree (for pages) or from the parent page object
 	% where the resource is used (for form XObjects, patterns, Type3 fonts, annotations).
-    property inheritedResourceNames: String;
+	property inheritedResourceNames: String;
 	% link to resource dictionary
 	link resources: PDResources?;
 }
