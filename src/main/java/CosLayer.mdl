@@ -248,6 +248,47 @@ type CosTrailer extends CosDict {
 type CosInfo extends CosDict {
 	% value of ModDate entry
 	property ModDate: String;
+	% string representation of XMP Modify Date
+	property XMPModifyDate: String;
+	% true, if ModDate entry and XMP Modify Date have equivalent values
+	property doModDatesMatch: Boolean;
+
+	% value of CreationDate entry
+	property CreationDate: String;
+	% string representation of XMP Create Date
+	property XMPCreateDate: String;
+	% true, if CreationDate entry and XMP Create Date have equivalent values
+	property doCreationDatesMatch: Boolean;
+
+	% value of Title entry without trailing zero
+	property Title: String;
+	% value of XMP Title
+	property XMPTitle: String;
+
+	% value of Author entry without trailing zero
+	property Author: String;
+	% comma separated list of XMP Creator array
+	property XMPCreator: String;
+
+	% value of Subject entry without trailing zero
+	property Subject: String;
+	% value of XMP Description
+	property XMPDescription: String;
+
+	% value of Producer entry without trailing zero
+	property Producer: String;
+	% value of XMP Producer
+	property XMPProducer: String;
+
+	% value of Creator entry without trailing zero
+	property Creator: String;
+	% value of XMP Creator Tool
+	property XMPCreatorTool: String;
+
+	% value of Keywords entry without trailing zero
+	property Keywords: String;
+	% value of XMP Keywords
+	property XMPKeywords: String;
 }
 
 % PDF Array type	
