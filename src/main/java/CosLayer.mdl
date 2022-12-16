@@ -28,6 +28,10 @@ type CosDocument extends CosObject {
 	property firstPageID: String;
 	% id of the last trailer in the document
 	property lastID: String;
+	% string representation of id of the first page trailer, if the document is linearized. Null, if the document is not linearized
+	property firstPageIDValue: String;
+	% string representation of id of the last trailer in the document
+	property lastIDValue: String;
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% link to all embedded file specifications
