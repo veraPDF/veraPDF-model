@@ -55,28 +55,42 @@ type SETable extends PDStructElem {
 	% false, if the table's structure is not determinable via Headers and IDs,
 	% and structure elements of type TH don't have a Scope attribute
 	property useHeadersAndIdOrScope: Boolean;
-	% true, if table is regular
-	property isRegular: Boolean;
+	% column span of the table
+	property columnSpan: Integer;
+	% row span of the table
+	property rowSpan: Integer;
+	% number of row with wrong column span
+	property numberOfRowWithWrongColumnSpan: Integer;
+	% number of column with wrong row span
+	property numberOfColumnWithWrongRowSpan: Integer;
+	% column span of row, which number contains property numberOfRowWithWrongColumnSpan
+	property wrongColumnSpan: Integer;
 }
 
 % <TR> structure element
 type SETR extends PDStructElem {
 }
 
+% <TH> or <TD> structure element
+type SETableCell extends PDStructElem {
+	% value of /ColSpan entry
+	property ColSpan: Integer;
+	% value of /RowSpan entry
+	property RowSpan: Integer;
+	% true, if this cell contains intersection(s) with other cell(s)
+	property hasIntersection: Boolean;
+}
+
 % <TH> structure element
-type SETH extends PDStructElem {
-    % value of /ColSpan entry
-    property ColSpan: Integer;
-    % value of /RowSpan entry
-    property RowSpan: Integer;
+type SETH extends SETableCell {
 }
 
 % <TD> structure element
-type SETD extends PDStructElem {
-    % value of /ColSpan entry
-    property ColSpan: Integer;
-    % value of /RowSpan entry
-    property RowSpan: Integer;
+type SETD extends SETableCell {
+	% true, if this cell has connected header(s)
+	property hasConnectedHeader: Boolean;
+	% true, if some elements of Headers array of this cell don't present as id in any TH
+	property unknownHeaders: String;
 }
 
 % <Span> structure element
