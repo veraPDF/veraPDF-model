@@ -10,6 +10,7 @@ type AObject extends Object {
 	property fileSize : Integer;
 	property isPDFTagged : Boolean;
 	property notStandard14Font : Boolean;
+	property isEncryptedWrapper : Boolean;
 }
 
 type AArrayOfURLs extends AObject {
