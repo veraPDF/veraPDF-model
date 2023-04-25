@@ -441,10 +441,10 @@ type A3DStream extends AObject {
 	property DLHasTypeInteger : Boolean;
 	property DLIntegerValue : Integer;
 	property containsDV : Boolean;
-	property DVHasTypeString : Boolean;
+	property DVHasTypeDictionary : Boolean;
 	property DVHasTypeInteger : Boolean;
 	property DVHasTypeName : Boolean;
-	property DVHasTypeDictionary : Boolean;
+	property DVHasTypeString : Boolean;
 	property DVIntegerValue : Integer;
 	property DVNameValue : String;
 	property containsDecodeParms : Boolean;
@@ -452,8 +452,8 @@ type A3DStream extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -668,8 +668,8 @@ type AActionGoTo extends AObject {
 	link SD : Object?;
 	property containsD : Boolean;
 	property DHasTypeArray : Boolean;
-	property DHasTypeStringByte : Boolean;
 	property DHasTypeName : Boolean;
+	property DHasTypeStringByte : Boolean;
 	property containsNext : Boolean;
 	property NextHasTypeArray : Boolean;
 	property NextHasTypeDictionary : Boolean;
@@ -699,10 +699,10 @@ type AActionGoTo3DView extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeStringText : Boolean;
+	property VHasTypeDictionary : Boolean;
 	property VHasTypeInteger : Boolean;
 	property VHasTypeName : Boolean;
-	property VHasTypeDictionary : Boolean;
+	property VHasTypeStringText : Boolean;
 }
 
 type AActionGoToDp extends AObject {
@@ -729,11 +729,11 @@ type AActionGoToE extends AObject {
 	link T : ATarget?;
 	property containsD : Boolean;
 	property DHasTypeArray : Boolean;
-	property DHasTypeStringByte : Boolean;
 	property DHasTypeName : Boolean;
+	property DHasTypeStringByte : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsNewWindow : Boolean;
 	property NewWindowHasTypeBoolean : Boolean;
 	property containsNext : Boolean;
@@ -756,11 +756,11 @@ type AActionGoToR extends AObject {
 	link SD : Object?;
 	property containsD : Boolean;
 	property DHasTypeArray : Boolean;
-	property DHasTypeStringByte : Boolean;
 	property DHasTypeName : Boolean;
+	property DHasTypeStringByte : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsNewWindow : Boolean;
 	property NewWindowHasTypeBoolean : Boolean;
 	property containsNext : Boolean;
@@ -790,8 +790,8 @@ type AActionHide extends AObject {
 	property containsT : Boolean;
 	property isTIndirect : Boolean;
 	property THasTypeArray : Boolean;
-	property THasTypeStringText : Boolean;
 	property THasTypeDictionary : Boolean;
+	property THasTypeStringText : Boolean;
 	property TIsFieldName : Boolean;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -802,8 +802,8 @@ type AActionImportData extends AObject {
 	link F : AFileSpecification?;
 	link Next : Object?;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsNext : Boolean;
 	property NextHasTypeArray : Boolean;
 	property NextHasTypeDictionary : Boolean;
@@ -820,8 +820,8 @@ type AActionLaunch extends AObject {
 	link Next : Object?;
 	link Win : AMicrosoftWindowsLaunchParam?;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsMac : Boolean;
 	property MacHasTypeNull : Boolean;
 	property containsNewWindow : Boolean;
@@ -1025,8 +1025,8 @@ type AActionSubmitForm extends AObject {
 	property CharSetHasTypeString : Boolean;
 	property CharSetStringValue : String;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFields : Boolean;
 	property FieldsHasTypeArray : Boolean;
 	property containsFlags : Boolean;
@@ -1044,18 +1044,18 @@ type AActionThread extends AObject {
 	link Next : Object?;
 	property containsB : Boolean;
 	property isBIndirect : Boolean;
-	property BHasTypeInteger : Boolean;
 	property BHasTypeDictionary : Boolean;
+	property BHasTypeInteger : Boolean;
 	property BIntegerValue : Integer;
 	property containsD : Boolean;
 	property isDIndirect : Boolean;
-	property DHasTypeStringText : Boolean;
-	property DHasTypeInteger : Boolean;
 	property DHasTypeDictionary : Boolean;
+	property DHasTypeInteger : Boolean;
+	property DHasTypeStringText : Boolean;
 	property DIntegerValue : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsNext : Boolean;
 	property NextHasTypeArray : Boolean;
 	property NextHasTypeDictionary : Boolean;
@@ -1233,17 +1233,17 @@ type AAnnot3D extends AObject {
 	property entry3DBHasTypeRectangle : Boolean;
 	property contains3DD : Boolean;
 	property isentry3DDIndirect : Boolean;
-	property entry3DDHasTypeStream : Boolean;
 	property entry3DDHasTypeDictionary : Boolean;
+	property entry3DDHasTypeStream : Boolean;
 	property contains3DI : Boolean;
 	property entry3DIHasTypeBoolean : Boolean;
 	property contains3DU : Boolean;
 	property entry3DUHasTypeDictionary : Boolean;
 	property contains3DV : Boolean;
-	property entry3DVHasTypeString : Boolean;
+	property entry3DVHasTypeDictionary : Boolean;
 	property entry3DVHasTypeInteger : Boolean;
 	property entry3DVHasTypeName : Boolean;
-	property entry3DVHasTypeDictionary : Boolean;
+	property entry3DVHasTypeString : Boolean;
 	property containsAF : Boolean;
 	property AFHasTypeArray : Boolean;
 	property AFHasTypeDictionary : Boolean;
@@ -1539,8 +1539,8 @@ type AAnnotFileAttachment extends AObject {
 	property FHasTypeBitmask : Boolean;
 	property FBitmaskValue : Integer;
 	property containsFS : Boolean;
-	property FSHasTypeString : Boolean;
 	property FSHasTypeDictionary : Boolean;
+	property FSHasTypeString : Boolean;
 	property containsIRT : Boolean;
 	property IRTHasTypeDictionary : Boolean;
 	property containsIT : Boolean;
@@ -2056,8 +2056,8 @@ type AAnnotLink extends AObject {
 	property ContentsHasTypeStringText : Boolean;
 	property containsDest : Boolean;
 	property DestHasTypeArray : Boolean;
-	property DestHasTypeStringByte : Boolean;
 	property DestHasTypeName : Boolean;
+	property DestHasTypeStringByte : Boolean;
 	property containsF : Boolean;
 	property FHasTypeBitmask : Boolean;
 	property FBitmaskValue : Integer;
@@ -3740,16 +3740,16 @@ type AAppearance extends AObject {
 	link R : Object?;
 	property containsD : Boolean;
 	property isDIndirect : Boolean;
-	property DHasTypeStream : Boolean;
 	property DHasTypeDictionary : Boolean;
+	property DHasTypeStream : Boolean;
 	property containsN : Boolean;
 	property isNIndirect : Boolean;
-	property NHasTypeStream : Boolean;
 	property NHasTypeDictionary : Boolean;
+	property NHasTypeStream : Boolean;
 	property containsR : Boolean;
 	property isRIndirect : Boolean;
-	property RHasTypeStream : Boolean;
 	property RHasTypeDictionary : Boolean;
+	property RHasTypeStream : Boolean;
 }
 
 type AAppearanceCharacteristics extends AObject {
@@ -3793,16 +3793,16 @@ type AAppearancePrinterMark extends AObject {
 	link R : Object?;
 	property containsD : Boolean;
 	property isDIndirect : Boolean;
-	property DHasTypeStream : Boolean;
 	property DHasTypeDictionary : Boolean;
+	property DHasTypeStream : Boolean;
 	property containsN : Boolean;
 	property isNIndirect : Boolean;
-	property NHasTypeStream : Boolean;
 	property NHasTypeDictionary : Boolean;
+	property NHasTypeStream : Boolean;
 	property containsR : Boolean;
 	property isRIndirect : Boolean;
-	property RHasTypeStream : Boolean;
 	property RHasTypeDictionary : Boolean;
+	property RHasTypeStream : Boolean;
 }
 
 type AAppearancePrinterMarkSubDict extends AObject {
@@ -3831,16 +3831,16 @@ type AAppearanceTrapNet extends AObject {
 	link R : Object?;
 	property containsD : Boolean;
 	property isDIndirect : Boolean;
-	property DHasTypeStream : Boolean;
 	property DHasTypeDictionary : Boolean;
+	property DHasTypeStream : Boolean;
 	property containsN : Boolean;
 	property isNIndirect : Boolean;
-	property NHasTypeStream : Boolean;
 	property NHasTypeDictionary : Boolean;
+	property NHasTypeStream : Boolean;
 	property containsR : Boolean;
 	property isRIndirect : Boolean;
-	property RHasTypeStream : Boolean;
 	property RHasTypeDictionary : Boolean;
+	property RHasTypeStream : Boolean;
 }
 
 type AAppearanceTrapNetSubDict extends AObject {
@@ -3920,17 +3920,17 @@ type AArrayOf4Functions extends AObject {
 	link entry2 : Object?;
 	link entry3 : Object?;
 	property isentry0Indirect : Boolean;
-	property entry0HasTypeStream : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeStream : Boolean;
 	property isentry1Indirect : Boolean;
-	property entry1HasTypeStream : Boolean;
 	property entry1HasTypeDictionary : Boolean;
+	property entry1HasTypeStream : Boolean;
 	property isentry2Indirect : Boolean;
-	property entry2HasTypeStream : Boolean;
 	property entry2HasTypeDictionary : Boolean;
+	property entry2HasTypeStream : Boolean;
 	property isentry3Indirect : Boolean;
-	property entry3HasTypeStream : Boolean;
 	property entry3HasTypeDictionary : Boolean;
+	property entry3HasTypeStream : Boolean;
 }
 
 type AArrayOfActionHideAnnots extends AObject {
@@ -3940,8 +3940,8 @@ type AArrayOfActionHideAnnots extends AObject {
 type AArrayOfActionHideAnnotsEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStringText : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStringText : Boolean;
 	property IsFieldName : Boolean;
 }
 
@@ -4041,8 +4041,8 @@ type AArrayOfAttributeRevisions extends AObject {
 type AArrayOfAttributeRevisionsSubArray extends AObject {
 	link entry0 : Object?;
 	property isentry0Indirect : Boolean;
-	property entry0HasTypeStream : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeStream : Boolean;
 	property entry1HasTypeInteger : Boolean;
 	property entry1IntegerValue : Integer;
 }
@@ -4085,16 +4085,16 @@ type AArrayOfCIDGlyphMetricsW2 extends AObject {
 type AArrayOfCIDGlyphMetricsW2Entry extends AObject {
 	link Entry : AArrayOfNumbersGeneral?;
 	property HasTypeArray : Boolean;
-	property HasTypeNumber : Boolean;
 	property HasTypeInteger : Boolean;
+	property HasTypeNumber : Boolean;
 	property ArraySize : Integer;
 }
 
 type AArrayOfCIDGlyphMetricsWEntry extends AObject {
 	link Entry : AArrayOfNumbersGeneral?;
 	property HasTypeArray : Boolean;
-	property HasTypeNumber : Boolean;
 	property HasTypeInteger : Boolean;
+	property HasTypeNumber : Boolean;
 }
 
 type AArrayOfClassNamesRevisions extends AObject {
@@ -4149,8 +4149,8 @@ type AArrayOfDecodeParams extends AObject {
 
 type AArrayOfDecodeParamsEntry extends AObject {
 	link Entry : Object?;
-	property HasTypeNull : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeNull : Boolean;
 }
 
 type AArrayOfDescendantFonts extends AObject {
@@ -4187,8 +4187,8 @@ type AArrayOfDigestMethodEntry extends AObject {
 }
 
 type AArrayOfDuration extends AObject {
-	property entry0HasTypeStringByte : Boolean;
 	property entry0HasTypeInteger : Boolean;
+	property entry0HasTypeStringByte : Boolean;
 	property entry0IntegerValue : Integer;
 	property entry0StringSize : Integer;
 	property entry1HasTypeInteger : Boolean;
@@ -4211,8 +4211,8 @@ type AArrayOfFieldID extends AObject {
 
 type AArrayOfFieldIDEntry extends AObject {
 	link Entry : Object?;
-	property HasTypeStringText : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStringText : Boolean;
 }
 
 type AArrayOfFields extends AObject {
@@ -4265,8 +4265,8 @@ type AArrayOfFunctions extends AObject {
 type AArrayOfFunctionsEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type AArrayOfGSPDashPatterns extends AObject {
@@ -4416,8 +4416,8 @@ type AArrayOfOCG extends AObject {
 
 type AArrayOfOCGEntry extends AObject {
 	link Entry : AOptContentGroup?;
-	property HasTypeNull : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeNull : Boolean;
 }
 
 type AArrayOfOCGState extends AObject {
@@ -4426,8 +4426,8 @@ type AArrayOfOCGState extends AObject {
 
 type AArrayOfOCGStateEntry extends AObject {
 	link Entry : AOptContentGroup?;
-	property HasTypeName : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeName : Boolean;
 	property NameValue : String;
 }
 
@@ -4438,8 +4438,8 @@ type AArrayOfOCGindirect extends AObject {
 type AArrayOfOCGindirectEntry extends AObject {
 	link Entry : AOptContentGroup?;
 	property isIndirect : Boolean;
-	property HasTypeNull : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeNull : Boolean;
 }
 
 type AArrayOfOCUsage extends AObject {
@@ -4497,8 +4497,8 @@ type AArrayOfOptContentOrderElementsEntry extends AObject {
 type AArrayOfOptContentOrders extends AObject {
 	link Entries : AArrayOfOptContentOrdersEntry*;
 	link entry0 : AOptContentGroup?;
-	property entry0HasTypeStringText : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeStringText : Boolean;
 }
 
 type AArrayOfOptContentOrdersEntry extends AObject {
@@ -4711,8 +4711,8 @@ type AArrayOfStructElemKids extends AObject {
 
 type AArrayOfStructElemKidsEntry extends AObject {
 	link Entry : Object?;
-	property HasTypeInteger : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeInteger : Boolean;
 }
 
 type AArrayOfSubjectDN extends AObject {
@@ -4750,8 +4750,8 @@ type AArrayOfTrapNetVersionObjectsEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
 	property HasTypeArray : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type AArrayOfTrapRegions extends AObject {
@@ -4779,8 +4779,8 @@ type AArrayOfURLs extends AObject {
 type AArrayOfURLsEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type AArrayOfUserProperty extends AObject {
@@ -4947,12 +4947,12 @@ type AArrayOf_3Numbers extends AObject {
 }
 
 type AArrayOf_3OrientationNumbers extends AObject {
-	property entry0HasTypeNumber : Boolean;
 	property entry0HasTypeNull : Boolean;
-	property entry1HasTypeNumber : Boolean;
+	property entry0HasTypeNumber : Boolean;
 	property entry1HasTypeNull : Boolean;
-	property entry2HasTypeNumber : Boolean;
+	property entry1HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
+	property entry2HasTypeNumber : Boolean;
 }
 
 type AArrayOf_3RGBNumbers extends AObject {
@@ -5015,17 +5015,17 @@ type AArrayOf_4BorderStyleNames extends AObject {
 }
 
 type AArrayOf_4BorderThicknessNumbers extends AObject {
-	property entry0HasTypeNumber : Boolean;
 	property entry0HasTypeNull : Boolean;
+	property entry0HasTypeNumber : Boolean;
 	property entry0NumberValue : Decimal;
-	property entry1HasTypeNumber : Boolean;
 	property entry1HasTypeNull : Boolean;
+	property entry1HasTypeNumber : Boolean;
 	property entry1NumberValue : Decimal;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
+	property entry2HasTypeNumber : Boolean;
 	property entry2NumberValue : Decimal;
-	property entry3HasTypeNumber : Boolean;
 	property entry3HasTypeNull : Boolean;
+	property entry3HasTypeNumber : Boolean;
 	property entry3NumberValue : Decimal;
 }
 
@@ -5317,8 +5317,8 @@ type ACMapStream extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -5340,8 +5340,8 @@ type ACMapStream extends AObject {
 	property TypeNameValue : String;
 	property containsUseCMap : Boolean;
 	property isUseCMapIndirect : Boolean;
-	property UseCMapHasTypeStream : Boolean;
 	property UseCMapHasTypeName : Boolean;
+	property UseCMapHasTypeStream : Boolean;
 	property UseCMapNameValue : String;
 	property containsWMode : Boolean;
 	property WModeHasTypeInteger : Boolean;
@@ -5683,9 +5683,9 @@ type ACollectionItem extends AObject {
 type ACollectionItemEntry extends AObject {
 	link Entry : ACollectionSubitem?;
 	property HasTypeDate : Boolean;
-	property HasTypeStringText : Boolean;
-	property HasTypeNumber : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeNumber : Boolean;
+	property HasTypeStringText : Boolean;
 }
 
 type ACollectionNameTreeResources extends AObject {
@@ -5739,8 +5739,8 @@ type ACollectionSplit extends AObject {
 type ACollectionSubitem extends AObject {
 	property containsD : Boolean;
 	property DHasTypeDate : Boolean;
-	property DHasTypeStringText : Boolean;
 	property DHasTypeNumber : Boolean;
+	property DHasTypeStringText : Boolean;
 	property containsP : Boolean;
 	property PHasTypeStringText : Boolean;
 	property containsType : Boolean;
@@ -5858,13 +5858,13 @@ type ADPM extends AObject {
 type ADPMEntry extends AObject {
 	link Entry : Object?;
 	property HasTypeArray : Boolean;
-	property HasTypeDate : Boolean;
-	property HasTypeStringText : Boolean;
 	property HasTypeBoolean : Boolean;
-	property HasTypeNumber : Boolean;
+	property HasTypeDate : Boolean;
+	property HasTypeDictionary : Boolean;
 	property HasTypeInteger : Boolean;
 	property HasTypeName : Boolean;
-	property HasTypeDictionary : Boolean;
+	property HasTypeNumber : Boolean;
+	property HasTypeStringText : Boolean;
 }
 
 type ADPart extends AObject {
@@ -5942,32 +5942,32 @@ type AData extends AObject {
 	property containsPrivate : Boolean;
 	property isPrivateIndirect : Boolean;
 	property PrivateHasTypeArray : Boolean;
-	property PrivateHasTypeStream : Boolean;
 	property PrivateHasTypeBoolean : Boolean;
-	property PrivateHasTypeNumber : Boolean;
-	property PrivateHasTypeString : Boolean;
+	property PrivateHasTypeDictionary : Boolean;
 	property PrivateHasTypeInteger : Boolean;
 	property PrivateHasTypeName : Boolean;
-	property PrivateHasTypeDictionary : Boolean;
+	property PrivateHasTypeNumber : Boolean;
+	property PrivateHasTypeStream : Boolean;
+	property PrivateHasTypeString : Boolean;
 }
 
 type ADataEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
 	property HasTypeArray : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeBoolean : Boolean;
-	property HasTypeNumber : Boolean;
-	property HasTypeString : Boolean;
+	property HasTypeDictionary : Boolean;
 	property HasTypeInteger : Boolean;
 	property HasTypeName : Boolean;
-	property HasTypeDictionary : Boolean;
+	property HasTypeNumber : Boolean;
+	property HasTypeStream : Boolean;
+	property HasTypeString : Boolean;
 }
 
 type ADest0Array extends AObject {
 	link entry0 : APageObject?;
-	property entry0HasTypeNumber : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeNumber : Boolean;
 	property entry0NumberValue : Decimal;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
@@ -5975,9 +5975,9 @@ type ADest0Array extends AObject {
 
 type ADest0StructArray extends AObject {
 	link entry0 : AStructElem?;
-	property entry0HasTypeStringByte : Boolean;
-	property entry0HasTypeName : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeName : Boolean;
+	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
 	property nameTreetrailerCatalogNamesDestsContains0String : Boolean;
 	property entry1HasTypeName : Boolean;
@@ -5987,63 +5987,63 @@ type ADest0StructArray extends AObject {
 
 type ADest1Array extends AObject {
 	link entry0 : APageObject?;
-	property entry0HasTypeNumber : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeNumber : Boolean;
 	property entry0NumberValue : Decimal;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
+	property entry2HasTypeNumber : Boolean;
 }
 
 type ADest1StructArray extends AObject {
 	link entry0 : AStructElem?;
-	property entry0HasTypeStringByte : Boolean;
-	property entry0HasTypeName : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeName : Boolean;
+	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
 	property nameTreetrailerCatalogNamesDestsContains0String : Boolean;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
+	property entry2HasTypeNumber : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
 type ADest4Array extends AObject {
 	link entry0 : APageObject?;
-	property entry0HasTypeNumber : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeNumber : Boolean;
 	property entry0NumberValue : Decimal;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
-	property entry3HasTypeNumber : Boolean;
+	property entry2HasTypeNumber : Boolean;
 	property entry3HasTypeNull : Boolean;
-	property entry4HasTypeNumber : Boolean;
+	property entry3HasTypeNumber : Boolean;
 	property entry4HasTypeNull : Boolean;
-	property entry5HasTypeNumber : Boolean;
+	property entry4HasTypeNumber : Boolean;
 	property entry5HasTypeNull : Boolean;
+	property entry5HasTypeNumber : Boolean;
 }
 
 type ADest4StructArray extends AObject {
 	link entry0 : AStructElem?;
-	property entry0HasTypeStringByte : Boolean;
-	property entry0HasTypeName : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeName : Boolean;
+	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
 	property nameTreetrailerCatalogNamesDestsContains0String : Boolean;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
-	property entry3HasTypeNumber : Boolean;
+	property entry2HasTypeNumber : Boolean;
 	property entry3HasTypeNull : Boolean;
-	property entry4HasTypeNumber : Boolean;
+	property entry3HasTypeNumber : Boolean;
 	property entry4HasTypeNull : Boolean;
-	property entry5HasTypeNumber : Boolean;
+	property entry4HasTypeNumber : Boolean;
 	property entry5HasTypeNull : Boolean;
+	property entry5HasTypeNumber : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
@@ -6076,34 +6076,34 @@ type ADestOutputProfileRef extends AObject {
 
 type ADestXYZArray extends AObject {
 	link entry0 : APageObject?;
-	property entry0HasTypeNumber : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeNumber : Boolean;
 	property entry0NumberValue : Decimal;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
-	property entry3HasTypeNumber : Boolean;
+	property entry2HasTypeNumber : Boolean;
 	property entry3HasTypeNull : Boolean;
-	property entry4HasTypeNumber : Boolean;
+	property entry3HasTypeNumber : Boolean;
 	property entry4HasTypeNull : Boolean;
+	property entry4HasTypeNumber : Boolean;
 }
 
 type ADestXYZStructArray extends AObject {
 	link entry0 : AStructElem?;
-	property entry0HasTypeStringByte : Boolean;
-	property entry0HasTypeName : Boolean;
 	property entry0HasTypeDictionary : Boolean;
+	property entry0HasTypeName : Boolean;
+	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
 	property nameTreetrailerCatalogNamesDestsContains0String : Boolean;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
-	property entry2HasTypeNumber : Boolean;
 	property entry2HasTypeNull : Boolean;
-	property entry3HasTypeNumber : Boolean;
+	property entry2HasTypeNumber : Boolean;
 	property entry3HasTypeNull : Boolean;
-	property entry4HasTypeNumber : Boolean;
+	property entry3HasTypeNumber : Boolean;
 	property entry4HasTypeNull : Boolean;
+	property entry4HasTypeNumber : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
@@ -6149,8 +6149,8 @@ type ADeviceNColorSpace extends AObject {
 	property entry2HasTypeName : Boolean;
 	property entry2NameValue : String;
 	property isentry3Indirect : Boolean;
-	property entry3HasTypeStream : Boolean;
 	property entry3HasTypeDictionary : Boolean;
+	property entry3HasTypeStream : Boolean;
 	property entry4HasTypeDictionary : Boolean;
 }
 
@@ -6198,15 +6198,15 @@ type ADictionaryOfFunctions extends AObject {
 	link Default : Object?;
 	property containsDefault : Boolean;
 	property isDefaultIndirect : Boolean;
-	property DefaultHasTypeStream : Boolean;
 	property DefaultHasTypeDictionary : Boolean;
+	property DefaultHasTypeStream : Boolean;
 }
 
 type ADictionaryOfFunctionsEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type ADocInfo extends AObject {
@@ -6328,8 +6328,8 @@ type AEmbeddedFileStream extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -6469,8 +6469,8 @@ type AExData3DMarkup extends AObject {
 	link entry3DA : AAnnot3D?;
 	link entry3DV : A3DView?;
 	property contains3DA : Boolean;
-	property entry3DAHasTypeStringText : Boolean;
 	property entry3DAHasTypeDictionary : Boolean;
+	property entry3DAHasTypeStringText : Boolean;
 	property contains3DV : Boolean;
 	property entry3DVHasTypeDictionary : Boolean;
 	property containsMD5 : Boolean;
@@ -7086,8 +7086,8 @@ type AFontCIDType0 extends AObject {
 	property CIDSystemInfoHasTypeDictionary : Boolean;
 	property containsCIDToGIDMap : Boolean;
 	property isCIDToGIDMapIndirect : Boolean;
-	property CIDToGIDMapHasTypeStream : Boolean;
 	property CIDToGIDMapHasTypeName : Boolean;
+	property CIDToGIDMapHasTypeStream : Boolean;
 	property CIDToGIDMapNameValue : String;
 	property containsDW : Boolean;
 	property DWHasTypeNumber : Boolean;
@@ -7126,8 +7126,8 @@ type AFontCIDType2 extends AObject {
 	property CIDSystemInfoHasTypeDictionary : Boolean;
 	property containsCIDToGIDMap : Boolean;
 	property isCIDToGIDMapIndirect : Boolean;
-	property CIDToGIDMapHasTypeStream : Boolean;
 	property CIDToGIDMapHasTypeName : Boolean;
+	property CIDToGIDMapHasTypeStream : Boolean;
 	property CIDToGIDMapNameValue : String;
 	property containsDW : Boolean;
 	property DWHasTypeNumber : Boolean;
@@ -7455,8 +7455,8 @@ type AFontFile extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -7501,8 +7501,8 @@ type AFontFile2 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -7547,8 +7547,8 @@ type AFontFile3CIDType0 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -7593,8 +7593,8 @@ type AFontFile3Type1 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -7639,8 +7639,8 @@ type AFontFileType1 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -7687,8 +7687,8 @@ type AFontMultipleMaster extends AObject {
 	property containsBaseFont : Boolean;
 	property BaseFontHasTypeName : Boolean;
 	property containsEncoding : Boolean;
-	property EncodingHasTypeName : Boolean;
 	property EncodingHasTypeDictionary : Boolean;
+	property EncodingHasTypeName : Boolean;
 	property EncodingNameValue : String;
 	property containsFirstChar : Boolean;
 	property FirstCharHasTypeInteger : Boolean;
@@ -7721,8 +7721,8 @@ type AFontTrueType extends AObject {
 	property BaseFontHasTypeName : Boolean;
 	property BaseFontNameValue : String;
 	property containsEncoding : Boolean;
-	property EncodingHasTypeName : Boolean;
 	property EncodingHasTypeDictionary : Boolean;
+	property EncodingHasTypeName : Boolean;
 	property EncodingNameValue : String;
 	property containsFirstChar : Boolean;
 	property FirstCharHasTypeInteger : Boolean;
@@ -7756,8 +7756,8 @@ type AFontType0 extends AObject {
 	property DescendantFontsHasTypeArray : Boolean;
 	property containsEncoding : Boolean;
 	property isEncodingIndirect : Boolean;
-	property EncodingHasTypeStream : Boolean;
 	property EncodingHasTypeName : Boolean;
+	property EncodingHasTypeStream : Boolean;
 	property EncodingNameValue : String;
 	property containsSubtype : Boolean;
 	property SubtypeHasTypeName : Boolean;
@@ -7778,8 +7778,8 @@ type AFontType1 extends AObject {
 	property containsBaseFont : Boolean;
 	property BaseFontHasTypeName : Boolean;
 	property containsEncoding : Boolean;
-	property EncodingHasTypeName : Boolean;
 	property EncodingHasTypeDictionary : Boolean;
+	property EncodingHasTypeName : Boolean;
 	property EncodingNameValue : String;
 	property containsFirstChar : Boolean;
 	property FirstCharHasTypeInteger : Boolean;
@@ -7880,8 +7880,8 @@ type AFunctionType0 extends AObject {
 	property EncodeHasTypeArray : Boolean;
 	property EncodeArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -7981,8 +7981,8 @@ type AFunctionType4 extends AObject {
 	property DomainHasTypeArray : Boolean;
 	property DomainArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -8044,19 +8044,19 @@ type AGraphicsStateParameter extends AObject {
 	property containsAAPLAA : Boolean;
 	property AAPLAAHasTypeBoolean : Boolean;
 	property containsAAPLST : Boolean;
-	property AAPLSTHasTypeName : Boolean;
 	property AAPLSTHasTypeDictionary : Boolean;
+	property AAPLSTHasTypeName : Boolean;
 	property containsAIS : Boolean;
 	property AISHasTypeBoolean : Boolean;
 	property containsBG : Boolean;
 	property isBGIndirect : Boolean;
-	property BGHasTypeStream : Boolean;
 	property BGHasTypeDictionary : Boolean;
+	property BGHasTypeStream : Boolean;
 	property containsBG2 : Boolean;
 	property isBG2Indirect : Boolean;
-	property BG2HasTypeStream : Boolean;
-	property BG2HasTypeName : Boolean;
 	property BG2HasTypeDictionary : Boolean;
+	property BG2HasTypeName : Boolean;
+	property BG2HasTypeStream : Boolean;
 	property containsBM : Boolean;
 	property BMHasTypeArray : Boolean;
 	property BMHasTypeName : Boolean;
@@ -8073,9 +8073,9 @@ type AGraphicsStateParameter extends AObject {
 	property FontHasTypeArray : Boolean;
 	property containsHT : Boolean;
 	property isHTIndirect : Boolean;
-	property HTHasTypeStream : Boolean;
-	property HTHasTypeName : Boolean;
 	property HTHasTypeDictionary : Boolean;
+	property HTHasTypeName : Boolean;
+	property HTHasTypeStream : Boolean;
 	property containsHTO : Boolean;
 	property HTOHasTypeArray : Boolean;
 	property containsHTP : Boolean;
@@ -8106,35 +8106,35 @@ type AGraphicsStateParameter extends AObject {
 	property SMHasTypeNumber : Boolean;
 	property SMNumberValue : Decimal;
 	property containsSMask : Boolean;
-	property SMaskHasTypeName : Boolean;
 	property SMaskHasTypeDictionary : Boolean;
+	property SMaskHasTypeName : Boolean;
 	property SMaskNameValue : String;
 	property containsTK : Boolean;
 	property TKHasTypeBoolean : Boolean;
 	property containsTR : Boolean;
 	property isTRIndirect : Boolean;
 	property TRHasTypeArray : Boolean;
-	property TRHasTypeStream : Boolean;
-	property TRHasTypeName : Boolean;
 	property TRHasTypeDictionary : Boolean;
+	property TRHasTypeName : Boolean;
+	property TRHasTypeStream : Boolean;
 	property containsTR2 : Boolean;
 	property isTR2Indirect : Boolean;
 	property TR2HasTypeArray : Boolean;
-	property TR2HasTypeStream : Boolean;
-	property TR2HasTypeName : Boolean;
 	property TR2HasTypeDictionary : Boolean;
+	property TR2HasTypeName : Boolean;
+	property TR2HasTypeStream : Boolean;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsUCR : Boolean;
 	property isUCRIndirect : Boolean;
-	property UCRHasTypeStream : Boolean;
 	property UCRHasTypeDictionary : Boolean;
+	property UCRHasTypeStream : Boolean;
 	property containsUCR2 : Boolean;
 	property isUCR2Indirect : Boolean;
-	property UCR2HasTypeStream : Boolean;
-	property UCR2HasTypeName : Boolean;
 	property UCR2HasTypeDictionary : Boolean;
+	property UCR2HasTypeName : Boolean;
+	property UCR2HasTypeStream : Boolean;
 	property containsUseBlackPtComp : Boolean;
 	property UseBlackPtCompHasTypeName : Boolean;
 	property UseBlackPtCompNameValue : String;
@@ -8190,15 +8190,15 @@ type AHalftoneType1 extends AObject {
 	property containsSpotFunction : Boolean;
 	property isSpotFunctionIndirect : Boolean;
 	property SpotFunctionHasTypeArray : Boolean;
-	property SpotFunctionHasTypeStream : Boolean;
-	property SpotFunctionHasTypeName : Boolean;
 	property SpotFunctionHasTypeDictionary : Boolean;
+	property SpotFunctionHasTypeName : Boolean;
+	property SpotFunctionHasTypeStream : Boolean;
 	property SpotFunctionNameValue : String;
 	property containsTransferFunction : Boolean;
 	property isTransferFunctionIndirect : Boolean;
-	property TransferFunctionHasTypeStream : Boolean;
-	property TransferFunctionHasTypeName : Boolean;
 	property TransferFunctionHasTypeDictionary : Boolean;
+	property TransferFunctionHasTypeName : Boolean;
+	property TransferFunctionHasTypeStream : Boolean;
 	property TransferFunctionNameValue : String;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -8221,8 +8221,8 @@ type AHalftoneType10 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -8246,9 +8246,9 @@ type AHalftoneType10 extends AObject {
 	property LengthHasTypeInteger : Boolean;
 	property containsTransferFunction : Boolean;
 	property isTransferFunctionIndirect : Boolean;
-	property TransferFunctionHasTypeStream : Boolean;
-	property TransferFunctionHasTypeName : Boolean;
 	property TransferFunctionHasTypeDictionary : Boolean;
+	property TransferFunctionHasTypeName : Boolean;
+	property TransferFunctionHasTypeStream : Boolean;
 	property TransferFunctionNameValue : String;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -8277,8 +8277,8 @@ type AHalftoneType16 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -8308,9 +8308,9 @@ type AHalftoneType16 extends AObject {
 	property LengthHasTypeInteger : Boolean;
 	property containsTransferFunction : Boolean;
 	property isTransferFunctionIndirect : Boolean;
-	property TransferFunctionHasTypeStream : Boolean;
-	property TransferFunctionHasTypeName : Boolean;
 	property TransferFunctionHasTypeDictionary : Boolean;
+	property TransferFunctionHasTypeName : Boolean;
+	property TransferFunctionHasTypeStream : Boolean;
 	property TransferFunctionNameValue : String;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -8329,8 +8329,8 @@ type AHalftoneType5 extends AObject {
 	link Default : Object?;
 	property containsDefault : Boolean;
 	property isDefaultIndirect : Boolean;
-	property DefaultHasTypeStream : Boolean;
 	property DefaultHasTypeDictionary : Boolean;
+	property DefaultHasTypeStream : Boolean;
 	property containsHalftoneName : Boolean;
 	property HalftoneNameHasTypeStringByte : Boolean;
 	property containsHalftoneType : Boolean;
@@ -8344,8 +8344,8 @@ type AHalftoneType5 extends AObject {
 type AHalftoneType5Entry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type AHalftoneType6 extends AObject {
@@ -8363,8 +8363,8 @@ type AHalftoneType6 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -8391,9 +8391,9 @@ type AHalftoneType6 extends AObject {
 	property LengthHasTypeInteger : Boolean;
 	property containsTransferFunction : Boolean;
 	property isTransferFunctionIndirect : Boolean;
-	property TransferFunctionHasTypeStream : Boolean;
-	property TransferFunctionHasTypeName : Boolean;
 	property TransferFunctionHasTypeDictionary : Boolean;
+	property TransferFunctionHasTypeName : Boolean;
+	property TransferFunctionHasTypeStream : Boolean;
 	property TransferFunctionNameValue : String;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -8432,8 +8432,8 @@ type AICCProfileStream extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -8693,8 +8693,8 @@ type AMarkedContentReference extends AObject {
 	property containsStmOwn : Boolean;
 	property isStmOwnIndirect : Boolean;
 	property StmOwnHasTypeArray : Boolean;
-	property StmOwnHasTypeStream : Boolean;
 	property StmOwnHasTypeDictionary : Boolean;
+	property StmOwnHasTypeStream : Boolean;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
@@ -8779,9 +8779,9 @@ type AMediaClipData extends AObject {
 	property CTHasTypeStringAscii : Boolean;
 	property containsD : Boolean;
 	property isDIndirect : Boolean;
+	property DHasTypeDictionary : Boolean;
 	property DHasTypeStream : Boolean;
 	property DHasTypeString : Boolean;
-	property DHasTypeDictionary : Boolean;
 	property containsMH : Boolean;
 	property MHHasTypeDictionary : Boolean;
 	property containsN : Boolean;
@@ -9051,8 +9051,8 @@ type AMetadata extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -9120,12 +9120,12 @@ type AMovie extends AObject {
 	property containsAspect : Boolean;
 	property AspectHasTypeArray : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsPoster : Boolean;
 	property isPosterIndirect : Boolean;
-	property PosterHasTypeStream : Boolean;
 	property PosterHasTypeBoolean : Boolean;
+	property PosterHasTypeStream : Boolean;
 	property containsRotate : Boolean;
 	property RotateHasTypeInteger : Boolean;
 	property RotateIntegerValue : Integer;
@@ -9138,8 +9138,8 @@ type AMovieActivation extends AObject {
 	link Start : AArrayOfDuration?;
 	property containsDuration : Boolean;
 	property DurationHasTypeArray : Boolean;
-	property DurationHasTypeStringByte : Boolean;
 	property DurationHasTypeInteger : Boolean;
+	property DurationHasTypeStringByte : Boolean;
 	property DurationIntegerValue : Integer;
 	property DurationStringSize : Integer;
 	property containsFWPosition : Boolean;
@@ -9155,8 +9155,8 @@ type AMovieActivation extends AObject {
 	property ShowControlsHasTypeBoolean : Boolean;
 	property containsStart : Boolean;
 	property StartHasTypeArray : Boolean;
-	property StartHasTypeStringByte : Boolean;
 	property StartHasTypeInteger : Boolean;
+	property StartHasTypeStringByte : Boolean;
 	property StartIntegerValue : Integer;
 	property StartStringSize : Integer;
 	property containsSynchronous : Boolean;
@@ -9314,8 +9314,8 @@ type ANamespace extends AObject {
 	property containsRoleMapNS : Boolean;
 	property RoleMapNSHasTypeDictionary : Boolean;
 	property containsSchema : Boolean;
-	property SchemaHasTypeString : Boolean;
 	property SchemaHasTypeDictionary : Boolean;
+	property SchemaHasTypeString : Boolean;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
@@ -9454,8 +9454,8 @@ type AOPIVersion13Dict extends AObject {
 	property containsCropRect : Boolean;
 	property CropRectHasTypeRectangle : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsGrayMap : Boolean;
 	property GrayMapHasTypeArray : Boolean;
 	property GrayMapArraySize : Integer;
@@ -9500,8 +9500,8 @@ type AOPIVersion20Dict extends AObject {
 	property containsCropRect : Boolean;
 	property CropRectHasTypeRectangle : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsIncludedImageDimensions : Boolean;
 	property IncludedImageDimensionsHasTypeArray : Boolean;
 	property containsIncludedImageQuality : Boolean;
@@ -9537,8 +9537,8 @@ type AObjectReference extends AObject {
 	property containsObj : Boolean;
 	property isObjIndirect : Boolean;
 	property ObjHasTypeArray : Boolean;
-	property ObjHasTypeStream : Boolean;
 	property ObjHasTypeDictionary : Boolean;
+	property ObjHasTypeStream : Boolean;
 	property containsPg : Boolean;
 	property isPgIndirect : Boolean;
 	property PgHasTypeDictionary : Boolean;
@@ -9566,8 +9566,8 @@ type AObjectStream extends AObject {
 	property ExtendsHasTypeStream : Boolean;
 	property ExtendshasCycle : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -9676,8 +9676,8 @@ type AOptContentMembership extends AObject {
 	link VE : AVisibilityExpressionArray?;
 	property containsOCGs : Boolean;
 	property OCGsHasTypeArray : Boolean;
-	property OCGsHasTypeNull : Boolean;
 	property OCGsHasTypeDictionary : Boolean;
+	property OCGsHasTypeNull : Boolean;
 	property containsP : Boolean;
 	property PHasTypeName : Boolean;
 	property PNameValue : String;
@@ -9813,8 +9813,8 @@ type AOutlineItem extends AObject {
 	property CountHasTypeInteger : Boolean;
 	property containsDest : Boolean;
 	property DestHasTypeArray : Boolean;
-	property DestHasTypeStringByte : Boolean;
 	property DestHasTypeName : Boolean;
+	property DestHasTypeStringByte : Boolean;
 	property containsF : Boolean;
 	property FHasTypeBitmask : Boolean;
 	property FBitmaskValue : Integer;
@@ -10094,8 +10094,8 @@ type APatternMap extends AObject {
 type APatternMapEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type APatternType1 extends AObject {
@@ -10116,8 +10116,8 @@ type APatternType1 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -10170,8 +10170,8 @@ type APatternType2 extends AObject {
 	property PatternTypeIntegerValue : Integer;
 	property containsShading : Boolean;
 	property isShadingIndirect : Boolean;
-	property ShadingHasTypeStream : Boolean;
 	property ShadingHasTypeDictionary : Boolean;
+	property ShadingHasTypeStream : Boolean;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
@@ -10232,8 +10232,8 @@ type AProjection extends AObject {
 	property OSHasTypeNumber : Boolean;
 	property OSNumberValue : Decimal;
 	property containsPS : Boolean;
-	property PSHasTypeNumber : Boolean;
 	property PSHasTypeName : Boolean;
+	property PSHasTypeNumber : Boolean;
 	property PSNumberValue : Decimal;
 	property containsSubtype : Boolean;
 	property SubtypeHasTypeName : Boolean;
@@ -10244,13 +10244,13 @@ type AReference extends AObject {
 	link F : AFileSpecification?;
 	link entryID : AArrayOf_2StringsByte?;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsID : Boolean;
 	property entryIDHasTypeArray : Boolean;
 	property containsPage : Boolean;
-	property PageHasTypeStringText : Boolean;
 	property PageHasTypeInteger : Boolean;
+	property PageHasTypeStringText : Boolean;
 	property PageIntegerValue : Integer;
 }
 
@@ -10339,8 +10339,8 @@ type ARequirements3DMarkup extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsAcroFormInteract extends AObject {
@@ -10359,8 +10359,8 @@ type ARequirementsAcroFormInteract extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsAction extends AObject {
@@ -10379,8 +10379,8 @@ type ARequirementsAction extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsAttachment extends AObject {
@@ -10399,8 +10399,8 @@ type ARequirementsAttachment extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsAttachmentEditing extends AObject {
@@ -10419,8 +10419,8 @@ type ARequirementsAttachmentEditing extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsCollection extends AObject {
@@ -10439,8 +10439,8 @@ type ARequirementsCollection extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsCollectionEditing extends AObject {
@@ -10459,8 +10459,8 @@ type ARequirementsCollectionEditing extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsDPartInteract extends AObject {
@@ -10479,8 +10479,8 @@ type ARequirementsDPartInteract extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsDigSig extends AObject {
@@ -10502,8 +10502,8 @@ type ARequirementsDigSig extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsDigSigMDP extends AObject {
@@ -10525,8 +10525,8 @@ type ARequirementsDigSigMDP extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsDigSigValidation extends AObject {
@@ -10548,8 +10548,8 @@ type ARequirementsDigSigValidation extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsEnableJavaScripts extends AObject {
@@ -10568,8 +10568,8 @@ type ARequirementsEnableJavaScripts extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsEncryption extends AObject {
@@ -10591,8 +10591,8 @@ type ARequirementsEncryption extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsGeospatial2D extends AObject {
@@ -10611,8 +10611,8 @@ type ARequirementsGeospatial2D extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsGeospatial3D extends AObject {
@@ -10631,8 +10631,8 @@ type ARequirementsGeospatial3D extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsHandler extends AObject {
@@ -10662,8 +10662,8 @@ type ARequirementsMarkup extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsMultimedia extends AObject {
@@ -10682,8 +10682,8 @@ type ARequirementsMultimedia extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsNavigation extends AObject {
@@ -10702,8 +10702,8 @@ type ARequirementsNavigation extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsOCAutoStates extends AObject {
@@ -10722,8 +10722,8 @@ type ARequirementsOCAutoStates extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsOCInteract extends AObject {
@@ -10742,8 +10742,8 @@ type ARequirementsOCInteract extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsPRC extends AObject {
@@ -10762,8 +10762,8 @@ type ARequirementsPRC extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsRichMedia extends AObject {
@@ -10782,8 +10782,8 @@ type ARequirementsRichMedia extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsSTEP extends AObject {
@@ -10802,8 +10802,8 @@ type ARequirementsSTEP extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsSeparationSimulation extends AObject {
@@ -10822,8 +10822,8 @@ type ARequirementsSeparationSimulation extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsTransitions extends AObject {
@@ -10842,8 +10842,8 @@ type ARequirementsTransitions extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsU3D extends AObject {
@@ -10862,8 +10862,8 @@ type ARequirementsU3D extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
-	property VHasTypeName : Boolean;
 	property VHasTypeDictionary : Boolean;
+	property VHasTypeName : Boolean;
 }
 
 type ARequirementsglTF extends AObject {
@@ -10959,10 +10959,10 @@ type ARichMediaCommand extends AObject {
 	link A : ARichMediaCommandArray?;
 	property containsA : Boolean;
 	property AHasTypeArray : Boolean;
-	property AHasTypeStringText : Boolean;
 	property AHasTypeBoolean : Boolean;
-	property AHasTypeNumber : Boolean;
 	property AHasTypeInteger : Boolean;
+	property AHasTypeNumber : Boolean;
+	property AHasTypeStringText : Boolean;
 	property containsC : Boolean;
 	property CHasTypeStringText : Boolean;
 	property containsType : Boolean;
@@ -10975,10 +10975,10 @@ type ARichMediaCommandArray extends AObject {
 }
 
 type ARichMediaCommandArrayEntry extends AObject {
-	property HasTypeStringText : Boolean;
 	property HasTypeBoolean : Boolean;
-	property HasTypeNumber : Boolean;
 	property HasTypeInteger : Boolean;
+	property HasTypeNumber : Boolean;
+	property HasTypeStringText : Boolean;
 }
 
 type ARichMediaConfiguration extends AObject {
@@ -11198,8 +11198,8 @@ type ASeparation extends AObject {
 	property containsColorSpace : Boolean;
 	property ColorSpaceHasTypeArray : Boolean;
 	property containsDeviceColorant : Boolean;
-	property DeviceColorantHasTypeString : Boolean;
 	property DeviceColorantHasTypeName : Boolean;
+	property DeviceColorantHasTypeString : Boolean;
 	property containsPages : Boolean;
 	property PagesHasTypeArray : Boolean;
 }
@@ -11214,8 +11214,8 @@ type ASeparationColorSpace extends AObject {
 	property entry2HasTypeName : Boolean;
 	property entry2NameValue : String;
 	property isentry3Indirect : Boolean;
-	property entry3HasTypeStream : Boolean;
 	property entry3HasTypeDictionary : Boolean;
+	property entry3HasTypeStream : Boolean;
 }
 
 type AShadingMap extends AObject {
@@ -11225,8 +11225,8 @@ type AShadingMap extends AObject {
 type AShadingMapEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeStream : Boolean;
 }
 
 type AShadingType1 extends AObject {
@@ -11249,8 +11249,8 @@ type AShadingType1 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsMatrix : Boolean;
 	property MatrixHasTypeMatrix : Boolean;
 	property containsShadingType : Boolean;
@@ -11284,8 +11284,8 @@ type AShadingType2 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsShadingType : Boolean;
 	property ShadingTypeHasTypeInteger : Boolean;
 	property ShadingTypeIntegerValue : Integer;
@@ -11317,8 +11317,8 @@ type AShadingType3 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsShadingType : Boolean;
 	property ShadingTypeHasTypeInteger : Boolean;
 	property ShadingTypeIntegerValue : Integer;
@@ -11363,8 +11363,8 @@ type AShadingType4 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -11382,8 +11382,8 @@ type AShadingType4 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsLength : Boolean;
 	property LengthHasTypeInteger : Boolean;
 	property containsShadingType : Boolean;
@@ -11427,8 +11427,8 @@ type AShadingType5 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -11446,8 +11446,8 @@ type AShadingType5 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsLength : Boolean;
 	property LengthHasTypeInteger : Boolean;
 	property containsShadingType : Boolean;
@@ -11496,8 +11496,8 @@ type AShadingType6 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -11515,8 +11515,8 @@ type AShadingType6 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsLength : Boolean;
 	property LengthHasTypeInteger : Boolean;
 	property containsShadingType : Boolean;
@@ -11562,8 +11562,8 @@ type AShadingType7 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -11581,8 +11581,8 @@ type AShadingType7 extends AObject {
 	property containsFunction : Boolean;
 	property isFunctionIndirect : Boolean;
 	property FunctionHasTypeArray : Boolean;
-	property FunctionHasTypeStream : Boolean;
 	property FunctionHasTypeDictionary : Boolean;
+	property FunctionHasTypeStream : Boolean;
 	property containsLength : Boolean;
 	property LengthHasTypeInteger : Boolean;
 	property containsShadingType : Boolean;
@@ -11786,12 +11786,12 @@ type ASignatureReferenceDocMDP extends AObject {
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
 	property DataHasTypeArray : Boolean;
-	property DataHasTypeStream : Boolean;
 	property DataHasTypeBoolean : Boolean;
-	property DataHasTypeString : Boolean;
+	property DataHasTypeDictionary : Boolean;
 	property DataHasTypeInteger : Boolean;
 	property DataHasTypeName : Boolean;
-	property DataHasTypeDictionary : Boolean;
+	property DataHasTypeStream : Boolean;
+	property DataHasTypeString : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
@@ -11812,12 +11812,12 @@ type ASignatureReferenceFieldMDP extends AObject {
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
 	property DataHasTypeArray : Boolean;
-	property DataHasTypeStream : Boolean;
 	property DataHasTypeBoolean : Boolean;
-	property DataHasTypeString : Boolean;
+	property DataHasTypeDictionary : Boolean;
 	property DataHasTypeInteger : Boolean;
 	property DataHasTypeName : Boolean;
-	property DataHasTypeDictionary : Boolean;
+	property DataHasTypeStream : Boolean;
+	property DataHasTypeString : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
@@ -11837,12 +11837,12 @@ type ASignatureReferenceIdentity extends AObject {
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
 	property DataHasTypeArray : Boolean;
-	property DataHasTypeStream : Boolean;
 	property DataHasTypeBoolean : Boolean;
-	property DataHasTypeString : Boolean;
+	property DataHasTypeDictionary : Boolean;
 	property DataHasTypeInteger : Boolean;
 	property DataHasTypeName : Boolean;
-	property DataHasTypeDictionary : Boolean;
+	property DataHasTypeStream : Boolean;
+	property DataHasTypeString : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
@@ -11861,12 +11861,12 @@ type ASignatureReferenceUR extends AObject {
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
 	property DataHasTypeArray : Boolean;
-	property DataHasTypeStream : Boolean;
 	property DataHasTypeBoolean : Boolean;
-	property DataHasTypeString : Boolean;
+	property DataHasTypeDictionary : Boolean;
 	property DataHasTypeInteger : Boolean;
 	property DataHasTypeName : Boolean;
-	property DataHasTypeDictionary : Boolean;
+	property DataHasTypeStream : Boolean;
+	property DataHasTypeString : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
@@ -11919,9 +11919,9 @@ type ASoftMaskAlpha extends AObject {
 	property SNameValue : String;
 	property containsTR : Boolean;
 	property isTRIndirect : Boolean;
-	property TRHasTypeStream : Boolean;
-	property TRHasTypeName : Boolean;
 	property TRHasTypeDictionary : Boolean;
+	property TRHasTypeName : Boolean;
+	property TRHasTypeStream : Boolean;
 	property TRNameValue : String;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -11942,9 +11942,9 @@ type ASoftMaskLuminosity extends AObject {
 	property SNameValue : String;
 	property containsTR : Boolean;
 	property isTRIndirect : Boolean;
-	property TRHasTypeStream : Boolean;
-	property TRHasTypeName : Boolean;
 	property TRHasTypeDictionary : Boolean;
+	property TRHasTypeName : Boolean;
+	property TRHasTypeStream : Boolean;
 	property TRNameValue : String;
 	property containsType : Boolean;
 	property TypeHasTypeName : Boolean;
@@ -12004,8 +12004,8 @@ type ASoundObject extends AObject {
 	property containsCP : Boolean;
 	property isCPIndirect : Boolean;
 	property CPHasTypeArray : Boolean;
-	property CPHasTypeStream : Boolean;
 	property CPHasTypeDictionary : Boolean;
+	property CPHasTypeStream : Boolean;
 	property containsDL : Boolean;
 	property DLHasTypeInteger : Boolean;
 	property DLIntegerValue : Integer;
@@ -12017,8 +12017,8 @@ type ASoundObject extends AObject {
 	property EHasTypeName : Boolean;
 	property ENameValue : String;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -12047,8 +12047,8 @@ type ASourceInformation extends AObject {
 	link AU : AURLAlias?;
 	link C : AWebCaptureCommand?;
 	property containsAU : Boolean;
-	property AUHasTypeStringAscii : Boolean;
 	property AUHasTypeDictionary : Boolean;
+	property AUHasTypeStringAscii : Boolean;
 	property containsC : Boolean;
 	property isCIndirect : Boolean;
 	property CHasTypeDictionary : Boolean;
@@ -12086,8 +12086,8 @@ type AStream extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -12118,8 +12118,8 @@ type AStructElem extends AObject {
 	property containsA : Boolean;
 	property isAIndirect : Boolean;
 	property AHasTypeArray : Boolean;
-	property AHasTypeStream : Boolean;
 	property AHasTypeDictionary : Boolean;
+	property AHasTypeStream : Boolean;
 	property AArraySize : Integer;
 	property containsAF : Boolean;
 	property AFHasTypeArray : Boolean;
@@ -12137,8 +12137,8 @@ type AStructElem extends AObject {
 	property entryIDHasTypeStringByte : Boolean;
 	property containsK : Boolean;
 	property KHasTypeArray : Boolean;
-	property KHasTypeInteger : Boolean;
 	property KHasTypeDictionary : Boolean;
+	property KHasTypeInteger : Boolean;
 	property containsLang : Boolean;
 	property LangHasTypeStringText : Boolean;
 	property containsNS : Boolean;
@@ -12196,8 +12196,8 @@ type AStructTreeRoot extends AObject {
 	property containsPronunciationLexicon : Boolean;
 	property isPronunciationLexiconIndirect : Boolean;
 	property PronunciationLexiconHasTypeArray : Boolean;
-	property PronunciationLexiconHasTypeString : Boolean;
 	property PronunciationLexiconHasTypeDictionary : Boolean;
+	property PronunciationLexiconHasTypeString : Boolean;
 	property containsRoleMap : Boolean;
 	property RoleMapHasTypeDictionary : Boolean;
 	property containsType : Boolean;
@@ -12292,14 +12292,14 @@ type AStructureAttributesDict extends AObject {
 	property containsHeaders : Boolean;
 	property HeadersHasTypeArray : Boolean;
 	property containsHeight : Boolean;
-	property HeightHasTypeNumber : Boolean;
 	property HeightHasTypeName : Boolean;
+	property HeightHasTypeNumber : Boolean;
 	property containsInlineAlign : Boolean;
 	property InlineAlignHasTypeName : Boolean;
 	property InlineAlignNameValue : String;
 	property containsLineHeight : Boolean;
-	property LineHeightHasTypeNumber : Boolean;
 	property LineHeightHasTypeName : Boolean;
+	property LineHeightHasTypeNumber : Boolean;
 	property LineHeightNameValue : String;
 	property containsListNumbering : Boolean;
 	property ListNumberingHasTypeName : Boolean;
@@ -12371,8 +12371,8 @@ type AStructureAttributesDict extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsWidth : Boolean;
-	property WidthHasTypeNumber : Boolean;
 	property WidthHasTypeName : Boolean;
+	property WidthHasTypeNumber : Boolean;
 	property containsWritingMode : Boolean;
 	property WritingModeHasTypeName : Boolean;
 	property WritingModeNameValue : String;
@@ -12398,18 +12398,18 @@ type ASubjectDNEntry extends AObject {
 type ATarget extends AObject {
 	link T : ATarget?;
 	property containsA : Boolean;
-	property AHasTypeStringText : Boolean;
 	property AHasTypeInteger : Boolean;
-	property AStringTextValue : String;
+	property AHasTypeStringText : Boolean;
 	property AIntegerValue : Integer;
+	property AStringTextValue : String;
 	property containsN : Boolean;
 	property NHasTypeStringByte : Boolean;
 	property nameTreetrailerCatalogNamesEmbeddedFilesContainsNString : Boolean;
 	property containsP : Boolean;
-	property PHasTypeStringByte : Boolean;
 	property PHasTypeInteger : Boolean;
-	property PStringByteValue : String;
+	property PHasTypeStringByte : Boolean;
 	property PIntegerValue : Integer;
+	property PStringByteValue : String;
 	property nameTreetrailerCatalogNamesDestsContainsPString : Boolean;
 	property containsR : Boolean;
 	property RHasTypeName : Boolean;
@@ -12461,8 +12461,8 @@ type AThumbnail extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -12651,13 +12651,13 @@ type AUserProperty extends AObject {
 	property containsV : Boolean;
 	property isVIndirect : Boolean;
 	property VHasTypeArray : Boolean;
-	property VHasTypeStream : Boolean;
 	property VHasTypeBoolean : Boolean;
-	property VHasTypeNumber : Boolean;
-	property VHasTypeString : Boolean;
+	property VHasTypeDictionary : Boolean;
 	property VHasTypeName : Boolean;
 	property VHasTypeNull : Boolean;
-	property VHasTypeDictionary : Boolean;
+	property VHasTypeNumber : Boolean;
+	property VHasTypeStream : Boolean;
+	property VHasTypeString : Boolean;
 	property trailerCatalogMarkInfoUserPropertiesBooleanValue : Boolean;
 }
 
@@ -12903,8 +12903,8 @@ type AXObjectFormPS extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -12947,8 +12947,8 @@ type AXObjectFormPSpassthrough extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13019,8 +13019,8 @@ type AXObjectFormPrinterMark extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13110,8 +13110,8 @@ type AXObjectFormTrapNet extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13207,8 +13207,8 @@ type AXObjectFormType1 extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13315,8 +13315,8 @@ type AXObjectImage extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13424,8 +13424,8 @@ type AXObjectImageMask extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13513,8 +13513,8 @@ type AXObjectImageSoftMask extends AObject {
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13600,8 +13600,8 @@ type AXRefStream extends AObject {
 	property containsEncrypt : Boolean;
 	property EncryptHasTypeDictionary : Boolean;
 	property containsF : Boolean;
-	property FHasTypeString : Boolean;
 	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
 	property containsFDecodeParms : Boolean;
 	property FDecodeParmsHasTypeArray : Boolean;
 	property FDecodeParmsHasTypeDictionary : Boolean;
@@ -13661,13 +13661,13 @@ type A_UniversalArrayEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
 	property HasTypeArray : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeBoolean : Boolean;
-	property HasTypeNumber : Boolean;
-	property HasTypeString : Boolean;
+	property HasTypeDictionary : Boolean;
 	property HasTypeName : Boolean;
 	property HasTypeNull : Boolean;
-	property HasTypeDictionary : Boolean;
+	property HasTypeNumber : Boolean;
+	property HasTypeStream : Boolean;
+	property HasTypeString : Boolean;
 }
 
 type A_UniversalDictionary extends AObject {
@@ -13678,12 +13678,12 @@ type A_UniversalDictionaryEntry extends AObject {
 	link Entry : Object?;
 	property isIndirect : Boolean;
 	property HasTypeArray : Boolean;
-	property HasTypeStream : Boolean;
 	property HasTypeBoolean : Boolean;
-	property HasTypeNumber : Boolean;
-	property HasTypeString : Boolean;
+	property HasTypeDictionary : Boolean;
 	property HasTypeName : Boolean;
 	property HasTypeNull : Boolean;
-	property HasTypeDictionary : Boolean;
+	property HasTypeNumber : Boolean;
+	property HasTypeStream : Boolean;
+	property HasTypeString : Boolean;
 }
 
