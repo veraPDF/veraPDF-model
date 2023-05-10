@@ -1066,6 +1066,7 @@ type AActionThread extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property trailerCatalogThreadsArraySize : Integer;
+	property containstrailerCatalogThreads : Boolean;
 }
 
 type AActionTransition extends AObject {
@@ -4023,6 +4024,7 @@ type AArrayOfArraysXPTSValuesEntry extends AObject {
 	property HasTypeArray : Boolean;
 	property ArraySize : Integer;
 	property parentNamesArraySize : Integer;
+	property containsparentNames : Boolean;
 }
 
 type AArrayOfAttributeObjects extends AObject {
@@ -10186,6 +10188,7 @@ type APermissions extends AObject {
 	property containsUR3 : Boolean;
 	property UR3HasTypeDictionary : Boolean;
 	property DocMDPReferenceArraySize : Integer;
+	property containsDocMDPReference : Boolean;
 }
 
 type APointData extends AObject {
@@ -12417,6 +12420,7 @@ type ATarget extends AObject {
 	property containsT : Boolean;
 	property THasTypeDictionary : Boolean;
 	property pagePAnnotsArraySize : Integer;
+	property containspagePAnnots : Boolean;
 }
 
 type AThread extends AObject {
