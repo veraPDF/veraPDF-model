@@ -12686,6 +12686,8 @@ type AVRI extends AObject {
 	property TypeNameValue : String;
 	property parentCRLsArraySize : Integer;
 	property parentOCSPsArraySize : Integer;
+	property containsparentCRLs : Boolean;
+	property containsparentOCSPs : Boolean;
 }
 
 type AVRIMap extends AObject {
