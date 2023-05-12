@@ -1066,7 +1066,7 @@ type AActionThread extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property trailerCatalogThreadsArraySize : Integer;
-	property containstrailerCatalogThreads : Boolean;
+	property trailerCatalogThreadsHasTypeArray : Boolean;
 }
 
 type AActionTransition extends AObject {
@@ -4024,7 +4024,7 @@ type AArrayOfArraysXPTSValuesEntry extends AObject {
 	property HasTypeArray : Boolean;
 	property ArraySize : Integer;
 	property parentNamesArraySize : Integer;
-	property containsparentNames : Boolean;
+	property parentNamesHasTypeArray : Boolean;
 }
 
 type AArrayOfAttributeObjects extends AObject {
@@ -5140,6 +5140,10 @@ type AAuthCode extends AObject {
 	property ByteRange2IntegerValue : Integer;
 	property ByteRange0IntegerValue : Integer;
 	property ByteRange3IntegerValue : Integer;
+	property ByteRange1HasTypeInteger : Boolean;
+	property ByteRange2HasTypeInteger : Boolean;
+	property ByteRange0HasTypeInteger : Boolean;
+	property ByteRange3HasTypeInteger : Boolean;
 }
 
 type ABead extends AObject {
@@ -6948,6 +6952,7 @@ type AFileTrailer extends AObject {
 	property XRefStmHasTypeInteger : Boolean;
 	property XRefStmIntegerValue : Integer;
 	property EncryptVIntegerValue : Integer;
+	property EncryptVHasTypeInteger : Boolean;
 }
 
 type AFilterCCITTFaxDecode extends AObject {
@@ -7071,6 +7076,8 @@ type AFloatingWindowParameters extends AObject {
 	property UCHasTypeBoolean : Boolean;
 	property D1IntegerValue : Integer;
 	property D0IntegerValue : Integer;
+	property D1HasTypeInteger : Boolean;
+	property D0HasTypeInteger : Boolean;
 }
 
 type AFontCIDType0 extends AObject {
@@ -8206,6 +8213,7 @@ type AHalftoneType1 extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property parentHalftoneTypeIntegerValue : Integer;
+	property parentHalftoneTypeHasTypeInteger : Boolean;
 }
 
 type AHalftoneType10 extends AObject {
@@ -8262,6 +8270,7 @@ type AHalftoneType10 extends AObject {
 	property YsquareHasTypeInteger : Boolean;
 	property YsquareIntegerValue : Integer;
 	property parentHalftoneTypeIntegerValue : Integer;
+	property parentHalftoneTypeHasTypeInteger : Boolean;
 }
 
 type AHalftoneType16 extends AObject {
@@ -8324,6 +8333,7 @@ type AHalftoneType16 extends AObject {
 	property Width2HasTypeInteger : Boolean;
 	property Width2IntegerValue : Integer;
 	property parentHalftoneTypeIntegerValue : Integer;
+	property parentHalftoneTypeHasTypeInteger : Boolean;
 }
 
 type AHalftoneType5 extends AObject {
@@ -8477,6 +8487,8 @@ type AIconFit extends AObject {
 	property SWNameValue : String;
 	property A1NumberValue : Decimal;
 	property A0NumberValue : Decimal;
+	property A1HasTypeNumber : Boolean;
+	property A0HasTypeNumber : Boolean;
 }
 
 type AIndexedColorSpace extends AObject {
@@ -9170,6 +9182,10 @@ type AMovieActivation extends AObject {
 	property FWPosition1NumberValue : Decimal;
 	property FWScale0IntegerValue : Integer;
 	property FWScale1IntegerValue : Integer;
+	property FWPosition0HasTypeNumber : Boolean;
+	property FWPosition1HasTypeNumber : Boolean;
+	property FWScale0HasTypeInteger : Boolean;
+	property FWScale1HasTypeInteger : Boolean;
 }
 
 type AName extends AObject {
@@ -9531,6 +9547,10 @@ type AOPIVersion20Dict extends AObject {
 	property Size0NumberValue : Decimal;
 	property IncludedImageDimensions0IntegerValue : Integer;
 	property Size1NumberValue : Decimal;
+	property IncludedImageDimensions1HasTypeInteger : Boolean;
+	property Size0HasTypeNumber : Boolean;
+	property IncludedImageDimensions0HasTypeInteger : Boolean;
+	property Size1HasTypeNumber : Boolean;
 }
 
 type AObjectReference extends AObject {
@@ -10188,7 +10208,7 @@ type APermissions extends AObject {
 	property containsUR3 : Boolean;
 	property UR3HasTypeDictionary : Boolean;
 	property DocMDPReferenceArraySize : Integer;
-	property containsDocMDPReference : Boolean;
+	property DocMDPReferenceHasTypeArray : Boolean;
 }
 
 type APointData extends AObject {
@@ -12420,7 +12440,7 @@ type ATarget extends AObject {
 	property containsT : Boolean;
 	property THasTypeDictionary : Boolean;
 	property pagePAnnotsArraySize : Integer;
-	property containspagePAnnots : Boolean;
+	property pagePAnnotsHasTypeArray : Boolean;
 }
 
 type AThread extends AObject {
@@ -12686,8 +12706,8 @@ type AVRI extends AObject {
 	property TypeNameValue : String;
 	property parentCRLsArraySize : Integer;
 	property parentOCSPsArraySize : Integer;
-	property containsparentCRLs : Boolean;
-	property containsparentOCSPs : Boolean;
+	property parentCRLsHasTypeArray : Boolean;
+	property parentOCSPsHasTypeArray : Boolean;
 }
 
 type AVRIMap extends AObject {
@@ -13567,6 +13587,8 @@ type AXObjectImageSoftMask extends AObject {
 	property WidthIntegerValue : Integer;
 	property parentWidthIntegerValue : Integer;
 	property parentHeightIntegerValue : Integer;
+	property parentWidthHasTypeInteger : Boolean;
+	property parentHeightHasTypeInteger : Boolean;
 }
 
 type AXObjectMap extends AObject {
@@ -13657,6 +13679,7 @@ type AXRefStream extends AObject {
 	property isWIndirect : Boolean;
 	property WHasTypeArray : Boolean;
 	property EncryptVIntegerValue : Integer;
+	property EncryptVHasTypeInteger : Boolean;
 }
 
 type A_UniversalArray extends AObject {
