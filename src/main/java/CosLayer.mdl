@@ -273,6 +273,8 @@ type CosInfo extends CosDict {
 	property Author: String;
 	% comma separated list of XMP Creator array
 	property XMPCreator: String;
+	% size of XMP Creator array
+	property XMPCreatorSize: Integer;
 
 	% value of Subject entry without trailing zero
 	property Subject: String;
