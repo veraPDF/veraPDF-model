@@ -10262,6 +10262,7 @@ type APermissions extends AObject {
 	property containsUR3 : Boolean;
 	property UR3HasTypeDictionary : Boolean;
 	property DocMDPReferenceArraySize : Integer;
+	property UR3Reference0TransformMethodNameValue : String;
 	property DocMDPReferenceHasTypeArray : Boolean;
 }
 
