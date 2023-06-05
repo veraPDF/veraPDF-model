@@ -3915,6 +3915,16 @@ type AArrayOf3DView extends AObject {
 	link Entries : AArrayOf3DViewEntry*;
 }
 
+type AArrayOf3DViewAddEntries extends AObject {
+	link Entries : AArrayOf3DViewAddEntriesEntry*;
+}
+
+type AArrayOf3DViewAddEntriesEntry extends AObject {
+	link Entry : A3DViewAddEntries?;
+	property isIndirect : Boolean;
+	property HasTypeDictionary : Boolean;
+}
+
 type AArrayOf3DViewEntry extends AObject {
 	link Entry : A3DView?;
 	property isIndirect : Boolean;
@@ -6997,6 +7007,8 @@ type AFileTrailer extends AObject {
 	property XRefStreamHasTypeStream : Boolean;
 	property EncryptVIntegerValue : Integer;
 	property EncryptVHasTypeInteger : Boolean;
+	property containstrailerInfoModDate : Boolean;
+	property containstrailerCatalogPieceInfo : Boolean;
 	property hasExtensionISO_TS_32004 : Boolean;
 }
 
@@ -10998,7 +11010,7 @@ type ARichMediaActivation extends AObject {
 	link Configuration : ARichMediaConfiguration?;
 	link Presentation : ARichMediaPresentation?;
 	link Scripts : AArrayOfIndirectFileSpecifications?;
-	link View : Object?;
+	link View : A3DViewAddEntries?;
 	property containsAnimation : Boolean;
 	property AnimationHasTypeDictionary : Boolean;
 	property containsCondition : Boolean;
@@ -11085,7 +11097,7 @@ type ARichMediaConfiguration extends AObject {
 type ARichMediaContent extends AObject {
 	link Assets : ARichMediaContentNameTreeAssets?;
 	link Configurations : AArrayOfRichMediaConfiguration?;
-	link Views : AArrayOf3DView?;
+	link Views : AArrayOf3DViewAddEntries?;
 	property containsAssets : Boolean;
 	property AssetsHasTypeNameTree : Boolean;
 	property containsConfigurations : Boolean;
@@ -13768,6 +13780,8 @@ type AXRefStream extends AObject {
 	property WHasTypeArray : Boolean;
 	property EncryptVIntegerValue : Integer;
 	property EncryptVHasTypeInteger : Boolean;
+	property containstrailerInfoModDate : Boolean;
+	property containstrailerCatalogPieceInfo : Boolean;
 	property hasExtensionISO_TS_32004 : Boolean;
 }
 
