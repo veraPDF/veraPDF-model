@@ -3932,10 +3932,13 @@ type AArrayOf3DViewEntry extends AObject {
 }
 
 type AArrayOf3PDUNames extends AObject {
+	property contains0 : Boolean;
 	property entry0HasTypeName : Boolean;
 	property entry0NameValue : String;
+	property contains1 : Boolean;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
+	property contains2 : Boolean;
 	property entry2HasTypeName : Boolean;
 	property entry2NameValue : String;
 	property hasExtensionADBE_Extn3 : Boolean;
@@ -4980,8 +4983,11 @@ type AArrayOf_3Integers extends AObject {
 }
 
 type AArrayOf_3Numbers extends AObject {
+	property contains0 : Boolean;
 	property entry0HasTypeNumber : Boolean;
+	property contains1 : Boolean;
 	property entry1HasTypeNumber : Boolean;
+	property contains2 : Boolean;
 	property entry2HasTypeNumber : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
 }
