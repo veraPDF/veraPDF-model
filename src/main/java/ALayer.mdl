@@ -5893,7 +5893,6 @@ type ACryptFilterPublicKeyMap extends AObject {
 	property DefEmbeddedFileHasTypeDictionary : Boolean;
 	property containsDefaultCryptFilter : Boolean;
 	property DefaultCryptFilterHasTypeDictionary : Boolean;
-	property containsStdCF : Boolean;
 }
 
 type ACryptFilterPublicKeyMapEntry extends AObject {
@@ -13615,8 +13614,6 @@ type AXObjectImageMask extends AObject {
 	property imageIsStructContentItem : Boolean;
 	property Decode1IntegerValue : Integer;
 	property Decode0IntegerValue : Integer;
-	property containsColorSpace : Boolean;
-	property containsMask : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
 }
 
