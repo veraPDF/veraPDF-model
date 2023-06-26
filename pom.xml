@@ -27,16 +27,16 @@
   <parent>
     <groupId>org.verapdf</groupId>
     <artifactId>verapdf-parent</artifactId>
-    <version>1.14.3</version>
+    <version>1.24.1</version>
     <relativePath />
   </parent>
 
   <groupId>org.verapdf</groupId>
   <artifactId>pdf-model</artifactId>
-  <version>1.14.0</version>
+  <version>1.24.0</version>
 
   <name>veraPDF Validation Model API</name>
-  <description>Java interfacts for the veraPDF Validation model, generated from the Xtext DSL.</description>
+  <description>Java interfaces for the veraPDF Validation model, generated from the Xtext DSL.</description>
 
   <url>https://github.com/veraPDF/veraPDF-model/</url>
   <inceptionYear>2015</inceptionYear>
@@ -69,8 +69,8 @@
   </pluginRepositories>
 
   <properties>
-    <verapdf.model.syntax.version>[1.0.0,2.0.0)</verapdf.model.syntax.version>
-    <xtext.version>2.13.0</xtext.version>
+    <verapdf.model.syntax.version>[1.24.0,1.25.0)</verapdf.model.syntax.version>
+    <xtext.version>2.26.0</xtext.version>
   </properties>
 
   <build>

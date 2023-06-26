@@ -21,6 +21,10 @@ type XMPPackage extends XMPObject {
     % - package represents a well-formed XML that is serialized using the encoding of the matched byte array
     property isSerializationValid: Boolean;
 
+    % the actual encoding used for XMP package serialization
+    % it is different from the encoding property, which is declared encoding (deprecated)
+    property actualEncoding: String;
+
     % true if this is well formed XMP package:
     % - package conforms to the requirements of RDF schema
     % - package conforms to the additional requirements imposed by XMP specification on RDF format
@@ -49,6 +53,12 @@ type MainXMPPackage extends XMPPackage {
 
     % object representing PDF/A identification (set of properties from PDF/A Identification schema) of the document
     link Identification: PDFAIdentification;
+
+    % object representing PDF/UA identification (set of properties from PDF/UA Identification schema) of the document
+    link UAIdentification: PDFUAIdentification;
+
+    % value of dc:title
+    property dc_title: String;
 }
 
 % XMP property
@@ -69,12 +79,20 @@ type XMPProperty extends XMPObject {
     % true if the property value type corresponds to the type defined by XMP specification or extension schema
     property isValueTypeCorrect: Boolean;
 
+    % type defined by XMP specification or extension schema
+    property predefinedType: String;
 }
 
 % XMPMM History property
 type XMPMMHistoryProperty extends XMPProperty {
     % Resource Events from xmpMM History property
     link ResourceEvents: XMPMMHistoryResourceEvent+;
+}
+
+% Language Alternative property
+type XMPLangAlt extends XMPProperty {
+     % true if the Language alternative array has only a default value with an undefined language (x-default)
+     property xDefault: Boolean;
 }
 
 % Resource Event structures of xmpMM History property
@@ -97,6 +115,9 @@ type PDFAIdentification extends XMPObject {
     % value of ‘conformance’ property from PDF/A Identification schema
     property conformance: String;
 
+    % string value of ‘rev’ property from PDF/A Identification schema
+    property rev: String;
+
     % namespace prefix for the ‘part’ property from PDF/A Identification schema
     property partPrefix: String;
 
@@ -109,13 +130,26 @@ type PDFAIdentification extends XMPObject {
     % namespace prefix for the ‘corr’ property from PDF/A Identification schema
     property corrPrefix: String;
 
+    % namespace prefix for the ‘rev’ property from PDF/A Identification schema
+    property revPrefix: String;
+
+}
+
+type PDFUAIdentification extends XMPObject {
+
+    % value of ‘part’ property from PDF/UA Identification schema
+    property part: Integer;
+
 }
 
 % Parent type for all extension schema definition objects
 type ExtensionSchemaObject extends XMPObject {
 
-	% true if the object contain not defined fields
+    % true if the object contains undefined fields
     property containsUndefinedFields: Boolean;
+
+    % comma separated list of undefined fields
+    property undefinedFields: String;
 
 }
 
@@ -175,8 +209,8 @@ type ExtensionSchemaDefinition extends ExtensionSchemaObject {
 % Extension schema property definition
 type ExtensionSchemaProperty extends ExtensionSchemaObject {
 
-	% category field value
-	property category: String;
+    % category field value
+    property category: String;
 
     % true if property category (’pdfaProperty:category’ property) is of type Text
     property isCategoryValidText: Boolean;

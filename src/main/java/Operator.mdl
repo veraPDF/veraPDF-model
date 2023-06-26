@@ -9,6 +9,7 @@ import org.verapdf.model.coslayer.CosName;
 import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosLang;
+import org.verapdf.model.coslayer.CosActualText;
 
 import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
@@ -19,7 +20,7 @@ import org.verapdf.model.pdlayer.PDFont;
 
 % base class for all operators in the content stream
 type Operator extends Object {
-	
+
 }
 
 % General graphics state operators
@@ -217,7 +218,7 @@ type Op_bstar_closepath_eofill_stroke extends OpPathPaint {
 
 % path painting no-op
 type Op_n extends OpPathPaint {
- 
+
 }
 
 % Clip operators
@@ -238,6 +239,14 @@ type Op_WStar extends OpClip {
 
 % Text object operators
 type OpTextObject extends Operator {
+
+}
+
+type Op_ET extends OpTextObject {
+
+}
+
+type Op_BT extends OpTextObject {
 
 }
 %OpTextObject->Op_ET, Op_BT
@@ -308,6 +317,10 @@ type Op_Tm extends OpTextPosition {
 	% elements of text matrix
 	link controlPoints: CosNumber+;
 }
+
+type Op_T_Star extends OpTextPosition {
+
+}
 % OpTextPosition->Op_Td, Op_TD, Op_Tm, Op_T*
 
 % Text show operators
@@ -371,19 +384,59 @@ type Op_d1 extends OpType3Font {
 
 % Set color operators without colorspace, Op_SC, Op_sc
 type OpSetColor extends Operator {
-    % numeric arguments of the color operators
-    link colorValues: CosNumber*;
+	% numeric arguments of the color operators
+	link colorValues: CosNumber*;
+}
+
+type Op_SC_stroke extends OpSetColor {
+
+}
+
+type Op_sc_fill extends OpSetColor {
+
 }
 
 % Color operators
 type OpColor extends OpSetColor {
-    % color space set by this operator
-    link colorSpace: PDColorSpace;
-    % name of the tiling pattern in case of scn/SCN operators and the Pattern color space
-    link patternName: CosName?;
+	% color space set by this operator
+	link colorSpace: PDColorSpace;
+	% name of the tiling pattern in case of scn/SCN operators and the Pattern color space
+	link patternName: CosName?;
+}
+% OpSetColor->Op_SC, Op_sc, OpColor
+
+type Op_SCN_stroke extends OpColor {
+
 }
 
-% Op_Color->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
+type Op_scn_fill extends OpColor {
+
+}
+
+type Op_G_stroke extends OpColor {
+
+}
+
+type Op_g_fill extends OpColor {
+
+}
+
+type Op_RG_stroke extends OpColor {
+
+}
+
+type Op_rg_fill extends OpColor {
+
+}
+
+type Op_K_stroke extends OpColor {
+
+}
+
+type Op_k_fill extends OpColor {
+
+}
+% OpColor->Op_CS, Op_cs, Op_SCN, Op_scn, Op_G, Op_g, Op_RG, Op_rg, Op_K, Op_k
 
 % Shading operators
 type OpShading extends Operator {
@@ -432,7 +485,8 @@ type Op_Do extends OpXObject {
 
 % Marked content operators
 type OpMarkedContent extends Operator {
-
+    % actual text
+    link actualText: CosActualText?;
 }
 
 % define marked content point
@@ -462,7 +516,7 @@ type Op_BDC extends OpMarkedContent {
 	% properties dictionary
 	link properties: CosDict;
 	% value of the Lang entry from properties dictionary
-    link Lang: CosLang?;
+	link Lang: CosLang?;
 }
 
 % end marked content region
@@ -487,25 +541,28 @@ type Op_EX extends OpCompatibility {
 
 % any operator not defined in PDF Reference
 type Op_Undefined extends OpCompatibility {
-
+    % operator name
+    property name: String;
 }
 
 % glyph used in text
 type Glyph extends Object {
 	% glyph name, or empty string if the glyph is not identified by the name (as in case of CID fonts)
 	property name: String;
-	% true if the width of the glyph in the embedded font program is consistent with the width specified in the Font dictionary
-	property isWidthConsistent: Boolean;
+	% width of the glyph specified in the Font dictionary
+	property widthFromDictionary: Decimal;
+	% width of the glyph in the embedded font program
+	property widthFromFontProgram: Decimal;
 	% true if glyph is present in the font program
 	property isGlyphPresent: Boolean;
 	% unicode value of the glyph
 	property toUnicode: String;
 	% value of the rendering mode at the moment the glyph is shown
 	property renderingMode: Integer;
-    % true if toUnicode value contains codes from Unicode Private Use Area
-    property unicodePUA: Boolean;
-    % true if an ActualText entry is present for this glyph
-    property actualTextPresent: Boolean;
+	% true if toUnicode value contains codes from Unicode Private Use Area
+	property unicodePUA: Boolean;
+	% true if an ActualText entry is present for this glyph
+	property actualTextPresent: Boolean;
 }
 
 % glyph in the composite font

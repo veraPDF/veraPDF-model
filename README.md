@@ -2,15 +2,14 @@ veraPDF-model
 =============
 The veraPDF Validation model described using a Domain Specific Language developed in [XText](https://eclipse.org/Xtext/).
 
-[![Build Status](https://travis-ci.org/veraPDF/veraPDF-model.svg?branch=integration)](https://travis-ci.org/veraPDF/veraPDF-model "Travis-CI")
-[![Build Status](http://jenkins.openpreservation.org/buildStatus/icon?job=veraPDF-model)](http://jenkins.openpreservation.org/job/veraPDF-model/ "OPF Jenkins Release")
-[![Build Status](http://jenkins.openpreservation.org/buildStatus/icon?job=veraPDF-model-dev)](http://jenkins.openpreservation.org/job/veraPDF-model-dev/ "OPF Jenkins Development")
-[![Maven Central](https://img.shields.io/maven-central/v/org.verapdf/pdf-model.svg)](http://repo1.maven.org/maven2/org/verapdf/pdf-model/ "Maven central")
+[![Build Status](https://jenkins.openpreservation.org/job/veraPDF/job/1.24/job/model/badge/icon)](https://jenkins.openpreservation.org/job/veraPDF/job/1.24/job/model/ "OPF Jenkins")
+[![Maven Central](https://img.shields.io/maven-central/v/org.verapdf/pdf-model.svg)](https://repo1.maven.org/maven2/org/verapdf/pdf-model/ "Maven central")
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0b6a3e7f350c47d4a1ea1c5b500bbf68)](https://app.codacy.com/gh/veraPDF/veraPDF-model/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade "Codacy grade")
 
-[![GitHub issues](https://img.shields.io/github/issues/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues "Open issues on GitHub")
-[![GitHub issues](https://img.shields.io/github/issues-closed/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues-closed "Open issues on GitHub")
-[![GitHub issues](https://img.shields.io/github/issues-pr/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues-pr "Open issues on GitHub")
-[![GitHub issues](https://img.shields.io/github/issues-pr-closed/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/issues-pr-closed "Open issues on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues/veraPDF/veraPDF-library.svg)](https://github.com/veraPDF/veraPDF-library/issues "Open issues on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues-closed/veraPDF/veraPDF-library.svg)](https://github.com/veraPDF/veraPDF-library/issues?q=is%3Aissue+is%3Aclosed "Closed issues on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues-pr/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/pulls "Open pull requests on GitHub")
+[![GitHub issues](https://img.shields.io/github/issues-pr-closed/veraPDF/veraPDF-model.svg)](https://github.com/veraPDF/veraPDF-model/pulls?q=is%3Apr+is%3Aclosed "Closed pull requests on GitHub")
 
 Licensing
 ---------
@@ -23,7 +22,7 @@ Pre-requisites
 --------------
 In order to generate the model classes you'll need:
 
- * Java 8, which can be downloaded [from Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](http://openjdk.java.net/install/index.html).
+ * Java 9 - 17, which can be downloaded [from Oracle](https://www.oracle.com/technetwork/java/javase/downloads/index.html), or for Linux users [OpenJDK](https://openjdk.java.net/install/index.html).
  * [Maven v3+](https://maven.apache.org/)
 
 If you want to edit and regenerate the model you'll need:

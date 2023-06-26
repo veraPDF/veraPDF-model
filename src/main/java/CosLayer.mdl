@@ -3,6 +3,8 @@ package org.verapdf.model.coslayer;
 import org.verapdf.model.baselayer.Object;
 import org.verapdf.model.pdlayer.PDMetadata;
 import org.verapdf.model.pdlayer.PDDocument;
+import org.verapdf.model.salayer.SAPDFDocument;
+import org.verapdf.model.pdlayer.PDEncryption;
 import org.verapdf.model.external.EmbeddedFile;
 
 % Parent type for all basic PDF objects
@@ -15,7 +17,7 @@ type CosDocument extends CosObject {
 	% number of indirect objects in the document
 	property nrIndirects: Integer;
 	% version of the document
-	property version: Decimal;
+	property headerVersion: Decimal;
 	% true if the OCProperties key is present in the document Catalog
 	property isOptionalContentPresent: Boolean;
 	% size of data after the EOF and (optional) end of line marker
@@ -26,25 +28,29 @@ type CosDocument extends CosObject {
 	property firstPageID: String;
 	% id of the last trailer in the document
 	property lastID: String;
+	% string representation of id of the first page trailer, if the document is linearized. Null, if the document is not linearized
+	property firstPageIDValue: String;
+	% string representation of id of the last trailer in the document
+	property lastIDValue: String;
 	% true if the document is linearized
 	property isLinearized: Boolean;
 	% link to all embedded file specifications
 	link EmbeddedFiles: CosFileSpecification*;
 	% link to the document cross reference table
 	link xref: CosXRef;
-	% trailer dictionary (first page trailier for the linearized PDF or the last trailer in the document)
+	% trailer dictionary (first page trailer for the linearized PDF or the last trailer in the document)
 	link trailer: CosTrailer;
 	% all indirect objects referred from the xref table
 	link indirectObjects: CosIndirect+;
 	% offset of the PDF document header
-    property headerOffset: Integer;
-    % the content of the PDF header
-    property header: String;
-    % first four bytes in the comment that follows the PDF header
-    property headerByte1: Integer;
-    property headerByte2: Integer;
-    property headerByte3: Integer;
-    property headerByte4: Integer;
+	property headerOffset: Integer;
+	% the content of the PDF header
+	property header: String;
+	% first four bytes in the comment that follows the PDF header
+	property headerByte1: Integer;
+	property headerByte2: Integer;
+	property headerByte3: Integer;
+	property headerByte4: Integer;
 	% link to the high-level PDF Document structure
 	link document: PDDocument;
 	% the value of the /Marked entry in the MarkInfo dictionary (false, if this entry is missing)
@@ -58,6 +64,20 @@ type CosDocument extends CosObject {
 	property NeedsRendering: Boolean;
 	% true, if the document contains the EmbeddedFiles entry in the names dictionary
 	property containsEmbeddedFiles: Boolean;
+	% value of the /Suspects entry in the MarkInfo dictionary
+	property Suspects: Boolean;
+	% value of the /DisplayDocTitle key in the ViewerPreferences dictionary
+	property DisplayDocTitle: Boolean;
+	% true if the trailer dictionary contains Info key
+	property containsInfo: Boolean;
+	% true if the document catalog dictionary contains PieceInfo entry
+	property containsPieceInfo: Boolean;
+	% string representation of the MarkInfo dictionary
+	property MarkInfo: String;
+	% string representation of the ViewerPreferences dictionary
+	property ViewerPreferences: String;
+	% link to Document structure for structure analysis
+	link doc: SAPDFDocument?;
 }
 
 % PDF Indirect object
@@ -105,6 +125,16 @@ type CosName extends CosObject {
 	property internalRepresentation: String;
 }
 
+% blend mode
+type CosBM extends CosName {
+}
+
+% actual text
+type CosActualText extends CosString {
+	% true if ActualText value contains codes from Unicode Private Use Area
+	property containsPUA: Boolean;
+}
+
 % PDF Name representing a Utf8 string
 type CosUnicodeName extends CosName {
 	% indicates if the Name represents a Unicode string correctly encoded by Utf8
@@ -145,8 +175,14 @@ type CosString extends CosObject {
 	property hexCount: Integer;
 }
 
+% PDF Text String type
+type CosTextString extends CosString {
+	% string in unicode
+	property unicodeValue: String;
+}
+
 % Lang type
-type CosLang extends CosString {
+type CosLang extends CosTextString {
 
 }
 
@@ -160,12 +196,16 @@ type CosDict extends CosObject {
 	link values: CosObject*;
 	% XMP metadata if it is present
 	link metadata: PDMetadata?;
+	% ampersand separated list of all keys of the dictionary
+	property keysString: String;
 }
 	
 % PDF Stream type
 type CosStream extends CosDict {
 	% value of the Length key in the Stream dictionary
 	property Length: Integer;
+	% real length of stream
+	property realLength: Integer;
 	% represents value of F key or null if stream does not contain this key
 	property F: String;
 	% represents value of FFilter key or null if stream does not contain this key
@@ -176,26 +216,24 @@ type CosStream extends CosDict {
 	property streamKeywordCRLFCompliant: Boolean;
 	% true if spacings around keywords 'endstream' comply to the PDF/A standard
 	property endstreamKeywordEOLCompliant: Boolean;
-	% true if the value of Length key matches the actual length of the stream
-	property isLengthCorrect: Boolean;
 	% link to the stream filters
 	link filters: CosFilter*;
 }
 
 % File specification dictionary
 type CosFileSpecification extends CosDict {
-   % link to the embedded file stream
-   link EF: EmbeddedFile?;
-   % true if the file specification dictionary contains EF key
-   property containsEF: Boolean;
-   % a file specification string (F key)
-   property F: String;
-   % a unicode file specification (UF key)
-   property UF: String;
-   % the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
-   property AFRelationship: String;
-   % true if the file specification dictionary is associated (=referenced by the /AF key) with at least one of the following objects: catalog, page, XObject, annotation or structure element
-   property isAssociatedFile: Boolean;
+	% link to the embedded file stream
+	link EF: EmbeddedFile?;
+	% true if the file specification dictionary contains EF key
+	property containsEF: Boolean;
+	% a file specification string (F key)
+	property F: String;
+	% a unicode file specification (UF key)
+	property UF: String;
+	% the relationship between the component of the PDF document that refers to this file specification and the associated file (/AFRelationship key)
+	property AFRelationship: String;
+	% true if the file specification dictionary is associated (=referenced by the /AF key) with at least one of the following objects: catalog, page, XObject, annotation or structure element
+	property isAssociatedFile: Boolean;
 }
 	
 % Trailer of the document	
@@ -204,6 +242,59 @@ type CosTrailer extends CosDict {
 	property isEncrypted: Boolean;
 	% link to the Catalog dictionary of the PDF document
 	link Catalog: CosIndirect;
+	% link to the Encryption dictionary
+	link Encrypt: PDEncryption?;
+	% link to the document information dictionary
+	link Info: CosInfo?;
+}
+
+% Information dictionary
+type CosInfo extends CosDict {
+	% value of ModDate entry
+	property ModDate: String;
+	% string representation of XMP Modify Date
+	property XMPModifyDate: String;
+	% true, if ModDate entry and XMP Modify Date have equivalent values
+	property doModDatesMatch: Boolean;
+
+	% value of CreationDate entry
+	property CreationDate: String;
+	% string representation of XMP Create Date
+	property XMPCreateDate: String;
+	% true, if CreationDate entry and XMP Create Date have equivalent values
+	property doCreationDatesMatch: Boolean;
+
+	% value of Title entry without trailing zero
+	property Title: String;
+	% value of XMP Title
+	property XMPTitle: String;
+
+	% value of Author entry without trailing zero
+	property Author: String;
+	% comma separated list of XMP Creator array
+	property XMPCreator: String;
+	% size of XMP Creator array
+	property XMPCreatorSize: Integer;
+
+	% value of Subject entry without trailing zero
+	property Subject: String;
+	% value of XMP Description
+	property XMPDescription: String;
+
+	% value of Producer entry without trailing zero
+	property Producer: String;
+	% value of XMP Producer
+	property XMPProducer: String;
+
+	% value of Creator entry without trailing zero
+	property Creator: String;
+	% value of XMP Creator Tool
+	property XMPCreatorTool: String;
+
+	% value of Keywords entry without trailing zero
+	property Keywords: String;
+	% value of XMP Keywords
+	property XMPKeywords: String;
 }
 
 % PDF Array type	

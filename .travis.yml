@@ -1,9 +1,9 @@
 language: java
+sudo: required
+dist: bionic
 
 jdk:
-  - openjdk8
-  - oraclejdk8
-  - oraclejdk9
+  - openjdk11
 
 branches:
   except:
