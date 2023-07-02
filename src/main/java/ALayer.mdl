@@ -4371,7 +4371,6 @@ type AArrayOfNamesForProcSet extends AObject {
 }
 
 type AArrayOfNamesForProcSetEntry extends AObject {
-	property contains : Boolean;
 	property HasTypeName : Boolean;
 	property NameValue : String;
 }
