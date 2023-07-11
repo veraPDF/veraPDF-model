@@ -424,6 +424,8 @@ type PDXImage extends PDXObject {
 	link SMask: PDSMaskImage?;
 	% true if the image dictionary contains Alternates key
 	property containsAlternates: Boolean;
+	% value of the BitsPerComponent key
+	property BitsPerComponent: Integer;
 }
 
 % SMask image
