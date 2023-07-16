@@ -4338,6 +4338,15 @@ type AArrayOfIntegersGeneralEntry extends AObject {
 	property HasTypeInteger : Boolean;
 }
 
+type AArrayOfIntegersGreaterThanZero extends AObject {
+	link Entries : AArrayOfIntegersGreaterThanZeroEntry*;
+}
+
+type AArrayOfIntegersGreaterThanZeroEntry extends AObject {
+	property HasTypeInteger : Boolean;
+	property IntegerValue : Integer;
+}
+
 type AArrayOfMediaPlayerInfo extends AObject {
 	link Entries : AArrayOfMediaPlayerInfoEntry*;
 }
@@ -12527,7 +12536,6 @@ type ATarget extends AObject {
 	property PHasTypeInteger : Boolean;
 	property PHasTypeStringByte : Boolean;
 	property PIntegerValue : Integer;
-	property PStringByteValue : String;
 	property nameTreetrailerCatalogNamesDestsContainsPString : Boolean;
 	property containsR : Boolean;
 	property RHasTypeName : Boolean;
@@ -12828,7 +12836,7 @@ type AViewParams extends AObject {
 
 type AViewerPreferences extends AObject {
 	link Enforce : AArrayOfNamesForEnforce?;
-	link PrintPageRange : AArrayOfIntegersGeneral?;
+	link PrintPageRange : AArrayOfIntegersGreaterThanZero?;
 	property containsCenterWindow : Boolean;
 	property CenterWindowHasTypeBoolean : Boolean;
 	property containsDirection : Boolean;
