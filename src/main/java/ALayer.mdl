@@ -3923,6 +3923,7 @@ type AArrayOf3DViewAddEntriesEntry extends AObject {
 	link Entry : A3DViewAddEntries?;
 	property isIndirect : Boolean;
 	property HasTypeDictionary : Boolean;
+	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOf3DViewEntry extends AObject {
