@@ -6990,6 +6990,7 @@ type AFileTrailer extends AObject {
 	link Encrypt : Object?;
 	link entryID : ATrailerIDArray?;
 	link Info : ADocInfo?;
+	link LinearizationParameterDict : ALinearizationParameterDict?;
 	link Root : ACatalog?;
 	link XRefStream : AXRefStream?;
 	property containsAuthCode : Boolean;
@@ -7003,6 +7004,8 @@ type AFileTrailer extends AObject {
 	property containsInfo : Boolean;
 	property isInfoIndirect : Boolean;
 	property InfoHasTypeDictionary : Boolean;
+	property containsLinearizationParameterDict : Boolean;
+	property LinearizationParameterDictHasTypeDictionary : Boolean;
 	property containsPrev : Boolean;
 	property isPrevIndirect : Boolean;
 	property PrevHasTypeInteger : Boolean;
