@@ -4521,6 +4521,15 @@ type AArrayOfOPI2InksSubArray extends AObject {
 	property entry1NumberValue : Decimal;
 }
 
+type AArrayOfObjectStreams extends AObject {
+	link Entries : AArrayOfObjectStreamsEntry*;
+}
+
+type AArrayOfObjectStreamsEntry extends AObject {
+	link Entry : AObjectStream?;
+	property HasTypeStream : Boolean;
+}
+
 type AArrayOfOptContentGroups extends AObject {
 	link Entries : AArrayOfOptContentGroupsEntry*;
 }
@@ -6991,6 +7000,7 @@ type AFileTrailer extends AObject {
 	link entryID : ATrailerIDArray?;
 	link Info : ADocInfo?;
 	link LinearizationParameterDict : ALinearizationParameterDict?;
+	link ObjectStreams : AArrayOfObjectStreams?;
 	link Root : ACatalog?;
 	link XRefStream : AXRefStream?;
 	property containsAuthCode : Boolean;
@@ -7006,6 +7016,8 @@ type AFileTrailer extends AObject {
 	property InfoHasTypeDictionary : Boolean;
 	property containsLinearizationParameterDict : Boolean;
 	property LinearizationParameterDictHasTypeDictionary : Boolean;
+	property containsObjectStreams : Boolean;
+	property ObjectStreamsHasTypeArray : Boolean;
 	property containsPrev : Boolean;
 	property isPrevIndirect : Boolean;
 	property PrevHasTypeInteger : Boolean;
