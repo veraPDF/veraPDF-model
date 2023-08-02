@@ -7014,10 +7014,6 @@ type AFileTrailer extends AObject {
 	property containsInfo : Boolean;
 	property isInfoIndirect : Boolean;
 	property InfoHasTypeDictionary : Boolean;
-	property containsLinearizationParameterDict : Boolean;
-	property LinearizationParameterDictHasTypeDictionary : Boolean;
-	property containsObjectStreams : Boolean;
-	property ObjectStreamsHasTypeArray : Boolean;
 	property containsPrev : Boolean;
 	property isPrevIndirect : Boolean;
 	property PrevHasTypeInteger : Boolean;
@@ -12362,7 +12358,6 @@ type AStructTreeRootNumberTreeParentTree extends AObject {
 
 type AStructTreeRootNumberTreeParentTreeEntry extends AObject {
 	link Entry : Object?;
-	property HasTypeArray : Boolean;
 	property HasTypeDictionary : Boolean;
 }
 
