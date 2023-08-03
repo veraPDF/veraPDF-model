@@ -8616,6 +8616,7 @@ type AInteractiveForm extends AObject {
 	property isXFAIndirect : Boolean;
 	property XFAHasTypeArray : Boolean;
 	property XFAHasTypeStream : Boolean;
+	property containsDRFontAny : Boolean;
 }
 
 type ALabColorSpace extends AObject {
