@@ -140,6 +140,9 @@ type PDFUAIdentification extends XMPObject {
     % value of ‘part’ property from PDF/UA Identification schema
     property part: Integer;
 
+    % string value of ‘rev’ property from PDF/UA Identification schema
+    property rev: String;
+
 }
 
 % Parent type for all extension schema definition objects
