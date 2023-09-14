@@ -560,6 +560,8 @@ type PDAnnot extends PDObject {
 	property containsAA: Boolean;
 	% struct parent element type
 	property structParentType: String;
+	% struct parent element standard type
+	property structParentStandardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
 	% the value of the /Contents entry
@@ -572,10 +574,60 @@ type PDAnnot extends PDObject {
 	link BM: CosBM?;
 }
 
+% markup annotation
+type PDMarkupAnnot extends PDAnnot {
+}
+
 % 3d annotation
 type PD3DAnnot extends PDAnnot {
 	% link to 3D stream dictionary
 	link stream3D: PD3DStream?;
+}
+
+% file attachment annotation
+type PDFileAttachmentAnnot extends PDMarkupAnnot {
+}
+
+% ink annotation
+type PDInkAnnot extends PDMarkupAnnot {
+}
+
+% link annotation
+type PDLinkAnnot extends PDAnnot {
+}
+
+% movie annotation
+type PDMovieAnnot extends PDAnnot {
+}
+
+% popup annotation
+type PDPopupAnnot extends PDAnnot {
+}
+
+% printer's mark annotation
+type PDPrinterMarkAnnot extends PDAnnot {
+}
+
+% rich media annotation
+type PDRichMediaAnnot extends PDAnnot {
+}
+
+% rubber stamp annotation
+type PDRubberStampAnnot extends PDMarkupAnnot {
+	% the value of the /Name entry
+	property Name: String;
+}
+
+% screen annotation
+type PDScreenAnnot extends PDAnnot {
+}
+
+% sound annotation
+type PDSoundAnnot extends PDAnnot {
+}
+
+% trap network annotation
+type PDTrapNetAnnot extends PDAnnot {
 }
 
 % widget annotation
@@ -583,18 +635,6 @@ type PDWidgetAnnot extends PDAnnot {
 	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
 	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
 	property TU: String;
-}
-
-% printer's mark annotation
-type PDPrinterMarkAnnot extends PDAnnot {
-}
-
-% link annotation
-type PDLinkAnnot extends PDAnnot {
-}
-
-% trap network annotation
-type PDTrapNetAnnot extends PDAnnot {
 }
 
 % 3D stream dictionary
