@@ -8,6 +8,7 @@ type AObject extends Object {
 	property keysString : String;
 	property numberOfPages : Integer;
 	property fileSize : Integer;
+	property objectType : String;
 	property isPDFTagged : Boolean;
 	property notStandard14Font : Boolean;
 	property isEncryptedWrapper : Boolean;
