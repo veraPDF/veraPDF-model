@@ -5548,6 +5548,7 @@ type ACatalog extends AObject {
 	property containsSpiderInfo : Boolean;
 	property SpiderInfoHasTypeDictionary : Boolean;
 	property containsStructTreeRoot : Boolean;
+	property isStructTreeRootIndirect : Boolean;
 	property StructTreeRootHasTypeDictionary : Boolean;
 	property containsThreads : Boolean;
 	property isThreadsIndirect : Boolean;
