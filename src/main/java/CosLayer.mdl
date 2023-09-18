@@ -226,6 +226,8 @@ type CosFileSpecification extends CosDict {
 	link EF: EmbeddedFile?;
 	% true if the file specification dictionary contains EF key
 	property containsEF: Boolean;
+	% true if the file specification dictionary contains Desc key
+	property containsDesc: Boolean;
 	% a file specification string (F key)
 	property F: String;
 	% a unicode file specification (UF key)

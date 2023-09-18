@@ -250,6 +250,8 @@ type SEForm extends PDStructElem {
     property roleAttribute: String;
     % true, if form element has only one child identifying the widget annotation
     property hasOneInteractiveChild: Boolean;
+    % number of widget annotations contained in a given Form structure element
+    property widgetAnnotsCount: Integer;
 }
 
 % <THead> structure element
