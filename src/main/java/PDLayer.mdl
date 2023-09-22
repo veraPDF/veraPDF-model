@@ -387,7 +387,7 @@ type PDCMap extends PDObject {
 	property CMapName: String;
 	% link to the CMap referenced by the key /UseCMap
 	link UseCMap: PDReferencedCMap?;
-	% link to the embedded CMap file for an non-standard CMap
+	% link to the embedded CMap file for a non-standard CMap
 	link embeddedFile: CMapFile?;
 }
 
@@ -586,6 +586,10 @@ type PD3DAnnot extends PDAnnot {
 
 % file attachment annotation
 type PDFileAttachmentAnnot extends PDMarkupAnnot {
+	% true if a file attachment annotation contains a FS entry
+	property containsFS: Boolean;
+	% true if a file specification dictionary contains an AFRelationship entry
+	property fileSpecContainsAFRelationship: Boolean;
 }
 
 % ink annotation
