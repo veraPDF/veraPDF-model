@@ -143,6 +143,18 @@ type PDFUAIdentification extends XMPObject {
     % string value of ‘rev’ property from PDF/UA Identification schema
     property rev: String;
 
+    % namespace prefix for the ‘part’ property from PDF/UA Identification schema
+    property partPrefix: String;
+
+    % namespace prefix for the ‘amd’ property from PDF/UA Identification schema
+    property amdPrefix: String;
+    
+    % namespace prefix for the ‘corr’ property from PDF/UA Identification schema
+    property corrPrefix: String;
+
+    % namespace prefix for the ‘rev’ property from PDF/UA Identification schema
+    property revPrefix: String;
+
 }
 
 % Parent type for all extension schema definition objects
