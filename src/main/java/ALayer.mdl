@@ -1650,7 +1650,7 @@ type AAnnotFreeText extends AObject {
 	property containsCreationDate : Boolean;
 	property CreationDateHasTypeDate : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsExData : Boolean;
@@ -6640,7 +6640,7 @@ type AFieldBtnCheckbox extends AObject {
 	property containsAA : Boolean;
 	property AAHasTypeDictionary : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsDV : Boolean;
@@ -6682,7 +6682,7 @@ type AFieldBtnPush extends AObject {
 	property containsAA : Boolean;
 	property AAHasTypeDictionary : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsDV : Boolean;
@@ -6723,7 +6723,7 @@ type AFieldBtnRadio extends AObject {
 	property containsAA : Boolean;
 	property AAHasTypeDictionary : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsDV : Boolean;
@@ -6769,7 +6769,7 @@ type AFieldChoice extends AObject {
 	property containsAA : Boolean;
 	property AAHasTypeDictionary : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsDV : Boolean;
@@ -6839,7 +6839,7 @@ type AFieldSig extends AObject {
 	property containsAA : Boolean;
 	property AAHasTypeDictionary : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsDV : Boolean;
@@ -6887,7 +6887,7 @@ type AFieldTx extends AObject {
 	property containsAA : Boolean;
 	property AAHasTypeDictionary : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDS : Boolean;
 	property DSHasTypeStringText : Boolean;
 	property containsDV : Boolean;
@@ -8601,7 +8601,7 @@ type AInteractiveForm extends AObject {
 	property containsCO : Boolean;
 	property COHasTypeArray : Boolean;
 	property containsDA : Boolean;
-	property DAHasTypeString : Boolean;
+	property DAHasTypeStringByte : Boolean;
 	property containsDR : Boolean;
 	property DRHasTypeDictionary : Boolean;
 	property containsFields : Boolean;
