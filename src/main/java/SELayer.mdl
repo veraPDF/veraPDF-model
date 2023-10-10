@@ -36,6 +36,10 @@ type SEP extends PDStructElem {
 
 % <L> structure element
 type SEL extends PDStructElem {
+	% value of the ListNumbering attribute
+	property ListNumbering: String;
+	% true if this list contains at least one Lbl descendant node
+	property containsLabels: Boolean;
 }
 
 % <LI> structure element
@@ -119,6 +123,8 @@ type SETOC extends PDStructElem {
 
 % <TOCI> structure element (only PDF 1.7)
 type SETOCI extends PDStructElem {
+	% true if this TOCI element or one of its descendant nodes contains Ref entry
+	property containsRef: Boolean;
 }
 
 % <Index> structure element (only PDF 1.7)
@@ -171,6 +177,12 @@ type SEFigure extends PDStructElem {
 
 % <Formula> structure element
 type SEFormula extends PDStructElem {
+    % true if this formula contains at least one direct child from MathML namespace
+    property isMathFormula: Boolean;
+}
+
+% any structure element in MathML namespace
+type SEMathMLStructElem extends PDStructElem {
 }
 
 % a content item such as text, image, lineart, shading or a form
@@ -312,6 +324,8 @@ type SETitle extends PDStructElem {
 
 % <FENote> structure element (only PDF 2.0)
 type SEFENote extends PDStructElem {
+    % value of the NoteType attribute
+    property NoteType : String;
 }
 
 % <Sub> structure element (only PDF 2.0)
