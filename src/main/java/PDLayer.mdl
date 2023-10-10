@@ -445,7 +445,7 @@ type PDInlineImage extends PDXImage {
 type PDXForm extends PDXObject {
 	% value of the Subtype2 key
 	property Subtype2: String;
-	% true if the form XObjct dictionary contains PS entry
+	% true if the form XObject dictionary contains PS entry
 	property containsPS: Boolean;
 	% true if the form XObject dictionary contains Ref key
 	property containsRef: Boolean;
@@ -673,6 +673,8 @@ type PDFormField extends PDObject {
 	link Lang: CosLang?;
 	% value of the TU entry
 	property TU: String;
+	% value of the Ff entry
+	property Ff: Integer;
 }
 
 % Form field of type signature
