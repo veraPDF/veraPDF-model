@@ -535,12 +535,12 @@ type PDAnnot extends PDObject {
 	property F: Integer;
 	% ampersand-separated list of all keys in the annotation's appearance dictionary (AP key)
 	property AP: String;
-	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null,  if this entry is not present
+	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null, if this entry is not present
 	property FT: String;
 	% the type of the normal appearance entry (/N key) in the annotation appearance dictionary (/AP key) or null, if the normal appearance is not present
 	property N_type: String;
-	% normal appearance stream (N key in the appearance dictionary) of the annotation
-	link appearance: PDContentStream?;
+	% appearance XForm streams of the annotation (N, D and R keys in the appearance dictionary)
+	link appearance: PDXForm*;
 	% true if the annotation dictionary contains the C entry
 	property containsC: Boolean;
 	% true if the annotation dictionary contains the IC entry
