@@ -78,14 +78,14 @@ type PDDocument extends PDObject {
 type PDPage extends PDObject {
 	% the array of output intents of the page
 	link outputIntents: OutputIntents?;
-	% all page annotations
-	link annots: PDAnnot*;
 	% additional actions dictionary defined for the page (AA entry)
 	link AA: PDAdditionalActions?;
 	% link to the transparency blending space
 	link transparencyColorSpace: TransparencyColorSpace?;
 	% page content stream
 	link contentStream: PDContentStream;
+	% all page annotations
+	link annots: PDAnnot*;
 	% link to the parent transparency blending space
 	link parentTransparencyColorSpace: TransparencyColorSpace?;
 	% group attributes dictionary
