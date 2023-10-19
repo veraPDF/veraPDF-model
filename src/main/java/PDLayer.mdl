@@ -581,6 +581,10 @@ type PDAnnot extends PDObject {
 
 % markup annotation
 type PDMarkupAnnot extends PDAnnot {
+	% string representation of RC entry
+	property RC: String;
+	% true if the markup annotation contains the RC entry
+	property containsRC: Boolean;
 }
 
 % 3d annotation
@@ -690,6 +694,16 @@ type PDFormField extends PDObject {
 	property Ff: Integer;
 }
 
+% Form field of type text
+type PDTextField extends PDFormField {
+	% string representation of V entry
+	property V: String;
+	% string representation of RV entry
+	property RV: String;
+	% true if the text field contains the RV entry
+	property containsRV: Boolean;	
+}
+
 % Form field of type signature
 type PDSignatureField extends PDFormField {
 	% Signature dictionary
@@ -785,6 +799,9 @@ type PDOCProperties extends PDObject {
 	link D: PDOCConfig;
 	% link to alternate optional content configuration dictionaries
 	link Configs: PDOCConfig*;
+	% true if the OCProperties entry contains a Configs entry and
+	% the Configs entry contains at least one optional content configuration dictionary
+	property containsConfigs: Boolean;
 }
 
 type PDOCConfig extends PDObject {
