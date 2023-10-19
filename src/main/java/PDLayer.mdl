@@ -827,32 +827,30 @@ type PDOutline extends PDObject {
 	link Dest: PDDestination?;
 }
 
-% the structure tree root dictionary
-type PDStructTreeRoot extends PDObject {
-	% immediate children of the structure tree root in the structure hierarchy
+% the structure tree node dictionary
+type PDStructTreeNode extends PDObject {
+	% immediate children of the structure tree node in the structure hierarchy
 	link K: PDStructElem*;
+	% ampersand separated list of child element types, role mapped to the standard types
+	property kidsStandardTypes: String;
+	% true if the structure tree node contains content items as its children
+	property hasContentItems: Boolean;
+}
+
+% the structure tree root dictionary
+type PDStructTreeRoot extends PDStructTreeNode {
 	% all structure element names used in role map
 	link roleMapNames: CosUnicodeName*;
 	% standard type of the first kid
 	property topLevelFirstElementStandardType: String;
-	% ampersand separated list of child element types, role mapped to the standard types
-	property kidsStandardTypes: String;
-	% true if the structure element contains content items as its children
-	property hasContentItems: Boolean;
 }
 
 % the structure element dictionary
-type PDStructElem extends PDObject {
+type PDStructElem extends PDStructTreeNode {
 	% the value of the Type entry
 	property Type: String;
-	% ampersand separated list of child element types, role mapped to the standard types
-	property kidsStandardTypes: String;
 	% parent element type, role mapped to the standard type
 	property parentStandardType: String;
-	% true if the structure element contains content items as its children
-	property hasContentItems: Boolean;
-	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
-	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
 	% structure type
