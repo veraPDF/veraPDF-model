@@ -13,6 +13,7 @@ import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
 import org.verapdf.model.coslayer.CosBM;
 import org.verapdf.model.coslayer.CosLang;
+import org.verapdf.model.coslayer.CosTextString;
 import org.verapdf.model.coslayer.CosActualText;
 
 import org.verapdf.model.operator.Operator;
@@ -355,6 +356,8 @@ type PDCIDFont extends PDFont {
 	property CIDToGIDMap: String;
 	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
 	link CIDSet: CosStream?;
+	% true if the CIDSet is present
+	property containsCIDSet: Boolean;
 	% true if the CIDSet is present and correctly lists all glyphs present in the embedded font program
 	property cidSetListsAllGlyphs: Boolean;
 }
@@ -499,8 +502,6 @@ type PDExtGState extends PDResource {
 	property CA: Decimal;
 	% the rendering intent
 	link RI: CosRenderingIntent?;
-	% font size
-	link fontSize: CosNumber?;
 	% custom TR functions
 	link customFunctions: PDFunction*;
 }
@@ -546,6 +547,10 @@ type PDAnnot extends PDObject {
 	link C: CosNumber*;
 	% link to the annotation's interior color
 	link IC: CosNumber*;
+	% true if the annotation dictionary contains the C entry
+	property containsC: Boolean;
+	% true if the annotation dictionary contains the IC entry
+	property containsIC: Boolean;
 	% link to the action associated with the annotation (A entry)
 	link A: PDAction?;
 	% link to the additional actions dictionary defined for the annotation (AA entry)
@@ -588,8 +593,8 @@ type PD3DAnnot extends PDAnnot {
 type PDFileAttachmentAnnot extends PDMarkupAnnot {
 	% true if a file attachment annotation contains a FS entry
 	property containsFS: Boolean;
-	% true if a file specification dictionary contains an AFRelationship entry
-	property fileSpecContainsAFRelationship: Boolean;
+	% value of an AFRelationship entry in the file specification dictionary 
+	property AFRelationship: String;
 }
 
 % ink annotation
@@ -598,6 +603,8 @@ type PDInkAnnot extends PDMarkupAnnot {
 
 % link annotation
 type PDLinkAnnot extends PDAnnot {
+	% link to the destination of link annotation 
+	link Dest: PDDestination?;
 }
 
 % movie annotation
@@ -639,6 +646,12 @@ type PDWidgetAnnot extends PDAnnot {
 	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
 	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
 	property TU: String;
+}
+
+% destination object
+type PDDestination extends PDObject {
+	% true if this destination is structure
+	property isStructDestination: Boolean;
 }
 
 % 3D stream dictionary
@@ -731,12 +744,12 @@ type PDNamedAction extends PDAction {
 
 % the GoTo action object
 type PDGoToAction extends PDAction {
-	% Coordinates of the GoTo destination
-	link D: CosNumber*;
+	% true if this GoTo action contains structure destination
+	property containsStructDestination: Boolean;
 }
 
 % the GoToRemote action object
-type PDGoToRemoteAction extends PDGoToAction {
+type PDGoToRemoteAction extends PDAction {
 
 }
 
@@ -791,6 +804,10 @@ type PDOCConfig extends PDObject {
 type PDOutline extends PDObject {
 	% link to the associated action object (A entry in the outline dictionary)
 	link A: PDAction?;
+	% link to the title of outline
+	link Title: CosTextString?;	
+	% link to the destination of outline
+	link Dest: PDDestination?;
 }
 
 % the structure tree root dictionary
