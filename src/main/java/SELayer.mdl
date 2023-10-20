@@ -326,8 +326,7 @@ type SETitle extends PDStructElem {
 type SEFENote extends PDStructElem {
     % value of the NoteType attribute
     property NoteType : String;
-    % comma separated list of object numbers, that the Ref entry in this FENote does not contain 
-    % these numbers, but corresponding struct elements reference this FENote
+    % comma separated list of object numbers that are missing in the Ref entry of a given FENote
     property orphanRefs : String;
 }
 

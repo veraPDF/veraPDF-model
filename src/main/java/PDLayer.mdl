@@ -869,7 +869,7 @@ type PDStructElem extends PDStructTreeNode {
 	property circularMappingExist: Boolean;
 	% value of the ActualText entry
 	link actualText: CosActualText?;
-	% the namespace and the tag within this namespace that is remapped to another tag within this namespace
+	% the namespace and the tag within a given namespace that is remapped to another tag within the same namespace
 	property roleMapToSameNamespaceTag: String;
 }
 
