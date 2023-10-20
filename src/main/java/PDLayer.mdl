@@ -354,9 +354,7 @@ type PDType3Font extends PDSimpleFont {
 type PDCIDFont extends PDFont {
 	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
 	property CIDToGIDMap: String;
-	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
-	link CIDSet: CosStream?;
-	% true if the CIDSet is present
+	% true if the CIDSet entry is present in the CID font descriptor dictionary
 	property containsCIDSet: Boolean;
 	% true if the CIDSet is present and correctly lists all glyphs present in the embedded font program
 	property cidSetListsAllGlyphs: Boolean;
@@ -543,10 +541,6 @@ type PDAnnot extends PDObject {
 	property N_type: String;
 	% normal appearance stream (N key in the appearance dictionary) of the annotation
 	link appearance: PDContentStream?;
-	% link to the annotation's color
-	link C: CosNumber*;
-	% link to the annotation's interior color
-	link IC: CosNumber*;
 	% true if the annotation dictionary contains the C entry
 	property containsC: Boolean;
 	% true if the annotation dictionary contains the IC entry
@@ -841,6 +835,8 @@ type PDStructTreeNode extends PDObject {
 type PDStructTreeRoot extends PDStructTreeNode {
 	% all structure element names used in role map
 	link roleMapNames: CosUnicodeName*;
+	% namespace URI of standard type of the first kid
+	property firstChildStandardTypeNamespaceURL: String;
 	% standard type of the first kid
 	property topLevelFirstElementStandardType: String;
 }
@@ -873,6 +869,8 @@ type PDStructElem extends PDStructTreeNode {
 	property circularMappingExist: Boolean;
 	% value of the ActualText entry
 	link actualText: CosActualText?;
+	% the namespace and the tag within a given namespace that is remapped to another tag within the same namespace
+	property roleMapToSameNamespaceTag: String;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
