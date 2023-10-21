@@ -15,6 +15,7 @@ import org.verapdf.model.coslayer.CosBM;
 import org.verapdf.model.coslayer.CosLang;
 import org.verapdf.model.coslayer.CosTextString;
 import org.verapdf.model.coslayer.CosActualText;
+import org.verapdf.model.coslayer.CosAlt;
 
 import org.verapdf.model.operator.Operator;
 
@@ -869,6 +870,8 @@ type PDStructElem extends PDStructTreeNode {
 	property circularMappingExist: Boolean;
 	% value of the ActualText entry
 	link actualText: CosActualText?;
+	% value of the Alt entry
+	link alt: CosAlt?;	
 	% the namespace and the tag within a given namespace that is remapped to another tag within the same namespace
 	property roleMapToSameNamespaceTag: String;
 }
