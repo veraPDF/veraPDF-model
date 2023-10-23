@@ -10,6 +10,7 @@ import org.verapdf.model.coslayer.CosDict;
 import org.verapdf.model.coslayer.CosRenderingIntent;
 import org.verapdf.model.coslayer.CosLang;
 import org.verapdf.model.coslayer.CosActualText;
+import org.verapdf.model.coslayer.CosAlt;
 
 import org.verapdf.model.pdlayer.PDColorSpace;
 import org.verapdf.model.pdlayer.PDExtGState;
@@ -487,6 +488,8 @@ type Op_Do extends OpXObject {
 type OpMarkedContent extends Operator {
     % actual text
     link actualText: CosActualText?;
+    % alt
+    link alt: CosAlt?;    
 }
 
 % define marked content point
@@ -563,6 +566,8 @@ type Glyph extends Object {
 	property unicodePUA: Boolean;
 	% true if an ActualText entry is present for this glyph
 	property actualTextPresent: Boolean;
+	% true if an Alt entry is present for this glyph
+	property altPresent: Boolean;
 }
 
 % glyph in the composite font
