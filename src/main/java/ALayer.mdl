@@ -4577,6 +4577,7 @@ type AArrayOfPageTreeNodeKids extends AObject {
 
 type AArrayOfPageTreeNodeKidsEntry extends AObject {
 	link Entry : Object?;
+	property isIndirect : Boolean;
 	property HasTypeDictionary : Boolean;
 }
 
@@ -5960,7 +5961,6 @@ type ADPart extends AObject {
 	link DPM : ADPM?;
 	link DParts : AArrayOfDPartArrays?;
 	link End : APageObject?;
-	link Metadata : AMetadata?;
 	link Parent : Object?;
 	link Start : APageObject?;
 	property containsAF : Boolean;
@@ -5973,9 +5973,6 @@ type ADPart extends AObject {
 	property containsEnd : Boolean;
 	property isEndIndirect : Boolean;
 	property EndHasTypeDictionary : Boolean;
-	property containsMetadata : Boolean;
-	property isMetadataIndirect : Boolean;
-	property MetadataHasTypeStream : Boolean;
 	property containsParent : Boolean;
 	property isParentIndirect : Boolean;
 	property ParentHasTypeDictionary : Boolean;
@@ -10131,6 +10128,7 @@ type APageTreeNode extends AObject {
 	property CropBoxHasTypeRectangle : Boolean;
 	property containsKids : Boolean;
 	property KidsHasTypeArray : Boolean;
+	property KidsArraySize : Integer;
 	property containsMediaBox : Boolean;
 	property MediaBoxHasTypeRectangle : Boolean;
 	property containsParent : Boolean;
