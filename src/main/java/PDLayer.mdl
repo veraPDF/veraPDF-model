@@ -35,6 +35,8 @@ import org.verapdf.model.selayer.SEContentItem;
 type PDObject extends Object {
 	% ampersand separated list of entries
 	property entries: String;
+	% indirect object number and generation number for the current object
+	property objectKey: String;
 }
 
 % the class corresponding to the high level PDF document structure
@@ -562,6 +564,8 @@ type PDAnnot extends PDObject {
 	property structParentType: String;
 	% struct parent element standard type
 	property structParentStandardType: String;
+	% indirect object number and generation number of the parent struct element of the annotation
+	property structParentObjectKey: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
 	% the value of the /Contents entry
@@ -604,6 +608,12 @@ type PDInkAnnot extends PDMarkupAnnot {
 type PDLinkAnnot extends PDAnnot {
 	% link to the destination of link annotation 
 	link Dest: PDDestination?;
+	% object number and generation number of the Link annotation that targets a different location, 
+	% but is contained in the same structure element as another Link annotation
+	property differentTargetAnnotObjectKey: String;
+	% object number and generation number of the Link annotation that targets the same location, 
+	% but is contained contains in a different structure element as another Link annotation
+	property sameTargetAnnotObjectKey: String;
 }
 
 % movie annotation
