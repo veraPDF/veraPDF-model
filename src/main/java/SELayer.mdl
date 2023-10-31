@@ -197,10 +197,20 @@ type SEContentItem extends Object {
 	% standard type of the parent structure element for parent marked content sequence
 	% (if it is a part of the structure tree), null, if it is not a part of the structure tree
 	property parentStandardTag: String;
+	% value of the ActualText entry
+	property ActualText: String;
+	% true if this content item is contained in an Artifact structure element (directly or indirectly)
+	property isArtifact: Boolean;	
 }
 
 % a content item such as text, image, lineart, shading or a form
 type SESimpleContentItem extends SEContentItem {
+	% type of this content item ('text', 'image', 'lineart' or 'shading')
+	property itemType: String;
+	% true if this content item is contained in a Formula structure element (directly or indirectly)
+	property isFormula: Boolean;
+	% true if this content item is contained in a Figure structure element (directly or indirectly)
+	property isFigure: Boolean;			
 }
 
 % content sequence marked via BMC/BDC and EMC operators
@@ -214,8 +224,6 @@ type SEMarkedContent extends SEContentItem {
 	property E: String;
 	% value of the Alt entry
 	property Alt: String;
-	% value of the ActualText entry
-	property ActualText: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
 	% the value of Lang determined using inheritance rules from ISO 32000-1

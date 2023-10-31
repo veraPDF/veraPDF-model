@@ -574,6 +574,8 @@ type PDAnnot extends PDObject {
 	property Alt: String;
 	% true, if annotation rectangle is outside page CropBox
 	property isOutsideCropBox: Boolean;
+	% true if this annotation is contained in an Artifact structure element (directly or indirectly)
+	property isArtifact: Boolean;
 	% link to blend mode
 	link BM: CosBM?;
 }
