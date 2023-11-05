@@ -8112,6 +8112,21 @@ type ADocTimeStamp extends AObject {
 	property VHasTypeInteger : Boolean;
 }
 
+type ADocument extends AObject {
+	link FileTrailer : AFileTrailer?;
+	link LinearizationParameterDict : ALinearizationParameterDict?;
+	link ObjectStreams : AArrayOfObjectStreams?;
+	link XRefStream : AXRefStream?;
+	property containsFileTrailer : Boolean;
+	property FileTrailerType : String;
+	property FileTrailerHasTypeDictionary : Boolean;
+	property containsLinearizationParameterDict : Boolean;
+	property containsObjectStreams : Boolean;
+	property containsXRefStream : Boolean;
+	property XRefStreamType : String;
+	property XRefStreamHasTypeStream : Boolean;
+}
+
 type AEmbeddedFileParameter extends AObject {
 	link Mac : AMac?;
 	property containsCheckSum : Boolean;
@@ -8924,8 +8939,6 @@ type AFileTrailer extends AObject {
 	link Encrypt : Object?;
 	link entryID : ATrailerIDArray?;
 	link Info : ADocInfo?;
-	link LinearizationParameterDict : ALinearizationParameterDict?;
-	link ObjectStreams : AArrayOfObjectStreams?;
 	link Root : ACatalog?;
 	link XRefStream : AXRefStream?;
 	property containsAuthCode : Boolean;
