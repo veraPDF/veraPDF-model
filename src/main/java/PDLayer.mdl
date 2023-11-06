@@ -75,7 +75,9 @@ type PDDocument extends PDObject {
 	property Version: String;
 	% the most common page orientation in the document (Portrait, Landscape or Square)
 	% if the most common orientation is Square, then second most common orientation if exists
-    property mostCommonOrientation: String;
+	property mostCommonOrientation: String;
+	% true if the document contains an XRefStream
+	property containsXRefStream: Boolean;
 }
 
 % the object representing PDF page
@@ -657,6 +659,8 @@ type PDWidgetAnnot extends PDAnnot {
 	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
 	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
 	property TU: String;
+	% true if the parent struct element contains an Lbl child
+	property containsLbl: Boolean;
 }
 
 % destination object
