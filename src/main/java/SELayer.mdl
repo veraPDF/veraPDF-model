@@ -187,8 +187,6 @@ type SEMathMLStructElem extends PDStructElem {
 
 % a content item such as text, image, lineart, shading or a form
 type SEContentItem extends Object {
-	% all content items within this content sequence
-	link contentItem: SEContentItem*;
 	% ampersand separated list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
 	property parentsTags: String;
 	% type of the parent structure element for parent marked content sequence (if it is a part of the structure tree)
@@ -199,8 +197,18 @@ type SEContentItem extends Object {
 	property parentStandardTag: String;
 	% value of the ActualText entry
 	property ActualText: String;
+	% value of the Alt entry
+	property Alt: String;
+	% true if this content item is contained in appearance stream of the widget annotation associated with a interactive field of type 'Signature'
+	property isSignature: Boolean;
 	% true if this content item is contained in an Artifact structure element (directly or indirectly)
-	property isArtifact: Boolean;	
+	property isArtifact: Boolean;
+}
+
+% a sequence of content items
+type SEGroupedContent extends SEContentItem {
+	% all content items within this content sequence
+	link contentItem: SEContentItem*;
 }
 
 % a content item such as text, image, lineart, shading or a form
@@ -210,11 +218,11 @@ type SESimpleContentItem extends SEContentItem {
 	% true if this content item is contained in a Formula structure element (directly or indirectly)
 	property isFormula: Boolean;
 	% true if this content item is contained in a Figure structure element (directly or indirectly)
-	property isFigure: Boolean;			
+	property isFigure: Boolean;
 }
 
 % content sequence marked via BMC/BDC and EMC operators
-type SEMarkedContent extends SEContentItem {
+type SEMarkedContent extends SEGroupedContent {
 	% tag associated with this marked content sequence (first operand of the BMC/BDC operators)
 	property tag: String;
 	% type of the parent structure element for this marked content sequence (if it is a part of the structure tree)
@@ -222,8 +230,6 @@ type SEMarkedContent extends SEContentItem {
 	property structureTag: String;
 	% value of the E entry
 	property E: String;
-	% value of the Alt entry
-	property Alt: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
 	% the value of Lang determined using inheritance rules from ISO 32000-1
@@ -231,7 +237,7 @@ type SEMarkedContent extends SEContentItem {
 }
 
 % a sequence of content items not included into any marked content sequence
-type SEUnmarkedContent extends SEContentItem {
+type SEUnmarkedContent extends SEGroupedContent {
 }
 
 % text content item (originated from operators Tj and TJ)
