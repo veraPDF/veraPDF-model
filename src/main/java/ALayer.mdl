@@ -1578,7 +1578,7 @@ type AAnnot3D extends AObject {
 	link entry3DD : Object?;
 	link entry3DU : A3DUnits?;
 	link entry3DV : A3DView?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -1611,7 +1611,6 @@ type AAnnot3D extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -1686,7 +1685,7 @@ type AAnnot3D extends AObject {
 }
 
 type AAnnotCaret extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -1699,7 +1698,6 @@ type AAnnotCaret extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -1813,7 +1811,7 @@ type AAnnotCaret extends AObject {
 }
 
 type AAnnotCircle extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -1829,7 +1827,6 @@ type AAnnotCircle extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -1948,7 +1945,7 @@ type AAnnotCircle extends AObject {
 }
 
 type AAnnotFileAttachment extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -1962,7 +1959,6 @@ type AAnnotFileAttachment extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2073,7 +2069,7 @@ type AAnnotFileAttachment extends AObject {
 }
 
 type AAnnotFreeText extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -2089,7 +2085,6 @@ type AAnnotFreeText extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2223,7 +2218,7 @@ type AAnnotFreeText extends AObject {
 }
 
 type AAnnotHighlight extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -2237,7 +2232,6 @@ type AAnnotHighlight extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2343,7 +2337,7 @@ type AAnnotHighlight extends AObject {
 }
 
 type AAnnotInk extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -2359,7 +2353,6 @@ type AAnnotInk extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2471,7 +2464,7 @@ type AAnnotInk extends AObject {
 }
 
 type AAnnotLine extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -2490,7 +2483,6 @@ type AAnnotLine extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2632,7 +2624,7 @@ type AAnnotLine extends AObject {
 
 type AAnnotLink extends AObject {
 	link A : Object?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -2649,7 +2641,6 @@ type AAnnotLink extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2741,7 +2732,7 @@ type AAnnotLink extends AObject {
 
 type AAnnotMovie extends AObject {
 	link A : AMovieActivation?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -2755,7 +2746,6 @@ type AAnnotMovie extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2832,7 +2822,7 @@ type AAnnotMovie extends AObject {
 }
 
 type AAnnotPolyLine extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -2852,7 +2842,6 @@ type AAnnotPolyLine extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -2977,7 +2966,7 @@ type AAnnotPolyLine extends AObject {
 }
 
 type AAnnotPolygon extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -2997,7 +2986,6 @@ type AAnnotPolygon extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3122,7 +3110,7 @@ type AAnnotPolygon extends AObject {
 }
 
 type AAnnotPopup extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3132,7 +3120,6 @@ type AAnnotPopup extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3207,7 +3194,7 @@ type AAnnotPopup extends AObject {
 }
 
 type AAnnotPrinterMark extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearancePrinterMark?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3216,7 +3203,6 @@ type AAnnotPrinterMark extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3291,7 +3277,7 @@ type AAnnotPrinterMark extends AObject {
 }
 
 type AAnnotProjection extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3304,7 +3290,6 @@ type AAnnotProjection extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3405,7 +3390,7 @@ type AAnnotProjection extends AObject {
 }
 
 type AAnnotRedact extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3421,7 +3406,6 @@ type AAnnotRedact extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3547,7 +3531,7 @@ type AAnnotRedact extends AObject {
 }
 
 type AAnnotRichMedia extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3558,7 +3542,6 @@ type AAnnotRichMedia extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3638,7 +3621,7 @@ type AAnnotRichMedia extends AObject {
 type AAnnotScreen extends AObject {
 	link A : Object?;
 	link AA : AAddActionScreenAnnotation?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3654,7 +3637,6 @@ type AAnnotScreen extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3731,7 +3713,7 @@ type AAnnotScreen extends AObject {
 }
 
 type AAnnotSound extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3745,7 +3727,6 @@ type AAnnotSound extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3855,7 +3836,7 @@ type AAnnotSound extends AObject {
 }
 
 type AAnnotSquare extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -3871,7 +3852,6 @@ type AAnnotSquare extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -3990,7 +3970,7 @@ type AAnnotSquare extends AObject {
 }
 
 type AAnnotSquiggly extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4004,7 +3984,6 @@ type AAnnotSquiggly extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4110,7 +4089,7 @@ type AAnnotSquiggly extends AObject {
 }
 
 type AAnnotStamp extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4123,7 +4102,6 @@ type AAnnotStamp extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4231,7 +4209,7 @@ type AAnnotStamp extends AObject {
 }
 
 type AAnnotStrikeOut extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4245,7 +4223,6 @@ type AAnnotStrikeOut extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4351,7 +4328,7 @@ type AAnnotStrikeOut extends AObject {
 }
 
 type AAnnotText extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4364,7 +4341,6 @@ type AAnnotText extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4482,7 +4458,7 @@ type AAnnotText extends AObject {
 }
 
 type AAnnotTrapNetwork extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearanceTrapNet?;
 	link AnnotStates : AArrayOfAnnotStates?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -4494,7 +4470,6 @@ type AAnnotTrapNetwork extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4572,7 +4547,7 @@ type AAnnotTrapNetwork extends AObject {
 }
 
 type AAnnotUnderline extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4586,7 +4561,6 @@ type AAnnotUnderline extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4692,7 +4666,7 @@ type AAnnotUnderline extends AObject {
 }
 
 type AAnnotWatermark extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4702,7 +4676,6 @@ type AAnnotWatermark extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -4778,7 +4751,7 @@ type AAnnotWatermark extends AObject {
 type AAnnotWidget extends AObject {
 	link A : Object?;
 	link AA : AAddActionWidgetAnnotation?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -4798,7 +4771,6 @@ type AAnnotWidget extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeDictionary : Boolean;
@@ -5492,6 +5464,9 @@ type AArrayOfFieldsEntry extends AObject {
 
 type AArrayOfFileSpecifications extends AObject {
 	link Entries : AArrayOfFileSpecificationsEntry*;
+	link entry0 : AFileSpecification?;
+	property entry0Type : String;
+	property entry0HasTypeDictionary : Boolean;
 }
 
 type AArrayOfFileSpecificationsEntry extends AObject {
@@ -7000,7 +6975,6 @@ type ACatalog extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFArraySize : Integer;
 	property containsAcroForm : Boolean;
 	property AcroFormType : String;
 	property AcroFormHasTypeDictionary : Boolean;
@@ -12739,7 +12713,7 @@ type APageLabel extends AObject {
 
 type APageObject extends AObject {
 	link AA : AAddActionPageObject?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link Annots : AArrayOfAnnots?;
 	link B : AArrayOfBeads?;
 	link BoxColorInfo : ABoxColorInfo?;
@@ -12762,7 +12736,6 @@ type APageObject extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAnnots : Boolean;
 	property AnnotsType : String;
 	property AnnotsHasTypeArray : Boolean;
@@ -15572,7 +15545,7 @@ type AStream extends AObject {
 
 type AStructElem extends AObject {
 	link A : Object?;
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link C : AArrayOfClassNamesRevisions?;
 	link K : Object?;
 	link NS : ANamespace?;
@@ -15589,7 +15562,6 @@ type AStructElem extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsActualText : Boolean;
 	property ActualTextType : String;
 	property ActualTextHasTypeStringText : Boolean;
@@ -15652,18 +15624,17 @@ type AStructElem extends AObject {
 }
 
 type AStructTreeRoot extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link ClassMap : AClassMap?;
 	link IDTree : AStructTreeRootNameTreeIDTree?;
 	link K : Object?;
 	link Namespaces : AArrayOfNamespace?;
 	link ParentTree : AStructTreeRootNumberTreeParentTree?;
-	link PronunciationLexicon : Object?;
+	link PronunciationLexicon : AArrayOfFileSpecifications?;
 	link RoleMap : ARoleMap?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsClassMap : Boolean;
 	property ClassMapType : String;
 	property ClassMapHasTypeDictionary : Boolean;
@@ -15684,11 +15655,8 @@ type AStructTreeRoot extends AObject {
 	property ParentTreeNextKeyType : String;
 	property ParentTreeNextKeyHasTypeInteger : Boolean;
 	property containsPronunciationLexicon : Boolean;
-	property isPronunciationLexiconIndirect : Boolean;
 	property PronunciationLexiconType : String;
 	property PronunciationLexiconHasTypeArray : Boolean;
-	property PronunciationLexiconHasTypeDictionary : Boolean;
-	property PronunciationLexiconHasTypeString : Boolean;
 	property containsRoleMap : Boolean;
 	property RoleMapType : String;
 	property RoleMapHasTypeDictionary : Boolean;
@@ -16691,7 +16659,7 @@ type AXObjectFormPSpassthrough extends AObject {
 }
 
 type AXObjectFormPrinterMark extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link Colorants : AColorantsDict?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
@@ -16710,7 +16678,6 @@ type AXObjectFormPrinterMark extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsBBox : Boolean;
 	property BBoxType : String;
 	property BBoxHasTypeRectangle : Boolean;
@@ -16812,7 +16779,7 @@ type AXObjectFormPrinterMark extends AObject {
 }
 
 type AXObjectFormTrapNet extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
 	link FDecodeParms : Object?;
@@ -16832,7 +16799,6 @@ type AXObjectFormTrapNet extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsBBox : Boolean;
 	property BBoxType : String;
 	property BBoxHasTypeRectangle : Boolean;
@@ -16941,7 +16907,7 @@ type AXObjectFormTrapNet extends AObject {
 }
 
 type AXObjectFormType1 extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
 	link FDecodeParms : Object?;
@@ -16960,7 +16926,6 @@ type AXObjectFormType1 extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsBBox : Boolean;
 	property BBoxType : String;
 	property BBoxHasTypeRectangle : Boolean;
@@ -17073,7 +17038,7 @@ type AXObjectFormType1 extends AObject {
 }
 
 type AXObjectImage extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link Alternates : AArrayOfImageAlternates?;
 	link ColorSpace : Object?;
 	link Decode : AArrayOfNumbersGeneral?;
@@ -17092,7 +17057,6 @@ type AXObjectImage extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAlternates : Boolean;
 	property AlternatesType : String;
 	property AlternatesHasTypeArray : Boolean;
@@ -17223,7 +17187,7 @@ type AXObjectImage extends AObject {
 }
 
 type AXObjectImageMask extends AObject {
-	link AF : Object?;
+	link AF : AArrayOfFileSpecifications?;
 	link Alternates : AArrayOfImageAlternates?;
 	link Decode : AArrayOfNumbersGeneral?;
 	link DecodeParms : Object?;
@@ -17240,7 +17204,6 @@ type AXObjectImageMask extends AObject {
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
-	property AFHasTypeDictionary : Boolean;
 	property containsAlternates : Boolean;
 	property AlternatesType : String;
 	property AlternatesHasTypeArray : Boolean;
@@ -17348,6 +17311,7 @@ type AXObjectImageMask extends AObject {
 }
 
 type AXObjectImageSoftMask extends AObject {
+	link AF : AArrayOfFileSpecifications?;
 	link Decode : AArrayOfNumbersGeneral?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
@@ -17356,6 +17320,9 @@ type AXObjectImageSoftMask extends AObject {
 	link Filter : AArrayOfFilterNames?;
 	link Matte : AArrayOfNumbersGeneral?;
 	link Metadata : AMetadata?;
+	property containsAF : Boolean;
+	property AFType : String;
+	property AFHasTypeArray : Boolean;
 	property containsBitsPerComponent : Boolean;
 	property BitsPerComponentType : String;
 	property BitsPerComponentHasTypeInteger : Boolean;
