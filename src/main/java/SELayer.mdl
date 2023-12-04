@@ -226,12 +226,10 @@ type SEMarkedContent extends SEGroupedContent {
 	% tag associated with this marked content sequence (first operand of the BMC/BDC operators)
 	property tag: String;
 	% type of the parent structure element for this marked content sequence (if it is a part of the structure tree)
-	% null, if it is not a part of the structure tree
-	property structureTag: String;
 	% value of the E entry
 	property E: String;
 	% value of the Lang entry
-	link Lang: CosLang?;
+	property Lang: String;
 	% the value of Lang determined using inheritance rules from ISO 32000-1
 	property inheritedLang: String;
 }
