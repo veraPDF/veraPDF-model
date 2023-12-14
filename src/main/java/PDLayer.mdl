@@ -890,6 +890,8 @@ type PDStructElem extends PDStructTreeNode {
 	link alt: CosAlt?;	
 	% the namespace and the tag within a given namespace that is remapped to another tag within the same namespace
 	property roleMapToSameNamespaceTag: String;
+	% true if the struct elem dictionary contains P entry
+	property containsParent: Boolean;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
