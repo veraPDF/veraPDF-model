@@ -7948,6 +7948,16 @@ type ADeviceNProcess extends AObject {
 	property ComponentsHasTypeArray : Boolean;
 }
 
+type ADictionaryOfDictionaries extends AObject {
+	link Entries : ADictionaryOfDictionariesEntry*;
+}
+
+type ADictionaryOfDictionariesEntry extends AObject {
+	link Entry : A_UniversalDictionary?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
 type ADictionaryOfFunctions extends AObject {
 	link Entries : ADictionaryOfFunctionsEntry*;
 	link Default : Object?;
@@ -13992,7 +14002,7 @@ type AResource extends AObject {
 	link Font : AFontMap?;
 	link Pattern : APatternMap?;
 	link ProcSet : AArrayOfNamesForProcSet?;
-	link entryProperties : A_UniversalDictionary?;
+	link entryProperties : ADictionaryOfDictionaries?;
 	link Shading : AShadingMap?;
 	link XObject : AXObjectMap?;
 	property containsColorSpace : Boolean;
