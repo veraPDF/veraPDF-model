@@ -874,8 +874,8 @@ type PDStructElem extends PDStructTreeNode {
 	link Lang: CosLang?;
 	% value of parent Lang entry
 	property parentLang: String;
-	% true if type is standard but remapped
-	property isRemappedStandardType : Boolean;
+	% remapped standard type value
+	property remappedStandardType : String;
 	% value of the /Alt entry
 	property Alt: String;
 	% value of the /ActualText entry

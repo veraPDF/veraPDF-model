@@ -8,6 +8,8 @@ import org.verapdf.model.coslayer.CosLang;
 
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SENonStandard extends PDStructElem {
+    % true, if the struct elem has non-standard type, which is not mapped to a standard type
+    property isNotMappedToStandardType: Boolean;
 }
 
 % <Document> structure element
