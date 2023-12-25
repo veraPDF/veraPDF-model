@@ -654,6 +654,11 @@ type PDSoundAnnot extends PDAnnot {
 type PDTrapNetAnnot extends PDAnnot {
 }
 
+% watermark annotation
+type PDWatermarkAnnot extends PDAnnot {
+}
+
+
 % widget annotation
 type PDWidgetAnnot extends PDAnnot {
 	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
