@@ -189,9 +189,12 @@ type SEMathMLStructElem extends PDStructElem {
 type SEContentItem extends Object {
 	% ampersand separated list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
 	property parentsTags: String;
-	% type of the parent structure element for parent marked content sequence (if it is a part of the structure tree)
-	% null, if it is not a part of the structure tree
+	% type of the parent structure element for parent marked content sequence
 	property parentStructureTag: String;
+	% true, if parent struct element is a part of the structure tree
+	property isTaggedContent: Boolean;
+	% object key of parent struct element
+	property parentStructureElementObjectKey: String;
 	% standard type of the parent structure element for parent marked content sequence
 	% (if it is a part of the structure tree), null, if it is not a part of the structure tree
 	property parentStandardTag: String;
