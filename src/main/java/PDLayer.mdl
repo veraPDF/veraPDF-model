@@ -65,8 +65,6 @@ type PDDocument extends PDObject {
 	link Lang: CosLang?;
 	% link to the permissions object
 	link Perms: PDPerms?;
-	% true at the end of parsing if there were no unhandled exceptions
-	property validPDF: Boolean;
 	% true if the catalog dictionary contains the AA entry
 	property containsAA: Boolean;
 	% color space of output icc profile
@@ -859,14 +857,10 @@ type PDStructTreeRoot extends PDStructTreeNode {
 	link roleMapNames: CosUnicodeName*;
 	% namespace URI of standard type of the first kid
 	property firstChildStandardTypeNamespaceURL: String;
-	% standard type of the first kid
-	property topLevelFirstElementStandardType: String;
 }
 
 % the structure element dictionary
 type PDStructElem extends PDStructTreeNode {
-	% the value of the Type entry
-	property Type: String;
 	% parent element type, role mapped to the standard type
 	property parentStandardType: String;
 	% structure type
