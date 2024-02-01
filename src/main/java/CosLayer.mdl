@@ -22,8 +22,6 @@ type CosDocument extends CosObject {
 	property isOptionalContentPresent: Boolean;
 	% size of data after the EOF and (optional) end of line marker
 	property postEOFDataSize: Integer;
-	% true if Info dictionary is present and synchronized with the document metadata
-	property doesInfoMatchXMP: Boolean;
 	% id of the first page trailer, if the document is linearized. Null, if the document is not linearized
 	property firstPageID: String;
 	% id of the last trailer in the document
