@@ -4880,7 +4880,6 @@ type AAnnotWidgetField extends AObject {
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
-	link Kids : AArrayOfFields?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
 	link P : APageObject?;
@@ -4933,9 +4932,6 @@ type AAnnotWidgetField extends AObject {
 	property HType : String;
 	property HHasTypeName : Boolean;
 	property HNameValue : String;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
@@ -5005,7 +5001,6 @@ type AAnnotWidgetFieldBtnCheckbox extends AObject {
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
-	link Kids : AArrayOfFields?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
 	link Opt : AArrayOfStringsText?;
@@ -5073,9 +5068,6 @@ type AAnnotWidgetFieldBtnCheckbox extends AObject {
 	property HType : String;
 	property HHasTypeName : Boolean;
 	property HNameValue : String;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
@@ -5160,7 +5152,6 @@ type AAnnotWidgetFieldBtnPush extends AObject {
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
-	link Kids : AArrayOfFields?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
 	link P : APageObject?;
@@ -5227,9 +5218,6 @@ type AAnnotWidgetFieldBtnPush extends AObject {
 	property HType : String;
 	property HHasTypeName : Boolean;
 	property HNameValue : String;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
@@ -5311,7 +5299,6 @@ type AAnnotWidgetFieldBtnRadio extends AObject {
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
-	link Kids : AArrayOfFields?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
 	link Opt : AArrayOfStringsText?;
@@ -5379,9 +5366,6 @@ type AAnnotWidgetFieldBtnRadio extends AObject {
 	property HType : String;
 	property HHasTypeName : Boolean;
 	property HNameValue : String;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
@@ -5468,7 +5452,6 @@ type AAnnotWidgetFieldChoice extends AObject {
 	link C : AArrayOf_4NumbersColorAnnotation?;
 	link DV : AArrayOfStringsText?;
 	link I : AArrayOfNonNegativeIntegersGeneral?;
-	link Kids : AArrayOfFields?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
 	link Opt : AArrayOfFieldChoiceOpt?;
@@ -5542,9 +5525,6 @@ type AAnnotWidgetFieldChoice extends AObject {
 	property IType : String;
 	property IHasTypeArray : Boolean;
 	property isIArraySortAscending1 : Boolean;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
@@ -5636,7 +5616,6 @@ type AAnnotWidgetFieldSig extends AObject {
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
 	link DV : Object?;
-	link Kids : AArrayOfFields?;
 	link Lock : ASigFieldLock?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
@@ -5706,9 +5685,6 @@ type AAnnotWidgetFieldSig extends AObject {
 	property HType : String;
 	property HHasTypeName : Boolean;
 	property HNameValue : String;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
@@ -5799,7 +5775,6 @@ type AAnnotWidgetFieldTx extends AObject {
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
 	link DV : AStream?;
-	link Kids : AArrayOfFields?;
 	link MK : AAppearanceCharacteristics?;
 	link OC : Object?;
 	link P : APageObject?;
@@ -5869,9 +5844,6 @@ type AAnnotWidgetFieldTx extends AObject {
 	property HType : String;
 	property HHasTypeName : Boolean;
 	property HNameValue : String;
-	property containsKids : Boolean;
-	property KidsType : String;
-	property KidsHasTypeArray : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
