@@ -53,6 +53,8 @@ type PDDocument extends PDObject {
 	link AA: PDAdditionalActions?;
 	% document open action (OpenAction entry in the Catalog)
 	link OpenAction: PDAction?;
+	% document open action destination (OpenAction entry in the Catalog)
+	link OpenActionDestination: PDDestination?;
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
 	% link to the optional content properties dictionary
