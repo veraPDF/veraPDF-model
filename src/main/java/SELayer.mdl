@@ -345,6 +345,8 @@ type SEFENote extends PDStructElem {
     property NoteType : String;
     % comma separated list of object numbers that are missing in the Ref entry of a given FENote
     property orphanRefs : String;
+    % comma separated list of object numbers that are present in the Ref entry of a given FENote, while these structure elements do not reference this FENote 
+    property ghostRefs : String;
 }
 
 % <Sub> structure element (only PDF 2.0)
