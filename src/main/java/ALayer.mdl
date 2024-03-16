@@ -11387,6 +11387,21 @@ type AFunctionType4 extends AObject {
 	property RangeArraySize : Integer;
 }
 
+type AGTS_ProcStepsGroup extends AObject {
+	property containsGTS_ProcStepsGroup : Boolean;
+	property GTS_ProcStepsGroupType : String;
+	property GTS_ProcStepsGroupHasTypeName : Boolean;
+	property GTS_ProcStepsGroupNameValue : String;
+	property containsGTS_ProcStepsType : Boolean;
+	property GTS_ProcStepsTypeType : String;
+	property GTS_ProcStepsTypeHasTypeName : Boolean;
+	property GTS_ProcStepsTypeNameValue : String;
+	property containsGWG__ProcStepsColorants : Boolean;
+	property GWG__ProcStepsColorantsType : String;
+	property GWG__ProcStepsColorantsHasTypeName : Boolean;
+	property hasExtensionISO_19593 : Boolean;
+}
+
 type AGammaArray extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeNumber : Boolean;
@@ -13475,8 +13490,12 @@ type AOptContentExport extends AObject {
 }
 
 type AOptContentGroup extends AObject {
+	link GTS_Metadata : AGTS_ProcStepsGroup?;
 	link Intent : AArrayOfNamesGeneral?;
 	link Usage : AOptContentUsage?;
+	property containsGTS_Metadata : Boolean;
+	property GTS_MetadataType : String;
+	property GTS_MetadataHasTypeDictionary : Boolean;
 	property containsIntent : Boolean;
 	property IntentType : String;
 	property IntentHasTypeArray : Boolean;
@@ -13491,6 +13510,7 @@ type AOptContentGroup extends AObject {
 	property containsUsage : Boolean;
 	property UsageType : String;
 	property UsageHasTypeDictionary : Boolean;
+	property hasExtensionISO_19593 : Boolean;
 }
 
 type AOptContentLanguage extends AObject {
@@ -16974,7 +16994,7 @@ type ASubjectDNEntry extends AObject {
 }
 
 type ATarget extends AObject {
-	link T : ATarget?;
+	link T : ATargetEmbedded?;
 	property containsA : Boolean;
 	property AType : String;
 	property AHasTypeInteger : Boolean;
@@ -17000,6 +17020,30 @@ type ATarget extends AObject {
 	property THasTypeDictionary : Boolean;
 	property pagePAnnotsArraySize : Integer;
 	property pagePAnnotsHasTypeArray : Boolean;
+}
+
+type ATargetEmbedded extends AObject {
+	link T : ATarget?;
+	property containsA : Boolean;
+	property AType : String;
+	property AHasTypeInteger : Boolean;
+	property AHasTypeStringText : Boolean;
+	property AIntegerValue : Integer;
+	property containsN : Boolean;
+	property NType : String;
+	property NHasTypeStringByte : Boolean;
+	property containsP : Boolean;
+	property PType : String;
+	property PHasTypeInteger : Boolean;
+	property PHasTypeStringByte : Boolean;
+	property PIntegerValue : Integer;
+	property containsR : Boolean;
+	property RType : String;
+	property RHasTypeName : Boolean;
+	property RNameValue : String;
+	property containsT : Boolean;
+	property TType : String;
+	property THasTypeDictionary : Boolean;
 }
 
 type AThread extends AObject {
