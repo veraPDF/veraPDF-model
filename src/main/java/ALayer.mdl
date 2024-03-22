@@ -6444,7 +6444,7 @@ type AArrayOfDevExtensions extends AObject {
 }
 
 type AArrayOfDevExtensionsEntry extends AObject {
-	link Entry : ADevExtensions?;
+	link Entry : Object?;
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
@@ -9435,6 +9435,12 @@ type AExDataProjection extends AObject {
 
 type AExtensions extends AObject {
 	link Entries : AExtensionsEntry*;
+	link ISO_ : Object?;
+	property containsISO_ : Boolean;
+	property isISO_Indirect : Boolean;
+	property ISO_Type : String;
+	property ISO_HasTypeArray : Boolean;
+	property ISO_HasTypeDictionary : Boolean;
 	property containsType : Boolean;
 	property isTypeIndirect : Boolean;
 	property TypeType : String;
@@ -11970,6 +11976,34 @@ type AICCProfileStream extends AObject {
 	property RangeType : String;
 	property RangeHasTypeArray : Boolean;
 	property RangeArraySize : Integer;
+}
+
+type AISO_DevExtensions extends AObject {
+	property containsBaseVersion : Boolean;
+	property isBaseVersionIndirect : Boolean;
+	property BaseVersionType : String;
+	property BaseVersionHasTypeName : Boolean;
+	property BaseVersionNameValue : String;
+	property containsExtensionLevel : Boolean;
+	property isExtensionLevelIndirect : Boolean;
+	property ExtensionLevelType : String;
+	property ExtensionLevelHasTypeInteger : Boolean;
+	property ExtensionLevelIntegerValue : Integer;
+	property containsExtensionRevision : Boolean;
+	property isExtensionRevisionIndirect : Boolean;
+	property ExtensionRevisionType : String;
+	property ExtensionRevisionHasTypeStringText : Boolean;
+	property ExtensionRevisionStringTextValue : String;
+	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+	property containsURL : Boolean;
+	property isURLIndirect : Boolean;
+	property URLType : String;
+	property URLHasTypeString : Boolean;
+	property URLStringValue : String;
 }
 
 type AIconFit extends AObject {
