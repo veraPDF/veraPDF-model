@@ -568,6 +568,8 @@ type Glyph extends Object {
 	property actualTextPresent: Boolean;
 	% true if an Alt entry is present for this glyph
 	property altPresent: Boolean;
+	% true if this glyph is a real content
+	property isRealContent: Boolean;
 }
 
 % glyph in the composite font
