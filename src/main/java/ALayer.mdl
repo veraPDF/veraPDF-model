@@ -9976,16 +9976,26 @@ type AFileSpecification extends AObject {
 }
 
 type AFileTrailer extends AObject {
+	link AdditionalStreams : AOOAdditionalStmsArray?;
 	link AuthCode : AAuthCode?;
 	link Encrypt : Object?;
 	link entryID : ATrailerIDArray?;
 	link Info : ADocInfo?;
 	link Root : ACatalog?;
 	link XRefStream : AXRefStream?;
+	property containsAdditionalStreams : Boolean;
+	property isAdditionalStreamsIndirect : Boolean;
+	property AdditionalStreamsType : String;
+	property AdditionalStreamsHasTypeArray : Boolean;
+	property AdditionalStreamsArraySize : Integer;
 	property containsAuthCode : Boolean;
 	property isAuthCodeIndirect : Boolean;
 	property AuthCodeType : String;
 	property AuthCodeHasTypeDictionary : Boolean;
+	property containsDocChecksum : Boolean;
+	property isDocChecksumIndirect : Boolean;
+	property DocChecksumType : String;
+	property DocChecksumHasTypeName : Boolean;
 	property containsEncrypt : Boolean;
 	property EncryptType : String;
 	property EncryptHasTypeDictionary : Boolean;
@@ -10023,6 +10033,7 @@ type AFileTrailer extends AObject {
 	property containstrailerCatalogPieceInfo : Boolean;
 	property containstrailerInfoModDate : Boolean;
 	property hasExtensionISO_TS_32004 : Boolean;
+	property hasExtensionOpenOffice : Boolean;
 }
 
 type AFilterCCITTFaxDecode extends AObject {
@@ -13235,6 +13246,20 @@ type ANumberFormat extends AObject {
 	property containsU : Boolean;
 	property UType : String;
 	property UHasTypeStringText : Boolean;
+}
+
+type AOOAdditionalStmsArray extends AObject {
+	link subArrays : AOOAdditionalStmsArraySubArray?;
+}
+
+type AOOAdditionalStmsArraySubArray extends AObject {
+	link entry1 : AStream?;
+	property isentry0Indirect : Boolean;
+	property entry0Type : String;
+	property entry0HasTypeName : Boolean;
+	property isentry1Indirect : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeStream : Boolean;
 }
 
 type AOPIVersion13 extends AObject {
@@ -18562,6 +18587,7 @@ type AXObjectMapEntry extends AObject {
 }
 
 type AXRefStream extends AObject {
+	link AdditionalStreams : AOOAdditionalStmsArray?;
 	link AuthCode : AAuthCode?;
 	link DecodeParms : Object?;
 	link Encrypt : Object?;
@@ -18574,11 +18600,17 @@ type AXRefStream extends AObject {
 	link Info : ADocInfo?;
 	link Root : ACatalog?;
 	link W : AArrayOfXRefWIntegers?;
+	property containsAdditionalStreams : Boolean;
+	property isAdditionalStreamsIndirect : Boolean;
+	property AdditionalStreamsType : String;
+	property AdditionalStreamsHasTypeArray : Boolean;
+	property AdditionalStreamsArraySize : Integer;
 	property containsAuthCode : Boolean;
 	property isAuthCodeIndirect : Boolean;
 	property AuthCodeType : String;
 	property AuthCodeHasTypeDictionary : Boolean;
 	property containsDL : Boolean;
+	property isDLIndirect : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
 	property DLIntegerValue : Integer;
@@ -18588,7 +18620,12 @@ type AXRefStream extends AObject {
 	property DecodeParmsHasTypeArray : Boolean;
 	property DecodeParmsHasTypeDictionary : Boolean;
 	property DecodeParmsArraySize : Integer;
+	property containsDocChecksum : Boolean;
+	property isDocChecksumIndirect : Boolean;
+	property DocChecksumType : String;
+	property DocChecksumHasTypeName : Boolean;
 	property containsEncrypt : Boolean;
+	property isEncryptIndirect : Boolean;
 	property EncryptType : String;
 	property EncryptHasTypeDictionary : Boolean;
 	property containsF : Boolean;
@@ -18629,6 +18666,7 @@ type AXRefStream extends AObject {
 	property InfoType : String;
 	property InfoHasTypeDictionary : Boolean;
 	property containsLength : Boolean;
+	property isLengthIndirect : Boolean;
 	property LengthType : String;
 	property LengthHasTypeInteger : Boolean;
 	property LengthIntegerValue : Integer;
@@ -18660,6 +18698,7 @@ type AXRefStream extends AObject {
 	property containstrailerCatalogPieceInfo : Boolean;
 	property containstrailerInfoModDate : Boolean;
 	property hasExtensionISO_TS_32004 : Boolean;
+	property hasExtensionOpenOffice : Boolean;
 }
 
 type A_UniversalArray extends AObject {
