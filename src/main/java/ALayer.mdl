@@ -570,6 +570,7 @@ type A3DStream extends AObject {
 	link Filter : AArrayOfCompressionFilterNames?;
 	link OnInstantiate : AStream?;
 	link Resources : A3DStreamNameTreeResources?;
+	link ResourcesTreeNode : ANameTreeNode?;
 	link VA : AArrayOf3DView?;
 	property containsAN : Boolean;
 	property ANType : String;
@@ -627,6 +628,9 @@ type A3DStream extends AObject {
 	property containsResources : Boolean;
 	property ResourcesType : String;
 	property ResourcesHasTypeNameTree : Boolean;
+	property containsResourcesTreeNode : Boolean;
+	property ResourcesTreeNodeType : String;
+	property ResourcesTreeNodeHasTypeNameTree : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -8011,6 +8015,7 @@ type ACatalog extends AObject {
 	link Outlines : AOutline?;
 	link OutputIntents : AArrayOfOutputIntents?;
 	link PageLabels : ACatalogNumberTreePageLabels?;
+	link PageLabelsTreeNode : ANumberTreeNode?;
 	link Pages : APageTreeNodeRoot?;
 	link Perms : APermissions?;
 	link PieceInfo : APagePiece?;
@@ -8082,6 +8087,9 @@ type ACatalog extends AObject {
 	property containsPageLabels : Boolean;
 	property PageLabelsType : String;
 	property PageLabelsHasTypeNumberTree : Boolean;
+	property containsPageLabelsTreeNode : Boolean;
+	property PageLabelsTreeNodeType : String;
+	property PageLabelsTreeNodeHasTypeNumberTree : Boolean;
 	property containsPageLayout : Boolean;
 	property PageLayoutType : String;
 	property PageLayoutHasTypeName : Boolean;
@@ -8220,6 +8228,7 @@ type ACollection extends AObject {
 	link Folders : ACollectionFolder?;
 	link Navigator : ANavigator?;
 	link Resources : ACollectionNameTreeResources?;
+	link ResourcesTreeNode : ANameTreeNode?;
 	link Schema : ACollectionSchema?;
 	link Sort : ACollectionSort?;
 	link Split : ACollectionSplit?;
@@ -8241,6 +8250,10 @@ type ACollection extends AObject {
 	property isResourcesIndirect : Boolean;
 	property ResourcesType : String;
 	property ResourcesHasTypeNameTree : Boolean;
+	property containsResourcesTreeNode : Boolean;
+	property isResourcesTreeNodeIndirect : Boolean;
+	property ResourcesTreeNodeType : String;
+	property ResourcesTreeNodeHasTypeNameTree : Boolean;
 	property containsSchema : Boolean;
 	property SchemaType : String;
 	property SchemaHasTypeDictionary : Boolean;
@@ -12932,49 +12945,93 @@ type AMovieActivation extends AObject {
 
 type AName extends AObject {
 	link AP : ANameNameTreeAP?;
+	link APTreeNode : ANameTreeNode?;
 	link AlternatePresentations : ANameNameTreeAlternatePresentations?;
+	link AlternatePresentationsTreeNode : ANameTreeNode?;
 	link Dests : ANameNameTreeDests?;
+	link DestsTreeNode : ANameTreeNode?;
 	link EmbeddedFiles : ANameNameTreeEmbeddedFiles?;
+	link EmbeddedFilesTreeNode : ANameTreeNode?;
 	link IDS : ANameNameTreeIDS?;
+	link IDSTreeNode : ANameTreeNode?;
 	link JavaScript : ANameNameTreeJavaScript?;
+	link JavaScriptTreeNode : ANameTreeNode?;
 	link Pages : ANameNameTreePages?;
+	link PagesTreeNode : ANameTreeNode?;
 	link Renditions : ANameNameTreeRenditions?;
+	link RenditionsTreeNode : ANameTreeNode?;
 	link Templates : ANameNameTreeTemplates?;
+	link TemplatesTreeNode : ANameTreeNode?;
 	link URLS : ANameNameTreeURLS?;
+	link URLSTreeNode : ANameTreeNode?;
 	link XFAResources : ANameNameTreeXFAResources?;
+	link XFAResourcesTreeNode : ANameTreeNode?;
 	property containsAP : Boolean;
 	property APType : String;
 	property APHasTypeNameTree : Boolean;
+	property containsAPTreeNode : Boolean;
+	property APTreeNodeType : String;
+	property APTreeNodeHasTypeNameTree : Boolean;
 	property containsAlternatePresentations : Boolean;
 	property AlternatePresentationsType : String;
 	property AlternatePresentationsHasTypeNameTree : Boolean;
+	property containsAlternatePresentationsTreeNode : Boolean;
+	property AlternatePresentationsTreeNodeType : String;
+	property AlternatePresentationsTreeNodeHasTypeNameTree : Boolean;
 	property containsDests : Boolean;
 	property DestsType : String;
 	property DestsHasTypeNameTree : Boolean;
+	property containsDestsTreeNode : Boolean;
+	property DestsTreeNodeType : String;
+	property DestsTreeNodeHasTypeNameTree : Boolean;
 	property containsEmbeddedFiles : Boolean;
 	property EmbeddedFilesType : String;
 	property EmbeddedFilesHasTypeNameTree : Boolean;
+	property containsEmbeddedFilesTreeNode : Boolean;
+	property EmbeddedFilesTreeNodeType : String;
+	property EmbeddedFilesTreeNodeHasTypeNameTree : Boolean;
 	property containsIDS : Boolean;
 	property IDSType : String;
 	property IDSHasTypeNameTree : Boolean;
+	property containsIDSTreeNode : Boolean;
+	property IDSTreeNodeType : String;
+	property IDSTreeNodeHasTypeNameTree : Boolean;
 	property containsJavaScript : Boolean;
 	property JavaScriptType : String;
 	property JavaScriptHasTypeNameTree : Boolean;
+	property containsJavaScriptTreeNode : Boolean;
+	property JavaScriptTreeNodeType : String;
+	property JavaScriptTreeNodeHasTypeNameTree : Boolean;
 	property containsPages : Boolean;
 	property PagesType : String;
 	property PagesHasTypeNameTree : Boolean;
+	property containsPagesTreeNode : Boolean;
+	property PagesTreeNodeType : String;
+	property PagesTreeNodeHasTypeNameTree : Boolean;
 	property containsRenditions : Boolean;
 	property RenditionsType : String;
 	property RenditionsHasTypeNameTree : Boolean;
+	property containsRenditionsTreeNode : Boolean;
+	property RenditionsTreeNodeType : String;
+	property RenditionsTreeNodeHasTypeNameTree : Boolean;
 	property containsTemplates : Boolean;
 	property TemplatesType : String;
 	property TemplatesHasTypeNameTree : Boolean;
+	property containsTemplatesTreeNode : Boolean;
+	property TemplatesTreeNodeType : String;
+	property TemplatesTreeNodeHasTypeNameTree : Boolean;
 	property containsURLS : Boolean;
 	property URLSType : String;
 	property URLSHasTypeNameTree : Boolean;
+	property containsURLSTreeNode : Boolean;
+	property URLSTreeNodeType : String;
+	property URLSTreeNodeHasTypeNameTree : Boolean;
 	property containsXFAResources : Boolean;
 	property XFAResourcesType : String;
 	property XFAResourcesHasTypeNameTree : Boolean;
+	property containsXFAResourcesTreeNode : Boolean;
+	property XFAResourcesTreeNodeType : String;
+	property XFAResourcesTreeNodeHasTypeNameTree : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
 }
 
@@ -13089,6 +13146,47 @@ type ANameNameTreeXFAResourcesEntry extends AObject {
 	property HasTypeStream : Boolean;
 }
 
+type ANameTreeNode extends AObject {
+	link Kids : ANameTreeNodesArray?;
+	link Limits : ANameTreeNodeLimitsArray?;
+	link Names : ANameTreeNodeNamesArray?;
+	property containsKids : Boolean;
+	property KidsType : String;
+	property KidsHasTypeArray : Boolean;
+	property containsLimits : Boolean;
+	property LimitsType : String;
+	property LimitsHasTypeArray : Boolean;
+	property containsNames : Boolean;
+	property NamesType : String;
+	property NamesHasTypeArray : Boolean;
+}
+
+type ANameTreeNodeLimitsArray extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeString : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeString : Boolean;
+}
+
+type ANameTreeNodeNamesArray extends AObject {
+	link subArrays : ANameTreeNodeNamesArraySubArray?;
+}
+
+type ANameTreeNodeNamesArraySubArray extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeString : Boolean;
+}
+
+type ANameTreeNodesArray extends AObject {
+	link Entries : ANameTreeNodesArrayEntry*;
+}
+
+type ANameTreeNodesArrayEntry extends AObject {
+	link Entry : ANameTreeNode?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
 type ANamespace extends AObject {
 	link RoleMapNS : ARoleMapNS?;
 	link Schema : AFileSpecification?;
@@ -13138,7 +13236,9 @@ type ANavigator extends AObject {
 	link InitialFields : ACollectionSchema?;
 	link Layout : AArrayOfNavigatorLayoutNames?;
 	link Resources : ANavigatorNameTreeResources?;
+	link ResourcesTreeNode : ANameTreeNode?;
 	link Strings : ANavigatorNameTreeStrings?;
+	link StringsTreeNode : ANameTreeNode?;
 	property containsAPIVersion : Boolean;
 	property APIVersionType : String;
 	property APIVersionHasTypeStringText : Boolean;
@@ -13175,12 +13275,18 @@ type ANavigator extends AObject {
 	property containsResources : Boolean;
 	property ResourcesType : String;
 	property ResourcesHasTypeNameTree : Boolean;
+	property containsResourcesTreeNode : Boolean;
+	property ResourcesTreeNodeType : String;
+	property ResourcesTreeNodeHasTypeNameTree : Boolean;
 	property containsSWF : Boolean;
 	property SWFType : String;
 	property SWFHasTypeStringText : Boolean;
 	property containsStrings : Boolean;
 	property StringsType : String;
 	property StringsHasTypeNameTree : Boolean;
+	property containsStringsTreeNode : Boolean;
+	property StringsTreeNodeType : String;
+	property StringsTreeNodeHasTypeNameTree : Boolean;
 	property containsType : Boolean;
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
@@ -13246,6 +13352,47 @@ type ANumberFormat extends AObject {
 	property containsU : Boolean;
 	property UType : String;
 	property UHasTypeStringText : Boolean;
+}
+
+type ANumberTreeNode extends AObject {
+	link Kids : ANumberTreeNodesArray?;
+	link Limits : ANumberTreeNodeLimitsArray?;
+	link Nums : ANumberTreeNodeNumsArray?;
+	property containsKids : Boolean;
+	property KidsType : String;
+	property KidsHasTypeArray : Boolean;
+	property containsLimits : Boolean;
+	property LimitsType : String;
+	property LimitsHasTypeArray : Boolean;
+	property containsNums : Boolean;
+	property NumsType : String;
+	property NumsHasTypeArray : Boolean;
+}
+
+type ANumberTreeNodeLimitsArray extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeInteger : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeInteger : Boolean;
+}
+
+type ANumberTreeNodeNumsArray extends AObject {
+	link subArrays : ANumberTreeNodeNumsArraySubArray?;
+}
+
+type ANumberTreeNodeNumsArraySubArray extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeInteger : Boolean;
+}
+
+type ANumberTreeNodesArray extends AObject {
+	link Entries : ANumberTreeNodesArrayEntry*;
+}
+
+type ANumberTreeNodesArrayEntry extends AObject {
+	link Entry : ANumberTreeNode?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
 }
 
 type AOOAdditionalStmsArray extends AObject {
@@ -15272,11 +15419,15 @@ type ARichMediaConfiguration extends AObject {
 
 type ARichMediaContent extends AObject {
 	link Assets : ARichMediaContentNameTreeAssets?;
+	link AssetsTreeNode : ANameTreeNode?;
 	link Configurations : AArrayOfRichMediaConfiguration?;
 	link Views : AArrayOf3DViewAddEntries?;
 	property containsAssets : Boolean;
 	property AssetsType : String;
 	property AssetsHasTypeNameTree : Boolean;
+	property containsAssetsTreeNode : Boolean;
+	property AssetsTreeNodeType : String;
+	property AssetsTreeNodeHasTypeNameTree : Boolean;
 	property containsConfigurations : Boolean;
 	property ConfigurationsType : String;
 	property ConfigurationsHasTypeArray : Boolean;
@@ -16409,9 +16560,13 @@ type ASignatureReferenceUR extends AObject {
 
 type ASlideShow extends AObject {
 	link Resources : ASlideShowNameTreeResources?;
+	link ResourcesTreeNode : ANameTreeNode?;
 	property containsResources : Boolean;
 	property ResourcesType : String;
 	property ResourcesHasTypeNameTree : Boolean;
+	property containsResourcesTreeNode : Boolean;
+	property ResourcesTreeNodeType : String;
+	property ResourcesTreeNodeHasTypeNameTree : Boolean;
 	property containsStartResource : Boolean;
 	property StartResourceType : String;
 	property StartResourceHasTypeStringByte : Boolean;
@@ -16767,9 +16922,11 @@ type AStructTreeRoot extends AObject {
 	link AF : AArrayOfFileSpecifications?;
 	link ClassMap : AClassMap?;
 	link IDTree : AStructTreeRootNameTreeIDTree?;
+	link IDTreeTreeNode : ANameTreeNode?;
 	link K : Object?;
 	link Namespaces : AArrayOfNamespace?;
 	link ParentTree : AStructTreeRootNumberTreeParentTree?;
+	link ParentTreeTreeNode : ANumberTreeNode?;
 	link PronunciationLexicon : AArrayOfFileSpecifications?;
 	link RoleMap : ARoleMap?;
 	property containsAF : Boolean;
@@ -16781,6 +16938,9 @@ type AStructTreeRoot extends AObject {
 	property containsIDTree : Boolean;
 	property IDTreeType : String;
 	property IDTreeHasTypeNameTree : Boolean;
+	property containsIDTreeTreeNode : Boolean;
+	property IDTreeTreeNodeType : String;
+	property IDTreeTreeNodeHasTypeNameTree : Boolean;
 	property containsK : Boolean;
 	property KType : String;
 	property KHasTypeArray : Boolean;
@@ -16794,6 +16954,9 @@ type AStructTreeRoot extends AObject {
 	property containsParentTreeNextKey : Boolean;
 	property ParentTreeNextKeyType : String;
 	property ParentTreeNextKeyHasTypeInteger : Boolean;
+	property containsParentTreeTreeNode : Boolean;
+	property ParentTreeTreeNodeType : String;
+	property ParentTreeTreeNodeHasTypeNumberTree : Boolean;
 	property containsPronunciationLexicon : Boolean;
 	property PronunciationLexiconType : String;
 	property PronunciationLexiconHasTypeArray : Boolean;
