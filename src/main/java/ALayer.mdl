@@ -2,17 +2,6 @@ package org.verapdf.model.alayer;
 
 import org.verapdf.model.baselayer.Object;
 
-type AObject extends Object {
-	property size : Integer;
-	property keyName : String;
-	property keysString : String;
-	property numberOfPages : Integer;
-	property fileSize : Integer;
-	property isPDFTagged : Boolean;
-	property notStandard14Font : Boolean;
-	property isEncryptedWrapper : Boolean;
-}
-
 type A3DActivation extends AObject {
 	link Window : ARichMediaWindow?;
 	property containsA : Boolean;
@@ -47,7 +36,6 @@ type A3DActivation extends AObject {
 	property containsWindow : Boolean;
 	property WindowType : String;
 	property WindowHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DAnimationStyle extends AObject {
@@ -183,7 +171,6 @@ type A3DMeasure3DC extends AObject {
 	property containsUT : Boolean;
 	property UTType : String;
 	property UTHasTypeStringText : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DMeasureAD3 extends AObject {
@@ -261,7 +248,6 @@ type A3DMeasureAD3 extends AObject {
 	property containsV : Boolean;
 	property VType : String;
 	property VHasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DMeasureLD3 extends AObject {
@@ -327,7 +313,6 @@ type A3DMeasureLD3 extends AObject {
 	property containsV : Boolean;
 	property VType : String;
 	property VHasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DMeasurePD3 extends AObject {
@@ -397,7 +382,6 @@ type A3DMeasurePD3 extends AObject {
 	property containsV : Boolean;
 	property VType : String;
 	property VHasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DMeasureRD3 extends AObject {
@@ -481,7 +465,6 @@ type A3DMeasureRD3 extends AObject {
 	property containsV : Boolean;
 	property VType : String;
 	property VHasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DNode extends AObject {
@@ -683,7 +666,6 @@ type A3DUnits extends AObject {
 	property containsUU : Boolean;
 	property UUType : String;
 	property UUHasTypeStringText : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type A3DView extends AObject {
@@ -823,7 +805,6 @@ type A3DViewAddEntries extends AObject {
 	property containsXN : Boolean;
 	property XNType : String;
 	property XNHasTypeString : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAAPL_ST extends AObject {
@@ -853,7 +834,6 @@ type AAAPL_ST extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionAAPL : Boolean;
 }
 
 type AActionECMAScript extends AObject {
@@ -1247,7 +1227,6 @@ type AActionRichMediaExecute extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AActionSetOCGState extends AObject {
@@ -1685,7 +1664,6 @@ type AAnnot3D extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotCaret extends AObject {
@@ -1811,7 +1789,6 @@ type AAnnotCaret extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotCircle extends AObject {
@@ -1945,7 +1922,6 @@ type AAnnotCircle extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotFileAttachment extends AObject {
@@ -2069,7 +2045,6 @@ type AAnnotFileAttachment extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotFreeText extends AObject {
@@ -2218,7 +2193,6 @@ type AAnnotFreeText extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotHighlight extends AObject {
@@ -2337,7 +2311,6 @@ type AAnnotHighlight extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotInk extends AObject {
@@ -2464,7 +2437,6 @@ type AAnnotInk extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotLine extends AObject {
@@ -2623,7 +2595,6 @@ type AAnnotLine extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotLink extends AObject {
@@ -2731,7 +2702,6 @@ type AAnnotLink extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionISO_TS_24654 : Boolean;
 }
 
 type AAnnotMovie extends AObject {
@@ -2966,7 +2936,6 @@ type AAnnotPolyLine extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotPolygon extends AObject {
@@ -3110,7 +3079,6 @@ type AAnnotPolygon extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotPopup extends AObject {
@@ -3390,7 +3358,6 @@ type AAnnotProjection extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotRedact extends AObject {
@@ -3531,7 +3498,6 @@ type AAnnotRedact extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotRichMedia extends AObject {
@@ -3619,7 +3585,6 @@ type AAnnotRichMedia extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotScreen extends AObject {
@@ -3836,7 +3801,6 @@ type AAnnotSound extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotSquare extends AObject {
@@ -3970,7 +3934,6 @@ type AAnnotSquare extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotSquiggly extends AObject {
@@ -4089,7 +4052,6 @@ type AAnnotSquiggly extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotStamp extends AObject {
@@ -4209,7 +4171,6 @@ type AAnnotStamp extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotStrikeOut extends AObject {
@@ -4328,7 +4289,6 @@ type AAnnotStrikeOut extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotText extends AObject {
@@ -4458,7 +4418,6 @@ type AAnnotText extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotTrapNetwork extends AObject {
@@ -4666,7 +4625,6 @@ type AAnnotUnderline extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWatermark extends AObject {
@@ -4873,7 +4831,6 @@ type AAnnotWidget extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetField extends AObject {
@@ -4994,7 +4951,6 @@ type AAnnotWidgetField extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetFieldBtnCheckbox extends AObject {
@@ -5145,7 +5101,6 @@ type AAnnotWidgetFieldBtnCheckbox extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetFieldBtnPush extends AObject {
@@ -5292,7 +5247,6 @@ type AAnnotWidgetFieldBtnPush extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetFieldBtnRadio extends AObject {
@@ -5443,7 +5397,6 @@ type AAnnotWidgetFieldBtnRadio extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetFieldChoice extends AObject {
@@ -5608,7 +5561,6 @@ type AAnnotWidgetFieldChoice extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetFieldSig extends AObject {
@@ -5767,7 +5719,6 @@ type AAnnotWidgetFieldSig extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAnnotWidgetFieldTx extends AObject {
@@ -5924,7 +5875,6 @@ type AAnnotWidgetFieldTx extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AAppearance extends AObject {
@@ -6139,7 +6089,6 @@ type AArrayOf3DViewAddEntriesEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOf3DViewEntry extends AObject {
@@ -6162,7 +6111,6 @@ type AArrayOf3PDUNames extends AObject {
 	property entry2Type : String;
 	property entry2HasTypeName : Boolean;
 	property entry2NameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOf4Functions extends AObject {
@@ -6229,7 +6177,6 @@ type AArrayOfAnnotsEntry extends AObject {
 	link Entry : Object?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfArraysInkList extends AObject {
@@ -6289,7 +6236,6 @@ type AArrayOfArraysXPTSValuesEntry extends AObject {
 	property ArraySize : Integer;
 	property parentNamesArraySize : Integer;
 	property parentNamesHasTypeArray : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfAttributeObjects extends AObject {
@@ -6402,7 +6348,6 @@ type AArrayOfDPartArraysEntry extends AObject {
 	link Entry : AArrayOfDParts?;
 	property Type : String;
 	property HasTypeArray : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type AArrayOfDParts extends AObject {
@@ -6414,7 +6359,6 @@ type AArrayOfDPartsEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type AArrayOfDashPatterns extends AObject {
@@ -6520,6 +6464,7 @@ type AArrayOfFieldsEntry extends AObject {
 type AArrayOfFileSpecifications extends AObject {
 	link Entries : AArrayOfFileSpecificationsEntry*;
 	link entry0 : AFileSpecification?;
+	property contains0 : Boolean;
 	property entry0Type : String;
 	property entry0HasTypeDictionary : Boolean;
 }
@@ -6599,7 +6544,6 @@ type AArrayOfIndirectFileSpecificationsEntry extends AObject {
 	property Type : String;
 	property HasTypeDictionary : Boolean;
 	property EntryIsIndexInNameTreeparentRichMediaContentAssets : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfIntegersGeneral extends AObject {
@@ -6640,7 +6584,6 @@ type AArrayOfNamesForEnforceEntry extends AObject {
 	property HasTypeName : Boolean;
 	property NameValue : String;
 	property parentPrintScalingNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfNamesForPrintingOrder extends AObject {
@@ -6679,7 +6622,6 @@ type AArrayOfNamesInPtDataEntry extends AObject {
 	property Type : String;
 	property HasTypeName : Boolean;
 	property NameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfNamespace extends AObject {
@@ -6952,7 +6894,6 @@ type AArrayOfRequirementsEntry extends AObject {
 	link Entry : Object?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionISO_TS_24064 : Boolean;
 }
 
 type AArrayOfRequirementsHandlers extends AObject {
@@ -6974,7 +6915,6 @@ type AArrayOfRichMediaConfigurationEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfRichMediaCuePoints extends AObject {
@@ -6985,7 +6925,6 @@ type AArrayOfRichMediaCuePointsEntry extends AObject {
 	link Entry : ARichMediaCuePoint?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfRichMediaInstances extends AObject {
@@ -6997,7 +6936,6 @@ type AArrayOfRichMediaInstancesEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfSignatureReferences extends AObject {
@@ -7216,7 +7154,6 @@ type AArrayOfViewParamsEntry extends AObject {
 	link Entry : AViewParams?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfViewports extends AObject {
@@ -7282,7 +7219,6 @@ type AArrayOfXPTSValues extends AObject {
 type AArrayOfXPTSValuesEntry extends AObject {
 	property Type : String;
 	property HasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOfXRefIndexIntegers extends AObject {
@@ -7401,7 +7337,6 @@ type AArrayOf_3Numbers extends AObject {
 	property contains2 : Boolean;
 	property entry2Type : String;
 	property entry2HasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AArrayOf_3OrientationNumbers extends AObject {
@@ -7674,7 +7609,6 @@ type AAuthCode extends AObject {
 	property ByteRange1HasTypeInteger : Boolean;
 	property ByteRange2HasTypeInteger : Boolean;
 	property ByteRange3HasTypeInteger : Boolean;
-	property hasExtensionISO_TS_32004 : Boolean;
 }
 
 type ABead extends AObject {
@@ -8136,7 +8070,6 @@ type ACatalog extends AObject {
 	property containsViewerPreferences : Boolean;
 	property ViewerPreferencesType : String;
 	property ViewerPreferencesHasTypeDictionary : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type ACatalogNumberTreePageLabels extends AObject {
@@ -8271,7 +8204,6 @@ type ACollection extends AObject {
 	property ViewType : String;
 	property ViewHasTypeName : Boolean;
 	property ViewNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ACollectionColors extends AObject {
@@ -8299,7 +8231,6 @@ type ACollectionColors extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ACollectionField extends AObject {
@@ -8373,7 +8304,6 @@ type ACollectionFolder extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ACollectionItem extends AObject {
@@ -8448,7 +8378,6 @@ type ACollectionSplit extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ACollectionSubitem extends AObject {
@@ -8593,7 +8522,6 @@ type ADPM extends AObject {
 	property containsGTS_Suspect : Boolean;
 	property GTS_SuspectType : String;
 	property GTS_SuspectHasTypeDictionary : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type ADPMEntry extends AObject {
@@ -8607,7 +8535,6 @@ type ADPMEntry extends AObject {
 	property HasTypeName : Boolean;
 	property HasTypeNumber : Boolean;
 	property HasTypeStringText : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type ADPart extends AObject {
@@ -8643,7 +8570,6 @@ type ADPart extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type ADPartRoot extends AObject {
@@ -8664,7 +8590,6 @@ type ADPartRoot extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type ADSS extends AObject {
@@ -9324,8 +9249,6 @@ type AEncryptionPublicKey extends AObject {
 	property VType : String;
 	property VHasTypeInteger : Boolean;
 	property VIntegerValue : Integer;
-	property hasExtensionADBE_Extn3 : Boolean;
-	property hasExtensionISO_TS_32004 : Boolean;
 }
 
 type AEncryptionStandard extends AObject {
@@ -9390,8 +9313,6 @@ type AEncryptionStandard extends AObject {
 	property VType : String;
 	property VHasTypeInteger : Boolean;
 	property VIntegerValue : Integer;
-	property hasExtensionADBE_Extn3 : Boolean;
-	property hasExtensionISO_TS_32004 : Boolean;
 }
 
 type AExData3DMarkup extends AObject {
@@ -9426,7 +9347,6 @@ type AExDataMarkupGeo extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AExDataProjection extends AObject {
@@ -9443,7 +9363,6 @@ type AExDataProjection extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AExtensions extends AObject {
@@ -9985,7 +9904,6 @@ type AFileSpecification extends AObject {
 	property containsV : Boolean;
 	property VType : String;
 	property VHasTypeBoolean : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AFileTrailer extends AObject {
@@ -10045,8 +9963,6 @@ type AFileTrailer extends AObject {
 	property EncryptVHasTypeInteger : Boolean;
 	property containstrailerCatalogPieceInfo : Boolean;
 	property containstrailerInfoModDate : Boolean;
-	property hasExtensionISO_TS_32004 : Boolean;
-	property hasExtensionOpenOffice : Boolean;
 }
 
 type AFilterCCITTFaxDecode extends AObject {
@@ -10082,7 +9998,6 @@ type AFilterCCITTFaxDecode extends AObject {
 	property RowsType : String;
 	property RowsHasTypeInteger : Boolean;
 	property RowsIntegerValue : Integer;
-	property hasExtensionMalforms : Boolean;
 }
 
 type AFilterCrypt extends AObject {
@@ -11429,7 +11344,6 @@ type AGTS_ProcStepsGroup extends AObject {
 	property containsGWG__ProcStepsColorants : Boolean;
 	property GWG__ProcStepsColorantsType : String;
 	property GWG__ProcStepsColorantsHasTypeName : Boolean;
-	property hasExtensionISO_19593 : Boolean;
 }
 
 type AGammaArray extends AObject {
@@ -11455,7 +11369,6 @@ type AGeographicCoordinateSystem extends AObject {
 	property containsWKT : Boolean;
 	property WKTType : String;
 	property WKTHasTypeStringAscii : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AGraphicsStateParameter extends AObject {
@@ -11607,7 +11520,6 @@ type AGraphicsStateParameter extends AObject {
 	property containsop : Boolean;
 	property opType : String;
 	property opHasTypeBoolean : Boolean;
-	property hasExtensionAAPL : Boolean;
 }
 
 type AGraphicsStateParameterMap extends AObject {
@@ -12376,7 +12288,6 @@ type AMeasureGEO extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AMeasureRL extends AObject {
@@ -13032,7 +12943,6 @@ type AName extends AObject {
 	property containsXFAResourcesTreeNode : Boolean;
 	property XFAResourcesTreeNodeType : String;
 	property XFAResourcesTreeNodeHasTypeNameTree : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ANameNameTreeAP extends AObject {
@@ -13294,7 +13204,6 @@ type ANavigator extends AObject {
 	property containsVersion : Boolean;
 	property VersionType : String;
 	property VersionHasTypeStringText : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ANavigatorNameTreeResources extends AObject {
@@ -13685,7 +13594,6 @@ type AOptContentCreatorInfo extends AObject {
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
 	property SubtypeNameValue : String;
-	property hasExtensionMalforms : Boolean;
 }
 
 type AOptContentExport extends AObject {
@@ -13716,7 +13624,6 @@ type AOptContentGroup extends AObject {
 	property containsUsage : Boolean;
 	property UsageType : String;
 	property UsageHasTypeDictionary : Boolean;
-	property hasExtensionISO_19593 : Boolean;
 }
 
 type AOptContentLanguage extends AObject {
@@ -14130,7 +14037,6 @@ type APageObject extends AObject {
 	property VPType : String;
 	property VPHasTypeArray : Boolean;
 	property pageContainsStructContentItems : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type APagePiece extends AObject {
@@ -14253,7 +14159,6 @@ type APaperMetaData extends AObject {
 	property containsnCodeWordRow : Boolean;
 	property nCodeWordRowType : String;
 	property nCodeWordRowHasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type APatternColorSpace extends AObject {
@@ -14412,7 +14317,6 @@ type APointData extends AObject {
 	property containsXPTS : Boolean;
 	property XPTSType : String;
 	property XPTSHasTypeArray : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AProjectedCoordinateSystem extends AObject {
@@ -14426,7 +14330,6 @@ type AProjectedCoordinateSystem extends AObject {
 	property containsWKT : Boolean;
 	property WKTType : String;
 	property WKTHasTypeStringAscii : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AProjection extends AObject {
@@ -15171,7 +15074,6 @@ type ARequirementsSTEP extends AObject {
 	property VType : String;
 	property VHasTypeDictionary : Boolean;
 	property VHasTypeName : Boolean;
-	property hasExtensionISO_TS_24064 : Boolean;
 }
 
 type ARequirementsSeparationSimulation extends AObject {
@@ -15339,7 +15241,6 @@ type ARichMediaActivation extends AObject {
 	property isViewIndirect : Boolean;
 	property ViewType : String;
 	property ViewHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaAnimation extends AObject {
@@ -15362,8 +15263,6 @@ type ARichMediaAnimation extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
-	property hasExtensionISO_TS_32007 : Boolean;
 }
 
 type ARichMediaCommand extends AObject {
@@ -15382,7 +15281,6 @@ type ARichMediaCommand extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaCommandArray extends AObject {
@@ -15395,7 +15293,6 @@ type ARichMediaCommandArrayEntry extends AObject {
 	property HasTypeInteger : Boolean;
 	property HasTypeNumber : Boolean;
 	property HasTypeStringText : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaConfiguration extends AObject {
@@ -15414,7 +15311,6 @@ type ARichMediaConfiguration extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaContent extends AObject {
@@ -15439,7 +15335,6 @@ type ARichMediaContent extends AObject {
 	property containsViews : Boolean;
 	property ViewsType : String;
 	property ViewsHasTypeArray : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaContentNameTreeAssets extends AObject {
@@ -15471,7 +15366,6 @@ type ARichMediaCuePoint extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaDeactivation extends AObject {
@@ -15483,7 +15377,6 @@ type ARichMediaDeactivation extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaHeight extends AObject {
@@ -15499,7 +15392,6 @@ type ARichMediaHeight extends AObject {
 	property MinType : String;
 	property MinHasTypeInteger : Boolean;
 	property MinIntegerValue : Integer;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaInstance extends AObject {
@@ -15523,8 +15415,6 @@ type ARichMediaInstance extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
-	property hasExtensionISO_TS_32007 : Boolean;
 }
 
 type ARichMediaParams extends AObject {
@@ -15555,7 +15445,6 @@ type ARichMediaParams extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaPosition extends AObject {
@@ -15577,7 +15466,6 @@ type ARichMediaPosition extends AObject {
 	property containsVOffset : Boolean;
 	property VOffsetType : String;
 	property VOffsetHasTypeNumber : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaPresentation extends AObject {
@@ -15605,7 +15493,6 @@ type ARichMediaPresentation extends AObject {
 	property containsWindow : Boolean;
 	property WindowType : String;
 	property WindowHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaSettings extends AObject {
@@ -15621,7 +15508,6 @@ type ARichMediaSettings extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaWidth extends AObject {
@@ -15637,7 +15523,6 @@ type ARichMediaWidth extends AObject {
 	property MinType : String;
 	property MinHasTypeInteger : Boolean;
 	property MinIntegerValue : Integer;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARichMediaWindow extends AObject {
@@ -15657,7 +15542,6 @@ type ARichMediaWindow extends AObject {
 	property containsWidth : Boolean;
 	property WidthType : String;
 	property WidthHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ARoleMap extends AObject {
@@ -16197,7 +16081,6 @@ type ASigFieldLock extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ASigFieldSeedValue extends AObject {
@@ -16254,7 +16137,6 @@ type ASigFieldSeedValue extends AObject {
 	property VType : String;
 	property VHasTypeInteger : Boolean;
 	property VIntegerValue : Integer;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type ASignature extends AObject {
@@ -16466,7 +16348,6 @@ type ASignatureReferenceDocMDP extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionISO_TS_32001 : Boolean;
 }
 
 type ASignatureReferenceFieldMDP extends AObject {
@@ -16497,7 +16378,6 @@ type ASignatureReferenceFieldMDP extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionISO_TS_32001 : Boolean;
 }
 
 type ASignatureReferenceIdentity extends AObject {
@@ -16524,7 +16404,6 @@ type ASignatureReferenceIdentity extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionISO_TS_32001 : Boolean;
 }
 
 type ASignatureReferenceUR extends AObject {
@@ -16555,7 +16434,6 @@ type ASignatureReferenceUR extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionISO_TS_32001 : Boolean;
 }
 
 type ASlideShow extends AObject {
@@ -17097,6 +16975,10 @@ type AStructureAttributesDict extends AObject {
 	property isNSIndirect : Boolean;
 	property NSType : String;
 	property NSHasTypeDictionary : Boolean;
+	property containsNoteType : Boolean;
+	property NoteTypeType : String;
+	property NoteTypeHasTypeName : Boolean;
+	property NoteTypeNameValue : String;
 	property containsO : Boolean;
 	property OType : String;
 	property OHasTypeName : Boolean;
@@ -17196,7 +17078,6 @@ type AStructureAttributesDict extends AObject {
 	property checkedType : String;
 	property checkedHasTypeName : Boolean;
 	property checkedNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AStyleDict extends AObject {
@@ -17618,7 +17499,6 @@ type AViewParams extends AObject {
 	property containsInstance : Boolean;
 	property InstanceType : String;
 	property InstanceHasTypeDictionary : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AViewerPreferences extends AObject {
@@ -17688,7 +17568,6 @@ type AViewerPreferences extends AObject {
 	property ViewClipHasTypeName : Boolean;
 	property ViewClipNameValue : String;
 	property trailerCatalogPageModeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AViewport extends AObject {
@@ -18102,7 +17981,6 @@ type AXObjectFormPrinterMark extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AXObjectFormTrapNet extends AObject {
@@ -18230,7 +18108,6 @@ type AXObjectFormTrapNet extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AXObjectFormType1 extends AObject {
@@ -18360,8 +18237,6 @@ type AXObjectFormType1 extends AObject {
 	property containsXUID : Boolean;
 	property XUIDType : String;
 	property XUIDHasTypeArray : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type AXObjectImage extends AObject {
@@ -18509,8 +18384,6 @@ type AXObjectImage extends AObject {
 	property WidthType : String;
 	property WidthHasTypeInteger : Boolean;
 	property imageIsStructContentItem : Boolean;
-	property hasExtensionADBE_Extn3 : Boolean;
-	property hasExtensionPDF_VT2 : Boolean;
 }
 
 type AXObjectImageMask extends AObject {
@@ -18634,7 +18507,6 @@ type AXObjectImageMask extends AObject {
 	property imageIsStructContentItem : Boolean;
 	property Decode0IntegerValue : Integer;
 	property Decode1IntegerValue : Integer;
-	property hasExtensionADBE_Extn3 : Boolean;
 }
 
 type AXObjectImageSoftMask extends AObject {
@@ -18860,8 +18732,6 @@ type AXRefStream extends AObject {
 	property EncryptVHasTypeInteger : Boolean;
 	property containstrailerCatalogPieceInfo : Boolean;
 	property containstrailerInfoModDate : Boolean;
-	property hasExtensionISO_TS_32004 : Boolean;
-	property hasExtensionOpenOffice : Boolean;
 }
 
 type A_UniversalArray extends AObject {
@@ -18898,5 +18768,29 @@ type A_UniversalDictionaryEntry extends AObject {
 	property HasTypeNumber : Boolean;
 	property HasTypeStream : Boolean;
 	property HasTypeString : Boolean;
+}
+
+type AObject extends Object {
+	property size : Integer;
+	property keyName : String;
+	property keysString : String;
+	property numberOfPages : Integer;
+	property fileSize : Integer;
+	property isPDFTagged : Boolean;
+	property notStandard14Font : Boolean;
+	property isEncryptedWrapper : Boolean;
+	property hasExtensionAAPL : Boolean;
+	property hasExtensionADBE_Extn3 : Boolean;
+	property hasExtensionISO_19005_3 : Boolean;
+	property hasExtensionISO_19593 : Boolean;
+	property hasExtensionISO_TS_24064 : Boolean;
+	property hasExtensionISO_TS_24654 : Boolean;
+	property hasExtensionISO_TS_32001 : Boolean;
+	property hasExtensionISO_TS_32004 : Boolean;
+	property hasExtensionISO_TS_32007 : Boolean;
+	property hasExtensionMalforms : Boolean;
+	property hasExtensionOpenOffice : Boolean;
+	property hasExtensionPDF_VT2 : Boolean;
+	property hasExtensionWTPDF : Boolean;
 }
 
