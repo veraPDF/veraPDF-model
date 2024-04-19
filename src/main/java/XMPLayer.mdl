@@ -45,6 +45,9 @@ type MainXMPPackage extends XMPPackage {
 
     % value of dc:title
     property dc_title: String;
+    
+    % comma separated list of declarations
+    property declarations: String;
 }
 
 % XMP property
