@@ -688,7 +688,7 @@ type PDAcroForm extends PDObject {
 	property NeedAppearances: Boolean;
 	% true if the form dictionary contains XFA key
 	property containsXFA: Boolean;
-	% all interactive form fields in the document
+	% root interactive form fields in the document
 	link formFields: PDFormField*;
 	% value of dynamicRender property in XFA
 	property dynamicRender: String;
