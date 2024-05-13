@@ -9104,7 +9104,7 @@ type AEmbeddedFileParameter extends AObject {
 	link Mac : AMac?;
 	property containsCheckSum : Boolean;
 	property CheckSumType : String;
-	property CheckSumHasTypeString : Boolean;
+	property CheckSumHasTypeStringByte : Boolean;
 	property CheckSumStringSize : Integer;
 	property containsCreationDate : Boolean;
 	property CreationDateType : String;
