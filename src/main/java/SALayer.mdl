@@ -2,13 +2,15 @@ package org.verapdf.model.salayer;
 
 import org.verapdf.model.baselayer.Object;
 
+import java.util.List;
+
 type SAObject extends Object {
     % id of group in format id:<number>
     property structureID: String;
-    % comma separated list of error codes
-    property errorCodes: String;
-    % semicolon separated list of error arguments
-    property errorArguments: String;
+    % list of error codes
+    property errorCodes: List<String>;
+    % list of error arguments
+    property errorArguments: List<List<String>>;
 }
 
 % the class corresponding to the high level PDF document structure
