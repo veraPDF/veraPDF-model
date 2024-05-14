@@ -6,6 +6,8 @@ import org.verapdf.model.pdlayer.PDStructElem;
 
 import org.verapdf.model.coslayer.CosLang;
 
+import java.util.List;
+
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SENonStandard extends PDStructElem {
     % true, if the struct elem has non-standard type, which is not mapped to a standard type
@@ -189,8 +191,8 @@ type SEMathMLStructElem extends PDStructElem {
 
 % a content item such as text, image, lineart, shading or a form
 type SEContentItem extends Object {
-	% ampersand separated list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
-	property parentsTags: String;
+	% list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
+	property parentsTags: List<String>;
 	% type of the parent structure element for parent marked content sequence
 	property parentStructureTag: String;
 	% true, if parent struct element is a part of the structure tree
