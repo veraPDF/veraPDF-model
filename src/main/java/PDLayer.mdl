@@ -13,7 +13,9 @@ import org.verapdf.model.coslayer.CosIIFilter;
 import org.verapdf.model.coslayer.CosBBox;
 import org.verapdf.model.coslayer.CosBM;
 import org.verapdf.model.coslayer.CosLang;
+import org.verapdf.model.coslayer.CosTextString;
 import org.verapdf.model.coslayer.CosActualText;
+import org.verapdf.model.coslayer.CosAlt;
 
 import org.verapdf.model.operator.Operator;
 
@@ -33,6 +35,8 @@ import org.verapdf.model.selayer.SEContentItem;
 type PDObject extends Object {
 	% ampersand separated list of entries
 	property entries: String;
+	% indirect object number and generation number for the current object
+	property objectKey: String;
 }
 
 % the class corresponding to the high level PDF document structure
@@ -49,6 +53,8 @@ type PDDocument extends PDObject {
 	link AA: PDAdditionalActions?;
 	% document open action (OpenAction entry in the Catalog)
 	link OpenAction: PDAction?;
+	% document open action destination (OpenAction entry in the Catalog)
+	link OpenActionDestination: PDDestination?;
 	% document outlines (Outlines entry in the Catalog)
 	link Outlines: PDOutline*;
 	% link to the optional content properties dictionary
@@ -61,8 +67,6 @@ type PDDocument extends PDObject {
 	link Lang: CosLang?;
 	% link to the permissions object
 	link Perms: PDPerms?;
-	% true at the end of parsing if there were no unhandled exceptions
-	property validPDF: Boolean;
 	% true if the catalog dictionary contains the AA entry
 	property containsAA: Boolean;
 	% color space of output icc profile
@@ -71,21 +75,23 @@ type PDDocument extends PDObject {
 	property Version: String;
 	% the most common page orientation in the document (Portrait, Landscape or Square)
 	% if the most common orientation is Square, then second most common orientation if exists
-    property mostCommonOrientation: String;
+	property mostCommonOrientation: String;
+	% true if the document contains an XRefStream
+	property containsXRefStream: Boolean;
 }
 
 % the object representing PDF page
 type PDPage extends PDObject {
 	% the array of output intents of the page
 	link outputIntents: OutputIntents?;
-	% all page annotations
-	link annots: PDAnnot*;
 	% additional actions dictionary defined for the page (AA entry)
 	link AA: PDAdditionalActions?;
 	% link to the transparency blending space
 	link transparencyColorSpace: TransparencyColorSpace?;
 	% page content stream
 	link contentStream: PDContentStream;
+	% all page annotations
+	link annots: PDAnnot*;
 	% link to the parent transparency blending space
 	link parentTransparencyColorSpace: TransparencyColorSpace?;
 	% group attributes dictionary
@@ -353,8 +359,8 @@ type PDType3Font extends PDSimpleFont {
 type PDCIDFont extends PDFont {
 	% string representation of the CIDtoGIDMap entry ("Identity", or "Custom" in case of stream value)
 	property CIDToGIDMap: String;
-	% link to the stream containing the value of the CIDSet entry in the CID font descriptor dictionary
-	link CIDSet: CosStream?;
+	% true if the CIDSet entry is present in the CID font descriptor dictionary
+	property containsCIDSet: Boolean;
 	% true if the CIDSet is present and correctly lists all glyphs present in the embedded font program
 	property cidSetListsAllGlyphs: Boolean;
 }
@@ -387,7 +393,7 @@ type PDCMap extends PDObject {
 	property CMapName: String;
 	% link to the CMap referenced by the key /UseCMap
 	link UseCMap: PDReferencedCMap?;
-	% link to the embedded CMap file for an non-standard CMap
+	% link to the embedded CMap file for a non-standard CMap
 	link embeddedFile: CMapFile?;
 }
 
@@ -424,6 +430,8 @@ type PDXImage extends PDXObject {
 	link SMask: PDSMaskImage?;
 	% true if the image dictionary contains Alternates key
 	property containsAlternates: Boolean;
+	% value of the BitsPerComponent key
+	property BitsPerComponent: Integer;
 }
 
 % SMask image
@@ -443,7 +451,7 @@ type PDInlineImage extends PDXImage {
 type PDXForm extends PDXObject {
 	% value of the Subtype2 key
 	property Subtype2: String;
-	% true if the form XObjct dictionary contains PS entry
+	% true if the form XObject dictionary contains PS entry
 	property containsPS: Boolean;
 	% true if the form XObject dictionary contains Ref key
 	property containsRef: Boolean;
@@ -497,8 +505,6 @@ type PDExtGState extends PDResource {
 	property CA: Decimal;
 	% the rendering intent
 	link RI: CosRenderingIntent?;
-	% font size
-	link fontSize: CosNumber?;
 	% custom TR functions
 	link customFunctions: PDFunction*;
 }
@@ -534,16 +540,16 @@ type PDAnnot extends PDObject {
 	property F: Integer;
 	% ampersand-separated list of all keys in the annotation's appearance dictionary (AP key)
 	property AP: String;
-	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null,  if this entry is not present
+	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null, if this entry is not present
 	property FT: String;
 	% the type of the normal appearance entry (/N key) in the annotation appearance dictionary (/AP key) or null, if the normal appearance is not present
 	property N_type: String;
-	% normal appearance stream (N key in the appearance dictionary) of the annotation
-	link appearance: PDContentStream?;
-	% link to the annotation's color
-	link C: CosNumber*;
-	% link to the annotation's interior color
-	link IC: CosNumber*;
+	% appearance XForm streams of the annotation (N, D and R keys in the appearance dictionary)
+	link appearance: PDXForm*;
+	% true if the annotation dictionary contains the C entry
+	property containsC: Boolean;
+	% true if the annotation dictionary contains the IC entry
+	property containsIC: Boolean;
 	% link to the action associated with the annotation (A entry)
 	link A: PDAction?;
 	% link to the additional actions dictionary defined for the annotation (AA entry)
@@ -558,6 +564,10 @@ type PDAnnot extends PDObject {
 	property containsAA: Boolean;
 	% struct parent element type
 	property structParentType: String;
+	% struct parent element standard type
+	property structParentStandardType: String;
+	% indirect object number and generation number of the parent struct element of the annotation
+	property structParentObjectKey: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
 	% the value of the /Contents entry
@@ -566,8 +576,18 @@ type PDAnnot extends PDObject {
 	property Alt: String;
 	% true, if annotation rectangle is outside page CropBox
 	property isOutsideCropBox: Boolean;
+	% true if this annotation is contained in an Artifact structure element (directly or indirectly)
+	property isArtifact: Boolean;
 	% link to blend mode
 	link BM: CosBM?;
+}
+
+% markup annotation
+type PDMarkupAnnot extends PDAnnot {
+	% string representation of RC entry
+	property RC: String;
+	% true if the markup annotation contains the RC entry
+	property containsRC: Boolean;
 }
 
 % 3d annotation
@@ -576,23 +596,82 @@ type PD3DAnnot extends PDAnnot {
 	link stream3D: PD3DStream?;
 }
 
-% widget annotation
-type PDWidgetAnnot extends PDAnnot {
-	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
-	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
-	property TU: String;
+% file attachment annotation
+type PDFileAttachmentAnnot extends PDMarkupAnnot {
+	% true if a file attachment annotation contains a FS entry
+	property containsFS: Boolean;
+	% value of an AFRelationship entry in the file specification dictionary 
+	property AFRelationship: String;
+}
+
+% ink annotation
+type PDInkAnnot extends PDMarkupAnnot {
+}
+
+% link annotation
+type PDLinkAnnot extends PDAnnot {
+	% link to the destination of link annotation 
+	link Dest: PDDestination?;
+	% object number and generation number of the Link annotation that targets a different location, 
+	% but is contained in the same structure element as another Link annotation
+	property differentTargetAnnotObjectKey: String;
+	% object number and generation number of the Link annotation that targets the same location, 
+	% but is contained contains in a different structure element as another Link annotation
+	property sameTargetAnnotObjectKey: String;
+}
+
+% movie annotation
+type PDMovieAnnot extends PDAnnot {
+}
+
+% popup annotation
+type PDPopupAnnot extends PDAnnot {
 }
 
 % printer's mark annotation
 type PDPrinterMarkAnnot extends PDAnnot {
 }
 
-% link annotation
-type PDLinkAnnot extends PDAnnot {
+% rich media annotation
+type PDRichMediaAnnot extends PDAnnot {
+}
+
+% rubber stamp annotation
+type PDRubberStampAnnot extends PDMarkupAnnot {
+	% the value of the /Name entry
+	property Name: String;
+}
+
+% screen annotation
+type PDScreenAnnot extends PDAnnot {
+}
+
+% sound annotation
+type PDSoundAnnot extends PDAnnot {
 }
 
 % trap network annotation
 type PDTrapNetAnnot extends PDAnnot {
+}
+
+% watermark annotation
+type PDWatermarkAnnot extends PDAnnot {
+}
+
+
+% widget annotation
+type PDWidgetAnnot extends PDAnnot {
+	% the value of the /TU entry (Field type), in case this is the widget annotation representing the form field,
+	% or value of the parent's /TU entry, if this widget annotation is one of multiple children in a form field
+	property TU: String;
+	% true if the parent struct element contains an Lbl child
+	property containsLbl: Boolean;
+}
+
+% destination object
+type PDDestination extends PDObject {
+	% true if this destination is structure
+	property isStructDestination: Boolean;
 }
 
 % 3D stream dictionary
@@ -627,6 +706,20 @@ type PDFormField extends PDObject {
 	link Lang: CosLang?;
 	% value of the TU entry
 	property TU: String;
+	% value of the Ff entry
+	property Ff: Integer;
+	% link to kids fields
+	link Kids: PDFormField*;
+}
+
+% Form field of type text
+type PDTextField extends PDFormField {
+	% string representation of V entry
+	property V: String;
+	% string representation of RV entry
+	property RV: String;
+	% true if the text field contains the RV entry
+	property containsRV: Boolean;	
 }
 
 % Form field of type signature
@@ -683,12 +776,12 @@ type PDNamedAction extends PDAction {
 
 % the GoTo action object
 type PDGoToAction extends PDAction {
-	% Coordinates of the GoTo destination
-	link D: CosNumber*;
+	% true if this GoTo action contains structure destination
+	property containsStructDestination: Boolean;
 }
 
 % the GoToRemote action object
-type PDGoToRemoteAction extends PDGoToAction {
+type PDGoToRemoteAction extends PDAction {
 
 }
 
@@ -724,6 +817,9 @@ type PDOCProperties extends PDObject {
 	link D: PDOCConfig;
 	% link to alternate optional content configuration dictionaries
 	link Configs: PDOCConfig*;
+	% true if the OCProperties entry contains a Configs entry and
+	% the Configs entry contains at least one optional content configuration dictionary
+	property containsConfigs: Boolean;
 }
 
 type PDOCConfig extends PDObject {
@@ -743,34 +839,34 @@ type PDOCConfig extends PDObject {
 type PDOutline extends PDObject {
 	% link to the associated action object (A entry in the outline dictionary)
 	link A: PDAction?;
+	% link to the title of outline
+	link Title: CosTextString?;	
+	% link to the destination of outline
+	link Dest: PDDestination?;
+}
+
+% the structure tree node dictionary
+type PDStructTreeNode extends PDObject {
+	% immediate children of the structure tree node in the structure hierarchy
+	link K: PDStructElem*;
+	% ampersand separated list of child element types, role mapped to the standard types
+	property kidsStandardTypes: String;
+	% true if the structure tree node contains content items as its children
+	property hasContentItems: Boolean;
 }
 
 % the structure tree root dictionary
-type PDStructTreeRoot extends PDObject {
-	% immediate children of the structure tree root in the structure hierarchy
-	link K: PDStructElem*;
+type PDStructTreeRoot extends PDStructTreeNode {
 	% all structure element names used in role map
 	link roleMapNames: CosUnicodeName*;
-	% standard type of the first kid
-	property topLevelFirstElementStandardType: String;
-	% ampersand separated list of child element types, role mapped to the standard types
-	property kidsStandardTypes: String;
-	% true if the structure element contains content items as its children
-	property hasContentItems: Boolean;
+	% namespace URI of standard type of the first kid
+	property firstChildStandardTypeNamespaceURL: String;
 }
 
 % the structure element dictionary
-type PDStructElem extends PDObject {
-	% the value of the Type entry
-	property Type: String;
-	% ampersand separated list of child element types, role mapped to the standard types
-	property kidsStandardTypes: String;
+type PDStructElem extends PDStructTreeNode {
 	% parent element type, role mapped to the standard type
 	property parentStandardType: String;
-	% true if the structure element contains content items as its children
-	property hasContentItems: Boolean;
-	% immediate child structure tree elements (this does not include integer marked-content identifiers or marked-content reference dictionaries)
-	link K: PDStructElem*;
 	% structure type
 	link S: CosUnicodeName;
 	% structure type
@@ -781,8 +877,8 @@ type PDStructElem extends PDObject {
 	link Lang: CosLang?;
 	% value of parent Lang entry
 	property parentLang: String;
-	% true if type is standard but remapped
-	property isRemappedStandardType : Boolean;
+	% remapped standard type value
+	property remappedStandardType : String;
 	% value of the /Alt entry
 	property Alt: String;
 	% value of the /ActualText entry
@@ -793,6 +889,12 @@ type PDStructElem extends PDObject {
 	property circularMappingExist: Boolean;
 	% value of the ActualText entry
 	link actualText: CosActualText?;
+	% value of the Alt entry
+	link alt: CosAlt?;	
+	% the namespace and the tag within a given namespace that is remapped to another tag within the same namespace
+	property roleMapToSameNamespaceTag: String;
+	% true if the struct elem dictionary contains P entry
+	property containsParent: Boolean;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog

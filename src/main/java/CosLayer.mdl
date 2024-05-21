@@ -22,8 +22,6 @@ type CosDocument extends CosObject {
 	property isOptionalContentPresent: Boolean;
 	% size of data after the EOF and (optional) end of line marker
 	property postEOFDataSize: Integer;
-	% true if Info dictionary is present and synchronized with the document metadata
-	property doesInfoMatchXMP: Boolean;
 	% id of the first page trailer, if the document is linearized. Null, if the document is not linearized
 	property firstPageID: String;
 	% id of the last trailer in the document
@@ -131,9 +129,12 @@ type CosBM extends CosName {
 
 % actual text
 type CosActualText extends CosString {
-	% true if ActualText value contains codes from Unicode Private Use Area
-	property containsPUA: Boolean;
 }
+
+% alt
+type CosAlt extends CosString {
+}
+
 
 % PDF Name representing a Utf8 string
 type CosUnicodeName extends CosName {
@@ -173,6 +174,8 @@ type CosString extends CosObject {
 	property containsOnlyHex: Boolean;
 	% for hexadecimal strings the number of Hex digits (non-white-space characters in the range 0-9, a-f, A-F); 0 for strings in standard format
 	property hexCount: Integer;
+	% true if string value contains codes from Unicode Private Use Area
+	property containsPUA: Boolean;	
 }
 
 % PDF Text String type
@@ -226,6 +229,8 @@ type CosFileSpecification extends CosDict {
 	link EF: EmbeddedFile?;
 	% true if the file specification dictionary contains EF key
 	property containsEF: Boolean;
+	% true if the file specification dictionary contains Desc key
+	property containsDesc: Boolean;
 	% a file specification string (F key)
 	property F: String;
 	% a unicode file specification (UF key)
@@ -234,14 +239,14 @@ type CosFileSpecification extends CosDict {
 	property AFRelationship: String;
 	% true if the file specification dictionary is associated (=referenced by the /AF key) with at least one of the following objects: catalog, page, XObject, annotation or structure element
 	property isAssociatedFile: Boolean;
+	% true if the file specification dictionary is present in the EmbeddedFiles name tree
+	property presentInEmbeddedFiles: Boolean;
 }
 	
 % Trailer of the document	
 type CosTrailer extends CosDict {
 	% true if the document is encrypted
 	property isEncrypted: Boolean;
-	% link to the Catalog dictionary of the PDF document
-	link Catalog: CosIndirect;
 	% link to the Encryption dictionary
 	link Encrypt: PDEncryption?;
 	% link to the document information dictionary

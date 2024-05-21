@@ -8,6 +8,8 @@ import org.verapdf.model.coslayer.CosLang;
 
 % the structure element with no mapping to the standard PDF 1.7 or PDF 2.0 tag
 type SENonStandard extends PDStructElem {
+    % true, if the struct elem has non-standard type, which is not mapped to a standard type
+    property isNotMappedToStandardType: Boolean;
 }
 
 % <Document> structure element
@@ -36,6 +38,10 @@ type SEP extends PDStructElem {
 
 % <L> structure element
 type SEL extends PDStructElem {
+	% value of the ListNumbering attribute
+	property ListNumbering: String;
+	% true if this list contains at least one Lbl descendant node
+	property containsLabels: Boolean;
 }
 
 % <LI> structure element
@@ -119,6 +125,8 @@ type SETOC extends PDStructElem {
 
 % <TOCI> structure element (only PDF 1.7)
 type SETOCI extends PDStructElem {
+	% true if this TOCI element or one of its descendant nodes contains Ref entry
+	property containsRef: Boolean;
 }
 
 % <Index> structure element (only PDF 1.7)
@@ -171,47 +179,68 @@ type SEFigure extends PDStructElem {
 
 % <Formula> structure element
 type SEFormula extends PDStructElem {
+    % true if this formula contains at least one direct child from MathML namespace
+    property isMathFormula: Boolean;
+}
+
+% any structure element in MathML namespace
+type SEMathMLStructElem extends PDStructElem {
 }
 
 % a content item such as text, image, lineart, shading or a form
 type SEContentItem extends Object {
-	% all content items within this content sequence
-	link contentItem: SEContentItem*;
 	% ampersand separated list of tags, associated with parents marked content sequences (first operand of the BMC/BDC operators)
 	property parentsTags: String;
-	% type of the parent structure element for parent marked content sequence (if it is a part of the structure tree)
-	% null, if it is not a part of the structure tree
+	% type of the parent structure element for parent marked content sequence
 	property parentStructureTag: String;
+	% true, if parent struct element is a part of the structure tree
+	property isTaggedContent: Boolean;
+	% object key of parent struct element
+	property parentStructureElementObjectKey: String;
 	% standard type of the parent structure element for parent marked content sequence
 	% (if it is a part of the structure tree), null, if it is not a part of the structure tree
 	property parentStandardTag: String;
+	% value of the ActualText entry
+	property ActualText: String;
+	% value of the Alt entry
+	property Alt: String;
+	% true if this content item is contained in appearance stream of the widget annotation associated with a interactive field of type 'Signature'
+	property isSignature: Boolean;
+	% true if this content item is contained in an Artifact structure element (directly or indirectly)
+	property isArtifact: Boolean;
+}
+
+% a sequence of content items
+type SEGroupedContent extends SEContentItem {
+	% all content items within this content sequence
+	link contentItem: SEContentItem*;
 }
 
 % a content item such as text, image, lineart, shading or a form
 type SESimpleContentItem extends SEContentItem {
+	% type of this content item ('text', 'image', 'lineart' or 'shading')
+	property itemType: String;
+	% true if this content item is contained in a Formula structure element (directly or indirectly)
+	property isFormula: Boolean;
+	% true if this content item is contained in a Figure structure element (directly or indirectly)
+	property isFigure: Boolean;
 }
 
 % content sequence marked via BMC/BDC and EMC operators
-type SEMarkedContent extends SEContentItem {
+type SEMarkedContent extends SEGroupedContent {
 	% tag associated with this marked content sequence (first operand of the BMC/BDC operators)
 	property tag: String;
 	% type of the parent structure element for this marked content sequence (if it is a part of the structure tree)
-	% null, if it is not a part of the structure tree
-	property structureTag: String;
 	% value of the E entry
 	property E: String;
-	% value of the Alt entry
-	property Alt: String;
-	% value of the ActualText entry
-	property ActualText: String;
 	% value of the Lang entry
-	link Lang: CosLang?;
+	property Lang: String;
 	% the value of Lang determined using inheritance rules from ISO 32000-1
 	property inheritedLang: String;
 }
 
 % a sequence of content items not included into any marked content sequence
-type SEUnmarkedContent extends SEContentItem {
+type SEUnmarkedContent extends SEGroupedContent {
 }
 
 % text content item (originated from operators Tj and TJ)
@@ -250,6 +279,8 @@ type SEForm extends PDStructElem {
     property roleAttribute: String;
     % true, if form element has only one child identifying the widget annotation
     property hasOneInteractiveChild: Boolean;
+    % number of widget annotations contained in a given Form structure element
+    property widgetAnnotsCount: Integer;
 }
 
 % <THead> structure element
@@ -310,6 +341,12 @@ type SETitle extends PDStructElem {
 
 % <FENote> structure element (only PDF 2.0)
 type SEFENote extends PDStructElem {
+    % value of the NoteType attribute
+    property NoteType : String;
+    % comma separated list of object numbers that are missing in the Ref entry of a given FENote
+    property orphanRefs : String;
+    % comma separated list of object numbers that are present in the Ref entry of a given FENote, while these structure elements do not reference this FENote 
+    property ghostRefs : String;
 }
 
 % <Sub> structure element (only PDF 2.0)
