@@ -16795,6 +16795,7 @@ type AStructElem extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
+	property NSIsInArraytrailerCatalogStructTreeRootNamespaces : Boolean;
 }
 
 type AStructTreeRoot extends AObject {
