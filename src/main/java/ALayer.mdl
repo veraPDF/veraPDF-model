@@ -13276,6 +13276,7 @@ type ANumberTreeNode extends AObject {
 	property containsNums : Boolean;
 	property NumsType : String;
 	property NumsHasTypeArray : Boolean;
+	property isNumsArraySortAscending2 : Boolean;
 }
 
 type ANumberTreeNodeLimitsArray extends AObject {
