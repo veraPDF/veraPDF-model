@@ -16866,7 +16866,9 @@ type AStructTreeRootNumberTreeParentTree extends AObject {
 type AStructTreeRootNumberTreeParentTreeEntry extends AObject {
 	link Entry : Object?;
 	property Type : String;
+	property HasTypeArray : Boolean;
 	property HasTypeDictionary : Boolean;
+	property HasTypeNull : Boolean;
 }
 
 type AStructureAttributesDict extends AObject {
