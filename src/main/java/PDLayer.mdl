@@ -869,6 +869,9 @@ type PDStructElem extends PDStructTreeNode {
 	property parentStandardType: String;
 	% structure type
 	link S: CosUnicodeName;
+	% the namespace specified in the element dictionary (or the default namespace, if not explicitly specified) and 
+	% the element tag separated by the colon
+	property namespaceAndTag: String;
 	% structure type
 	property valueS: String;
 	% standard structure type defined via role map
