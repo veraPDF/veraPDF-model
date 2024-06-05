@@ -17271,9 +17271,11 @@ type ATrailerIDArray extends AObject {
 	property isentry0Indirect : Boolean;
 	property entry0Type : String;
 	property entry0HasTypeStringByte : Boolean;
+	property entry0StringSize : Integer;
 	property isentry1Indirect : Boolean;
 	property entry1Type : String;
 	property entry1HasTypeStringByte : Boolean;
+	property entry1StringSize : Integer;
 	property containstrailerEncrypt : Boolean;
 }
 
