@@ -6543,7 +6543,7 @@ type AArrayOfIndirectFileSpecificationsEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property EntryIsIndexInNameTreeparentRichMediaContentAssets : Boolean;
+	property IsNameTreeparentRichMediaContentAssetsValue : Boolean;
 }
 
 type AArrayOfIntegersGeneral extends AObject {
@@ -8070,6 +8070,7 @@ type ACatalog extends AObject {
 	property containsViewerPreferences : Boolean;
 	property ViewerPreferencesType : String;
 	property ViewerPreferencesHasTypeDictionary : Boolean;
+	property number0IsNumberTreePageLabelsIndex : Boolean;
 }
 
 type ACatalogNumberTreePageLabels extends AObject {
@@ -8666,10 +8667,10 @@ type ADest0StructArray extends AObject {
 	property entry0HasTypeName : Boolean;
 	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
-	property entry0EntryIsIndexInNameTreetrailerCatalogNamesDests : Boolean;
 	property entry1Type : String;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
+	property entry0IsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
@@ -8694,13 +8695,13 @@ type ADest1StructArray extends AObject {
 	property entry0HasTypeName : Boolean;
 	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
-	property entry0EntryIsIndexInNameTreetrailerCatalogNamesDests : Boolean;
 	property entry1Type : String;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
 	property entry2Type : String;
 	property entry2HasTypeNull : Boolean;
 	property entry2HasTypeNumber : Boolean;
+	property entry0IsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
@@ -8734,7 +8735,6 @@ type ADest4StructArray extends AObject {
 	property entry0HasTypeName : Boolean;
 	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
-	property entry0EntryIsIndexInNameTreetrailerCatalogNamesDests : Boolean;
 	property entry1Type : String;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
@@ -8750,6 +8750,7 @@ type ADest4StructArray extends AObject {
 	property entry5Type : String;
 	property entry5HasTypeNull : Boolean;
 	property entry5HasTypeNumber : Boolean;
+	property entry0IsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
@@ -8815,7 +8816,6 @@ type ADestXYZStructArray extends AObject {
 	property entry0HasTypeName : Boolean;
 	property entry0HasTypeStringByte : Boolean;
 	property entry0NameValue : String;
-	property entry0EntryIsIndexInNameTreetrailerCatalogNamesDests : Boolean;
 	property entry1Type : String;
 	property entry1HasTypeName : Boolean;
 	property entry1NameValue : String;
@@ -8828,6 +8828,7 @@ type ADestXYZStructArray extends AObject {
 	property entry4Type : String;
 	property entry4HasTypeNull : Boolean;
 	property entry4HasTypeNumber : Boolean;
+	property entry0IsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 	property keysStringtrailerCatalogDests : String;
 }
 
@@ -14015,8 +14016,6 @@ type APageObject extends AObject {
 	property containsTemplateInstantiated : Boolean;
 	property TemplateInstantiatedType : String;
 	property TemplateInstantiatedHasTypeName : Boolean;
-	property TemplateInstantiatedEntryIsIndexInNameTreetrailerCatalogNamesPages : Boolean;
-	property TemplateInstantiatedEntryIsIndexInNameTreetrailerCatalogNamesTemplates : Boolean;
 	property containsThumb : Boolean;
 	property isThumbIndirect : Boolean;
 	property ThumbType : String;
@@ -14038,6 +14037,8 @@ type APageObject extends AObject {
 	property VPType : String;
 	property VPHasTypeArray : Boolean;
 	property pageContainsStructContentItems : Boolean;
+	property TemplateInstantiatedIsNameTreetrailerCatalogNamesPagesValue : Boolean;
+	property TemplateInstantiatedIsNameTreetrailerCatalogNamesTemplatesValue : Boolean;
 }
 
 type APagePiece extends AObject {
@@ -16449,7 +16450,6 @@ type ASlideShow extends AObject {
 	property containsStartResource : Boolean;
 	property StartResourceType : String;
 	property StartResourceHasTypeStringByte : Boolean;
-	property StartResourceEntryIsIndexInNameTreeResources : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -16458,6 +16458,7 @@ type ASlideShow extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
+	property StartResourceIsNameTreeResourcesIndex : Boolean;
 }
 
 type ASlideShowNameTreeResources extends AObject {
@@ -17111,13 +17112,11 @@ type ATarget extends AObject {
 	property containsN : Boolean;
 	property NType : String;
 	property NHasTypeStringByte : Boolean;
-	property NEntryIsIndexInNameTreetrailerCatalogNamesEmbeddedFiles : Boolean;
 	property containsP : Boolean;
 	property PType : String;
 	property PHasTypeInteger : Boolean;
 	property PHasTypeStringByte : Boolean;
 	property PIntegerValue : Integer;
-	property PEntryIsIndexInNameTreetrailerCatalogNamesDests : Boolean;
 	property containsR : Boolean;
 	property RType : String;
 	property RHasTypeName : Boolean;
@@ -17126,6 +17125,8 @@ type ATarget extends AObject {
 	property TType : String;
 	property THasTypeDictionary : Boolean;
 	property pagePAnnotsArraySize : Integer;
+	property PIsNameTreetrailerCatalogNamesDestsIndex : Boolean;
+	property parentTIsNameTreetrailerCatalogNamesEmbeddedFilesValue : Boolean;
 	property pagePAnnotsHasTypeArray : Boolean;
 }
 
