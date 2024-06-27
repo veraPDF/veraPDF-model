@@ -483,10 +483,12 @@ type PDGroup extends PDObject {
 
 % ExtGState dictionary
 type PDExtGState extends PDResource {
-	% TR function
-	property TR: String;
 	% TR2 function
-	property TR2: String;
+	property TR2NameValue: String;
+	% true if the ExtGState dictionary contains TR key
+	property containsTR: Boolean;
+	% true if the ExtGState dictionary contains TR2 key
+	property containsTR2: Boolean;
 	% Halftone dictionary
 	link HT: PDHalftone;
 	% true if the ExtGState dictionary contains HTP key
@@ -494,9 +496,11 @@ type PDExtGState extends PDResource {
 	% true if the ExtGState dictionary contains HTO key
 	property containsHTO: Boolean;
 	% String representation of the SMask key ("None" or "Custom")
-	property SMask: String;
+	property SMaskNameValue: String;
+	% true if the ExtGState dictionary contains SMask key
+	property containsSMask: Boolean;
 	% blend mode
-	property BM: String;
+	property BMNameValue: String;
 	% link to blend mode
 	link bm: CosBM?;
 	% fill alpha
