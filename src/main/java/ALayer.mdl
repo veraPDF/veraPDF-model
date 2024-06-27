@@ -18786,6 +18786,7 @@ type AObject extends Object {
 	property isPDFTagged : Boolean;
 	property notStandard14Font : Boolean;
 	property isEncryptedWrapper : Boolean;
+	property isAssociatedFile : Boolean;
 	property hasExtensionAAPL : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
 	property hasExtensionISO_19005_3 : Boolean;
