@@ -499,6 +499,8 @@ type PDExtGState extends PDResource {
 	property SMaskNameValue: String;
 	% true if the ExtGState dictionary contains SMask key
 	property containsSMask: Boolean;
+	% true if the ExtGState dictionary contains BM key
+	property containsBM: Boolean;
 	% blend mode
 	property BMNameValue: String;
 	% link to blend mode
