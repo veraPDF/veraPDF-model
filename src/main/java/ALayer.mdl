@@ -867,6 +867,7 @@ type AActionGoTo extends AObject {
 	property DHasTypeArray : Boolean;
 	property DHasTypeName : Boolean;
 	property DHasTypeStringByte : Boolean;
+	property DStringByteValue : String;
 	property containsNext : Boolean;
 	property NextType : String;
 	property NextHasTypeArray : Boolean;
@@ -882,6 +883,7 @@ type AActionGoTo extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
+	property DIsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 }
 
 type AActionGoTo3DView extends AObject {
@@ -15179,6 +15181,7 @@ type ARequirementsglTF extends AObject {
 
 type AResource extends AObject {
 	link ColorSpace : AColorSpaceMap?;
+	link Encoding : AEncoding?;
 	link ExtGState : AGraphicsStateParameterMap?;
 	link Font : AFontMap?;
 	link Pattern : APatternMap?;
@@ -15189,6 +15192,9 @@ type AResource extends AObject {
 	property containsColorSpace : Boolean;
 	property ColorSpaceType : String;
 	property ColorSpaceHasTypeDictionary : Boolean;
+	property containsEncoding : Boolean;
+	property EncodingType : String;
+	property EncodingHasTypeDictionary : Boolean;
 	property containsExtGState : Boolean;
 	property ExtGStateType : String;
 	property ExtGStateHasTypeDictionary : Boolean;
