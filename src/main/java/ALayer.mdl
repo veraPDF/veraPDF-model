@@ -6320,6 +6320,231 @@ type AArrayOfCIDGlyphMetricsWEntry extends AObject {
 	property HasTypeNumber : Boolean;
 }
 
+type AArrayOfCIP4_AssemblingIntent extends AObject {
+	link Entries : AArrayOfCIP4_AssemblingIntentEntry*;
+}
+
+type AArrayOfCIP4_AssemblingIntentEntry extends AObject {
+	link Entry : ACIP4_AssemblingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_AssemblyItem extends AObject {
+	link Entries : AArrayOfCIP4_AssemblyItemEntry*;
+}
+
+type AArrayOfCIP4_AssemblyItemEntry extends AObject {
+	link Entry : ACIP4_AssemblyItem?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_BindIn extends AObject {
+	link Entries : AArrayOfCIP4_BindInEntry*;
+}
+
+type AArrayOfCIP4_BindInEntry extends AObject {
+	link Entry : ACIP4_BindIn?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_BindingIntent extends AObject {
+	link Entries : AArrayOfCIP4_BindingIntentEntry*;
+}
+
+type AArrayOfCIP4_BindingIntentEntry extends AObject {
+	link Entry : ACIP4_BindingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_BlowIn extends AObject {
+	link Entries : AArrayOfCIP4_BlowInEntry*;
+}
+
+type AArrayOfCIP4_BlowInEntry extends AObject {
+	link Entry : ACIP4_BlowIn?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_ChannelUsage extends AObject {
+	link Entries : AArrayOfCIP4_ChannelUsageEntry*;
+}
+
+type AArrayOfCIP4_ChannelUsageEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_Coatings extends AObject {
+	link Entries : AArrayOfCIP4_CoatingsEntry*;
+}
+
+type AArrayOfCIP4_CoatingsEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_ColorIntent extends AObject {
+	link Entries : AArrayOfCIP4_ColorIntentEntry*;
+}
+
+type AArrayOfCIP4_ColorIntentEntry extends AObject {
+	link Entry : ACIP4_ColorIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_ComChannel extends AObject {
+	link Entries : AArrayOfCIP4_ComChannelEntry*;
+}
+
+type AArrayOfCIP4_ComChannelEntry extends AObject {
+	link Entry : ACIP4_ComChannel?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_ContactTypes extends AObject {
+	link Entries : AArrayOfCIP4_ContactTypesEntry*;
+}
+
+type AArrayOfCIP4_ContactTypesEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_FinishedDimensions extends AObject {
+	property contains0 : Boolean;
+	property entry0Type : String;
+	property entry0HasTypeNumber : Boolean;
+	property entry0NumberValue : Decimal;
+	property contains1 : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeNumber : Boolean;
+	property entry1NumberValue : Decimal;
+	property contains2 : Boolean;
+	property entry2Type : String;
+	property entry2HasTypeNumber : Boolean;
+	property entry2NumberValue : Decimal;
+}
+
+type AArrayOfCIP4_FoldingIntent extends AObject {
+	link Entries : AArrayOfCIP4_FoldingIntentEntry*;
+}
+
+type AArrayOfCIP4_FoldingIntentEntry extends AObject {
+	link Entry : ACIP4_FoldingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_HoleMakingIntent extends AObject {
+	link Entries : AArrayOfCIP4_HoleMakingIntentEntry*;
+}
+
+type AArrayOfCIP4_HoleMakingIntentEntry extends AObject {
+	link Entry : ACIP4_HoleMakingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_HolePattern extends AObject {
+	link Entries : AArrayOfCIP4_HolePatternEntry*;
+}
+
+type AArrayOfCIP4_HolePatternEntry extends AObject {
+	link Entry : ACIP4_HolePattern?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_LABColorValue extends AObject {
+	property contains0 : Boolean;
+	property entry0Type : String;
+	property entry0HasTypeNumber : Boolean;
+	property contains1 : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeNumber : Boolean;
+	property contains2 : Boolean;
+	property entry2Type : String;
+	property entry2HasTypeNumber : Boolean;
+}
+
+type AArrayOfCIP4_LayoutIntent extends AObject {
+	link Entries : AArrayOfCIP4_LayoutIntentEntry*;
+}
+
+type AArrayOfCIP4_LayoutIntentEntry extends AObject {
+	link Entry : ACIP4_LayoutIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_MediaIntent extends AObject {
+	link Entries : AArrayOfCIP4_MediaIntentEntry*;
+}
+
+type AArrayOfCIP4_MediaIntentEntry extends AObject {
+	link Entry : ACIP4_MediaIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_PrintProcess extends AObject {
+	link Entries : AArrayOfCIP4_PrintProcessEntry*;
+}
+
+type AArrayOfCIP4_PrintProcessEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_ProductionIntent extends AObject {
+	link Entries : AArrayOfCIP4_ProductionIntentEntry*;
+}
+
+type AArrayOfCIP4_ProductionIntentEntry extends AObject {
+	link Entry : ACIP4_ProductionIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_Resource extends AObject {
+	link Entries : AArrayOfCIP4_ResourceEntry*;
+}
+
+type AArrayOfCIP4_ResourceEntry extends AObject {
+	link Entry : A_UniversalDictionary?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_StickOn extends AObject {
+	link Entries : AArrayOfCIP4_StickOnEntry*;
+}
+
+type AArrayOfCIP4_StickOnEntry extends AObject {
+	link Entry : ACIP4_StickOn?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
 type AArrayOfClassNamesRevisions extends AObject {
 	link subArrays : AArrayOfClassNamesRevisionsSubArray?;
 }
@@ -7818,6 +8043,572 @@ type ACIDSystemInfo extends AObject {
 	property SupplementHasTypeInteger : Boolean;
 }
 
+type ACIP4_Address extends AObject {
+	link CIP4_AddressLines : AArrayOfStringsText?;
+	property containsCIP4_AddressLines : Boolean;
+	property CIP4_AddressLinesType : String;
+	property CIP4_AddressLinesHasTypeArray : Boolean;
+	property containsCIP4_AddressUsage : Boolean;
+	property CIP4_AddressUsageType : String;
+	property CIP4_AddressUsageHasTypeName : Boolean;
+	property CIP4_AddressUsageNameValue : String;
+	property containsCIP4_City : Boolean;
+	property CIP4_CityType : String;
+	property CIP4_CityHasTypeString : Boolean;
+	property containsCIP4_CivicNumber : Boolean;
+	property CIP4_CivicNumberType : String;
+	property CIP4_CivicNumberHasTypeString : Boolean;
+	property containsCIP4_Country : Boolean;
+	property CIP4_CountryType : String;
+	property CIP4_CountryHasTypeString : Boolean;
+	property containsCIP4_CountryCode : Boolean;
+	property CIP4_CountryCodeType : String;
+	property CIP4_CountryCodeHasTypeName : Boolean;
+	property containsCIP4_PostBox : Boolean;
+	property CIP4_PostBoxType : String;
+	property CIP4_PostBoxHasTypeString : Boolean;
+	property containsCIP4_PostalCode : Boolean;
+	property CIP4_PostalCodeType : String;
+	property CIP4_PostalCodeHasTypeString : Boolean;
+	property containsCIP4_Region : Boolean;
+	property CIP4_RegionType : String;
+	property CIP4_RegionHasTypeString : Boolean;
+	property containsCIP4_Street : Boolean;
+	property CIP4_StreetType : String;
+	property CIP4_StreetHasTypeString : Boolean;
+	property containsCIP4_StreetName : Boolean;
+	property CIP4_StreetNameType : String;
+	property CIP4_StreetNameHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_AssemblingIntent extends AObject {
+	link CIP4_AssemblyItem : AArrayOfCIP4_AssemblyItem?;
+	link CIP4_BindIn : AArrayOfCIP4_BindIn?;
+	link CIP4_BlowIn : AArrayOfCIP4_BlowIn?;
+	link CIP4_Container : ADPart?;
+	link CIP4_StickOn : AArrayOfCIP4_StickOn?;
+	property containsCIP4_AssemblyItem : Boolean;
+	property CIP4_AssemblyItemType : String;
+	property CIP4_AssemblyItemHasTypeArray : Boolean;
+	property containsCIP4_BindIn : Boolean;
+	property CIP4_BindInType : String;
+	property CIP4_BindInHasTypeArray : Boolean;
+	property containsCIP4_BlowIn : Boolean;
+	property CIP4_BlowInType : String;
+	property CIP4_BlowInHasTypeArray : Boolean;
+	property containsCIP4_Container : Boolean;
+	property isCIP4_ContainerIndirect : Boolean;
+	property CIP4_ContainerType : String;
+	property CIP4_ContainerHasTypeDictionary : Boolean;
+	property containsCIP4_StickOn : Boolean;
+	property CIP4_StickOnType : String;
+	property CIP4_StickOnHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_AssemblyItem extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_BindIn extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_BindingIntent extends AObject {
+	link CIP4_SaddleStitching : ACIP4_SaddleStitching?;
+	link CIP4_SideStitching : ACIP4_SideStitching?;
+	property containsCIP4_BindingSide : Boolean;
+	property CIP4_BindingSideType : String;
+	property CIP4_BindingSideHasTypeName : Boolean;
+	property CIP4_BindingSideNameValue : String;
+	property containsCIP4_BindingType : Boolean;
+	property CIP4_BindingTypeType : String;
+	property CIP4_BindingTypeHasTypeName : Boolean;
+	property CIP4_BindingTypeNameValue : String;
+	property containsCIP4_SaddleStitching : Boolean;
+	property CIP4_SaddleStitchingType : String;
+	property CIP4_SaddleStitchingHasTypeDictionary : Boolean;
+	property containsCIP4_SideStitching : Boolean;
+	property CIP4_SideStitchingType : String;
+	property CIP4_SideStitchingHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_BlowIn extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_ColorIntent extends AObject {
+	link CIP4_Coatings : AArrayOfCIP4_Coatings?;
+	property containsCIP4_Coatings : Boolean;
+	property CIP4_CoatingsType : String;
+	property CIP4_CoatingsHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_ComChannel extends AObject {
+	link CIP4_ChannelUsage : AArrayOfCIP4_ChannelUsage?;
+	property containsCIP4_ChannelType : Boolean;
+	property CIP4_ChannelTypeType : String;
+	property CIP4_ChannelTypeHasTypeName : Boolean;
+	property CIP4_ChannelTypeNameValue : String;
+	property containsCIP4_ChannelUsage : Boolean;
+	property CIP4_ChannelUsageType : String;
+	property CIP4_ChannelUsageHasTypeArray : Boolean;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_Locator : Boolean;
+	property CIP4_LocatorType : String;
+	property CIP4_LocatorHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Company extends AObject {
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_OrganizationName : Boolean;
+	property CIP4_OrganizationNameType : String;
+	property CIP4_OrganizationNameHasTypeString : Boolean;
+	property containsCIP4_OrganizationalUnit : Boolean;
+	property CIP4_OrganizationalUnitType : String;
+	property CIP4_OrganizationalUnitHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Contact extends AObject {
+	link CIP4_Address : ACIP4_Address?;
+	link CIP4_ComChannel : AArrayOfCIP4_ComChannel?;
+	link CIP4_Company : ACIP4_Company?;
+	link CIP4_ContactTypes : AArrayOfCIP4_ContactTypes?;
+	link CIP4_Person : ACIP4_Person?;
+	property containsCIP4_Address : Boolean;
+	property CIP4_AddressType : String;
+	property CIP4_AddressHasTypeDictionary : Boolean;
+	property containsCIP4_ComChannel : Boolean;
+	property CIP4_ComChannelType : String;
+	property CIP4_ComChannelHasTypeArray : Boolean;
+	property containsCIP4_Company : Boolean;
+	property CIP4_CompanyType : String;
+	property CIP4_CompanyHasTypeDictionary : Boolean;
+	property containsCIP4_ContactTypes : Boolean;
+	property CIP4_ContactTypesType : String;
+	property CIP4_ContactTypesHasTypeArray : Boolean;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_Person : Boolean;
+	property CIP4_PersonType : String;
+	property CIP4_PersonHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_FoldingIntent extends AObject {
+	property containsCIP4_FoldCatalog : Boolean;
+	property CIP4_FoldCatalogType : String;
+	property CIP4_FoldCatalogHasTypeName : Boolean;
+	property CIP4_FoldCatalogNameValue : String;
+	property containsCIP4_Orientation : Boolean;
+	property CIP4_OrientationType : String;
+	property CIP4_OrientationHasTypeName : Boolean;
+	property CIP4_OrientationNameValue : String;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_HoleMakingIntent extends AObject {
+	link CIP4_HolePattern : AArrayOfCIP4_HolePattern?;
+	property containsCIP4_HolePattern : Boolean;
+	property CIP4_HolePatternType : String;
+	property CIP4_HolePatternHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_HolePattern extends AObject {
+	property containsCIP4_HoleReferenceEdge : Boolean;
+	property CIP4_HoleReferenceEdgeType : String;
+	property CIP4_HoleReferenceEdgeHasTypeName : Boolean;
+	property CIP4_HoleReferenceEdgeNameValue : String;
+	property containsCIP4_Pattern : Boolean;
+	property CIP4_PatternType : String;
+	property CIP4_PatternHasTypeName : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Intent extends AObject {
+	link CIP4_AssemblingIntent : ACIP4_AssemblingIntent?;
+	link CIP4_BindingIntent : ACIP4_BindingIntent?;
+	link CIP4_ColorIntent : ACIP4_ColorIntent?;
+	link CIP4_FoldingIntent : ACIP4_FoldingIntent?;
+	link CIP4_HoleMakingIntent : ACIP4_HoleMakingIntent?;
+	link CIP4_LayoutIntent : ACIP4_LayoutIntent?;
+	link CIP4_MediaIntent : ACIP4_MediaIntent?;
+	link CIP4_ProductionIntent : ACIP4_ProductionIntent?;
+	property containsCIP4_AssemblingIntent : Boolean;
+	property CIP4_AssemblingIntentType : String;
+	property CIP4_AssemblingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_BindingIntent : Boolean;
+	property CIP4_BindingIntentType : String;
+	property CIP4_BindingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_ColorIntent : Boolean;
+	property CIP4_ColorIntentType : String;
+	property CIP4_ColorIntentHasTypeDictionary : Boolean;
+	property containsCIP4_FoldingIntent : Boolean;
+	property CIP4_FoldingIntentType : String;
+	property CIP4_FoldingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_HoleMakingIntent : Boolean;
+	property CIP4_HoleMakingIntentType : String;
+	property CIP4_HoleMakingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_LayoutIntent : Boolean;
+	property CIP4_LayoutIntentType : String;
+	property CIP4_LayoutIntentHasTypeDictionary : Boolean;
+	property containsCIP4_MediaIntent : Boolean;
+	property CIP4_MediaIntentType : String;
+	property CIP4_MediaIntentHasTypeDictionary : Boolean;
+	property containsCIP4_ProductType : Boolean;
+	property CIP4_ProductTypeType : String;
+	property CIP4_ProductTypeHasTypeName : Boolean;
+	property CIP4_ProductTypeNameValue : String;
+	property containsCIP4_ProductionIntent : Boolean;
+	property CIP4_ProductionIntentType : String;
+	property CIP4_ProductionIntentHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_IntentSummary extends AObject {
+	link CIP4_AssemblingIntent : AArrayOfCIP4_AssemblingIntent?;
+	link CIP4_BindingIntent : AArrayOfCIP4_BindingIntent?;
+	link CIP4_ColorIntent : AArrayOfCIP4_ColorIntent?;
+	link CIP4_FoldingIntent : AArrayOfCIP4_FoldingIntent?;
+	link CIP4_HoleMakingIntent : AArrayOfCIP4_HoleMakingIntent?;
+	link CIP4_LayoutIntent : AArrayOfCIP4_LayoutIntent?;
+	link CIP4_MediaIntent : AArrayOfCIP4_MediaIntent?;
+	link CIP4_ProductionIntent : AArrayOfCIP4_ProductionIntent?;
+	property containsCIP4_AssemblingIntent : Boolean;
+	property CIP4_AssemblingIntentType : String;
+	property CIP4_AssemblingIntentHasTypeArray : Boolean;
+	property containsCIP4_BindingIntent : Boolean;
+	property CIP4_BindingIntentType : String;
+	property CIP4_BindingIntentHasTypeArray : Boolean;
+	property containsCIP4_ColorIntent : Boolean;
+	property CIP4_ColorIntentType : String;
+	property CIP4_ColorIntentHasTypeArray : Boolean;
+	property containsCIP4_FoldingIntent : Boolean;
+	property CIP4_FoldingIntentType : String;
+	property CIP4_FoldingIntentHasTypeArray : Boolean;
+	property containsCIP4_HoleMakingIntent : Boolean;
+	property CIP4_HoleMakingIntentType : String;
+	property CIP4_HoleMakingIntentHasTypeArray : Boolean;
+	property containsCIP4_LayoutIntent : Boolean;
+	property CIP4_LayoutIntentType : String;
+	property CIP4_LayoutIntentHasTypeArray : Boolean;
+	property containsCIP4_MediaIntent : Boolean;
+	property CIP4_MediaIntentType : String;
+	property CIP4_MediaIntentHasTypeArray : Boolean;
+	property containsCIP4_ProductionIntent : Boolean;
+	property CIP4_ProductionIntentType : String;
+	property CIP4_ProductionIntentHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_LayoutIntent extends AObject {
+	link CIP4_FinishedDimensions : AArrayOfCIP4_FinishedDimensions?;
+	property containsCIP4_FinishedDimensions : Boolean;
+	property CIP4_FinishedDimensionsType : String;
+	property CIP4_FinishedDimensionsHasTypeArray : Boolean;
+	property containsCIP4_Sides : Boolean;
+	property CIP4_SidesType : String;
+	property CIP4_SidesHasTypeName : Boolean;
+	property CIP4_SidesNameValue : String;
+	property containsCIP4_SpreadType : Boolean;
+	property CIP4_SpreadTypeType : String;
+	property CIP4_SpreadTypeHasTypeName : Boolean;
+	property CIP4_SpreadTypeNameValue : String;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_MediaIntent extends AObject {
+	link CIP4_LABColorValue : AArrayOfCIP4_LABColorValue?;
+	property containsCIP4_BackCoating : Boolean;
+	property CIP4_BackCoatingType : String;
+	property CIP4_BackCoatingHasTypeName : Boolean;
+	property CIP4_BackCoatingNameValue : String;
+	property containsCIP4_Coating : Boolean;
+	property CIP4_CoatingType : String;
+	property CIP4_CoatingHasTypeName : Boolean;
+	property CIP4_CoatingNameValue : String;
+	property containsCIP4_ISOPaperSubstrate : Boolean;
+	property CIP4_ISOPaperSubstrateType : String;
+	property CIP4_ISOPaperSubstrateHasTypeName : Boolean;
+	property CIP4_ISOPaperSubstrateNameValue : String;
+	property containsCIP4_LABColorValue : Boolean;
+	property CIP4_LABColorValueType : String;
+	property CIP4_LABColorValueHasTypeArray : Boolean;
+	property containsCIP4_MediaColor : Boolean;
+	property CIP4_MediaColorType : String;
+	property CIP4_MediaColorHasTypeName : Boolean;
+	property CIP4_MediaColorNameValue : String;
+	property containsCIP4_MediaColorDetails : Boolean;
+	property CIP4_MediaColorDetailsType : String;
+	property CIP4_MediaColorDetailsHasTypeString : Boolean;
+	property containsCIP4_MediaQuality : Boolean;
+	property CIP4_MediaQualityType : String;
+	property CIP4_MediaQualityHasTypeString : Boolean;
+	property containsCIP4_MediaTypeDetails : Boolean;
+	property CIP4_MediaTypeDetailsType : String;
+	property CIP4_MediaTypeDetailsHasTypeName : Boolean;
+	property containsCIP4_Weight : Boolean;
+	property CIP4_WeightType : String;
+	property CIP4_WeightHasTypeNumber : Boolean;
+	property CIP4_WeightNumberValue : Decimal;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Metadata extends AObject {
+	link CIP4_Accounting : ACIP4_Contact?;
+	link CIP4_Administrator : ACIP4_Contact?;
+	link CIP4_Author : ACIP4_Contact?;
+	link CIP4_Conformance : AArrayOfStringsText?;
+	link CIP4_Sender : ACIP4_Contact?;
+	property containsCIP4_Accounting : Boolean;
+	property CIP4_AccountingType : String;
+	property CIP4_AccountingHasTypeDictionary : Boolean;
+	property containsCIP4_Administrator : Boolean;
+	property CIP4_AdministratorType : String;
+	property CIP4_AdministratorHasTypeDictionary : Boolean;
+	property containsCIP4_Author : Boolean;
+	property CIP4_AuthorType : String;
+	property CIP4_AuthorHasTypeDictionary : Boolean;
+	property containsCIP4_Conformance : Boolean;
+	property CIP4_ConformanceType : String;
+	property CIP4_ConformanceHasTypeArray : Boolean;
+	property containsCIP4_Creator : Boolean;
+	property CIP4_CreatorType : String;
+	property CIP4_CreatorHasTypeString : Boolean;
+	property containsCIP4_JobID : Boolean;
+	property CIP4_JobIDType : String;
+	property CIP4_JobIDHasTypeName : Boolean;
+	property containsCIP4_ModificationDate : Boolean;
+	property CIP4_ModificationDateType : String;
+	property CIP4_ModificationDateHasTypeDate : Boolean;
+	property containsCIP4_ProjectID : Boolean;
+	property CIP4_ProjectIDType : String;
+	property CIP4_ProjectIDHasTypeName : Boolean;
+	property containsCIP4_Sender : Boolean;
+	property CIP4_SenderType : String;
+	property CIP4_SenderHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Person extends AObject {
+	property containsCIP4_AdditionalNames : Boolean;
+	property CIP4_AdditionalNamesType : String;
+	property CIP4_AdditionalNamesHasTypeString : Boolean;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_FamilyName : Boolean;
+	property CIP4_FamilyNameType : String;
+	property CIP4_FamilyNameHasTypeString : Boolean;
+	property containsCIP4_FirstName : Boolean;
+	property CIP4_FirstNameType : String;
+	property CIP4_FirstNameHasTypeString : Boolean;
+	property containsCIP4_FullName : Boolean;
+	property CIP4_FullNameType : String;
+	property CIP4_FullNameHasTypeString : Boolean;
+	property containsCIP4_JobTitle : Boolean;
+	property CIP4_JobTitleType : String;
+	property CIP4_JobTitleHasTypeString : Boolean;
+	property containsCIP4_NamePrefix : Boolean;
+	property CIP4_NamePrefixType : String;
+	property CIP4_NamePrefixHasTypeString : Boolean;
+	property containsCIP4_NameSuffix : Boolean;
+	property CIP4_NameSuffixType : String;
+	property CIP4_NameSuffixHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Production extends AObject {
+	link CIP4_Resource : AArrayOfCIP4_Resource?;
+	property containsCIP4_CopyCount : Boolean;
+	property CIP4_CopyCountType : String;
+	property CIP4_CopyCountHasTypeInteger : Boolean;
+	property CIP4_CopyCountIntegerValue : Integer;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_Resource : Boolean;
+	property CIP4_ResourceType : String;
+	property CIP4_ResourceHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_ProductionIntent extends AObject {
+	link CIP4_PrintProcess : AArrayOfCIP4_PrintProcess?;
+	property containsCIP4_PrintPreference : Boolean;
+	property CIP4_PrintPreferenceType : String;
+	property CIP4_PrintPreferenceHasTypeName : Boolean;
+	property CIP4_PrintPreferenceNameValue : String;
+	property containsCIP4_PrintProcess : Boolean;
+	property CIP4_PrintProcessType : String;
+	property CIP4_PrintProcessHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Recipient extends AObject {
+	link CIP4_Contact : ACIP4_Contact?;
+	property containsCIP4_Contact : Boolean;
+	property CIP4_ContactType : String;
+	property CIP4_ContactHasTypeDictionary : Boolean;
+	property containsCIP4_ExternalID : Boolean;
+	property CIP4_ExternalIDType : String;
+	property CIP4_ExternalIDHasTypeName : Boolean;
+}
+
+type ACIP4_Root extends AObject {
+	link CIP4_Intent : ACIP4_Intent?;
+	link CIP4_IntentSummary : ACIP4_IntentSummary?;
+	link CIP4_Metadata : ACIP4_Metadata?;
+	link CIP4_Production : ACIP4_Production?;
+	link CIP4_Recipient : ACIP4_Recipient?;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_ExternalID : Boolean;
+	property CIP4_ExternalIDType : String;
+	property CIP4_ExternalIDHasTypeName : Boolean;
+	property containsCIP4_Intent : Boolean;
+	property CIP4_IntentType : String;
+	property CIP4_IntentHasTypeDictionary : Boolean;
+	property containsCIP4_IntentSummary : Boolean;
+	property CIP4_IntentSummaryType : String;
+	property CIP4_IntentSummaryHasTypeDictionary : Boolean;
+	property containsCIP4_Metadata : Boolean;
+	property CIP4_MetadataType : String;
+	property CIP4_MetadataHasTypeDictionary : Boolean;
+	property containsCIP4_Production : Boolean;
+	property CIP4_ProductionType : String;
+	property CIP4_ProductionHasTypeDictionary : Boolean;
+	property containsCIP4_Recipient : Boolean;
+	property CIP4_RecipientType : String;
+	property CIP4_RecipientHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_SaddleStitching extends AObject {
+	property containsCIP4_StitchNumber : Boolean;
+	property CIP4_StitchNumberType : String;
+	property CIP4_StitchNumberHasTypeInteger : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_SideStitching extends AObject {
+	property containsCIP4_StitchNumber : Boolean;
+	property CIP4_StitchNumberType : String;
+	property CIP4_StitchNumberHasTypeInteger : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_StickOn extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
 type ACMapStream extends AObject {
 	link CIDSystemInfo : ACIDSystemInfo?;
 	link DecodeParms : Object?;
@@ -8517,8 +9308,12 @@ type ACryptFilterPublicKeyMapEntry extends AObject {
 
 type ADPM extends AObject {
 	link Entries : ADPMEntry*;
+	link CIP4_Root : ACIP4_Root?;
 	link GTS_Managed : A_UniversalDictionary?;
 	link GTS_Suspect : A_UniversalDictionary?;
+	property containsCIP4_Root : Boolean;
+	property CIP4_RootType : String;
+	property CIP4_RootHasTypeDictionary : Boolean;
 	property containsGTS_Managed : Boolean;
 	property GTS_ManagedType : String;
 	property GTS_ManagedHasTypeDictionary : Boolean;
@@ -9370,7 +10165,13 @@ type AExDataProjection extends AObject {
 
 type AExtensions extends AObject {
 	link Entries : AExtensionsEntry*;
+	link GTSm : Object?;
 	link ISO_ : Object?;
+	property containsGTSm : Boolean;
+	property isGTSmIndirect : Boolean;
+	property GTSmType : String;
+	property GTSmHasTypeArray : Boolean;
+	property GTSmHasTypeDictionary : Boolean;
 	property containsISO_ : Boolean;
 	property isISO_Indirect : Boolean;
 	property ISO_Type : String;
@@ -11347,6 +12148,32 @@ type AGTS_ProcStepsGroup extends AObject {
 	property containsGWG__ProcStepsColorants : Boolean;
 	property GWG__ProcStepsColorantsType : String;
 	property GWG__ProcStepsColorantsHasTypeName : Boolean;
+}
+
+type AGTSm_DevExtensions extends AObject {
+	property containsBaseVersion : Boolean;
+	property isBaseVersionIndirect : Boolean;
+	property BaseVersionType : String;
+	property BaseVersionHasTypeName : Boolean;
+	property BaseVersionNameValue : String;
+	property containsExtensionLevel : Boolean;
+	property isExtensionLevelIndirect : Boolean;
+	property ExtensionLevelType : String;
+	property ExtensionLevelHasTypeInteger : Boolean;
+	property ExtensionLevelIntegerValue : Integer;
+	property containsExtensionRevision : Boolean;
+	property isExtensionRevisionIndirect : Boolean;
+	property ExtensionRevisionType : String;
+	property ExtensionRevisionHasTypeStringText : Boolean;
+	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+	property containsURL : Boolean;
+	property isURLIndirect : Boolean;
+	property URLType : String;
+	property URLHasTypeString : Boolean;
 }
 
 type AGammaArray extends AObject {
@@ -18797,6 +19624,7 @@ type AObject extends Object {
 	property hasExtensionADBE_Extn3 : Boolean;
 	property hasExtensionISO_19005_3 : Boolean;
 	property hasExtensionISO_19593 : Boolean;
+	property hasExtensionISO_21812 : Boolean;
 	property hasExtensionISO_TS_24064 : Boolean;
 	property hasExtensionISO_TS_24654 : Boolean;
 	property hasExtensionISO_TS_32001 : Boolean;
