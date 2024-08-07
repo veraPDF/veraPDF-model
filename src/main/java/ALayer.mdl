@@ -11065,7 +11065,7 @@ type AFontDescriptorCIDType0 extends AObject {
 	link CIDSet : AStream?;
 	link FD : AFDDict?;
 	link FontFile : AFontFile?;
-	link FontFile3 : AFontFile3CIDType0?;
+	link FontFile3 : Object?;
 	link Style : AStyleDict?;
 	property containsAscent : Boolean;
 	property AscentType : String;
@@ -11156,6 +11156,7 @@ type AFontDescriptorCIDType2 extends AObject {
 	link FD : AFDDict?;
 	link FontFile : AFontFile?;
 	link FontFile2 : AFontFile2?;
+	link FontFile3 : AFontFile3OpenType?;
 	link Style : AStyleDict?;
 	property containsAscent : Boolean;
 	property AscentType : String;
@@ -11195,6 +11196,10 @@ type AFontDescriptorCIDType2 extends AObject {
 	property isFontFile2Indirect : Boolean;
 	property FontFile2Type : String;
 	property FontFile2HasTypeStream : Boolean;
+	property containsFontFile3 : Boolean;
+	property isFontFile3Indirect : Boolean;
+	property FontFile3Type : String;
+	property FontFile3HasTypeStream : Boolean;
 	property containsFontName : Boolean;
 	property FontNameType : String;
 	property FontNameHasTypeName : Boolean;
@@ -11244,6 +11249,7 @@ type AFontDescriptorCIDType2 extends AObject {
 type AFontDescriptorTrueType extends AObject {
 	link FontFile : AFontFileType1?;
 	link FontFile2 : AFontFile2?;
+	link FontFile3 : AFontFile3OpenType?;
 	property containsAscent : Boolean;
 	property AscentType : String;
 	property AscentHasTypeNumber : Boolean;
@@ -11275,6 +11281,10 @@ type AFontDescriptorTrueType extends AObject {
 	property isFontFile2Indirect : Boolean;
 	property FontFile2Type : String;
 	property FontFile2HasTypeStream : Boolean;
+	property containsFontFile3 : Boolean;
+	property isFontFile3Indirect : Boolean;
+	property FontFile3Type : String;
+	property FontFile3HasTypeStream : Boolean;
 	property containsFontName : Boolean;
 	property FontNameType : String;
 	property FontNameHasTypeName : Boolean;
@@ -11317,7 +11327,7 @@ type AFontDescriptorTrueType extends AObject {
 
 type AFontDescriptorType1 extends AObject {
 	link FontFile : AFontFileType1?;
-	link FontFile3 : AFontFile3Type1?;
+	link FontFile3 : Object?;
 	property containsAscent : Boolean;
 	property AscentType : String;
 	property AscentHasTypeNumber : Boolean;
@@ -11463,6 +11473,7 @@ type AFontFile extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -11508,6 +11519,10 @@ type AFontFile extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -11520,6 +11535,7 @@ type AFontFile2 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -11565,6 +11581,10 @@ type AFontFile2 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -11577,6 +11597,7 @@ type AFontFile3CIDType0 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -11622,6 +11643,72 @@ type AFontFile3CIDType0 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
+	property containsSubtype : Boolean;
+	property SubtypeType : String;
+	property SubtypeHasTypeName : Boolean;
+	property SubtypeNameValue : String;
+}
+
+type AFontFile3OpenType extends AObject {
+	link DecodeParms : Object?;
+	link F : AFileSpecification?;
+	link FDecodeParms : Object?;
+	link FFilter : AArrayOfCompressionFilterNames?;
+	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
+	property containsDL : Boolean;
+	property DLType : String;
+	property DLHasTypeInteger : Boolean;
+	property DLIntegerValue : Integer;
+	property containsDecodeParms : Boolean;
+	property DecodeParmsType : String;
+	property DecodeParmsHasTypeArray : Boolean;
+	property DecodeParmsHasTypeDictionary : Boolean;
+	property DecodeParmsArraySize : Integer;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
+	property containsFDecodeParms : Boolean;
+	property FDecodeParmsType : String;
+	property FDecodeParmsHasTypeArray : Boolean;
+	property FDecodeParmsHasTypeDictionary : Boolean;
+	property FDecodeParmsArraySize : Integer;
+	property containsFFilter : Boolean;
+	property FFilterType : String;
+	property FFilterHasTypeArray : Boolean;
+	property FFilterHasTypeName : Boolean;
+	property FFilterNameValue : String;
+	property FFilterArraySize : Integer;
+	property containsFilter : Boolean;
+	property FilterType : String;
+	property FilterHasTypeArray : Boolean;
+	property FilterHasTypeName : Boolean;
+	property FilterNameValue : String;
+	property FilterArraySize : Integer;
+	property containsLength : Boolean;
+	property LengthType : String;
+	property LengthHasTypeInteger : Boolean;
+	property containsLength1 : Boolean;
+	property Length1Type : String;
+	property Length1HasTypeInteger : Boolean;
+	property Length1IntegerValue : Integer;
+	property containsLength2 : Boolean;
+	property Length2Type : String;
+	property Length2HasTypeInteger : Boolean;
+	property Length2IntegerValue : Integer;
+	property containsLength3 : Boolean;
+	property Length3Type : String;
+	property Length3HasTypeInteger : Boolean;
+	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -11634,6 +11721,7 @@ type AFontFile3Type1 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -11679,6 +11767,10 @@ type AFontFile3Type1 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -11691,6 +11783,7 @@ type AFontFileType1 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -11736,9 +11829,14 @@ type AFontFileType1 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
+	property SubtypeNameValue : String;
 }
 
 type AFontMap extends AObject {
