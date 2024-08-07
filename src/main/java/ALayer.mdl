@@ -7510,6 +7510,15 @@ type AArrayOf_2LineEndingsNames extends AObject {
 	property entry1NameValue : String;
 }
 
+type AArrayOf_2NonNegativeIntegers extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeInteger : Boolean;
+	property entry0IntegerValue : Integer;
+	property entry1Type : String;
+	property entry1HasTypeInteger : Boolean;
+	property entry1IntegerValue : Integer;
+}
+
 type AArrayOf_2Numbers extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeNumber : Boolean;
@@ -7542,7 +7551,7 @@ type AArrayOf_3CenterOfRotationNumbers extends AObject {
 	property entry2HasTypeNumber : Boolean;
 }
 
-type AArrayOf_3Integers extends AObject {
+type AArrayOf_3NonNegativeIntegers extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeInteger : Boolean;
 	property entry0IntegerValue : Integer;
@@ -9816,71 +9825,91 @@ type ADocMDPTransformParameters extends AObject {
 }
 
 type ADocTimeStamp extends AObject {
-	link ByteRange : AArrayOfIntegersGeneral?;
+	link ByteRange : AArrayOfNonNegativeIntegersGeneral?;
 	link Cert : AArrayOfStringsByte?;
-	link Changes : AArrayOf_3Integers?;
+	link Changes : AArrayOf_3NonNegativeIntegers?;
 	link Prop_Build : ASignatureBuildPropDict?;
 	link Reference : AArrayOfSignatureReferences?;
-	property containsADBE_Build : Boolean;
-	property ADBE_BuildType : String;
-	property ADBE_BuildHasTypeString : Boolean;
 	property containsByteRange : Boolean;
+	property isByteRangeIndirect : Boolean;
 	property ByteRangeType : String;
 	property ByteRangeHasTypeArray : Boolean;
+	property ByteRangeArraySize : Integer;
 	property containsCert : Boolean;
+	property isCertIndirect : Boolean;
 	property CertType : String;
 	property CertHasTypeArray : Boolean;
 	property CertHasTypeStringByte : Boolean;
 	property containsChanges : Boolean;
+	property isChangesIndirect : Boolean;
 	property ChangesType : String;
 	property ChangesHasTypeArray : Boolean;
 	property containsContactInfo : Boolean;
+	property isContactInfoIndirect : Boolean;
 	property ContactInfoType : String;
-	property ContactInfoHasTypeString : Boolean;
+	property ContactInfoHasTypeStringText : Boolean;
 	property containsContents : Boolean;
+	property isContentsIndirect : Boolean;
 	property ContentsType : String;
 	property ContentsHasTypeStringByte : Boolean;
+	property isContentsHexString : Boolean;
 	property containsFilter : Boolean;
+	property isFilterIndirect : Boolean;
 	property FilterType : String;
 	property FilterHasTypeName : Boolean;
 	property containsLocation : Boolean;
+	property isLocationIndirect : Boolean;
 	property LocationType : String;
-	property LocationHasTypeString : Boolean;
+	property LocationHasTypeStringText : Boolean;
 	property containsM : Boolean;
+	property isMIndirect : Boolean;
 	property MType : String;
 	property MHasTypeDate : Boolean;
 	property containsName : Boolean;
+	property isNameIndirect : Boolean;
 	property NameType : String;
-	property NameHasTypeString : Boolean;
+	property NameHasTypeStringText : Boolean;
 	property containsProp_AuthTime : Boolean;
+	property isProp_AuthTimeIndirect : Boolean;
 	property Prop_AuthTimeType : String;
 	property Prop_AuthTimeHasTypeInteger : Boolean;
+	property Prop_AuthTimeIntegerValue : Integer;
 	property containsProp_AuthType : Boolean;
+	property isProp_AuthTypeIndirect : Boolean;
 	property Prop_AuthTypeType : String;
 	property Prop_AuthTypeHasTypeName : Boolean;
+	property Prop_AuthTypeNameValue : String;
 	property containsProp_Build : Boolean;
+	property isProp_BuildIndirect : Boolean;
 	property Prop_BuildType : String;
 	property Prop_BuildHasTypeDictionary : Boolean;
 	property containsR : Boolean;
+	property isRIndirect : Boolean;
 	property RType : String;
 	property RHasTypeInteger : Boolean;
 	property containsReason : Boolean;
+	property isReasonIndirect : Boolean;
 	property ReasonType : String;
-	property ReasonHasTypeString : Boolean;
+	property ReasonHasTypeStringText : Boolean;
 	property containsReference : Boolean;
+	property isReferenceIndirect : Boolean;
 	property ReferenceType : String;
 	property ReferenceHasTypeArray : Boolean;
 	property containsSubFilter : Boolean;
+	property isSubFilterIndirect : Boolean;
 	property SubFilterType : String;
 	property SubFilterHasTypeName : Boolean;
 	property SubFilterNameValue : String;
 	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
+	property isVIndirect : Boolean;
 	property VType : String;
 	property VHasTypeInteger : Boolean;
+	property VIntegerValue : Integer;
 }
 
 type ADocument extends AObject {
@@ -16975,69 +17004,93 @@ type ASigFieldSeedValue extends AObject {
 }
 
 type ASignature extends AObject {
-	link ByteRange : AArrayOfIntegersGeneral?;
+	link ByteRange : AArrayOfNonNegativeIntegersGeneral?;
 	link Cert : AArrayOfStringsByte?;
-	link Changes : AArrayOf_3Integers?;
-	link Prop_Build : A_UniversalDictionary?;
+	link Changes : AArrayOf_3NonNegativeIntegers?;
+	link Prop_Build : ASignatureBuildPropDict?;
 	link Reference : AArrayOfSignatureReferences?;
+	property containsADBE_Build : Boolean;
+	property isADBE_BuildIndirect : Boolean;
+	property ADBE_BuildType : String;
+	property ADBE_BuildHasTypeString : Boolean;
 	property containsByteRange : Boolean;
+	property isByteRangeIndirect : Boolean;
 	property ByteRangeType : String;
 	property ByteRangeHasTypeArray : Boolean;
+	property ByteRangeArraySize : Integer;
 	property containsCert : Boolean;
+	property isCertIndirect : Boolean;
 	property CertType : String;
 	property CertHasTypeArray : Boolean;
 	property CertHasTypeStringByte : Boolean;
 	property containsChanges : Boolean;
+	property isChangesIndirect : Boolean;
 	property ChangesType : String;
 	property ChangesHasTypeArray : Boolean;
 	property containsContactInfo : Boolean;
+	property isContactInfoIndirect : Boolean;
 	property ContactInfoType : String;
 	property ContactInfoHasTypeStringText : Boolean;
 	property containsContents : Boolean;
+	property isContentsIndirect : Boolean;
 	property ContentsType : String;
 	property ContentsHasTypeStringByte : Boolean;
 	property isContentsHexString : Boolean;
 	property containsFilter : Boolean;
+	property isFilterIndirect : Boolean;
 	property FilterType : String;
 	property FilterHasTypeName : Boolean;
 	property FilterNameValue : String;
 	property containsLocation : Boolean;
+	property isLocationIndirect : Boolean;
 	property LocationType : String;
 	property LocationHasTypeStringText : Boolean;
 	property containsM : Boolean;
+	property isMIndirect : Boolean;
 	property MType : String;
 	property MHasTypeDate : Boolean;
 	property containsName : Boolean;
+	property isNameIndirect : Boolean;
 	property NameType : String;
 	property NameHasTypeStringText : Boolean;
 	property containsProp_AuthTime : Boolean;
+	property isProp_AuthTimeIndirect : Boolean;
 	property Prop_AuthTimeType : String;
 	property Prop_AuthTimeHasTypeInteger : Boolean;
 	property Prop_AuthTimeIntegerValue : Integer;
 	property containsProp_AuthType : Boolean;
+	property isProp_AuthTypeIndirect : Boolean;
 	property Prop_AuthTypeType : String;
 	property Prop_AuthTypeHasTypeName : Boolean;
+	property Prop_AuthTypeNameValue : String;
 	property containsProp_Build : Boolean;
+	property isProp_BuildIndirect : Boolean;
 	property Prop_BuildType : String;
 	property Prop_BuildHasTypeDictionary : Boolean;
 	property containsR : Boolean;
+	property isRIndirect : Boolean;
 	property RType : String;
 	property RHasTypeInteger : Boolean;
 	property containsReason : Boolean;
+	property isReasonIndirect : Boolean;
 	property ReasonType : String;
 	property ReasonHasTypeStringText : Boolean;
 	property containsReference : Boolean;
+	property isReferenceIndirect : Boolean;
 	property ReferenceType : String;
 	property ReferenceHasTypeArray : Boolean;
 	property containsSubFilter : Boolean;
+	property isSubFilterIndirect : Boolean;
 	property SubFilterType : String;
 	property SubFilterHasTypeName : Boolean;
 	property SubFilterNameValue : String;
 	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
+	property isVIndirect : Boolean;
 	property VType : String;
 	property VHasTypeInteger : Boolean;
 }
@@ -17157,6 +17210,7 @@ type ASignatureBuildPropDict extends AObject {
 
 type ASignatureReferenceDocMDP extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	link TransformParams : ADocMDPTransformParameters?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
@@ -17168,10 +17222,16 @@ type ASignatureReferenceDocMDP extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -17187,6 +17247,7 @@ type ASignatureReferenceDocMDP extends AObject {
 
 type ASignatureReferenceFieldMDP extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	link TransformParams : AFieldMDPTransformParameters?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
@@ -17198,10 +17259,16 @@ type ASignatureReferenceFieldMDP extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -17217,6 +17284,7 @@ type ASignatureReferenceFieldMDP extends AObject {
 
 type ASignatureReferenceIdentity extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
 	property DataType : String;
@@ -17227,10 +17295,16 @@ type ASignatureReferenceIdentity extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -17243,6 +17317,7 @@ type ASignatureReferenceIdentity extends AObject {
 
 type ASignatureReferenceUR extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	link TransformParams : AURTransformParameters?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
@@ -17254,10 +17329,16 @@ type ASignatureReferenceUR extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -18295,12 +18376,15 @@ type AVRI extends AObject {
 	property containsCRL : Boolean;
 	property CRLType : String;
 	property CRLHasTypeArray : Boolean;
+	property CRLArraySize : Integer;
 	property containsCert : Boolean;
 	property CertType : String;
 	property CertHasTypeArray : Boolean;
+	property CertArraySize : Integer;
 	property containsOCSP : Boolean;
 	property OCSPType : String;
 	property OCSPHasTypeArray : Boolean;
+	property OCSPArraySize : Integer;
 	property containsTS : Boolean;
 	property isTSIndirect : Boolean;
 	property TSType : String;
@@ -19622,6 +19706,7 @@ type AObject extends Object {
 	property isAssociatedFile : Boolean;
 	property hasExtensionAAPL : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
+	property hasExtensionETSI_PAdES : Boolean;
 	property hasExtensionISO_19005_3 : Boolean;
 	property hasExtensionISO_19593 : Boolean;
 	property hasExtensionISO_21812 : Boolean;
