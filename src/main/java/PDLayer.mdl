@@ -799,6 +799,8 @@ type PDMetadata extends PDObject {
 	link stream: CosStream;
 	% value of the Filter key in the metadata stream dictionary
 	property Filter: String;
+	% true if this is catalog metadata
+	property isCatalogMetadata: Boolean;
 }
 
 % the output intent dictionary
