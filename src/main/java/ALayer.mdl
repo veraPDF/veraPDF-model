@@ -867,7 +867,6 @@ type AActionGoTo extends AObject {
 	property DHasTypeArray : Boolean;
 	property DHasTypeName : Boolean;
 	property DHasTypeStringByte : Boolean;
-	property DStringByteValue : String;
 	property containsNext : Boolean;
 	property NextType : String;
 	property NextHasTypeArray : Boolean;
@@ -10981,6 +10980,7 @@ type AFontCIDType0 extends AObject {
 	property CIDToGIDMapNameValue : String;
 	property containsDW : Boolean;
 	property DWType : String;
+	property DWHasTypeInteger : Boolean;
 	property DWHasTypeNumber : Boolean;
 	property containsDW2 : Boolean;
 	property DW2Type : String;
@@ -11032,6 +11032,7 @@ type AFontCIDType2 extends AObject {
 	property CIDToGIDMapNameValue : String;
 	property containsDW : Boolean;
 	property DWType : String;
+	property DWHasTypeInteger : Boolean;
 	property DWHasTypeNumber : Boolean;
 	property containsDW2 : Boolean;
 	property DW2Type : String;
