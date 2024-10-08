@@ -38,10 +38,16 @@ type XMPPackage extends XMPObject {
 type MainXMPPackage extends XMPPackage {
 
     % object representing PDF/A identification (set of properties from PDF/A Identification schema) of the document
-    link Identification: PDFAIdentification;
+    link PDFAIdentification: PDFAIdentification;
+        
+    % true if xmp contains PDF/A identification
+    property containsPDFAIdentification: Boolean;
 
     % object representing PDF/UA identification (set of properties from PDF/UA Identification schema) of the document
-    link UAIdentification: PDFUAIdentification;
+    link PDFUAIdentification: PDFUAIdentification;
+    
+    % true if xmp contains PDF/UA identification
+    property containsPDFUAIdentification: Boolean;
 
     % value of dc:title
     property dc_title: String;

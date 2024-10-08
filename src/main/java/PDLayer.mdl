@@ -47,6 +47,8 @@ type PDDocument extends PDObject {
 	link pages: PDPage+;
 	% document level metadata
 	link metadata: PDMetadata?;
+	% true if the catalog dictionary contains the metadata
+	property containsMetadata: Boolean;
 	% Interactive Form Dictionary (AcroForm entry in the Catalog)
 	link AcroForm: PDAcroForm?;
 	% additional actions dictionary defined for the document (AA entry in the Catalog)
@@ -61,10 +63,14 @@ type PDDocument extends PDObject {
 	link OCProperties: PDOCProperties?;
 	% the link to the document structure tree root dictionary
 	link StructTreeRoot: PDStructTreeRoot?;
+	% true if the catalog dictionary contains the struct tree root
+	property containsStructTreeRoot: Boolean;
 	% true if the document contains alternate presentations (/AlternatePresentations entry in the document names dictionary)
 	property containsAlternatePresentations: Boolean;
 	% value of the Lang entry from the document catalog
 	link Lang: CosLang?;
+	% true if the catalog dictionary contains the lang
+	property containsLang: Boolean;
 	% link to the permissions object
 	link Perms: PDPerms?;
 	% true if the catalog dictionary contains the AA entry
@@ -92,6 +98,8 @@ type PDPage extends PDObject {
 	link contentStream: PDContentStream;
 	% all page annotations
 	link annots: PDAnnot*;
+	% true if the page dictionary contains annotations
+	property containsAnnotations: Boolean;
 	% link to the parent transparency blending space
 	link parentTransparencyColorSpace: TransparencyColorSpace?;
 	% group attributes dictionary
@@ -309,6 +317,8 @@ type PDFont extends PDResource {
 	property renderingMode: Integer;
 	% embedded font program for Type 1, TrueType or CID Font
 	link fontFile: FontProgram?;
+	% true if the font dictionary contains the font program
+	property containsFontFile: Boolean;
 	% value of the entry /Subtype in the embedded font file stream, or null, if the this entry is not present (or the font is not embedded)
 	property fontFileSubtype: String;
 	% value of Italic flag in Flags entry in the font descriptor
@@ -395,6 +405,8 @@ type PDCMap extends PDObject {
 	link UseCMap: PDReferencedCMap?;
 	% link to the embedded CMap file for a non-standard CMap
 	link embeddedFile: CMapFile?;
+	% true if the cmap dictionary contains the embedded CMap file
+	property containsEmbeddedFile: Boolean;
 }
 
 % CMap that is referenced with UseCMap in other CMap
@@ -546,6 +558,8 @@ type PDAnnot extends PDObject {
 	property F: Integer;
 	% ampersand-separated list of all keys in the annotation's appearance dictionary (AP key)
 	property AP: String;
+	% true if the annotation dictionary contains the appearances
+	property containsAppearances: Boolean;
 	% the value of the /FT entry (Field type), in case this is the widget annotation representing the form field, or null, if this entry is not present
 	property FT: String;
 	% the type of the normal appearance entry (/N key) in the annotation appearance dictionary (/AP key) or null, if the normal appearance is not present
@@ -576,6 +590,8 @@ type PDAnnot extends PDObject {
 	property structParentObjectKey: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% true if the annotation dictionary contains the lang
+	property containsLang: Boolean;
 	% the value of the /Contents entry
 	property Contents: String;
 	% the Alt entry of parent structure element
@@ -710,6 +726,8 @@ type PDFormField extends PDObject {
 	property containsAA: Boolean;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% true if the form field dictionary contains the lang
+	property containsLang: Boolean;
 	% value of the TU entry
 	property TU: String;
 	% value of the Ff entry
@@ -886,6 +904,8 @@ type PDStructElem extends PDStructTreeNode {
 	property standardType: String;
 	% value of the Lang entry
 	link Lang: CosLang?;
+	% true if the structure element dictionary contains the lang
+	property containsLang: Boolean;
 	% value of parent Lang entry
 	property parentLang: String;
 	% remapped standard type value
