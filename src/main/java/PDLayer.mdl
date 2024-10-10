@@ -440,16 +440,25 @@ type PDXImage extends PDXObject {
 	link jpxStream: JPEG2000?;
 	% link to the soft mask image (SMask key)
 	link SMask: PDSMaskImage?;
+	% link to the mask image (Mask key)
+	link Mask: PDMaskImage?;
 	% true if the image dictionary contains Alternates key
 	property containsAlternates: Boolean;
 	% value of the BitsPerComponent key
 	property BitsPerComponent: Integer;
+	% true, if this Image XObject is mask
+	property isMask: Boolean;
 }
 
 % SMask image
 % The link imageCS is redefined to return an empty list, as the DeviceGray color space used
 % in the soft mask defines shape and is not subject to PDF/A validation
 type PDSMaskImage extends PDXImage {
+
+}
+
+% Mask image
+type PDMaskImage extends PDXImage {
 
 }
 
