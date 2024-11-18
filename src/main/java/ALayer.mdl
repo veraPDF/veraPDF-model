@@ -7252,6 +7252,16 @@ type AArrayOfStringsTextEntry extends AObject {
 	property HasTypeStringText : Boolean;
 }
 
+type AArrayOfStringsTextOrNames extends AObject {
+	link Entries : AArrayOfStringsTextOrNamesEntry*;
+}
+
+type AArrayOfStringsTextOrNamesEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property HasTypeStringText : Boolean;
+}
+
 type AArrayOfStructElem extends AObject {
 	link Entries : AArrayOfStructElemEntry*;
 }
@@ -17195,7 +17205,7 @@ type ASignature extends AObject {
 }
 
 type ASignatureBuildDataAppDict extends AObject {
-	link OS : AArrayOfStringsText?;
+	link OS : AArrayOfStringsTextOrNames?;
 	property containsDate : Boolean;
 	property DateType : String;
 	property DateHasTypeStringText : Boolean;
