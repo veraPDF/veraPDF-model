@@ -12275,6 +12275,9 @@ type AFunctionType4 extends AObject {
 }
 
 type AGTS_ProcStepsGroup extends AObject {
+	property containsGTS_ProcStepsColorants : Boolean;
+	property GTS_ProcStepsColorantsType : String;
+	property GTS_ProcStepsColorantsHasTypeName : Boolean;
 	property containsGTS_ProcStepsGroup : Boolean;
 	property GTS_ProcStepsGroupType : String;
 	property GTS_ProcStepsGroupHasTypeName : Boolean;
@@ -12283,9 +12286,6 @@ type AGTS_ProcStepsGroup extends AObject {
 	property GTS_ProcStepsTypeType : String;
 	property GTS_ProcStepsTypeHasTypeName : Boolean;
 	property GTS_ProcStepsTypeNameValue : String;
-	property containsGWG__ProcStepsColorants : Boolean;
-	property GWG__ProcStepsColorantsType : String;
-	property GWG__ProcStepsColorantsHasTypeName : Boolean;
 }
 
 type AGTSm_DevExtensions extends AObject {
