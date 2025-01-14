@@ -6176,6 +6176,7 @@ type AArrayOfAnnots extends AObject {
 
 type AArrayOfAnnotsEntry extends AObject {
 	link Entry : Object?;
+	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
 }
