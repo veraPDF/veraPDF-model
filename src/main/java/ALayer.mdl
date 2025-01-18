@@ -11032,7 +11032,7 @@ type AFontCIDType0 extends AObject {
 	link CIDToGIDMap : AStream?;
 	link DW2 : AArrayOf_2Numbers?;
 	link FontDescriptor : AFontDescriptorCIDType0?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link W : AArrayOfCIDGlyphMetricsW?;
 	link W2 : AArrayOfCIDGlyphMetricsW2?;
 	property containsBaseFont : Boolean;
@@ -11084,7 +11084,7 @@ type AFontCIDType2 extends AObject {
 	link CIDToGIDMap : AStream?;
 	link DW2 : AArrayOf_2Numbers?;
 	link FontDescriptor : AFontDescriptorCIDType2?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link W : AArrayOfCIDGlyphMetricsW?;
 	link W2 : AArrayOfCIDGlyphMetricsW2?;
 	property containsBaseFont : Boolean;
@@ -11923,7 +11923,7 @@ type AFontMapEntry extends AObject {
 type AFontMultipleMaster extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorType1?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
@@ -11966,7 +11966,7 @@ type AFontMultipleMaster extends AObject {
 type AFontTrueType extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorTrueType?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
@@ -12010,7 +12010,7 @@ type AFontTrueType extends AObject {
 type AFontType0 extends AObject {
 	link DescendantFonts : AArrayOfDescendantFonts?;
 	link Encoding : ACMapStream?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
 	property BaseFontHasTypeName : Boolean;
@@ -12040,7 +12040,7 @@ type AFontType0 extends AObject {
 type AFontType1 extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorType1?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
@@ -12088,7 +12088,7 @@ type AFontType3 extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorType3?;
 	link Resources : AResource?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsCharProcs : Boolean;
 	property CharProcsType : String;
@@ -18349,6 +18349,69 @@ type ATimespan extends AObject {
 	property containsV : Boolean;
 	property VType : String;
 	property VHasTypeNumber : Boolean;
+}
+
+type AToUnicodeCMapStream extends AObject {
+	link CIDSystemInfo : ACIDSystemInfo?;
+	link DecodeParms : Object?;
+	link F : AFileSpecification?;
+	link FDecodeParms : Object?;
+	link FFilter : AArrayOfCompressionFilterNames?;
+	link Filter : AArrayOfCompressionFilterNames?;
+	link UseCMap : AStream?;
+	property containsCIDSystemInfo : Boolean;
+	property CIDSystemInfoType : String;
+	property CIDSystemInfoHasTypeDictionary : Boolean;
+	property containsCMapName : Boolean;
+	property CMapNameType : String;
+	property CMapNameHasTypeName : Boolean;
+	property containsDL : Boolean;
+	property DLType : String;
+	property DLHasTypeInteger : Boolean;
+	property DLIntegerValue : Integer;
+	property containsDecodeParms : Boolean;
+	property DecodeParmsType : String;
+	property DecodeParmsHasTypeArray : Boolean;
+	property DecodeParmsHasTypeDictionary : Boolean;
+	property DecodeParmsArraySize : Integer;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
+	property containsFDecodeParms : Boolean;
+	property FDecodeParmsType : String;
+	property FDecodeParmsHasTypeArray : Boolean;
+	property FDecodeParmsHasTypeDictionary : Boolean;
+	property FDecodeParmsArraySize : Integer;
+	property containsFFilter : Boolean;
+	property FFilterType : String;
+	property FFilterHasTypeArray : Boolean;
+	property FFilterHasTypeName : Boolean;
+	property FFilterNameValue : String;
+	property FFilterArraySize : Integer;
+	property containsFilter : Boolean;
+	property FilterType : String;
+	property FilterHasTypeArray : Boolean;
+	property FilterHasTypeName : Boolean;
+	property FilterNameValue : String;
+	property FilterArraySize : Integer;
+	property containsLength : Boolean;
+	property LengthType : String;
+	property LengthHasTypeInteger : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+	property containsUseCMap : Boolean;
+	property isUseCMapIndirect : Boolean;
+	property UseCMapType : String;
+	property UseCMapHasTypeName : Boolean;
+	property UseCMapHasTypeStream : Boolean;
+	property UseCMapNameValue : String;
+	property containsWMode : Boolean;
+	property WModeType : String;
+	property WModeHasTypeInteger : Boolean;
+	property WModeIntegerValue : Integer;
 }
 
 type ATrailerIDArray extends AObject {
