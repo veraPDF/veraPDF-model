@@ -1542,6 +1542,65 @@ type AAddActionWidgetAnnotation extends AObject {
 	property XHasTypeDictionary : Boolean;
 }
 
+type AAddActionWidgetAnnotationFormField extends AObject {
+	link Bl : Object?;
+	link C : AActionECMAScript?;
+	link D : Object?;
+	link E : Object?;
+	link F : AActionECMAScript?;
+	link Fo : Object?;
+	link K : AActionECMAScript?;
+	link PC : Object?;
+	link PI : Object?;
+	link PO : Object?;
+	link PV : Object?;
+	link U : Object?;
+	link V : AActionECMAScript?;
+	link X : Object?;
+	property containsBl : Boolean;
+	property BlType : String;
+	property BlHasTypeDictionary : Boolean;
+	property containsC : Boolean;
+	property CType : String;
+	property CHasTypeDictionary : Boolean;
+	property containsD : Boolean;
+	property DType : String;
+	property DHasTypeDictionary : Boolean;
+	property containsE : Boolean;
+	property EType : String;
+	property EHasTypeDictionary : Boolean;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property containsFo : Boolean;
+	property FoType : String;
+	property FoHasTypeDictionary : Boolean;
+	property containsK : Boolean;
+	property KType : String;
+	property KHasTypeDictionary : Boolean;
+	property containsPC : Boolean;
+	property PCType : String;
+	property PCHasTypeDictionary : Boolean;
+	property containsPI : Boolean;
+	property PIType : String;
+	property PIHasTypeDictionary : Boolean;
+	property containsPO : Boolean;
+	property POType : String;
+	property POHasTypeDictionary : Boolean;
+	property containsPV : Boolean;
+	property PVType : String;
+	property PVHasTypeDictionary : Boolean;
+	property containsU : Boolean;
+	property UType : String;
+	property UHasTypeDictionary : Boolean;
+	property containsV : Boolean;
+	property VType : String;
+	property VHasTypeDictionary : Boolean;
+	property containsX : Boolean;
+	property XType : String;
+	property XHasTypeDictionary : Boolean;
+}
+
 type AAlternateImage extends AObject {
 	link Image : AXObjectImage?;
 	link OC : Object?;
@@ -4836,7 +4895,7 @@ type AAnnotWidget extends AObject {
 
 type AAnnotWidgetField extends AObject {
 	link A : Object?;
-	link AA : Object?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
@@ -4956,7 +5015,7 @@ type AAnnotWidgetField extends AObject {
 
 type AAnnotWidgetFieldBtnCheckbox extends AObject {
 	link A : Object?;
-	link AA : Object?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
@@ -5106,7 +5165,7 @@ type AAnnotWidgetFieldBtnCheckbox extends AObject {
 
 type AAnnotWidgetFieldBtnPush extends AObject {
 	link A : Object?;
-	link AA : Object?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
@@ -5252,7 +5311,7 @@ type AAnnotWidgetFieldBtnPush extends AObject {
 
 type AAnnotWidgetFieldBtnRadio extends AObject {
 	link A : Object?;
-	link AA : Object?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
@@ -5402,7 +5461,7 @@ type AAnnotWidgetFieldBtnRadio extends AObject {
 
 type AAnnotWidgetFieldChoice extends AObject {
 	link A : Object?;
-	link AA : Object?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
@@ -5566,7 +5625,7 @@ type AAnnotWidgetFieldChoice extends AObject {
 
 type AAnnotWidgetFieldSig extends AObject {
 	link A : Object?;
-	link AA : AAddActionFormField?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
@@ -5724,7 +5783,7 @@ type AAnnotWidgetFieldSig extends AObject {
 
 type AAnnotWidgetFieldTx extends AObject {
 	link A : Object?;
-	link AA : Object?;
+	link AA : AAddActionWidgetAnnotationFormField?;
 	link AF : AArrayOfFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
