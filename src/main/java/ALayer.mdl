@@ -7425,11 +7425,10 @@ type AArrayOfURLs extends AObject {
 }
 
 type AArrayOfURLsEntry extends AObject {
-	link Entry : Object?;
-	property isIndirect : Boolean;
+	link Entry : AFileSpecification?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property HasTypeStream : Boolean;
+	property containsAnyFS : Boolean;
 }
 
 type AArrayOfUserProperty extends AObject {
@@ -17551,6 +17550,7 @@ type ASlideShowNameTreeResources extends AObject {
 type ASlideShowNameTreeResourcesEntry extends AObject {
 	link Entry : Object?;
 	property Type : String;
+	property HasTypeDictionary : Boolean;
 	property HasTypeStream : Boolean;
 }
 
