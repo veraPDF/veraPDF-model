@@ -7121,7 +7121,7 @@ type AArrayOfPagesEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property containsAnySeparationInfo : Boolean;
+	property containsEntrySeparationInfo : Boolean;
 }
 
 type AArrayOfPaths extends AObject {
@@ -7428,7 +7428,8 @@ type AArrayOfURLsEntry extends AObject {
 	link Entry : AFileSpecification?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property containsAnyFS : Boolean;
+	property EntryFSNameValue : String;
+	property containsEntryFS : Boolean;
 }
 
 type AArrayOfUserProperty extends AObject {
