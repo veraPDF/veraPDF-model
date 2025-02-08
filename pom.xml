@@ -27,13 +27,13 @@
   <parent>
     <groupId>org.verapdf</groupId>
     <artifactId>verapdf-parent</artifactId>
-    <version>1.27.2</version>
+    <version>1.28.1</version>
     <relativePath />
   </parent>
 
   <groupId>org.verapdf</groupId>
   <artifactId>pdf-model-arlington</artifactId>
-  <version>1.27.0-SNAPSHOT</version>
+  <version>1.28.0-RC1</version>
 
   <name>VeraPDF Validation Model API for Arlington PDF Model</name>
   <description>Java interfaces for the veraPDF Validation model implementation of Arlington PDF Model.</description>
@@ -69,7 +69,7 @@
   </pluginRepositories>
 
   <properties>
-    <verapdf.model.syntax.version>[1.27.0,1.28.0-RC)</verapdf.model.syntax.version>
+    <verapdf.model.syntax.version>[1.28.0-RC,1.29.0)</verapdf.model.syntax.version>
     <xtext.version>2.26.0</xtext.version>
   </properties>
 
