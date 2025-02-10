@@ -2,7 +2,7 @@ veraPDF-model
 =============
 The veraPDF Validation model described using a Domain Specific Language developed in [XText](https://eclipse.org/Xtext/).
 
-[![Build Status](https://jenkins.openpreservation.org/job/veraPDF/job/1.27/job/model-arlington/badge/icon)](https://jenkins.openpreservation.org/job/veraPDF/job/1.27/job/model-arlington/ "OPF Jenkins")
+[![Build Status](https://jenkins.openpreservation.org/job/veraPDF/job/1.29/job/model-arlington/badge/icon)](https://jenkins.openpreservation.org/job/veraPDF/job/1.29/job/model-arlington/ "OPF Jenkins")
 [![Maven Central](https://img.shields.io/maven-central/v/org.verapdf/pdf-model.svg)](https://repo1.maven.org/maven2/org/verapdf/pdf-model/ "Maven central")
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/0b6a3e7f350c47d4a1ea1c5b500bbf68)](https://app.codacy.com/gh/veraPDF/veraPDF-model/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade "Codacy grade")
 
