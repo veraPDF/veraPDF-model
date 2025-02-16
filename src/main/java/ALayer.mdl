@@ -19939,6 +19939,7 @@ type AObject extends Object {
 	property isAssociatedFile : Boolean;
 	property hasExtensionAAPL : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
+	property hasExtensionC2PA : Boolean;
 	property hasExtensionETSI_PAdES : Boolean;
 	property hasExtensionISO_19005_3 : Boolean;
 	property hasExtensionISO_19593 : Boolean;
@@ -19946,6 +19947,7 @@ type AObject extends Object {
 	property hasExtensionISO_TS_24064 : Boolean;
 	property hasExtensionISO_TS_24654 : Boolean;
 	property hasExtensionISO_TS_32001 : Boolean;
+	property hasExtensionISO_TS_32003 : Boolean;
 	property hasExtensionISO_TS_32004 : Boolean;
 	property hasExtensionISO_TS_32007 : Boolean;
 	property hasExtensionMalforms : Boolean;
