@@ -1888,6 +1888,7 @@ type AAnnotCaret extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -1958,7 +1959,8 @@ type AAnnotCaret extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -2000,6 +2002,10 @@ type AAnnotCaret extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotCircle extends AObject {
@@ -2016,6 +2022,7 @@ type AAnnotCircle extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -2095,7 +2102,8 @@ type AAnnotCircle extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -2133,6 +2141,10 @@ type AAnnotCircle extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotFileAttachment extends AObject {
@@ -2272,6 +2284,7 @@ type AAnnotFreeText extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -2366,7 +2379,8 @@ type AAnnotFreeText extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -2404,6 +2418,10 @@ type AAnnotFreeText extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotHighlight extends AObject {
@@ -4028,6 +4046,7 @@ type AAnnotSquare extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -4107,7 +4126,8 @@ type AAnnotSquare extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -4145,6 +4165,10 @@ type AAnnotSquare extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotSquiggly extends AObject {
@@ -7952,12 +7976,16 @@ type AArrayOf_4Integers extends AObject {
 type AArrayOf_4Numbers extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeNumber : Boolean;
+	property entry0NumberValue : Decimal;
 	property entry1Type : String;
 	property entry1HasTypeNumber : Boolean;
+	property entry1NumberValue : Decimal;
 	property entry2Type : String;
 	property entry2HasTypeNumber : Boolean;
+	property entry2NumberValue : Decimal;
 	property entry3Type : String;
 	property entry3HasTypeNumber : Boolean;
+	property entry3NumberValue : Decimal;
 }
 
 type AArrayOf_4NumbersColorAnnotation extends AObject {
