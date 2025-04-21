@@ -245,8 +245,12 @@ type SEMarkedContent extends SEGroupedContent {
 type SEUnmarkedContent extends SEGroupedContent {
 }
 
+% graphic content item (text, image or lineart)
+type SEGraphicContentItem extends SESimpleContentItem {
+}
+
 % text content item (originated from operators Tj and TJ)
-type SETextItem extends SESimpleContentItem {
+type SETextItem extends SEGraphicContentItem {
 	% font name of text item
 	property fontName: String;
 	% scale factor of text item
@@ -256,7 +260,7 @@ type SETextItem extends SESimpleContentItem {
 }
 
 % lineart content item (originated from path painting operators)
-type SELineArtItem extends SESimpleContentItem {
+type SELineArtItem extends SEGraphicContentItem {
 }
 
 % shading content item (originated from operator sh)
@@ -264,7 +268,7 @@ type SEShadingItem extends SESimpleContentItem {
 }
 
 % image content item (inline or image XObject)
-type SEImageItem extends SESimpleContentItem {
+type SEImageItem extends SEGraphicContentItem {
 }
 
 % inline image content item
