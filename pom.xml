@@ -33,7 +33,7 @@
 
   <groupId>org.verapdf</groupId>
   <artifactId>pdf-model-arlington</artifactId>
-  <version>1.28.0-RC1</version>
+  <version>1.28.0</version>
 
   <name>VeraPDF Validation Model API for Arlington PDF Model</name>
   <description>Java interfaces for the veraPDF Validation model implementation of Arlington PDF Model.</description>
@@ -69,7 +69,7 @@
   </pluginRepositories>
 
   <properties>
-    <verapdf.model.syntax.version>[1.28.0-RC,1.29.0)</verapdf.model.syntax.version>
+    <verapdf.model.syntax.version>[1.28.0,1.29.0)</verapdf.model.syntax.version>
     <xtext.version>2.26.0</xtext.version>
   </properties>
 
