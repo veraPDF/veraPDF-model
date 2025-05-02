@@ -836,6 +836,157 @@ type AAAPL_ST extends AObject {
 	property TypeNameValue : String;
 }
 
+type AAFEmbeddedFileParameter extends AObject {
+	link Mac : AMac?;
+	property containsCheckSum : Boolean;
+	property CheckSumType : String;
+	property CheckSumHasTypeStringByte : Boolean;
+	property CheckSumStringSize : Integer;
+	property containsCreationDate : Boolean;
+	property CreationDateType : String;
+	property CreationDateHasTypeDate : Boolean;
+	property containsMac : Boolean;
+	property MacType : String;
+	property MacHasTypeDictionary : Boolean;
+	property containsModDate : Boolean;
+	property ModDateType : String;
+	property ModDateHasTypeDate : Boolean;
+	property containsSize : Boolean;
+	property SizeType : String;
+	property SizeHasTypeInteger : Boolean;
+	property SizeIntegerValue : Integer;
+}
+
+type AAFEmbeddedFileStream extends AObject {
+	link DecodeParms : Object?;
+	link F : AFileSpecification?;
+	link FDecodeParms : Object?;
+	link FFilter : AArrayOfFilterNames?;
+	link Filter : AArrayOfFilterNames?;
+	link Params : AAFEmbeddedFileParameter?;
+	property containsDL : Boolean;
+	property DLType : String;
+	property DLHasTypeInteger : Boolean;
+	property DLIntegerValue : Integer;
+	property containsDecodeParms : Boolean;
+	property DecodeParmsType : String;
+	property DecodeParmsHasTypeArray : Boolean;
+	property DecodeParmsHasTypeDictionary : Boolean;
+	property DecodeParmsArraySize : Integer;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
+	property containsFDecodeParms : Boolean;
+	property FDecodeParmsType : String;
+	property FDecodeParmsHasTypeArray : Boolean;
+	property FDecodeParmsHasTypeDictionary : Boolean;
+	property FDecodeParmsArraySize : Integer;
+	property containsFFilter : Boolean;
+	property FFilterType : String;
+	property FFilterHasTypeArray : Boolean;
+	property FFilterHasTypeName : Boolean;
+	property FFilterNameValue : String;
+	property FFilterArraySize : Integer;
+	property containsFilter : Boolean;
+	property FilterType : String;
+	property FilterHasTypeArray : Boolean;
+	property FilterHasTypeName : Boolean;
+	property FilterNameValue : String;
+	property FilterArraySize : Integer;
+	property containsLength : Boolean;
+	property LengthType : String;
+	property LengthHasTypeInteger : Boolean;
+	property containsMail_MediaTypeParameters : Boolean;
+	property Mail_MediaTypeParametersType : String;
+	property Mail_MediaTypeParametersHasTypeStringText : Boolean;
+	property containsParams : Boolean;
+	property ParamsType : String;
+	property ParamsHasTypeDictionary : Boolean;
+	property containsSubtype : Boolean;
+	property SubtypeType : String;
+	property SubtypeHasTypeName : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type AAFFileSpecEF extends AObject {
+	link F : AAFEmbeddedFileStream?;
+	link UF : AAFEmbeddedFileStream?;
+	property containsF : Boolean;
+	property isFIndirect : Boolean;
+	property FType : String;
+	property FHasTypeStream : Boolean;
+	property containsUF : Boolean;
+	property isUFIndirect : Boolean;
+	property UFType : String;
+	property UFHasTypeStream : Boolean;
+}
+
+type AAFFileSpecification extends AObject {
+	link CI : ACollectionItem?;
+	link EF : AAFFileSpecEF?;
+	link EP : AEncryptedPayload?;
+	link entryID : AArrayOf_2StringsByte?;
+	link RF : AFileSpecRF?;
+	link Thumb : AThumbnail?;
+	property containsAFRelationship : Boolean;
+	property AFRelationshipType : String;
+	property AFRelationshipHasTypeName : Boolean;
+	property AFRelationshipNameValue : String;
+	property containsCI : Boolean;
+	property isCIIndirect : Boolean;
+	property CIType : String;
+	property CIHasTypeDictionary : Boolean;
+	property containsDOS : Boolean;
+	property DOSType : String;
+	property DOSHasTypeStringByte : Boolean;
+	property containsDesc : Boolean;
+	property DescType : String;
+	property DescHasTypeString : Boolean;
+	property containsEF : Boolean;
+	property EFType : String;
+	property EFHasTypeDictionary : Boolean;
+	property containsEP : Boolean;
+	property EPType : String;
+	property EPHasTypeDictionary : Boolean;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeString : Boolean;
+	property containsFS : Boolean;
+	property FSType : String;
+	property FSHasTypeName : Boolean;
+	property FSNameValue : String;
+	property containsID : Boolean;
+	property entryIDType : String;
+	property entryIDHasTypeArray : Boolean;
+	property containsMac : Boolean;
+	property MacType : String;
+	property MacHasTypeStringByte : Boolean;
+	property containsRF : Boolean;
+	property RFType : String;
+	property RFHasTypeDictionary : Boolean;
+	property containsThumb : Boolean;
+	property isThumbIndirect : Boolean;
+	property ThumbType : String;
+	property ThumbHasTypeStream : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+	property containsUF : Boolean;
+	property UFType : String;
+	property UFHasTypeStringText : Boolean;
+	property containsUnix : Boolean;
+	property UnixType : String;
+	property UnixHasTypeStringByte : Boolean;
+	property containsV : Boolean;
+	property VType : String;
+	property VHasTypeBoolean : Boolean;
+}
+
 type AActionECMAScript extends AObject {
 	link JS : AStream?;
 	link Next : Object?;
@@ -882,6 +1033,7 @@ type AActionGoTo extends AObject {
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
+	property DIsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 }
 
 type AActionGoTo3DView extends AObject {
@@ -1541,6 +1693,65 @@ type AAddActionWidgetAnnotation extends AObject {
 	property XHasTypeDictionary : Boolean;
 }
 
+type AAddActionWidgetAnnotationFormField extends AObject {
+	link Bl : Object?;
+	link C : AActionECMAScript?;
+	link D : Object?;
+	link E : Object?;
+	link F : AActionECMAScript?;
+	link Fo : Object?;
+	link K : AActionECMAScript?;
+	link PC : Object?;
+	link PI : Object?;
+	link PO : Object?;
+	link PV : Object?;
+	link U : Object?;
+	link V : AActionECMAScript?;
+	link X : Object?;
+	property containsBl : Boolean;
+	property BlType : String;
+	property BlHasTypeDictionary : Boolean;
+	property containsC : Boolean;
+	property CType : String;
+	property CHasTypeDictionary : Boolean;
+	property containsD : Boolean;
+	property DType : String;
+	property DHasTypeDictionary : Boolean;
+	property containsE : Boolean;
+	property EType : String;
+	property EHasTypeDictionary : Boolean;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property containsFo : Boolean;
+	property FoType : String;
+	property FoHasTypeDictionary : Boolean;
+	property containsK : Boolean;
+	property KType : String;
+	property KHasTypeDictionary : Boolean;
+	property containsPC : Boolean;
+	property PCType : String;
+	property PCHasTypeDictionary : Boolean;
+	property containsPI : Boolean;
+	property PIType : String;
+	property PIHasTypeDictionary : Boolean;
+	property containsPO : Boolean;
+	property POType : String;
+	property POHasTypeDictionary : Boolean;
+	property containsPV : Boolean;
+	property PVType : String;
+	property PVHasTypeDictionary : Boolean;
+	property containsU : Boolean;
+	property UType : String;
+	property UHasTypeDictionary : Boolean;
+	property containsV : Boolean;
+	property VType : String;
+	property VHasTypeDictionary : Boolean;
+	property containsX : Boolean;
+	property XType : String;
+	property XHasTypeDictionary : Boolean;
+}
+
 type AAlternateImage extends AObject {
 	link Image : AXObjectImage?;
 	link OC : Object?;
@@ -1561,7 +1772,7 @@ type AAnnot3D extends AObject {
 	link entry3DD : Object?;
 	link entry3DU : A3DUnits?;
 	link entry3DV : A3DView?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -1667,7 +1878,7 @@ type AAnnot3D extends AObject {
 }
 
 type AAnnotCaret extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -1677,6 +1888,7 @@ type AAnnotCaret extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -1747,7 +1959,8 @@ type AAnnotCaret extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -1789,10 +2002,14 @@ type AAnnotCaret extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotCircle extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -1805,6 +2022,7 @@ type AAnnotCircle extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -1884,7 +2102,8 @@ type AAnnotCircle extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -1922,10 +2141,14 @@ type AAnnotCircle extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotFileAttachment extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -2048,7 +2271,7 @@ type AAnnotFileAttachment extends AObject {
 }
 
 type AAnnotFreeText extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -2061,6 +2284,7 @@ type AAnnotFreeText extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -2155,7 +2379,8 @@ type AAnnotFreeText extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -2193,10 +2418,14 @@ type AAnnotFreeText extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotHighlight extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -2314,7 +2543,7 @@ type AAnnotHighlight extends AObject {
 }
 
 type AAnnotInk extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -2440,7 +2669,7 @@ type AAnnotInk extends AObject {
 }
 
 type AAnnotLine extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -2599,7 +2828,7 @@ type AAnnotLine extends AObject {
 
 type AAnnotLink extends AObject {
 	link A : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -2706,7 +2935,7 @@ type AAnnotLink extends AObject {
 
 type AAnnotMovie extends AObject {
 	link A : AMovieActivation?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -2796,7 +3025,7 @@ type AAnnotMovie extends AObject {
 }
 
 type AAnnotPolyLine extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -2939,7 +3168,7 @@ type AAnnotPolyLine extends AObject {
 }
 
 type AAnnotPolygon extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -3082,7 +3311,7 @@ type AAnnotPolygon extends AObject {
 }
 
 type AAnnotPopup extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3166,7 +3395,7 @@ type AAnnotPopup extends AObject {
 }
 
 type AAnnotPrinterMark extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearancePrinterMark?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3249,7 +3478,7 @@ type AAnnotPrinterMark extends AObject {
 }
 
 type AAnnotProjection extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3361,7 +3590,7 @@ type AAnnotProjection extends AObject {
 }
 
 type AAnnotRedact extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3501,7 +3730,7 @@ type AAnnotRedact extends AObject {
 }
 
 type AAnnotRichMedia extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3590,7 +3819,7 @@ type AAnnotRichMedia extends AObject {
 type AAnnotScreen extends AObject {
 	link A : Object?;
 	link AA : AAddActionScreenAnnotation?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3682,7 +3911,7 @@ type AAnnotScreen extends AObject {
 }
 
 type AAnnotSound extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -3804,7 +4033,7 @@ type AAnnotSound extends AObject {
 }
 
 type AAnnotSquare extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BE : ABorderEffect?;
 	link BS : ABorderStyle?;
@@ -3817,6 +4046,7 @@ type AAnnotSquare extends AObject {
 	link P : APageObject?;
 	link Popup : AAnnotPopup?;
 	link RC : AStream?;
+	link RD : AArrayOf_4Numbers?;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -3896,7 +4126,8 @@ type AAnnotSquare extends AObject {
 	property RCHasTypeStringText : Boolean;
 	property containsRD : Boolean;
 	property RDType : String;
-	property RDHasTypeRectangle : Boolean;
+	property RDHasTypeArray : Boolean;
+	property RDArraySize : Integer;
 	property containsRT : Boolean;
 	property RTType : String;
 	property RTHasTypeName : Boolean;
@@ -3934,10 +4165,14 @@ type AAnnotSquare extends AObject {
 	property APDHasTypeDictionary : Boolean;
 	property APNHasTypeDictionary : Boolean;
 	property APRHasTypeDictionary : Boolean;
+	property RD0HasTypeNumber : Boolean;
+	property RD1HasTypeNumber : Boolean;
+	property RD2HasTypeNumber : Boolean;
+	property RD3HasTypeNumber : Boolean;
 }
 
 type AAnnotSquiggly extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4055,7 +4290,7 @@ type AAnnotSquiggly extends AObject {
 }
 
 type AAnnotStamp extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4174,7 +4409,7 @@ type AAnnotStamp extends AObject {
 }
 
 type AAnnotStrikeOut extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4292,7 +4527,7 @@ type AAnnotStrikeOut extends AObject {
 }
 
 type AAnnotText extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4421,7 +4656,7 @@ type AAnnotText extends AObject {
 }
 
 type AAnnotTrapNetwork extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearanceTrapNet?;
 	link AnnotStates : AArrayOfAnnotStates?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -4510,7 +4745,7 @@ type AAnnotTrapNetwork extends AObject {
 }
 
 type AAnnotUnderline extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4628,7 +4863,7 @@ type AAnnotUnderline extends AObject {
 }
 
 type AAnnotWatermark extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
@@ -4713,7 +4948,7 @@ type AAnnotWatermark extends AObject {
 type AAnnotWidget extends AObject {
 	link A : Object?;
 	link AA : AAddActionWidgetAnnotation?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -4835,8 +5070,8 @@ type AAnnotWidget extends AObject {
 
 type AAnnotWidgetField extends AObject {
 	link A : Object?;
-	link AA : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -4955,8 +5190,8 @@ type AAnnotWidgetField extends AObject {
 
 type AAnnotWidgetFieldBtnCheckbox extends AObject {
 	link A : Object?;
-	link AA : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -5105,8 +5340,8 @@ type AAnnotWidgetFieldBtnCheckbox extends AObject {
 
 type AAnnotWidgetFieldBtnPush extends AObject {
 	link A : Object?;
-	link AA : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -5251,8 +5486,8 @@ type AAnnotWidgetFieldBtnPush extends AObject {
 
 type AAnnotWidgetFieldBtnRadio extends AObject {
 	link A : Object?;
-	link AA : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -5401,8 +5636,8 @@ type AAnnotWidgetFieldBtnRadio extends AObject {
 
 type AAnnotWidgetFieldChoice extends AObject {
 	link A : Object?;
-	link AA : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -5565,8 +5800,8 @@ type AAnnotWidgetFieldChoice extends AObject {
 
 type AAnnotWidgetFieldSig extends AObject {
 	link A : Object?;
-	link AA : AAddActionFormField?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -5723,8 +5958,8 @@ type AAnnotWidgetFieldSig extends AObject {
 
 type AAnnotWidgetFieldTx extends AObject {
 	link A : Object?;
-	link AA : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AA : AAddActionWidgetAnnotationFormField?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link BS : ABorderStyle?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
@@ -6136,6 +6371,20 @@ type AArrayOf4Functions extends AObject {
 	property entry3HasTypeStream : Boolean;
 }
 
+type AArrayOfAFFileSpecifications extends AObject {
+	link Entries : AArrayOfAFFileSpecificationsEntry*;
+	link entry0 : AAFFileSpecification?;
+	property contains0 : Boolean;
+	property entry0Type : String;
+	property entry0HasTypeDictionary : Boolean;
+}
+
+type AArrayOfAFFileSpecificationsEntry extends AObject {
+	link Entry : AAFFileSpecification?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
 type AArrayOfActionHideAnnots extends AObject {
 	link Entries : AArrayOfActionHideAnnotsEntry*;
 }
@@ -6175,6 +6424,7 @@ type AArrayOfAnnots extends AObject {
 
 type AArrayOfAnnotsEntry extends AObject {
 	link Entry : Object?;
+	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
 }
@@ -6316,6 +6566,231 @@ type AArrayOfCIDGlyphMetricsWEntry extends AObject {
 	property HasTypeArray : Boolean;
 	property HasTypeInteger : Boolean;
 	property HasTypeNumber : Boolean;
+}
+
+type AArrayOfCIP4_AssemblingIntent extends AObject {
+	link Entries : AArrayOfCIP4_AssemblingIntentEntry*;
+}
+
+type AArrayOfCIP4_AssemblingIntentEntry extends AObject {
+	link Entry : ACIP4_AssemblingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_AssemblyItem extends AObject {
+	link Entries : AArrayOfCIP4_AssemblyItemEntry*;
+}
+
+type AArrayOfCIP4_AssemblyItemEntry extends AObject {
+	link Entry : ACIP4_AssemblyItem?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_BindIn extends AObject {
+	link Entries : AArrayOfCIP4_BindInEntry*;
+}
+
+type AArrayOfCIP4_BindInEntry extends AObject {
+	link Entry : ACIP4_BindIn?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_BindingIntent extends AObject {
+	link Entries : AArrayOfCIP4_BindingIntentEntry*;
+}
+
+type AArrayOfCIP4_BindingIntentEntry extends AObject {
+	link Entry : ACIP4_BindingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_BlowIn extends AObject {
+	link Entries : AArrayOfCIP4_BlowInEntry*;
+}
+
+type AArrayOfCIP4_BlowInEntry extends AObject {
+	link Entry : ACIP4_BlowIn?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_ChannelUsage extends AObject {
+	link Entries : AArrayOfCIP4_ChannelUsageEntry*;
+}
+
+type AArrayOfCIP4_ChannelUsageEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_Coatings extends AObject {
+	link Entries : AArrayOfCIP4_CoatingsEntry*;
+}
+
+type AArrayOfCIP4_CoatingsEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_ColorIntent extends AObject {
+	link Entries : AArrayOfCIP4_ColorIntentEntry*;
+}
+
+type AArrayOfCIP4_ColorIntentEntry extends AObject {
+	link Entry : ACIP4_ColorIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_ComChannel extends AObject {
+	link Entries : AArrayOfCIP4_ComChannelEntry*;
+}
+
+type AArrayOfCIP4_ComChannelEntry extends AObject {
+	link Entry : ACIP4_ComChannel?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_ContactTypes extends AObject {
+	link Entries : AArrayOfCIP4_ContactTypesEntry*;
+}
+
+type AArrayOfCIP4_ContactTypesEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_FinishedDimensions extends AObject {
+	property contains0 : Boolean;
+	property entry0Type : String;
+	property entry0HasTypeNumber : Boolean;
+	property entry0NumberValue : Decimal;
+	property contains1 : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeNumber : Boolean;
+	property entry1NumberValue : Decimal;
+	property contains2 : Boolean;
+	property entry2Type : String;
+	property entry2HasTypeNumber : Boolean;
+	property entry2NumberValue : Decimal;
+}
+
+type AArrayOfCIP4_FoldingIntent extends AObject {
+	link Entries : AArrayOfCIP4_FoldingIntentEntry*;
+}
+
+type AArrayOfCIP4_FoldingIntentEntry extends AObject {
+	link Entry : ACIP4_FoldingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_HoleMakingIntent extends AObject {
+	link Entries : AArrayOfCIP4_HoleMakingIntentEntry*;
+}
+
+type AArrayOfCIP4_HoleMakingIntentEntry extends AObject {
+	link Entry : ACIP4_HoleMakingIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_HolePattern extends AObject {
+	link Entries : AArrayOfCIP4_HolePatternEntry*;
+}
+
+type AArrayOfCIP4_HolePatternEntry extends AObject {
+	link Entry : ACIP4_HolePattern?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_LABColorValue extends AObject {
+	property contains0 : Boolean;
+	property entry0Type : String;
+	property entry0HasTypeNumber : Boolean;
+	property contains1 : Boolean;
+	property entry1Type : String;
+	property entry1HasTypeNumber : Boolean;
+	property contains2 : Boolean;
+	property entry2Type : String;
+	property entry2HasTypeNumber : Boolean;
+}
+
+type AArrayOfCIP4_LayoutIntent extends AObject {
+	link Entries : AArrayOfCIP4_LayoutIntentEntry*;
+}
+
+type AArrayOfCIP4_LayoutIntentEntry extends AObject {
+	link Entry : ACIP4_LayoutIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_MediaIntent extends AObject {
+	link Entries : AArrayOfCIP4_MediaIntentEntry*;
+}
+
+type AArrayOfCIP4_MediaIntentEntry extends AObject {
+	link Entry : ACIP4_MediaIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_PrintProcess extends AObject {
+	link Entries : AArrayOfCIP4_PrintProcessEntry*;
+}
+
+type AArrayOfCIP4_PrintProcessEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property NameValue : String;
+}
+
+type AArrayOfCIP4_ProductionIntent extends AObject {
+	link Entries : AArrayOfCIP4_ProductionIntentEntry*;
+}
+
+type AArrayOfCIP4_ProductionIntentEntry extends AObject {
+	link Entry : ACIP4_ProductionIntent?;
+	property isIndirect : Boolean;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_Resource extends AObject {
+	link Entries : AArrayOfCIP4_ResourceEntry*;
+}
+
+type AArrayOfCIP4_ResourceEntry extends AObject {
+	link Entry : A_UniversalDictionary?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
+}
+
+type AArrayOfCIP4_StickOn extends AObject {
+	link Entries : AArrayOfCIP4_StickOnEntry*;
+}
+
+type AArrayOfCIP4_StickOnEntry extends AObject {
+	link Entry : ACIP4_StickOn?;
+	property Type : String;
+	property HasTypeDictionary : Boolean;
 }
 
 type AArrayOfClassNamesRevisions extends AObject {
@@ -6464,7 +6939,6 @@ type AArrayOfFieldsEntry extends AObject {
 type AArrayOfFileSpecifications extends AObject {
 	link Entries : AArrayOfFileSpecificationsEntry*;
 	link entry0 : AFileSpecification?;
-	property contains0 : Boolean;
 	property entry0Type : String;
 	property entry0HasTypeDictionary : Boolean;
 }
@@ -6835,7 +7309,7 @@ type AArrayOfPagesEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property containsAnySeparationInfo : Boolean;
+	property containsEntrySeparationInfo : Boolean;
 }
 
 type AArrayOfPaths extends AObject {
@@ -7026,6 +7500,16 @@ type AArrayOfStringsTextEntry extends AObject {
 	property HasTypeStringText : Boolean;
 }
 
+type AArrayOfStringsTextOrNames extends AObject {
+	link Entries : AArrayOfStringsTextOrNamesEntry*;
+}
+
+type AArrayOfStringsTextOrNamesEntry extends AObject {
+	property Type : String;
+	property HasTypeName : Boolean;
+	property HasTypeStringText : Boolean;
+}
+
 type AArrayOfStructElem extends AObject {
 	link Entries : AArrayOfStructElemEntry*;
 }
@@ -7129,11 +7613,11 @@ type AArrayOfURLs extends AObject {
 }
 
 type AArrayOfURLsEntry extends AObject {
-	link Entry : Object?;
-	property isIndirect : Boolean;
+	link Entry : AFileSpecification?;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property HasTypeStream : Boolean;
+	property EntryFSNameValue : String;
+	property containsEntryFS : Boolean;
 }
 
 type AArrayOfUserProperty extends AObject {
@@ -7283,6 +7767,15 @@ type AArrayOf_2LineEndingsNames extends AObject {
 	property entry1NameValue : String;
 }
 
+type AArrayOf_2NonNegativeIntegers extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeInteger : Boolean;
+	property entry0IntegerValue : Integer;
+	property entry1Type : String;
+	property entry1HasTypeInteger : Boolean;
+	property entry1IntegerValue : Integer;
+}
+
 type AArrayOf_2Numbers extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeNumber : Boolean;
@@ -7315,7 +7808,7 @@ type AArrayOf_3CenterOfRotationNumbers extends AObject {
 	property entry2HasTypeNumber : Boolean;
 }
 
-type AArrayOf_3Integers extends AObject {
+type AArrayOf_3NonNegativeIntegers extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeInteger : Boolean;
 	property entry0IntegerValue : Integer;
@@ -7483,12 +7976,16 @@ type AArrayOf_4Integers extends AObject {
 type AArrayOf_4Numbers extends AObject {
 	property entry0Type : String;
 	property entry0HasTypeNumber : Boolean;
+	property entry0NumberValue : Decimal;
 	property entry1Type : String;
 	property entry1HasTypeNumber : Boolean;
+	property entry1NumberValue : Decimal;
 	property entry2Type : String;
 	property entry2HasTypeNumber : Boolean;
+	property entry2NumberValue : Decimal;
 	property entry3Type : String;
 	property entry3HasTypeNumber : Boolean;
+	property entry3NumberValue : Decimal;
 }
 
 type AArrayOf_4NumbersColorAnnotation extends AObject {
@@ -7816,6 +8313,572 @@ type ACIDSystemInfo extends AObject {
 	property SupplementHasTypeInteger : Boolean;
 }
 
+type ACIP4_Address extends AObject {
+	link CIP4_AddressLines : AArrayOfStringsText?;
+	property containsCIP4_AddressLines : Boolean;
+	property CIP4_AddressLinesType : String;
+	property CIP4_AddressLinesHasTypeArray : Boolean;
+	property containsCIP4_AddressUsage : Boolean;
+	property CIP4_AddressUsageType : String;
+	property CIP4_AddressUsageHasTypeName : Boolean;
+	property CIP4_AddressUsageNameValue : String;
+	property containsCIP4_City : Boolean;
+	property CIP4_CityType : String;
+	property CIP4_CityHasTypeString : Boolean;
+	property containsCIP4_CivicNumber : Boolean;
+	property CIP4_CivicNumberType : String;
+	property CIP4_CivicNumberHasTypeString : Boolean;
+	property containsCIP4_Country : Boolean;
+	property CIP4_CountryType : String;
+	property CIP4_CountryHasTypeString : Boolean;
+	property containsCIP4_CountryCode : Boolean;
+	property CIP4_CountryCodeType : String;
+	property CIP4_CountryCodeHasTypeName : Boolean;
+	property containsCIP4_PostBox : Boolean;
+	property CIP4_PostBoxType : String;
+	property CIP4_PostBoxHasTypeString : Boolean;
+	property containsCIP4_PostalCode : Boolean;
+	property CIP4_PostalCodeType : String;
+	property CIP4_PostalCodeHasTypeString : Boolean;
+	property containsCIP4_Region : Boolean;
+	property CIP4_RegionType : String;
+	property CIP4_RegionHasTypeString : Boolean;
+	property containsCIP4_Street : Boolean;
+	property CIP4_StreetType : String;
+	property CIP4_StreetHasTypeString : Boolean;
+	property containsCIP4_StreetName : Boolean;
+	property CIP4_StreetNameType : String;
+	property CIP4_StreetNameHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_AssemblingIntent extends AObject {
+	link CIP4_AssemblyItem : AArrayOfCIP4_AssemblyItem?;
+	link CIP4_BindIn : AArrayOfCIP4_BindIn?;
+	link CIP4_BlowIn : AArrayOfCIP4_BlowIn?;
+	link CIP4_Container : ADPart?;
+	link CIP4_StickOn : AArrayOfCIP4_StickOn?;
+	property containsCIP4_AssemblyItem : Boolean;
+	property CIP4_AssemblyItemType : String;
+	property CIP4_AssemblyItemHasTypeArray : Boolean;
+	property containsCIP4_BindIn : Boolean;
+	property CIP4_BindInType : String;
+	property CIP4_BindInHasTypeArray : Boolean;
+	property containsCIP4_BlowIn : Boolean;
+	property CIP4_BlowInType : String;
+	property CIP4_BlowInHasTypeArray : Boolean;
+	property containsCIP4_Container : Boolean;
+	property isCIP4_ContainerIndirect : Boolean;
+	property CIP4_ContainerType : String;
+	property CIP4_ContainerHasTypeDictionary : Boolean;
+	property containsCIP4_StickOn : Boolean;
+	property CIP4_StickOnType : String;
+	property CIP4_StickOnHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_AssemblyItem extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_BindIn extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_BindingIntent extends AObject {
+	link CIP4_SaddleStitching : ACIP4_SaddleStitching?;
+	link CIP4_SideStitching : ACIP4_SideStitching?;
+	property containsCIP4_BindingSide : Boolean;
+	property CIP4_BindingSideType : String;
+	property CIP4_BindingSideHasTypeName : Boolean;
+	property CIP4_BindingSideNameValue : String;
+	property containsCIP4_BindingType : Boolean;
+	property CIP4_BindingTypeType : String;
+	property CIP4_BindingTypeHasTypeName : Boolean;
+	property CIP4_BindingTypeNameValue : String;
+	property containsCIP4_SaddleStitching : Boolean;
+	property CIP4_SaddleStitchingType : String;
+	property CIP4_SaddleStitchingHasTypeDictionary : Boolean;
+	property containsCIP4_SideStitching : Boolean;
+	property CIP4_SideStitchingType : String;
+	property CIP4_SideStitchingHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_BlowIn extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_ColorIntent extends AObject {
+	link CIP4_Coatings : AArrayOfCIP4_Coatings?;
+	property containsCIP4_Coatings : Boolean;
+	property CIP4_CoatingsType : String;
+	property CIP4_CoatingsHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_ComChannel extends AObject {
+	link CIP4_ChannelUsage : AArrayOfCIP4_ChannelUsage?;
+	property containsCIP4_ChannelType : Boolean;
+	property CIP4_ChannelTypeType : String;
+	property CIP4_ChannelTypeHasTypeName : Boolean;
+	property CIP4_ChannelTypeNameValue : String;
+	property containsCIP4_ChannelUsage : Boolean;
+	property CIP4_ChannelUsageType : String;
+	property CIP4_ChannelUsageHasTypeArray : Boolean;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_Locator : Boolean;
+	property CIP4_LocatorType : String;
+	property CIP4_LocatorHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Company extends AObject {
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_OrganizationName : Boolean;
+	property CIP4_OrganizationNameType : String;
+	property CIP4_OrganizationNameHasTypeString : Boolean;
+	property containsCIP4_OrganizationalUnit : Boolean;
+	property CIP4_OrganizationalUnitType : String;
+	property CIP4_OrganizationalUnitHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Contact extends AObject {
+	link CIP4_Address : ACIP4_Address?;
+	link CIP4_ComChannel : AArrayOfCIP4_ComChannel?;
+	link CIP4_Company : ACIP4_Company?;
+	link CIP4_ContactTypes : AArrayOfCIP4_ContactTypes?;
+	link CIP4_Person : ACIP4_Person?;
+	property containsCIP4_Address : Boolean;
+	property CIP4_AddressType : String;
+	property CIP4_AddressHasTypeDictionary : Boolean;
+	property containsCIP4_ComChannel : Boolean;
+	property CIP4_ComChannelType : String;
+	property CIP4_ComChannelHasTypeArray : Boolean;
+	property containsCIP4_Company : Boolean;
+	property CIP4_CompanyType : String;
+	property CIP4_CompanyHasTypeDictionary : Boolean;
+	property containsCIP4_ContactTypes : Boolean;
+	property CIP4_ContactTypesType : String;
+	property CIP4_ContactTypesHasTypeArray : Boolean;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_Person : Boolean;
+	property CIP4_PersonType : String;
+	property CIP4_PersonHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_FoldingIntent extends AObject {
+	property containsCIP4_FoldCatalog : Boolean;
+	property CIP4_FoldCatalogType : String;
+	property CIP4_FoldCatalogHasTypeName : Boolean;
+	property CIP4_FoldCatalogNameValue : String;
+	property containsCIP4_Orientation : Boolean;
+	property CIP4_OrientationType : String;
+	property CIP4_OrientationHasTypeName : Boolean;
+	property CIP4_OrientationNameValue : String;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_HoleMakingIntent extends AObject {
+	link CIP4_HolePattern : AArrayOfCIP4_HolePattern?;
+	property containsCIP4_HolePattern : Boolean;
+	property CIP4_HolePatternType : String;
+	property CIP4_HolePatternHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_HolePattern extends AObject {
+	property containsCIP4_HoleReferenceEdge : Boolean;
+	property CIP4_HoleReferenceEdgeType : String;
+	property CIP4_HoleReferenceEdgeHasTypeName : Boolean;
+	property CIP4_HoleReferenceEdgeNameValue : String;
+	property containsCIP4_Pattern : Boolean;
+	property CIP4_PatternType : String;
+	property CIP4_PatternHasTypeName : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Intent extends AObject {
+	link CIP4_AssemblingIntent : ACIP4_AssemblingIntent?;
+	link CIP4_BindingIntent : ACIP4_BindingIntent?;
+	link CIP4_ColorIntent : ACIP4_ColorIntent?;
+	link CIP4_FoldingIntent : ACIP4_FoldingIntent?;
+	link CIP4_HoleMakingIntent : ACIP4_HoleMakingIntent?;
+	link CIP4_LayoutIntent : ACIP4_LayoutIntent?;
+	link CIP4_MediaIntent : ACIP4_MediaIntent?;
+	link CIP4_ProductionIntent : ACIP4_ProductionIntent?;
+	property containsCIP4_AssemblingIntent : Boolean;
+	property CIP4_AssemblingIntentType : String;
+	property CIP4_AssemblingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_BindingIntent : Boolean;
+	property CIP4_BindingIntentType : String;
+	property CIP4_BindingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_ColorIntent : Boolean;
+	property CIP4_ColorIntentType : String;
+	property CIP4_ColorIntentHasTypeDictionary : Boolean;
+	property containsCIP4_FoldingIntent : Boolean;
+	property CIP4_FoldingIntentType : String;
+	property CIP4_FoldingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_HoleMakingIntent : Boolean;
+	property CIP4_HoleMakingIntentType : String;
+	property CIP4_HoleMakingIntentHasTypeDictionary : Boolean;
+	property containsCIP4_LayoutIntent : Boolean;
+	property CIP4_LayoutIntentType : String;
+	property CIP4_LayoutIntentHasTypeDictionary : Boolean;
+	property containsCIP4_MediaIntent : Boolean;
+	property CIP4_MediaIntentType : String;
+	property CIP4_MediaIntentHasTypeDictionary : Boolean;
+	property containsCIP4_ProductType : Boolean;
+	property CIP4_ProductTypeType : String;
+	property CIP4_ProductTypeHasTypeName : Boolean;
+	property CIP4_ProductTypeNameValue : String;
+	property containsCIP4_ProductionIntent : Boolean;
+	property CIP4_ProductionIntentType : String;
+	property CIP4_ProductionIntentHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_IntentSummary extends AObject {
+	link CIP4_AssemblingIntent : AArrayOfCIP4_AssemblingIntent?;
+	link CIP4_BindingIntent : AArrayOfCIP4_BindingIntent?;
+	link CIP4_ColorIntent : AArrayOfCIP4_ColorIntent?;
+	link CIP4_FoldingIntent : AArrayOfCIP4_FoldingIntent?;
+	link CIP4_HoleMakingIntent : AArrayOfCIP4_HoleMakingIntent?;
+	link CIP4_LayoutIntent : AArrayOfCIP4_LayoutIntent?;
+	link CIP4_MediaIntent : AArrayOfCIP4_MediaIntent?;
+	link CIP4_ProductionIntent : AArrayOfCIP4_ProductionIntent?;
+	property containsCIP4_AssemblingIntent : Boolean;
+	property CIP4_AssemblingIntentType : String;
+	property CIP4_AssemblingIntentHasTypeArray : Boolean;
+	property containsCIP4_BindingIntent : Boolean;
+	property CIP4_BindingIntentType : String;
+	property CIP4_BindingIntentHasTypeArray : Boolean;
+	property containsCIP4_ColorIntent : Boolean;
+	property CIP4_ColorIntentType : String;
+	property CIP4_ColorIntentHasTypeArray : Boolean;
+	property containsCIP4_FoldingIntent : Boolean;
+	property CIP4_FoldingIntentType : String;
+	property CIP4_FoldingIntentHasTypeArray : Boolean;
+	property containsCIP4_HoleMakingIntent : Boolean;
+	property CIP4_HoleMakingIntentType : String;
+	property CIP4_HoleMakingIntentHasTypeArray : Boolean;
+	property containsCIP4_LayoutIntent : Boolean;
+	property CIP4_LayoutIntentType : String;
+	property CIP4_LayoutIntentHasTypeArray : Boolean;
+	property containsCIP4_MediaIntent : Boolean;
+	property CIP4_MediaIntentType : String;
+	property CIP4_MediaIntentHasTypeArray : Boolean;
+	property containsCIP4_ProductionIntent : Boolean;
+	property CIP4_ProductionIntentType : String;
+	property CIP4_ProductionIntentHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_LayoutIntent extends AObject {
+	link CIP4_FinishedDimensions : AArrayOfCIP4_FinishedDimensions?;
+	property containsCIP4_FinishedDimensions : Boolean;
+	property CIP4_FinishedDimensionsType : String;
+	property CIP4_FinishedDimensionsHasTypeArray : Boolean;
+	property containsCIP4_Sides : Boolean;
+	property CIP4_SidesType : String;
+	property CIP4_SidesHasTypeName : Boolean;
+	property CIP4_SidesNameValue : String;
+	property containsCIP4_SpreadType : Boolean;
+	property CIP4_SpreadTypeType : String;
+	property CIP4_SpreadTypeHasTypeName : Boolean;
+	property CIP4_SpreadTypeNameValue : String;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_MediaIntent extends AObject {
+	link CIP4_LABColorValue : AArrayOfCIP4_LABColorValue?;
+	property containsCIP4_BackCoating : Boolean;
+	property CIP4_BackCoatingType : String;
+	property CIP4_BackCoatingHasTypeName : Boolean;
+	property CIP4_BackCoatingNameValue : String;
+	property containsCIP4_Coating : Boolean;
+	property CIP4_CoatingType : String;
+	property CIP4_CoatingHasTypeName : Boolean;
+	property CIP4_CoatingNameValue : String;
+	property containsCIP4_ISOPaperSubstrate : Boolean;
+	property CIP4_ISOPaperSubstrateType : String;
+	property CIP4_ISOPaperSubstrateHasTypeName : Boolean;
+	property CIP4_ISOPaperSubstrateNameValue : String;
+	property containsCIP4_LABColorValue : Boolean;
+	property CIP4_LABColorValueType : String;
+	property CIP4_LABColorValueHasTypeArray : Boolean;
+	property containsCIP4_MediaColor : Boolean;
+	property CIP4_MediaColorType : String;
+	property CIP4_MediaColorHasTypeName : Boolean;
+	property CIP4_MediaColorNameValue : String;
+	property containsCIP4_MediaColorDetails : Boolean;
+	property CIP4_MediaColorDetailsType : String;
+	property CIP4_MediaColorDetailsHasTypeString : Boolean;
+	property containsCIP4_MediaQuality : Boolean;
+	property CIP4_MediaQualityType : String;
+	property CIP4_MediaQualityHasTypeString : Boolean;
+	property containsCIP4_MediaTypeDetails : Boolean;
+	property CIP4_MediaTypeDetailsType : String;
+	property CIP4_MediaTypeDetailsHasTypeName : Boolean;
+	property containsCIP4_Weight : Boolean;
+	property CIP4_WeightType : String;
+	property CIP4_WeightHasTypeNumber : Boolean;
+	property CIP4_WeightNumberValue : Decimal;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Metadata extends AObject {
+	link CIP4_Accounting : ACIP4_Contact?;
+	link CIP4_Administrator : ACIP4_Contact?;
+	link CIP4_Author : ACIP4_Contact?;
+	link CIP4_Conformance : AArrayOfStringsText?;
+	link CIP4_Sender : ACIP4_Contact?;
+	property containsCIP4_Accounting : Boolean;
+	property CIP4_AccountingType : String;
+	property CIP4_AccountingHasTypeDictionary : Boolean;
+	property containsCIP4_Administrator : Boolean;
+	property CIP4_AdministratorType : String;
+	property CIP4_AdministratorHasTypeDictionary : Boolean;
+	property containsCIP4_Author : Boolean;
+	property CIP4_AuthorType : String;
+	property CIP4_AuthorHasTypeDictionary : Boolean;
+	property containsCIP4_Conformance : Boolean;
+	property CIP4_ConformanceType : String;
+	property CIP4_ConformanceHasTypeArray : Boolean;
+	property containsCIP4_Creator : Boolean;
+	property CIP4_CreatorType : String;
+	property CIP4_CreatorHasTypeString : Boolean;
+	property containsCIP4_JobID : Boolean;
+	property CIP4_JobIDType : String;
+	property CIP4_JobIDHasTypeName : Boolean;
+	property containsCIP4_ModificationDate : Boolean;
+	property CIP4_ModificationDateType : String;
+	property CIP4_ModificationDateHasTypeDate : Boolean;
+	property containsCIP4_ProjectID : Boolean;
+	property CIP4_ProjectIDType : String;
+	property CIP4_ProjectIDHasTypeName : Boolean;
+	property containsCIP4_Sender : Boolean;
+	property CIP4_SenderType : String;
+	property CIP4_SenderHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Person extends AObject {
+	property containsCIP4_AdditionalNames : Boolean;
+	property CIP4_AdditionalNamesType : String;
+	property CIP4_AdditionalNamesHasTypeString : Boolean;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_FamilyName : Boolean;
+	property CIP4_FamilyNameType : String;
+	property CIP4_FamilyNameHasTypeString : Boolean;
+	property containsCIP4_FirstName : Boolean;
+	property CIP4_FirstNameType : String;
+	property CIP4_FirstNameHasTypeString : Boolean;
+	property containsCIP4_FullName : Boolean;
+	property CIP4_FullNameType : String;
+	property CIP4_FullNameHasTypeString : Boolean;
+	property containsCIP4_JobTitle : Boolean;
+	property CIP4_JobTitleType : String;
+	property CIP4_JobTitleHasTypeString : Boolean;
+	property containsCIP4_NamePrefix : Boolean;
+	property CIP4_NamePrefixType : String;
+	property CIP4_NamePrefixHasTypeString : Boolean;
+	property containsCIP4_NameSuffix : Boolean;
+	property CIP4_NameSuffixType : String;
+	property CIP4_NameSuffixHasTypeString : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Production extends AObject {
+	link CIP4_Resource : AArrayOfCIP4_Resource?;
+	property containsCIP4_CopyCount : Boolean;
+	property CIP4_CopyCountType : String;
+	property CIP4_CopyCountHasTypeInteger : Boolean;
+	property CIP4_CopyCountIntegerValue : Integer;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_Resource : Boolean;
+	property CIP4_ResourceType : String;
+	property CIP4_ResourceHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_ProductionIntent extends AObject {
+	link CIP4_PrintProcess : AArrayOfCIP4_PrintProcess?;
+	property containsCIP4_PrintPreference : Boolean;
+	property CIP4_PrintPreferenceType : String;
+	property CIP4_PrintPreferenceHasTypeName : Boolean;
+	property CIP4_PrintPreferenceNameValue : String;
+	property containsCIP4_PrintProcess : Boolean;
+	property CIP4_PrintProcessType : String;
+	property CIP4_PrintProcessHasTypeArray : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_Recipient extends AObject {
+	link CIP4_Contact : ACIP4_Contact?;
+	property containsCIP4_Contact : Boolean;
+	property CIP4_ContactType : String;
+	property CIP4_ContactHasTypeDictionary : Boolean;
+	property containsCIP4_ExternalID : Boolean;
+	property CIP4_ExternalIDType : String;
+	property CIP4_ExternalIDHasTypeName : Boolean;
+}
+
+type ACIP4_Root extends AObject {
+	link CIP4_Intent : ACIP4_Intent?;
+	link CIP4_IntentSummary : ACIP4_IntentSummary?;
+	link CIP4_Metadata : ACIP4_Metadata?;
+	link CIP4_Production : ACIP4_Production?;
+	link CIP4_Recipient : ACIP4_Recipient?;
+	property containsCIP4_DescriptiveName : Boolean;
+	property CIP4_DescriptiveNameType : String;
+	property CIP4_DescriptiveNameHasTypeString : Boolean;
+	property containsCIP4_ExternalID : Boolean;
+	property CIP4_ExternalIDType : String;
+	property CIP4_ExternalIDHasTypeName : Boolean;
+	property containsCIP4_Intent : Boolean;
+	property CIP4_IntentType : String;
+	property CIP4_IntentHasTypeDictionary : Boolean;
+	property containsCIP4_IntentSummary : Boolean;
+	property CIP4_IntentSummaryType : String;
+	property CIP4_IntentSummaryHasTypeDictionary : Boolean;
+	property containsCIP4_Metadata : Boolean;
+	property CIP4_MetadataType : String;
+	property CIP4_MetadataHasTypeDictionary : Boolean;
+	property containsCIP4_Production : Boolean;
+	property CIP4_ProductionType : String;
+	property CIP4_ProductionHasTypeDictionary : Boolean;
+	property containsCIP4_Recipient : Boolean;
+	property CIP4_RecipientType : String;
+	property CIP4_RecipientHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_SaddleStitching extends AObject {
+	property containsCIP4_StitchNumber : Boolean;
+	property CIP4_StitchNumberType : String;
+	property CIP4_StitchNumberHasTypeInteger : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_SideStitching extends AObject {
+	property containsCIP4_StitchNumber : Boolean;
+	property CIP4_StitchNumberType : String;
+	property CIP4_StitchNumberHasTypeInteger : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
+type ACIP4_StickOn extends AObject {
+	link CIP4_Child : ADPart?;
+	property containsCIP4_Child : Boolean;
+	property isCIP4_ChildIndirect : Boolean;
+	property CIP4_ChildType : String;
+	property CIP4_ChildHasTypeDictionary : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+}
+
 type ACMapStream extends AObject {
 	link CIDSystemInfo : ACIDSystemInfo?;
 	link DecodeParms : Object?;
@@ -7933,7 +8996,7 @@ type ACalRGBDict extends AObject {
 
 type ACatalog extends AObject {
 	link AA : AAddActionCatalog?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link AcroForm : AInteractiveForm?;
 	link Collection : ACollection?;
 	link DPartRoot : ADPartRoot?;
@@ -8515,8 +9578,12 @@ type ACryptFilterPublicKeyMapEntry extends AObject {
 
 type ADPM extends AObject {
 	link Entries : ADPMEntry*;
+	link CIP4_Root : ACIP4_Root?;
 	link GTS_Managed : A_UniversalDictionary?;
 	link GTS_Suspect : A_UniversalDictionary?;
+	property containsCIP4_Root : Boolean;
+	property CIP4_RootType : String;
+	property CIP4_RootHasTypeDictionary : Boolean;
 	property containsGTS_Managed : Boolean;
 	property GTS_ManagedType : String;
 	property GTS_ManagedHasTypeDictionary : Boolean;
@@ -8539,7 +9606,7 @@ type ADPMEntry extends AObject {
 }
 
 type ADPart extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link DPM : ADPM?;
 	link DParts : AArrayOfDPartArrays?;
 	link End : APageObject?;
@@ -9019,71 +10086,91 @@ type ADocMDPTransformParameters extends AObject {
 }
 
 type ADocTimeStamp extends AObject {
-	link ByteRange : AArrayOfIntegersGeneral?;
+	link ByteRange : AArrayOfNonNegativeIntegersGeneral?;
 	link Cert : AArrayOfStringsByte?;
-	link Changes : AArrayOf_3Integers?;
+	link Changes : AArrayOf_3NonNegativeIntegers?;
 	link Prop_Build : ASignatureBuildPropDict?;
 	link Reference : AArrayOfSignatureReferences?;
-	property containsADBE_Build : Boolean;
-	property ADBE_BuildType : String;
-	property ADBE_BuildHasTypeString : Boolean;
 	property containsByteRange : Boolean;
+	property isByteRangeIndirect : Boolean;
 	property ByteRangeType : String;
 	property ByteRangeHasTypeArray : Boolean;
+	property ByteRangeArraySize : Integer;
 	property containsCert : Boolean;
+	property isCertIndirect : Boolean;
 	property CertType : String;
 	property CertHasTypeArray : Boolean;
 	property CertHasTypeStringByte : Boolean;
 	property containsChanges : Boolean;
+	property isChangesIndirect : Boolean;
 	property ChangesType : String;
 	property ChangesHasTypeArray : Boolean;
 	property containsContactInfo : Boolean;
+	property isContactInfoIndirect : Boolean;
 	property ContactInfoType : String;
-	property ContactInfoHasTypeString : Boolean;
+	property ContactInfoHasTypeStringText : Boolean;
 	property containsContents : Boolean;
+	property isContentsIndirect : Boolean;
 	property ContentsType : String;
 	property ContentsHasTypeStringByte : Boolean;
+	property isContentsHexString : Boolean;
 	property containsFilter : Boolean;
+	property isFilterIndirect : Boolean;
 	property FilterType : String;
 	property FilterHasTypeName : Boolean;
 	property containsLocation : Boolean;
+	property isLocationIndirect : Boolean;
 	property LocationType : String;
-	property LocationHasTypeString : Boolean;
+	property LocationHasTypeStringText : Boolean;
 	property containsM : Boolean;
+	property isMIndirect : Boolean;
 	property MType : String;
 	property MHasTypeDate : Boolean;
 	property containsName : Boolean;
+	property isNameIndirect : Boolean;
 	property NameType : String;
-	property NameHasTypeString : Boolean;
+	property NameHasTypeStringText : Boolean;
 	property containsProp_AuthTime : Boolean;
+	property isProp_AuthTimeIndirect : Boolean;
 	property Prop_AuthTimeType : String;
 	property Prop_AuthTimeHasTypeInteger : Boolean;
+	property Prop_AuthTimeIntegerValue : Integer;
 	property containsProp_AuthType : Boolean;
+	property isProp_AuthTypeIndirect : Boolean;
 	property Prop_AuthTypeType : String;
 	property Prop_AuthTypeHasTypeName : Boolean;
+	property Prop_AuthTypeNameValue : String;
 	property containsProp_Build : Boolean;
+	property isProp_BuildIndirect : Boolean;
 	property Prop_BuildType : String;
 	property Prop_BuildHasTypeDictionary : Boolean;
 	property containsR : Boolean;
+	property isRIndirect : Boolean;
 	property RType : String;
 	property RHasTypeInteger : Boolean;
 	property containsReason : Boolean;
+	property isReasonIndirect : Boolean;
 	property ReasonType : String;
-	property ReasonHasTypeString : Boolean;
+	property ReasonHasTypeStringText : Boolean;
 	property containsReference : Boolean;
+	property isReferenceIndirect : Boolean;
 	property ReferenceType : String;
 	property ReferenceHasTypeArray : Boolean;
 	property containsSubFilter : Boolean;
+	property isSubFilterIndirect : Boolean;
 	property SubFilterType : String;
 	property SubFilterHasTypeName : Boolean;
 	property SubFilterNameValue : String;
 	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
+	property isVIndirect : Boolean;
 	property VType : String;
 	property VHasTypeInteger : Boolean;
+	property VIntegerValue : Integer;
 }
 
 type ADocument extends AObject {
@@ -9162,6 +10249,9 @@ type AEmbeddedFileStream extends AObject {
 	property containsLength : Boolean;
 	property LengthType : String;
 	property LengthHasTypeInteger : Boolean;
+	property containsMail_MediaTypeParameters : Boolean;
+	property Mail_MediaTypeParametersType : String;
+	property Mail_MediaTypeParametersHasTypeStringText : Boolean;
 	property containsParams : Boolean;
 	property ParamsType : String;
 	property ParamsHasTypeDictionary : Boolean;
@@ -9368,7 +10458,13 @@ type AExDataProjection extends AObject {
 
 type AExtensions extends AObject {
 	link Entries : AExtensionsEntry*;
+	link GTSm : Object?;
 	link ISO_ : Object?;
+	property containsGTSm : Boolean;
+	property isGTSmIndirect : Boolean;
+	property GTSmType : String;
+	property GTSmHasTypeArray : Boolean;
+	property GTSmHasTypeDictionary : Boolean;
 	property containsISO_ : Boolean;
 	property isISO_Indirect : Boolean;
 	property ISO_Type : String;
@@ -9858,6 +10954,7 @@ type AFileSpecification extends AObject {
 	property AFRelationshipHasTypeName : Boolean;
 	property AFRelationshipNameValue : String;
 	property containsCI : Boolean;
+	property isCIIndirect : Boolean;
 	property CIType : String;
 	property CIHasTypeDictionary : Boolean;
 	property containsDOS : Boolean;
@@ -10131,7 +11228,7 @@ type AFontCIDType0 extends AObject {
 	link CIDToGIDMap : AStream?;
 	link DW2 : AArrayOf_2Numbers?;
 	link FontDescriptor : AFontDescriptorCIDType0?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link W : AArrayOfCIDGlyphMetricsW?;
 	link W2 : AArrayOfCIDGlyphMetricsW2?;
 	property containsBaseFont : Boolean;
@@ -10149,6 +11246,7 @@ type AFontCIDType0 extends AObject {
 	property CIDToGIDMapNameValue : String;
 	property containsDW : Boolean;
 	property DWType : String;
+	property DWHasTypeInteger : Boolean;
 	property DWHasTypeNumber : Boolean;
 	property containsDW2 : Boolean;
 	property DW2Type : String;
@@ -10182,7 +11280,7 @@ type AFontCIDType2 extends AObject {
 	link CIDToGIDMap : AStream?;
 	link DW2 : AArrayOf_2Numbers?;
 	link FontDescriptor : AFontDescriptorCIDType2?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link W : AArrayOfCIDGlyphMetricsW?;
 	link W2 : AArrayOfCIDGlyphMetricsW2?;
 	property containsBaseFont : Boolean;
@@ -10200,6 +11298,7 @@ type AFontCIDType2 extends AObject {
 	property CIDToGIDMapNameValue : String;
 	property containsDW : Boolean;
 	property DWType : String;
+	property DWHasTypeInteger : Boolean;
 	property DWHasTypeNumber : Boolean;
 	property containsDW2 : Boolean;
 	property DW2Type : String;
@@ -10233,7 +11332,7 @@ type AFontDescriptorCIDType0 extends AObject {
 	link CIDSet : AStream?;
 	link FD : AFDDict?;
 	link FontFile : AFontFile?;
-	link FontFile3 : AFontFile3CIDType0?;
+	link FontFile3 : Object?;
 	link Style : AStyleDict?;
 	property containsAscent : Boolean;
 	property AscentType : String;
@@ -10324,6 +11423,7 @@ type AFontDescriptorCIDType2 extends AObject {
 	link FD : AFDDict?;
 	link FontFile : AFontFile?;
 	link FontFile2 : AFontFile2?;
+	link FontFile3 : AFontFile3OpenType?;
 	link Style : AStyleDict?;
 	property containsAscent : Boolean;
 	property AscentType : String;
@@ -10363,6 +11463,10 @@ type AFontDescriptorCIDType2 extends AObject {
 	property isFontFile2Indirect : Boolean;
 	property FontFile2Type : String;
 	property FontFile2HasTypeStream : Boolean;
+	property containsFontFile3 : Boolean;
+	property isFontFile3Indirect : Boolean;
+	property FontFile3Type : String;
+	property FontFile3HasTypeStream : Boolean;
 	property containsFontName : Boolean;
 	property FontNameType : String;
 	property FontNameHasTypeName : Boolean;
@@ -10412,6 +11516,7 @@ type AFontDescriptorCIDType2 extends AObject {
 type AFontDescriptorTrueType extends AObject {
 	link FontFile : AFontFileType1?;
 	link FontFile2 : AFontFile2?;
+	link FontFile3 : AFontFile3OpenType?;
 	property containsAscent : Boolean;
 	property AscentType : String;
 	property AscentHasTypeNumber : Boolean;
@@ -10443,6 +11548,10 @@ type AFontDescriptorTrueType extends AObject {
 	property isFontFile2Indirect : Boolean;
 	property FontFile2Type : String;
 	property FontFile2HasTypeStream : Boolean;
+	property containsFontFile3 : Boolean;
+	property isFontFile3Indirect : Boolean;
+	property FontFile3Type : String;
+	property FontFile3HasTypeStream : Boolean;
 	property containsFontName : Boolean;
 	property FontNameType : String;
 	property FontNameHasTypeName : Boolean;
@@ -10485,7 +11594,7 @@ type AFontDescriptorTrueType extends AObject {
 
 type AFontDescriptorType1 extends AObject {
 	link FontFile : AFontFileType1?;
-	link FontFile3 : AFontFile3Type1?;
+	link FontFile3 : Object?;
 	property containsAscent : Boolean;
 	property AscentType : String;
 	property AscentHasTypeNumber : Boolean;
@@ -10631,6 +11740,7 @@ type AFontFile extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -10676,6 +11786,10 @@ type AFontFile extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -10688,6 +11802,7 @@ type AFontFile2 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -10733,6 +11848,10 @@ type AFontFile2 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -10745,6 +11864,7 @@ type AFontFile3CIDType0 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -10790,6 +11910,72 @@ type AFontFile3CIDType0 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
+	property containsSubtype : Boolean;
+	property SubtypeType : String;
+	property SubtypeHasTypeName : Boolean;
+	property SubtypeNameValue : String;
+}
+
+type AFontFile3OpenType extends AObject {
+	link DecodeParms : Object?;
+	link F : AFileSpecification?;
+	link FDecodeParms : Object?;
+	link FFilter : AArrayOfCompressionFilterNames?;
+	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
+	property containsDL : Boolean;
+	property DLType : String;
+	property DLHasTypeInteger : Boolean;
+	property DLIntegerValue : Integer;
+	property containsDecodeParms : Boolean;
+	property DecodeParmsType : String;
+	property DecodeParmsHasTypeArray : Boolean;
+	property DecodeParmsHasTypeDictionary : Boolean;
+	property DecodeParmsArraySize : Integer;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
+	property containsFDecodeParms : Boolean;
+	property FDecodeParmsType : String;
+	property FDecodeParmsHasTypeArray : Boolean;
+	property FDecodeParmsHasTypeDictionary : Boolean;
+	property FDecodeParmsArraySize : Integer;
+	property containsFFilter : Boolean;
+	property FFilterType : String;
+	property FFilterHasTypeArray : Boolean;
+	property FFilterHasTypeName : Boolean;
+	property FFilterNameValue : String;
+	property FFilterArraySize : Integer;
+	property containsFilter : Boolean;
+	property FilterType : String;
+	property FilterHasTypeArray : Boolean;
+	property FilterHasTypeName : Boolean;
+	property FilterNameValue : String;
+	property FilterArraySize : Integer;
+	property containsLength : Boolean;
+	property LengthType : String;
+	property LengthHasTypeInteger : Boolean;
+	property containsLength1 : Boolean;
+	property Length1Type : String;
+	property Length1HasTypeInteger : Boolean;
+	property Length1IntegerValue : Integer;
+	property containsLength2 : Boolean;
+	property Length2Type : String;
+	property Length2HasTypeInteger : Boolean;
+	property Length2IntegerValue : Integer;
+	property containsLength3 : Boolean;
+	property Length3Type : String;
+	property Length3HasTypeInteger : Boolean;
+	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -10802,6 +11988,7 @@ type AFontFile3Type1 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -10847,6 +12034,10 @@ type AFontFile3Type1 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
@@ -10859,6 +12050,7 @@ type AFontFileType1 extends AObject {
 	link FDecodeParms : Object?;
 	link FFilter : AArrayOfCompressionFilterNames?;
 	link Filter : AArrayOfCompressionFilterNames?;
+	link Metadata : AMetadata?;
 	property containsDL : Boolean;
 	property DLType : String;
 	property DLHasTypeInteger : Boolean;
@@ -10904,9 +12096,14 @@ type AFontFileType1 extends AObject {
 	property Length3Type : String;
 	property Length3HasTypeInteger : Boolean;
 	property Length3IntegerValue : Integer;
+	property containsMetadata : Boolean;
+	property isMetadataIndirect : Boolean;
+	property MetadataType : String;
+	property MetadataHasTypeStream : Boolean;
 	property containsSubtype : Boolean;
 	property SubtypeType : String;
 	property SubtypeHasTypeName : Boolean;
+	property SubtypeNameValue : String;
 }
 
 type AFontMap extends AObject {
@@ -10922,7 +12119,7 @@ type AFontMapEntry extends AObject {
 type AFontMultipleMaster extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorType1?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
@@ -10965,7 +12162,7 @@ type AFontMultipleMaster extends AObject {
 type AFontTrueType extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorTrueType?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
@@ -11009,7 +12206,7 @@ type AFontTrueType extends AObject {
 type AFontType0 extends AObject {
 	link DescendantFonts : AArrayOfDescendantFonts?;
 	link Encoding : ACMapStream?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
 	property BaseFontHasTypeName : Boolean;
@@ -11039,7 +12236,7 @@ type AFontType0 extends AObject {
 type AFontType1 extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorType1?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsBaseFont : Boolean;
 	property BaseFontType : String;
@@ -11087,7 +12284,7 @@ type AFontType3 extends AObject {
 	link Encoding : AEncoding?;
 	link FontDescriptor : AFontDescriptorType3?;
 	link Resources : AResource?;
-	link ToUnicode : AStream?;
+	link ToUnicode : AToUnicodeCMapStream?;
 	link Widths : AArrayOfNumbersGeneral?;
 	property containsCharProcs : Boolean;
 	property CharProcsType : String;
@@ -11334,6 +12531,9 @@ type AFunctionType4 extends AObject {
 }
 
 type AGTS_ProcStepsGroup extends AObject {
+	property containsGTS_ProcStepsColorants : Boolean;
+	property GTS_ProcStepsColorantsType : String;
+	property GTS_ProcStepsColorantsHasTypeName : Boolean;
 	property containsGTS_ProcStepsGroup : Boolean;
 	property GTS_ProcStepsGroupType : String;
 	property GTS_ProcStepsGroupHasTypeName : Boolean;
@@ -11342,9 +12542,32 @@ type AGTS_ProcStepsGroup extends AObject {
 	property GTS_ProcStepsTypeType : String;
 	property GTS_ProcStepsTypeHasTypeName : Boolean;
 	property GTS_ProcStepsTypeNameValue : String;
-	property containsGWG__ProcStepsColorants : Boolean;
-	property GWG__ProcStepsColorantsType : String;
-	property GWG__ProcStepsColorantsHasTypeName : Boolean;
+}
+
+type AGTSm_DevExtensions extends AObject {
+	property containsBaseVersion : Boolean;
+	property isBaseVersionIndirect : Boolean;
+	property BaseVersionType : String;
+	property BaseVersionHasTypeName : Boolean;
+	property BaseVersionNameValue : String;
+	property containsExtensionLevel : Boolean;
+	property isExtensionLevelIndirect : Boolean;
+	property ExtensionLevelType : String;
+	property ExtensionLevelHasTypeInteger : Boolean;
+	property ExtensionLevelIntegerValue : Integer;
+	property containsExtensionRevision : Boolean;
+	property isExtensionRevisionIndirect : Boolean;
+	property ExtensionRevisionType : String;
+	property ExtensionRevisionHasTypeStringText : Boolean;
+	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+	property containsURL : Boolean;
+	property isURLIndirect : Boolean;
+	property URLType : String;
+	property URLHasTypeString : Boolean;
 }
 
 type AGammaArray extends AObject {
@@ -13909,7 +15132,7 @@ type APageLabel extends AObject {
 
 type APageObject extends AObject {
 	link AA : AAddActionPageObject?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link Annots : AArrayOfAnnots?;
 	link B : AArrayOfBeads?;
 	link BoxColorInfo : ABoxColorInfo?;
@@ -15179,6 +16402,7 @@ type ARequirementsglTF extends AObject {
 
 type AResource extends AObject {
 	link ColorSpace : AColorSpaceMap?;
+	link Encoding : AEncoding?;
 	link ExtGState : AGraphicsStateParameterMap?;
 	link Font : AFontMap?;
 	link Pattern : APatternMap?;
@@ -15189,6 +16413,9 @@ type AResource extends AObject {
 	property containsColorSpace : Boolean;
 	property ColorSpaceType : String;
 	property ColorSpaceHasTypeDictionary : Boolean;
+	property containsEncoding : Boolean;
+	property EncodingType : String;
+	property EncodingHasTypeDictionary : Boolean;
 	property containsExtGState : Boolean;
 	property ExtGStateType : String;
 	property ExtGStateHasTypeDictionary : Boolean;
@@ -16142,75 +17369,99 @@ type ASigFieldSeedValue extends AObject {
 }
 
 type ASignature extends AObject {
-	link ByteRange : AArrayOfIntegersGeneral?;
+	link ByteRange : AArrayOfNonNegativeIntegersGeneral?;
 	link Cert : AArrayOfStringsByte?;
-	link Changes : AArrayOf_3Integers?;
-	link Prop_Build : A_UniversalDictionary?;
+	link Changes : AArrayOf_3NonNegativeIntegers?;
+	link Prop_Build : ASignatureBuildPropDict?;
 	link Reference : AArrayOfSignatureReferences?;
+	property containsADBE_Build : Boolean;
+	property isADBE_BuildIndirect : Boolean;
+	property ADBE_BuildType : String;
+	property ADBE_BuildHasTypeString : Boolean;
 	property containsByteRange : Boolean;
+	property isByteRangeIndirect : Boolean;
 	property ByteRangeType : String;
 	property ByteRangeHasTypeArray : Boolean;
+	property ByteRangeArraySize : Integer;
 	property containsCert : Boolean;
+	property isCertIndirect : Boolean;
 	property CertType : String;
 	property CertHasTypeArray : Boolean;
 	property CertHasTypeStringByte : Boolean;
 	property containsChanges : Boolean;
+	property isChangesIndirect : Boolean;
 	property ChangesType : String;
 	property ChangesHasTypeArray : Boolean;
 	property containsContactInfo : Boolean;
+	property isContactInfoIndirect : Boolean;
 	property ContactInfoType : String;
 	property ContactInfoHasTypeStringText : Boolean;
 	property containsContents : Boolean;
+	property isContentsIndirect : Boolean;
 	property ContentsType : String;
 	property ContentsHasTypeStringByte : Boolean;
 	property isContentsHexString : Boolean;
 	property containsFilter : Boolean;
+	property isFilterIndirect : Boolean;
 	property FilterType : String;
 	property FilterHasTypeName : Boolean;
 	property FilterNameValue : String;
 	property containsLocation : Boolean;
+	property isLocationIndirect : Boolean;
 	property LocationType : String;
 	property LocationHasTypeStringText : Boolean;
 	property containsM : Boolean;
+	property isMIndirect : Boolean;
 	property MType : String;
 	property MHasTypeDate : Boolean;
 	property containsName : Boolean;
+	property isNameIndirect : Boolean;
 	property NameType : String;
 	property NameHasTypeStringText : Boolean;
 	property containsProp_AuthTime : Boolean;
+	property isProp_AuthTimeIndirect : Boolean;
 	property Prop_AuthTimeType : String;
 	property Prop_AuthTimeHasTypeInteger : Boolean;
 	property Prop_AuthTimeIntegerValue : Integer;
 	property containsProp_AuthType : Boolean;
+	property isProp_AuthTypeIndirect : Boolean;
 	property Prop_AuthTypeType : String;
 	property Prop_AuthTypeHasTypeName : Boolean;
+	property Prop_AuthTypeNameValue : String;
 	property containsProp_Build : Boolean;
+	property isProp_BuildIndirect : Boolean;
 	property Prop_BuildType : String;
 	property Prop_BuildHasTypeDictionary : Boolean;
 	property containsR : Boolean;
+	property isRIndirect : Boolean;
 	property RType : String;
 	property RHasTypeInteger : Boolean;
 	property containsReason : Boolean;
+	property isReasonIndirect : Boolean;
 	property ReasonType : String;
 	property ReasonHasTypeStringText : Boolean;
 	property containsReference : Boolean;
+	property isReferenceIndirect : Boolean;
 	property ReferenceType : String;
 	property ReferenceHasTypeArray : Boolean;
 	property containsSubFilter : Boolean;
+	property isSubFilterIndirect : Boolean;
 	property SubFilterType : String;
 	property SubFilterHasTypeName : Boolean;
 	property SubFilterNameValue : String;
 	property containsType : Boolean;
+	property isTypeIndirect : Boolean;
 	property TypeType : String;
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property containsV : Boolean;
+	property isVIndirect : Boolean;
 	property VType : String;
 	property VHasTypeInteger : Boolean;
 }
 
 type ASignatureBuildDataAppDict extends AObject {
-	link OS : AArrayOfStringsText?;
+	link OS : AArrayOfStringsTextOrNames?;
 	property containsDate : Boolean;
 	property DateType : String;
 	property DateHasTypeStringText : Boolean;
@@ -16324,6 +17575,7 @@ type ASignatureBuildPropDict extends AObject {
 
 type ASignatureReferenceDocMDP extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	link TransformParams : ADocMDPTransformParameters?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
@@ -16335,10 +17587,16 @@ type ASignatureReferenceDocMDP extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -16354,6 +17612,7 @@ type ASignatureReferenceDocMDP extends AObject {
 
 type ASignatureReferenceFieldMDP extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	link TransformParams : AFieldMDPTransformParameters?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
@@ -16365,10 +17624,16 @@ type ASignatureReferenceFieldMDP extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -16384,6 +17649,7 @@ type ASignatureReferenceFieldMDP extends AObject {
 
 type ASignatureReferenceIdentity extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
 	property DataType : String;
@@ -16394,10 +17660,16 @@ type ASignatureReferenceIdentity extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -16410,6 +17682,7 @@ type ASignatureReferenceIdentity extends AObject {
 
 type ASignatureReferenceUR extends AObject {
 	link Data : Object?;
+	link DigestLocation : AArrayOf_2NonNegativeIntegers?;
 	link TransformParams : AURTransformParameters?;
 	property containsData : Boolean;
 	property isDataIndirect : Boolean;
@@ -16421,10 +17694,16 @@ type ASignatureReferenceUR extends AObject {
 	property DataHasTypeName : Boolean;
 	property DataHasTypeStream : Boolean;
 	property DataHasTypeString : Boolean;
+	property containsDigestLocation : Boolean;
+	property DigestLocationType : String;
+	property DigestLocationHasTypeArray : Boolean;
 	property containsDigestMethod : Boolean;
 	property DigestMethodType : String;
 	property DigestMethodHasTypeName : Boolean;
 	property DigestMethodNameValue : String;
+	property containsDigestValue : Boolean;
+	property DigestValueType : String;
+	property DigestValueHasTypeString : Boolean;
 	property containsTransformMethod : Boolean;
 	property TransformMethodType : String;
 	property TransformMethodHasTypeName : Boolean;
@@ -16468,6 +17747,7 @@ type ASlideShowNameTreeResources extends AObject {
 type ASlideShowNameTreeResourcesEntry extends AObject {
 	link Entry : Object?;
 	property Type : String;
+	property HasTypeDictionary : Boolean;
 	property HasTypeStream : Boolean;
 }
 
@@ -16720,7 +18000,7 @@ type AStream extends AObject {
 
 type AStructElem extends AObject {
 	link A : Object?;
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link C : AArrayOfClassNamesRevisions?;
 	link K : Object?;
 	link NS : ANamespace?;
@@ -16800,7 +18080,7 @@ type AStructElem extends AObject {
 }
 
 type AStructTreeRoot extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link ClassMap : AClassMap?;
 	link IDTree : AStructTreeRootNameTreeIDTree?;
 	link IDTreeTreeNode : ANameTreeNode?;
@@ -17268,6 +18548,69 @@ type ATimespan extends AObject {
 	property VHasTypeNumber : Boolean;
 }
 
+type AToUnicodeCMapStream extends AObject {
+	link CIDSystemInfo : ACIDSystemInfo?;
+	link DecodeParms : Object?;
+	link F : AFileSpecification?;
+	link FDecodeParms : Object?;
+	link FFilter : AArrayOfCompressionFilterNames?;
+	link Filter : AArrayOfCompressionFilterNames?;
+	link UseCMap : AStream?;
+	property containsCIDSystemInfo : Boolean;
+	property CIDSystemInfoType : String;
+	property CIDSystemInfoHasTypeDictionary : Boolean;
+	property containsCMapName : Boolean;
+	property CMapNameType : String;
+	property CMapNameHasTypeName : Boolean;
+	property containsDL : Boolean;
+	property DLType : String;
+	property DLHasTypeInteger : Boolean;
+	property DLIntegerValue : Integer;
+	property containsDecodeParms : Boolean;
+	property DecodeParmsType : String;
+	property DecodeParmsHasTypeArray : Boolean;
+	property DecodeParmsHasTypeDictionary : Boolean;
+	property DecodeParmsArraySize : Integer;
+	property containsF : Boolean;
+	property FType : String;
+	property FHasTypeDictionary : Boolean;
+	property FHasTypeString : Boolean;
+	property containsFDecodeParms : Boolean;
+	property FDecodeParmsType : String;
+	property FDecodeParmsHasTypeArray : Boolean;
+	property FDecodeParmsHasTypeDictionary : Boolean;
+	property FDecodeParmsArraySize : Integer;
+	property containsFFilter : Boolean;
+	property FFilterType : String;
+	property FFilterHasTypeArray : Boolean;
+	property FFilterHasTypeName : Boolean;
+	property FFilterNameValue : String;
+	property FFilterArraySize : Integer;
+	property containsFilter : Boolean;
+	property FilterType : String;
+	property FilterHasTypeArray : Boolean;
+	property FilterHasTypeName : Boolean;
+	property FilterNameValue : String;
+	property FilterArraySize : Integer;
+	property containsLength : Boolean;
+	property LengthType : String;
+	property LengthHasTypeInteger : Boolean;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
+	property containsUseCMap : Boolean;
+	property isUseCMapIndirect : Boolean;
+	property UseCMapType : String;
+	property UseCMapHasTypeName : Boolean;
+	property UseCMapHasTypeStream : Boolean;
+	property UseCMapNameValue : String;
+	property containsWMode : Boolean;
+	property WModeType : String;
+	property WModeHasTypeInteger : Boolean;
+	property WModeIntegerValue : Integer;
+}
+
 type ATrailerIDArray extends AObject {
 	property isentry0Indirect : Boolean;
 	property entry0Type : String;
@@ -17462,12 +18805,15 @@ type AVRI extends AObject {
 	property containsCRL : Boolean;
 	property CRLType : String;
 	property CRLHasTypeArray : Boolean;
+	property CRLArraySize : Integer;
 	property containsCert : Boolean;
 	property CertType : String;
 	property CertHasTypeArray : Boolean;
+	property CertArraySize : Integer;
 	property containsOCSP : Boolean;
 	property OCSPType : String;
 	property OCSPHasTypeArray : Boolean;
+	property OCSPArraySize : Integer;
 	property containsTS : Boolean;
 	property isTSIndirect : Boolean;
 	property TSType : String;
@@ -17872,7 +19218,7 @@ type AXObjectFormPSpassthrough extends AObject {
 }
 
 type AXObjectFormPrinterMark extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link Colorants : AColorantsDict?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
@@ -17991,7 +19337,7 @@ type AXObjectFormPrinterMark extends AObject {
 }
 
 type AXObjectFormTrapNet extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
 	link FDecodeParms : Object?;
@@ -18118,7 +19464,7 @@ type AXObjectFormTrapNet extends AObject {
 }
 
 type AXObjectFormType1 extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
 	link FDecodeParms : Object?;
@@ -18247,7 +19593,7 @@ type AXObjectFormType1 extends AObject {
 }
 
 type AXObjectImage extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link Alternates : AArrayOfImageAlternates?;
 	link ColorSpace : Object?;
 	link Decode : AArrayOfNumbersGeneral?;
@@ -18394,7 +19740,7 @@ type AXObjectImage extends AObject {
 }
 
 type AXObjectImageMask extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link Alternates : AArrayOfImageAlternates?;
 	link Decode : AArrayOfNumbersGeneral?;
 	link DecodeParms : Object?;
@@ -18517,7 +19863,7 @@ type AXObjectImageMask extends AObject {
 }
 
 type AXObjectImageSoftMask extends AObject {
-	link AF : AArrayOfFileSpecifications?;
+	link AF : AArrayOfAFFileSpecifications?;
 	link Decode : AArrayOfNumbersGeneral?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
@@ -18789,11 +20135,16 @@ type AObject extends Object {
 	property isAssociatedFile : Boolean;
 	property hasExtensionAAPL : Boolean;
 	property hasExtensionADBE_Extn3 : Boolean;
+	property hasExtensionC2PA : Boolean;
+	property hasExtensionEAPDF_1 : Boolean;
+	property hasExtensionETSI_PAdES : Boolean;
 	property hasExtensionISO_19005_3 : Boolean;
 	property hasExtensionISO_19593 : Boolean;
+	property hasExtensionISO_21812 : Boolean;
 	property hasExtensionISO_TS_24064 : Boolean;
 	property hasExtensionISO_TS_24654 : Boolean;
 	property hasExtensionISO_TS_32001 : Boolean;
+	property hasExtensionISO_TS_32003 : Boolean;
 	property hasExtensionISO_TS_32004 : Boolean;
 	property hasExtensionISO_TS_32007 : Boolean;
 	property hasExtensionMalforms : Boolean;
