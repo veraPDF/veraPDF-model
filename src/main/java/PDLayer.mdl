@@ -646,9 +646,6 @@ type PDLinkAnnot extends PDAnnot {
 	% object number and generation number of the Link annotation that targets a different location, 
 	% but is contained in the same structure element as another Link annotation
 	property differentTargetAnnotObjectKey: String;
-	% object number and generation number of the Link annotation that targets the same location, 
-	% but is contained contains in a different structure element as another Link annotation
-	property sameTargetAnnotObjectKey: String;
 }
 
 % movie annotation
