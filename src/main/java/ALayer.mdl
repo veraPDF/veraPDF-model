@@ -18388,7 +18388,6 @@ type ATarget extends AObject {
 	property AHasTypeInteger : Boolean;
 	property AHasTypeStringText : Boolean;
 	property AIntegerValue : Integer;
-	property AStringTextValue : String;
 	property containsN : Boolean;
 	property NType : String;
 	property NHasTypeStringByte : Boolean;
@@ -18408,6 +18407,7 @@ type ATarget extends AObject {
 	property PIsNameTreetrailerCatalogNamesDestsIndex : Boolean;
 	property parentTIsNameTreetrailerCatalogNamesEmbeddedFilesValue : Boolean;
 	property pagePAnnotsHasTypeArray : Boolean;
+	property FindNMValueAInArraypagePAnnots : Boolean;
 }
 
 type ATargetEmbedded extends AObject {
