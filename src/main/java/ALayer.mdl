@@ -18218,9 +18218,9 @@ type AStructureAttributesDict extends AObject {
 	property ContentsType : String;
 	property ContentsHasTypeArray : Boolean;
 	property ContentsHasTypeStringText : Boolean;
-	property containsContinuedForm : Boolean;
-	property ContinuedFormType : String;
-	property ContinuedFormHasTypeStringByte : Boolean;
+	property containsContinuedFrom : Boolean;
+	property ContinuedFromType : String;
+	property ContinuedFromHasTypeStringByte : Boolean;
 	property containsContinuedList : Boolean;
 	property ContinuedListType : String;
 	property ContinuedListHasTypeBoolean : Boolean;
