@@ -9935,6 +9935,18 @@ type ADevExtensions extends AObject {
 	property URLHasTypeString : Boolean;
 }
 
+type ADeviceCMYKColorSpace extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeName : Boolean;
+	property entry0NameValue : String;
+}
+
+type ADeviceGrayColorSpace extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeName : Boolean;
+	property entry0NameValue : String;
+}
+
 type ADeviceNColorSpace extends AObject {
 	link entry1 : AArrayOfNamesGeneral?;
 	link entry2 : Object?;
@@ -10003,6 +10015,12 @@ type ADeviceNProcess extends AObject {
 	property containsComponents : Boolean;
 	property ComponentsType : String;
 	property ComponentsHasTypeArray : Boolean;
+}
+
+type ADeviceRGBColorSpace extends AObject {
+	property entry0Type : String;
+	property entry0HasTypeName : Boolean;
+	property entry0NameValue : String;
 }
 
 type ADictionaryOfDictionaries extends AObject {
@@ -18456,7 +18474,7 @@ type AThread extends AObject {
 }
 
 type AThumbnail extends AObject {
-	link ColorSpace : AIndexedColorSpace?;
+	link ColorSpace : Object?;
 	link Decode : AArrayOfNumbersGeneral?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
@@ -19864,6 +19882,7 @@ type AXObjectImageMask extends AObject {
 
 type AXObjectImageSoftMask extends AObject {
 	link AF : AArrayOfAFFileSpecifications?;
+	link ColorSpace : ADeviceGrayColorSpace?;
 	link Decode : AArrayOfNumbersGeneral?;
 	link DecodeParms : Object?;
 	link F : AFileSpecification?;
@@ -19881,6 +19900,7 @@ type AXObjectImageSoftMask extends AObject {
 	property BitsPerComponentIntegerValue : Integer;
 	property containsColorSpace : Boolean;
 	property ColorSpaceType : String;
+	property ColorSpaceHasTypeArray : Boolean;
 	property ColorSpaceHasTypeName : Boolean;
 	property ColorSpaceNameValue : String;
 	property containsDL : Boolean;
