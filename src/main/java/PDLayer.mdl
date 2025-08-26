@@ -932,6 +932,8 @@ type PDStructElem extends PDStructTreeNode {
 	property roleMapToSameNamespaceTag: String;
 	% true if the struct elem dictionary contains P entry
 	property containsParent: Boolean;
+	% true if the struct elem is grouping
+	property isGrouping: Boolean;
 }
 
 % permissions dictionary referred by /Perms key from the document catalog
