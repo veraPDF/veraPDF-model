@@ -7017,7 +7017,7 @@ type AArrayOfIndirectFileSpecificationsEntry extends AObject {
 	property isIndirect : Boolean;
 	property Type : String;
 	property HasTypeDictionary : Boolean;
-	property IsNameTreeparentRichMediaContentAssetsValue : Boolean;
+	property IsNameTreeparentparentparentRichMediaContentAssetsValue : Boolean;
 }
 
 type AArrayOfIntegersGeneral extends AObject {
