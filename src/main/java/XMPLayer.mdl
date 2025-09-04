@@ -1,7 +1,7 @@
 package org.verapdf.model.xmplayer;
 
 import org.verapdf.model.baselayer.Object;
-import java.util.List;
+import java.util.Set;
 
 % Parent type for all XMP objects
 type XMPObject extends Object {
@@ -21,19 +21,9 @@ type XMPPackage extends XMPObject {
     % - package represents a well-formed XML that is serialized using the encoding of the matched byte array
     property isSerializationValid: Boolean;
 
-    % true if this is well formed XMP package:
-    % - package conforms to the requirements of RDF schema
-    % - package conforms to the additional requirements imposed by XMP specification on RDF format
-    % property isWellFormedXMP: Boolean;
-
-    % true if at least one XMP property is used more than once on the packet
-    % property hasDuplicatedProperty: Boolean;
-
-    % value of ‘id’ property of the ‘xpacket’ preprocessing instruction
-    % property xpacketid: String;
-
-    % true if all ‘Description’ child nodes of ‘RDF’ node have ‘about’ attribute with the same value
-    % property isAboutValid: Boolean;
+    % the actual encoding used for XMP package serialization
+    % it is different from the encoding property, which is declared encoding (deprecated)
+    property actualEncoding: String;
 
     % value of ‘bytes’ attribute of XMP package header (null if the attribute is missing)
     property bytes: String;
@@ -48,7 +38,22 @@ type XMPPackage extends XMPObject {
 type MainXMPPackage extends XMPPackage {
 
     % object representing PDF/A identification (set of properties from PDF/A Identification schema) of the document
-    link Identification: PDFAIdentification;
+    link PDFAIdentification: PDFAIdentification;
+        
+    % true if xmp contains PDF/A identification
+    property containsPDFAIdentification: Boolean;
+
+    % object representing PDF/UA identification (set of properties from PDF/UA Identification schema) of the document
+    link PDFUAIdentification: PDFUAIdentification;
+    
+    % true if xmp contains PDF/UA identification
+    property containsPDFUAIdentification: Boolean;
+
+    % value of dc:title
+    property dc_title: String;
+    
+    % set of declarations
+    property declarations: Set<String>;
 }
 
 % XMP property
@@ -69,12 +74,20 @@ type XMPProperty extends XMPObject {
     % true if the property value type corresponds to the type defined by XMP specification or extension schema
     property isValueTypeCorrect: Boolean;
 
+    % type defined by XMP specification or extension schema
+    property predefinedType: String;
 }
 
 % XMPMM History property
 type XMPMMHistoryProperty extends XMPProperty {
     % Resource Events from xmpMM History property
     link ResourceEvents: XMPMMHistoryResourceEvent+;
+}
+
+% Language Alternative property
+type XMPLangAlt extends XMPProperty {
+     % true if the Language alternative array has only a default value with an undefined language (x-default)
+     property xDefault: Boolean;
 }
 
 % Resource Event structures of xmpMM History property
@@ -97,6 +110,9 @@ type PDFAIdentification extends XMPObject {
     % value of ‘conformance’ property from PDF/A Identification schema
     property conformance: String;
 
+    % string value of ‘rev’ property from PDF/A Identification schema
+    property rev: String;
+
     % namespace prefix for the ‘part’ property from PDF/A Identification schema
     property partPrefix: String;
 
@@ -109,13 +125,41 @@ type PDFAIdentification extends XMPObject {
     % namespace prefix for the ‘corr’ property from PDF/A Identification schema
     property corrPrefix: String;
 
+    % namespace prefix for the ‘rev’ property from PDF/A Identification schema
+    property revPrefix: String;
+
+}
+
+type PDFUAIdentification extends XMPObject {
+
+    % value of ‘part’ property from PDF/UA Identification schema
+    property part: Integer;
+
+    % string value of ‘rev’ property from PDF/UA Identification schema
+    property rev: String;
+
+    % namespace prefix for the ‘part’ property from PDF/UA Identification schema
+    property partPrefix: String;
+
+    % namespace prefix for the ‘amd’ property from PDF/UA Identification schema
+    property amdPrefix: String;
+    
+    % namespace prefix for the ‘corr’ property from PDF/UA Identification schema
+    property corrPrefix: String;
+
+    % namespace prefix for the ‘rev’ property from PDF/UA Identification schema
+    property revPrefix: String;
+
 }
 
 % Parent type for all extension schema definition objects
 type ExtensionSchemaObject extends XMPObject {
 
-	% true if the object contain not defined fields
+    % true if the object contains undefined fields
     property containsUndefinedFields: Boolean;
+
+    % comma separated list of undefined fields
+    property undefinedFields: String;
 
 }
 
@@ -175,8 +219,8 @@ type ExtensionSchemaDefinition extends ExtensionSchemaObject {
 % Extension schema property definition
 type ExtensionSchemaProperty extends ExtensionSchemaObject {
 
-	% category field value
-	property category: String;
+    % category field value
+    property category: String;
 
     % true if property category (’pdfaProperty:category’ property) is of type Text
     property isCategoryValidText: Boolean;
