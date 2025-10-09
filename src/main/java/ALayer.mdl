@@ -1480,6 +1480,10 @@ type AActionSubmitForm extends AObject {
 	property SType : String;
 	property SHasTypeName : Boolean;
 	property SNameValue : String;
+	property containsType : Boolean;
+	property TypeType : String;
+	property TypeHasTypeName : Boolean;
+	property TypeNameValue : String;
 }
 
 type AActionThread extends AObject {
