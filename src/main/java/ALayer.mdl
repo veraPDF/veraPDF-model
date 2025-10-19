@@ -1262,6 +1262,11 @@ type AActionMovie extends AObject {
 }
 
 type AActionNOP extends AObject {
+	link Next : Object?;
+	property containsNext : Boolean;
+	property NextType : String;
+	property NextHasTypeArray : Boolean;
+	property NextHasTypeDictionary : Boolean;
 	property containsS : Boolean;
 	property SType : String;
 	property SHasTypeName : Boolean;
@@ -1405,10 +1410,15 @@ type AActionSetOCGState extends AObject {
 }
 
 type AActionSetState extends AObject {
+	link Next : Object?;
 	link T : Object?;
 	property containsAS : Boolean;
 	property ASType : String;
 	property ASHasTypeName : Boolean;
+	property containsNext : Boolean;
+	property NextType : String;
+	property NextHasTypeArray : Boolean;
+	property NextHasTypeDictionary : Boolean;
 	property containsS : Boolean;
 	property SType : String;
 	property SHasTypeName : Boolean;
@@ -1461,6 +1471,7 @@ type AActionSound extends AObject {
 type AActionSubmitForm extends AObject {
 	link F : AFileSpecification?;
 	link Fields : AArrayOfFieldID?;
+	link Next : Object?;
 	property containsCharSet : Boolean;
 	property CharSetType : String;
 	property CharSetHasTypeString : Boolean;
@@ -1476,6 +1487,10 @@ type AActionSubmitForm extends AObject {
 	property FlagsType : String;
 	property FlagsHasTypeBitmask : Boolean;
 	property FlagsBitmaskValue : Integer;
+	property containsNext : Boolean;
+	property NextType : String;
+	property NextHasTypeArray : Boolean;
+	property NextHasTypeDictionary : Boolean;
 	property containsS : Boolean;
 	property SType : String;
 	property SHasTypeName : Boolean;
