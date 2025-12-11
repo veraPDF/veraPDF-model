@@ -694,6 +694,8 @@ type PDWidgetAnnot extends PDAnnot {
 	property TU: String;
 	% true if the parent struct element contains an Lbl child
 	property containsLbl: Boolean;
+	% true if this widget is the form field or child of the form field
+	property isFieldWidget: Boolean;
 }
 
 % destination object
