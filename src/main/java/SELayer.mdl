@@ -181,12 +181,12 @@ type SEFigure extends PDStructElem {
 
 % <Formula> structure element
 type SEFormula extends PDStructElem {
-    % true if this formula contains at least one direct child from MathML namespace
-    property isMathFormula: Boolean;
 }
 
 % any structure element in MathML namespace
 type SEMathMLStructElem extends PDStructElem {
+	% true, if at least one parent has the MathML structure type or the structure type Formula 
+	property hasParentFormulaOrMathML: Boolean;
 }
 
 % a content item such as text, image, lineart, shading or a form
