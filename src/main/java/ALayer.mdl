@@ -18382,7 +18382,7 @@ type ATarget extends AObject {
 	property THasTypeDictionary : Boolean;
 	property pagePAnnotsArraySize : Integer;
 	property PIsNameTreetrailerCatalogNamesDestsIndex : Boolean;
-	property parentTIsNameTreetrailerCatalogNamesEmbeddedFilesValue : Boolean;
+	property NIsNameTreetrailerCatalogNamesEmbeddedFilesIndex : Boolean;
 	property pagePAnnotsHasTypeArray : Boolean;
 	property FindNMValueAInArraypagePAnnots : Boolean;
 }
