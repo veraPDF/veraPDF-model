@@ -7546,6 +7546,7 @@ type AArrayOfStructElemKidsEntry extends AObject {
 	property Type : String;
 	property HasTypeDictionary : Boolean;
 	property HasTypeInteger : Boolean;
+	property containsparentPg : Boolean;
 }
 
 type AArrayOfStructElemParentTree extends AObject {
