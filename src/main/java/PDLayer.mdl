@@ -643,9 +643,14 @@ type PDInkAnnot extends PDMarkupAnnot {
 type PDLinkAnnot extends PDAnnot {
 	% link to the destination of link annotation 
 	link Dest: PDDestination?;
+	% object number and generation number of target location of this Link annotation
+	property structDestinationKey: String;
 	% object number and generation number of the Link annotation that targets a different location, 
-	% but is contained in the same structure element as another Link annotation
+	% but is contained in the same structure element as this Link annotation
 	property differentTargetAnnotObjectKey: String;
+	% object number and generation number of target location of Link annotation that is contained 
+	% in the same structure element as this Link annotation
+	property differentTargetAnnotDestinationKey: String;
 }
 
 % movie annotation
