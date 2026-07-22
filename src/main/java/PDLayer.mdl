@@ -464,6 +464,10 @@ type PDMaskImage extends PDXImage {
 
 % Inline image object
 type PDInlineImage extends PDXImage {
+    % value of the L key
+	property L: Integer;
+	% actual stream length
+    property streamLength: Integer;
 	% link to the inline image filters
 	link F: CosIIFilter*;
 }
