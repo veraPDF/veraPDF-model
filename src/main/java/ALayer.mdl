@@ -12563,6 +12563,7 @@ type AGTS_ProcStepsGroup extends AObject {
 	property containsGTS_ProcStepsColorants : Boolean;
 	property GTS_ProcStepsColorantsType : String;
 	property GTS_ProcStepsColorantsHasTypeName : Boolean;
+	property GTS_ProcStepsColorantsNameValue : String;
 	property containsGTS_ProcStepsGroup : Boolean;
 	property GTS_ProcStepsGroupType : String;
 	property GTS_ProcStepsGroupHasTypeName : Boolean;
