@@ -7546,6 +7546,8 @@ type AArrayOfStructElemKidsEntry extends AObject {
 	property Type : String;
 	property HasTypeDictionary : Boolean;
 	property HasTypeInteger : Boolean;
+	property EntryTypeNameValue : String;
+	property containsEntryPg : Boolean;
 	property containsparentPg : Boolean;
 }
 
@@ -18062,6 +18064,8 @@ type AStructElem extends AObject {
 	property TypeHasTypeName : Boolean;
 	property TypeNameValue : String;
 	property NSIsInArraytrailerCatalogStructTreeRootNamespaces : Boolean;
+	property KTypeNameValue : String;
+	property containsKPg : Boolean;
 }
 
 type AStructTreeRoot extends AObject {
