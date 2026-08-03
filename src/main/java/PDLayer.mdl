@@ -149,6 +149,8 @@ type OutputIntents extends Object {
 	property sameOutputProfileIndirect: Boolean;
 	% comma separated list of output intents DestOutputProfile value
 	property outputProfileIndirects: String;
+	% number of PDF/A Output Intents in the array 
+	property numberOfPDFAOutputIntents: Integer;
 }
 
 % the object representing content stream together with the resource dictionary
