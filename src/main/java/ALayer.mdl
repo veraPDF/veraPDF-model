@@ -942,7 +942,7 @@ type AAFFileSpecification extends AObject {
 	property DOSHasTypeStringByte : Boolean;
 	property containsDesc : Boolean;
 	property DescType : String;
-	property DescHasTypeString : Boolean;
+	property DescHasTypeStringText : Boolean;
 	property containsEF : Boolean;
 	property EFType : String;
 	property EFHasTypeDictionary : Boolean;
@@ -10993,7 +10993,7 @@ type AFileSpecification extends AObject {
 	property DOSHasTypeStringByte : Boolean;
 	property containsDesc : Boolean;
 	property DescType : String;
-	property DescHasTypeString : Boolean;
+	property DescHasTypeStringText : Boolean;
 	property containsEF : Boolean;
 	property EFType : String;
 	property EFHasTypeDictionary : Boolean;
