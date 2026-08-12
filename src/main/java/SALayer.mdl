@@ -307,6 +307,10 @@ type SAFigure extends SAStructElem {
 type SAFormula extends SAStructElem {
 }
 
+% any structure element in MathML namespace
+type SAMathMLStructElem extends SAStructElem {
+}
+
 % <Form> structure element
 type SAForm extends SAStructElem {
 }
