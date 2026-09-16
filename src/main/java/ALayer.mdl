@@ -10066,6 +10066,10 @@ type ADictionaryOfFunctionsEntry extends AObject {
 
 type ADocInfo extends AObject {
 	link Entries : ADocInfoEntry*;
+	link AAPLKeywords : AArrayOfStringsText?;
+	property containsAAPLKeywords : Boolean;
+	property AAPLKeywordsType : String;
+	property AAPLKeywordsHasTypeArray : Boolean;
 	property containsAuthor : Boolean;
 	property AuthorType : String;
 	property AuthorHasTypeStringText : Boolean;
@@ -10075,6 +10079,9 @@ type ADocInfo extends AObject {
 	property containsCreator : Boolean;
 	property CreatorType : String;
 	property CreatorHasTypeStringText : Boolean;
+	property containsGTS_PDFXVersion : Boolean;
+	property GTS_PDFXVersionType : String;
+	property GTS_PDFXVersionHasTypeStringText : Boolean;
 	property containsKeywords : Boolean;
 	property KeywordsType : String;
 	property KeywordsHasTypeStringText : Boolean;
@@ -20137,6 +20144,7 @@ type AObject extends Object {
 	property hasExtensionMalforms : Boolean;
 	property hasExtensionOpenOffice : Boolean;
 	property hasExtensionPDF_VT2 : Boolean;
+	property hasExtensionPDF_X : Boolean;
 	property hasExtensionWTPDF : Boolean;
 }
 
