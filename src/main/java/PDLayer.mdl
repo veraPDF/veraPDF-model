@@ -79,6 +79,10 @@ type PDDocument extends PDObject {
 	property outputColorSpace: String;
 	% value of Version key of the document catalog dictionary
 	property Version: String;
+	% version of the PDF based on the file header and the Version entry in the Caralog
+	property pdfVersion: String;
+	% the content of the PDF header
+	property header: String;
 	% the most common page orientation in the document (Portrait, Landscape or Square)
 	% if the most common orientation is Square, then second most common orientation if exists
 	property mostCommonOrientation: String;
