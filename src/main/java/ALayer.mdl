@@ -14300,7 +14300,7 @@ type ANameTreeNode extends AObject {
 	property NamesType : String;
 	property NamesHasTypeArray : Boolean;
 	property isNamesArraySortAscending2 : Boolean;
-	property containsparentKids : Boolean;
+	property parentHasTypeArray : Boolean;
 }
 
 type ANameTreeNodeLimitsArray extends AObject {
@@ -14503,7 +14503,7 @@ type ANumberTreeNode extends AObject {
 	property NumsType : String;
 	property NumsHasTypeArray : Boolean;
 	property isNumsArraySortAscending2 : Boolean;
-	property containsparentKids : Boolean;
+	property parentHasTypeArray : Boolean;
 }
 
 type ANumberTreeNodeLimitsArray extends AObject {
