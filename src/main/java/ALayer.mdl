@@ -3746,14 +3746,19 @@ type AAnnotRedact extends AObject {
 }
 
 type AAnnotRichMedia extends AObject {
+	link entry3DU : A3DUnits?;
 	link AF : AArrayOfAFFileSpecifications?;
 	link AP : AAppearance?;
 	link Border : AArrayOf_4AnnotBorderCharacteristics?;
 	link C : AArrayOf_4NumbersColorAnnotation?;
+	link GEO : AMeasureGEO?;
 	link OC : Object?;
 	link P : APageObject?;
 	link RichMediaContent : ARichMediaContent?;
 	link RichMediaSettings : ARichMediaSettings?;
+	property contains3DU : Boolean;
+	property entry3DUType : String;
+	property entry3DUHasTypeDictionary : Boolean;
 	property containsAF : Boolean;
 	property AFType : String;
 	property AFHasTypeArray : Boolean;
@@ -3784,6 +3789,9 @@ type AAnnotRichMedia extends AObject {
 	property FType : String;
 	property FHasTypeBitmask : Boolean;
 	property FBitmaskValue : Integer;
+	property containsGEO : Boolean;
+	property GEOType : String;
+	property GEOHasTypeDictionary : Boolean;
 	property containsLang : Boolean;
 	property LangType : String;
 	property LangHasTypeStringText : Boolean;
